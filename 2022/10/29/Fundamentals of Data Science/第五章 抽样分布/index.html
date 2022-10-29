@@ -18,15 +18,15 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="第五章 抽样分布5.1 数据抽样5.1.1 数据分析1. 全体数据 $$\rightarrow$$ 整体结论1. 全体数据 $$\rightarrow$$ 样本数据 $$\rightarrow$$ 样本结论 $$\rightarrow$$ 整体结论5.1.2 抽样方法1. 简单随机抽样2. 系统抽样3. 整群抽样4. 分层抽样5.1.3 抽样应用示例5.2 矩与抽样分布5.2.1 矩与统计量定理5">
+    <meta name="description" content="第五章 抽样分布 5.1 数据抽样 5.1.1 数据分析 1. 全体数据 \(\rightarrow\) 整体结论 1. 全体数据 \(\rightarrow\) 样本数据 \(\rightarrow\) 样本结论 \(\rightarrow\) 整体结论 5.1.2 抽样方法 1. 简单随机抽样 2. 系统抽样 3. 整群抽样 4. 分层抽样 5.1.3 抽样应用示例 5.2 矩与抽样分布 5.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第五章 抽样分布">
 <meta property="og:url" content="https://wuchentian.github.io/2022/10/29/Fundamentals%20of%20Data%20Science/%E7%AC%AC%E4%BA%94%E7%AB%A0%20%E6%8A%BD%E6%A0%B7%E5%88%86%E5%B8%83/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="第五章 抽样分布5.1 数据抽样5.1.1 数据分析1. 全体数据 $$\rightarrow$$ 整体结论1. 全体数据 $$\rightarrow$$ 样本数据 $$\rightarrow$$ 样本结论 $$\rightarrow$$ 整体结论5.1.2 抽样方法1. 简单随机抽样2. 系统抽样3. 整群抽样4. 分层抽样5.1.3 抽样应用示例5.2 矩与抽样分布5.2.1 矩与统计量定理5">
+<meta property="og:description" content="第五章 抽样分布 5.1 数据抽样 5.1.1 数据分析 1. 全体数据 \(\rightarrow\) 整体结论 1. 全体数据 \(\rightarrow\) 样本数据 \(\rightarrow\) 样本结论 \(\rightarrow\) 整体结论 5.1.2 抽样方法 1. 简单随机抽样 2. 系统抽样 3. 整群抽样 4. 分层抽样 5.1.3 抽样应用示例 5.2 矩与抽样分布 5.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-10-29T01:00:00.000Z">
-<meta property="article:modified_time" content="2022-10-29T01:01:30.722Z">
+<meta property="article:modified_time" content="2022-10-29T06:56:54.935Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="抽样分布">
 <meta property="article:tag" content="极限定理">
@@ -235,7 +235,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          5.8k words
+          6k words
         
       </span>
     
@@ -246,7 +246,7 @@
         
         
         
-          49 mins
+          50 mins
         
       </span>
     
@@ -289,42 +289,317 @@
             
               <div class="markdown-body">
                 
-                <h2 id="第五章-抽样分布"><a href="#第五章-抽样分布" class="headerlink" title="第五章 抽样分布"></a>第五章 抽样分布</h2><h3 id="5-1-数据抽样"><a href="#5-1-数据抽样" class="headerlink" title="5.1 数据抽样"></a>5.1 数据抽样</h3><h4 id="5-1-1-数据分析"><a href="#5-1-1-数据分析" class="headerlink" title="5.1.1 数据分析"></a>5.1.1 数据分析</h4><h5 id="1-全体数据-rightarrow-整体结论"><a href="#1-全体数据-rightarrow-整体结论" class="headerlink" title="1. 全体数据 $$\rightarrow$$ 整体结论"></a>1. 全体数据 $$\rightarrow$$ 整体结论</h5><h5 id="1-全体数据-rightarrow-样本数据-rightarrow-样本结论-rightarrow-整体结论"><a href="#1-全体数据-rightarrow-样本数据-rightarrow-样本结论-rightarrow-整体结论" class="headerlink" title="1. 全体数据 $$\rightarrow$$ 样本数据 $$\rightarrow$$ 样本结论 $$\rightarrow$$ 整体结论"></a>1. 全体数据 $$\rightarrow$$ 样本数据 $$\rightarrow$$ 样本结论 $$\rightarrow$$ 整体结论</h5><h4 id="5-1-2-抽样方法"><a href="#5-1-2-抽样方法" class="headerlink" title="5.1.2 抽样方法"></a>5.1.2 抽样方法</h4><h5 id="1-简单随机抽样"><a href="#1-简单随机抽样" class="headerlink" title="1. 简单随机抽样"></a>1. 简单随机抽样</h5><h5 id="2-系统抽样"><a href="#2-系统抽样" class="headerlink" title="2. 系统抽样"></a>2. 系统抽样</h5><h5 id="3-整群抽样"><a href="#3-整群抽样" class="headerlink" title="3. 整群抽样"></a>3. 整群抽样</h5><h5 id="4-分层抽样"><a href="#4-分层抽样" class="headerlink" title="4. 分层抽样"></a>4. 分层抽样</h5><h4 id="5-1-3-抽样应用示例"><a href="#5-1-3-抽样应用示例" class="headerlink" title="5.1.3 抽样应用示例"></a>5.1.3 抽样应用示例</h4><h3 id="5-2-矩与抽样分布"><a href="#5-2-矩与抽样分布" class="headerlink" title="5.2 矩与抽样分布"></a>5.2 矩与抽样分布</h3><h4 id="5-2-1-矩与统计量"><a href="#5-2-1-矩与统计量" class="headerlink" title="5.2.1 矩与统计量"></a>5.2.1 矩与统计量</h4><h5 id="定理5-1：统计量抽样收敛定理"><a href="#定理5-1：统计量抽样收敛定理" class="headerlink" title="定理5.1：统计量抽样收敛定理"></a>定理5.1：统计量抽样收敛定理</h5><p>设总体$$X$$的均值是$$\mu$$，方差为$$\sigma^2$$，$$X_i(i = 1,2,…,n)$$为$$X$$的一个样本，则：</p>
-<p>（1）$$E(\overline{X}) = \mu$$ （ $$\overline X$$是 $$\mu$$ 的无偏估计）</p>
-<p>（2）$$Var(\overline{X})=\frac{\sigma^2}{n}$$</p>
-<p>（3）$$E(S^2)=\sigma^2$$   （$$S^2$$ 是 $$\sigma^2$$ 的无偏估计）</p>
-<p>其中，$$S^2$$要考虑偏差，有$$S^2 = \frac{1}{n - 1}\displaystyle\sum_{i = 1}^{n}(X_i - \overline{X})^2$$</p>
-<h4 id="5-2-2-抽样分布"><a href="#5-2-2-抽样分布" class="headerlink" title="5.2.2 抽样分布"></a>5.2.2 抽样分布</h4><h5 id="1-抽样分布的种类"><a href="#1-抽样分布的种类" class="headerlink" title="1. 抽样分布的种类"></a>1. 抽样分布的种类</h5><p>目前已知的抽样分布就多大几十种，但是常见的抽样分布只有四种：$$Gauss$$ 分布，$$t$$ 分布，$$F$$ 分布，$$\chi^2$$ 分布</p>
-<h4 id="5-2-3-抽样分布示例"><a href="#5-2-3-抽样分布示例" class="headerlink" title="5.2.3 抽样分布示例"></a>5.2.3 抽样分布示例</h4><h3 id="5-3-极限定理"><a href="#5-3-极限定理" class="headerlink" title="5.3 极限定理"></a>5.3 极限定理</h3><h4 id="5-3-1-矩的不等式"><a href="#5-3-1-矩的不等式" class="headerlink" title="5.3.1 矩的不等式"></a>5.3.1 矩的不等式</h4><h5 id="定理5-2：Marcov不等式"><a href="#定理5-2：Marcov不等式" class="headerlink" title="定理5.2：Marcov不等式"></a>定理5.2：Marcov不等式</h5><p>设$$\ X\ $$是非负随机变量且具有数学期望 $$E(X)$$ ，则 $$\forall{\varepsilon} &gt; 0$$，有：<br>$$<br>P(X\geq\varepsilon)\leq\frac{E(X)}{\varepsilon}<br>$$</p>
-<h5 id="定理5-3：Chebyshev不等式"><a href="#定理5-3：Chebyshev不等式" class="headerlink" title="定理5.3：Chebyshev不等式"></a>定理5.3：Chebyshev不等式</h5><p>设随机变量$$\ X\ $$具有数学期望 $$E(X)=\mu$$， $$Var(X) = \sigma^2$$ ，则 $$\forall{\varepsilon} &gt; 0$$ ，有：<br>$$<br>P(|x-\mu|\geq\varepsilon)\leq\frac{\sigma^2}{\varepsilon^2}<br>$$</p>
-<h4 id="5-3-2-大数定律"><a href="#5-3-2-大数定律" class="headerlink" title="5.3.2 大数定律"></a>5.3.2 大数定律</h4><h5 id="定理5-4：方差为0的充要条件"><a href="#定理5-4：方差为0的充要条件" class="headerlink" title="定理5.4：方差为0的充要条件"></a>定理5.4：方差为0的充要条件</h5><p>$$Var(X)=0$$ $$iff.$$ $$P(X=E(X)) = 1$$</p>
-<h5 id="定理5-5：Bernoulli大数定律"><a href="#定理5-5：Bernoulli大数定律" class="headerlink" title="定理5.5：Bernoulli大数定律"></a>定理5.5：Bernoulli大数定律</h5><p>$$X_n\sim\mathbb{B}(n,\ p)$$，$$\forall\varepsilon&gt;0$$，有：<br>$$<br>\displaystyle{\lim_{n\rightarrow\infty}}P(|\frac{x_n}{n}-p|&lt;\varepsilon)=1<br>$$</p>
-<h5 id="定理5-6：Chebyshev大数定律"><a href="#定理5-6：Chebyshev大数定律" class="headerlink" title="定理5.6：Chebyshev大数定律"></a>定理5.6：Chebyshev大数定律</h5><p> 设 $$X_i(i = 1,2,…,n)$$为独立同分布随机变量，数学期望 $$E(X) = \mu$$ 和有限的方差 $$Var(X_i) = \sigma_i^2$$，$$\forall\ \varepsilon&gt;0$$，有：<br>$$<br>\displaystyle{\lim_{n\rightarrow\infty}}P(|\frac{1}{n}\sum_{i=1}^{n}X_i-\frac{1}{n}\sum_{i=1}^{n}EX_i|&lt;\varepsilon)=1<br>$$</p>
-<h5 id="定理5-7：Khinchin大数定律"><a href="#定理5-7：Khinchin大数定律" class="headerlink" title="定理5.7：Khinchin大数定律"></a>定理5.7：Khinchin大数定律</h5><p> 设 $$X_i(i = 1,2,…,n)$$为 $$X$$ 的独立同分布随机变量，数学期望 $$E(X_i) = \mu$$ 存在，$$\forall\ \varepsilon&gt;0$$，有：<br>$$<br>\displaystyle{\lim_{n\rightarrow\infty}}P(|\frac{1}{n}\sum_{i=1}^{n}X_i-\mu|&lt;\varepsilon)=1<br>$$</p>
-<h5 id="定理5-8：弱大数定律"><a href="#定理5-8：弱大数定律" class="headerlink" title="定理5.8：弱大数定律"></a>定理5.8：弱大数定律</h5><p> 设 $$X_i(i = 1,2,…,n)$$为独立同分布随机变量，数学期望 $$E(X)$$ 存在，则 $$\overline{X}<em>n$$ 依概率收敛于 $$EX$$ ，即 $$\forall\ \varepsilon &gt;0$$，有：<br>$$<br>\displaystyle{\lim</em>{n\rightarrow\infty}}P(|\frac{x_n}{n}-p|&lt;\varepsilon)=1<br>$$</p>
-<h4 id="5-3-3-中心极限定理"><a href="#5-3-3-中心极限定理" class="headerlink" title="5.3.3 中心极限定理"></a>5.3.3 中心极限定理</h4><h5 id="定理5-9：De-Moivre-Laplace中心极限定理"><a href="#定理5-9：De-Moivre-Laplace中心极限定理" class="headerlink" title="定理5.9：De Moivre-Laplace中心极限定理"></a>定理5.9：De Moivre-Laplace中心极限定理</h5><p>$$X_n\sim\mathbb{B}(n,\ p)$$，则：<br>$$<br>\lim_{n\rightarrow\infty}P(\frac{X_n-np}{\sqrt{np(1-p)}}\leq{x})=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{x}e^{\frac{-t^2}{2}}dt<br>$$</p>
-<h5 id="定理5-10：独立同分布中心极限定理"><a href="#定理5-10：独立同分布中心极限定理" class="headerlink" title="定理5.10：独立同分布中心极限定理"></a>定理5.10：独立同分布中心极限定理</h5><p> 设 $$X_i(i = 1,2,…,n)$$为独立同分布随机变量，数学期望 $$E(X) = \mu$$ 和有限的方差 $$Var(X_i) = \sigma_i^2$$，随机变量之和 $$\displaystyle\sum_{i = 1}^{n}X_i$$ ，设：<br>$$<br>Y_n = \frac{\displaystyle\sum_{i = 1}^{n}X_i-E(\displaystyle\sum_{i = 1}^{n}X_i)}{\sqrt{D(\displaystyle\sum_{i = 1}^{n}X_i)}}=\frac{\displaystyle\sum_{i = 1}^{n}X_i-n\mu}{\sqrt{n}\sigma}<br>$$<br>则：<br>$$<br>\lim_{n\rightarrow\infty}P(Y_n\leq{x})=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{x}e^{\frac{-t^2}{2}}dt=\Phi(x)<br>$$</p>
-<h5 id="定理5-11：独立同分布正态样本"><a href="#定理5-11：独立同分布正态样本" class="headerlink" title="定理5.11：独立同分布正态样本"></a>定理5.11：独立同分布正态样本</h5><p>$$X_i$$ (i = 1，2，…，n) 是总体 $\mathbb{N}(\mu,\sigma^2)$ 的样本，$$\overline{X}$$ 是样本均值，则：<br>$$<br>\overline{X}\sim\mathbb{N}(\mu,\frac{\sigma^2}{n})<br>$$</p>
-<h3 id="5-4-常用抽样分布"><a href="#5-4-常用抽样分布" class="headerlink" title="5.4 常用抽样分布"></a>5.4 常用抽样分布</h3><h4 id="5-4-1-Gamma-函数"><a href="#5-4-1-Gamma-函数" class="headerlink" title="5.4.1 $$\Gamma$$函数"></a>5.4.1 $$\Gamma$$函数</h4><h5 id="定义5-1：-Gamma-函数"><a href="#定义5-1：-Gamma-函数" class="headerlink" title="定义5.1：$$\Gamma$$函数"></a>定义5.1：$$\Gamma$$函数</h5><p>实数域上 $$\Gamma$$ 函数定义为：<br>$$<br>\Gamma(x)=\int_{0}^{+\infty}t^{x-1}e^{-t}dt\ (x&gt;0)<br>$$<br>$$\Gamma$$ 函数的重要性质：<br>$$<br>\Gamma(n) = (n-1)!\ \ \ n\in\mathbb{N}\<br>\Gamma(1-x)\Gamma(x)=\frac{\pi}{sin\pi{x}}\<br>\Gamma(\frac{1}{2})=\sqrt{\pi}\<br>\Gamma(x)\rightarrow\sqrt{2\pi}e^{-x}x^{x-\frac{1}{2}}\ \ \ x\rightarrow+\infty<br>$$</p>
-<h4 id="5-4-2-chi-2-分布-Karl-Pearson"><a href="#5-4-2-chi-2-分布-Karl-Pearson" class="headerlink" title="5.4.2  $$\chi^{2}$$ 分布 (Karl Pearson)"></a>5.4.2  $$\chi^{2}$$ 分布 (Karl Pearson)</h4><h5 id="定理5-2：-chi-2-分布"><a href="#定理5-2：-chi-2-分布" class="headerlink" title="定理5.2：$$\chi^{2}$$分布"></a>定理5.2：$$\chi^{2}$$分布</h5><p>设 $$X_i(i = 1,2,…,n)$$为 $\mathbb{N}(0,1)$ 的独立同分布随机变量，则称随机变量：<br>$$<br>\chi^2 = \sum_{i=1}^{n}X_i^2<br>$$<br>为服从自由度为 $n$ 的 $\chi^2$ 分布，记为 $\chi^2(n)$</p>
-<h5 id="定理5-12：-chi-2-分布可加性"><a href="#定理5-12：-chi-2-分布可加性" class="headerlink" title="定理5.12：$$\chi^{2}$$分布可加性"></a>定理5.12：$$\chi^{2}$$分布可加性</h5><p>设 $X_1 \sim \chi^2(n_1)$，$X_2 \sim\chi^2(n_2)$，且 $X_1$ 和 $X_2$ 相互独立，则：<br>$$<br>X_1+X_2\sim\chi^2(n_1+n_2)<br>$$</p>
-<h5 id="定理5-13：-chi-2-分布的概率密度"><a href="#定理5-13：-chi-2-分布的概率密度" class="headerlink" title="定理5.13：$$\chi^{2}$$分布的概率密度"></a>定理5.13：$$\chi^{2}$$分布的概率密度</h5><p>$$\chi^2(n)$$ 分布的概率密度函数为：<br>$$<br>f(x)=\frac{1}{2^{\frac{n}{2}}\Gamma(\frac{n}{2})}x^{\frac{n}{2}-1}e^{-\frac{x}{2}}<br>$$</p>
-<h5 id="定理5-14：-chi-2-分布的是数字特征"><a href="#定理5-14：-chi-2-分布的是数字特征" class="headerlink" title="定理5.14：$$\chi^{2}$$分布的是数字特征"></a>定理5.14：$$\chi^{2}$$分布的是数字特征</h5><p>若 $X \sim \chi^2(n)$，则 $E(X)=n$，$Var(X)=2n$</p>
-<h5 id="定理5-15：均值抽样分布定理"><a href="#定理5-15：均值抽样分布定理" class="headerlink" title="定理5.15：均值抽样分布定理"></a>定理5.15：均值抽样分布定理</h5><p>$$X_i$$ (i = 1，2，…，n) 是总体 $\mathbb{N}(\mu,\sigma^2)$ 的样本，$$\overline{X}$$ 是样本均值，则：<br>$$<br>\overline{X}\sim\mathbb{N}(\mu,\frac{\sigma^2}{n})<br>$$</p>
-<h5 id="定理5-16：方差抽样分布定理"><a href="#定理5-16：方差抽样分布定理" class="headerlink" title="定理5.16：方差抽样分布定理"></a>定理5.16：方差抽样分布定理</h5><p>$$X_i$$ (i = 1，2，…，n) 是总体 $\mathbb{N}(\mu,\sigma^2)$ 的样本，$S^2$ 是样本方差，则有：<br>$$<br>\frac{(n-1)S^2}{\sigma^2}\sim\chi^2(n-1)<br>$$</p>
-<h4 id="5-4-3-t-分布-Gosset"><a href="#5-4-3-t-分布-Gosset" class="headerlink" title="5.4.3  $$t$$ 分布 (Gosset)"></a>5.4.3  $$t$$ 分布 (Gosset)</h4><h5 id="定义5-3：-t-分布"><a href="#定义5-3：-t-分布" class="headerlink" title="定义5.3：$$t$$ 分布"></a>定义5.3：$$t$$ 分布</h5><p>设 $X\sim\mathbb{N}(0,1)$，$Y\sim\chi^2(n)$，且 $X$ 和 $Y$ 相互独立，则随机变量<br>$$<br>t=\frac{X}{\sqrt{\frac{Y}{n}}}<br>$$<br>称为服从自由度为 $n$ 的 $t$ 分布，记为 $t(n)$</p>
-<h5 id="定理5-17：预备定理"><a href="#定理5-17：预备定理" class="headerlink" title="定理5.17：预备定理"></a>定理5.17：预备定理</h5><p>设 $(X_1$，$X_{2})$ 是二维随机变量，其分布密度函数为 $f(x_1,\ x_2)$，且 $X_1$ 和 $X_2$ 相互独立，则 $$ 的分布密度函数为：<br>$$<br>f_X(x)=f_{x_1}(xx_2)f_{x_2}(x_2)|x_2|dx_2<br>$$</p>
-<h5 id="定理5-18：-t-分布密度函数"><a href="#定理5-18：-t-分布密度函数" class="headerlink" title="定理5.18：$$t$$ 分布密度函数"></a>定理5.18：$$t$$ 分布密度函数</h5><p>$t(n)$ 的密度函数为:<br>$$<br>f(x)=\frac{\Gamma(\frac{n+1}{2})}{\sqrt{n\pi}\Gamma(\frac{n}{2})}(1+\frac{x^2}{n})^{-\frac{n+1}{2}}<br>$$</p>
-<h5 id="定理5-19：-t-分布数字特征"><a href="#定理5-19：-t-分布数字特征" class="headerlink" title="定理5.19：$$t$$ 分布数字特征"></a>定理5.19：$$t$$ 分布数字特征</h5><p>$X\sim t(n)$ ，则：<br>$$<br>E(X) = 0\<br>Var(X)=\frac{n}{n-2}<br>$$</p>
-<h5 id="定理5-20：-t-分布对称性"><a href="#定理5-20：-t-分布对称性" class="headerlink" title="定理5.20：$$t$$ 分布对称性"></a>定理5.20：$$t$$ 分布对称性</h5><p>对于给定的正数 $\alpha\ (0&lt;\alpha&lt;1)$，称满足条件 $P(t&gt;t_{\alpha}(n))=\int_{t_{\alpha}(n)}^{+\infty}f(x)dx=\alpha$ 的点 $t_{\alpha}(n)$ 称为 $t(n)$ 上的 $\alpha$ 分位点。则：<br>$$<br>t_{1-\alpha}(n)=-t_{\alpha}{(n)}<br>$$</p>
-<h5 id="定理5-21：-t-分布的正态收敛性"><a href="#定理5-21：-t-分布的正态收敛性" class="headerlink" title="定理5.21：$$t$$ 分布的正态收敛性"></a>定理5.21：$$t$$ 分布的正态收敛性</h5><p>$t_(n)$ 分布的概率密度 $f(x)$ 趋向于标准正态分布的概率密度，即：<br>$$<br>\lim_{n\rightarrow\infty}f(x)=\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}， (-\infty&lt;x&lt;+\infty)<br>$$</p>
-<h5 id="定理5-22：均值抽样分布定理"><a href="#定理5-22：均值抽样分布定理" class="headerlink" title="定理5.22：均值抽样分布定理"></a>定理5.22：均值抽样分布定理</h5><p>$$X_i\ (i = 1，2，…，n)$$  是总体 $\mathbb{N}(\mu,\sigma^2)$ 的样本，总体方差未知，样本均值和样本方差分别为 $\overline{X}$ 和 $S^2$ ，则：<br>$$<br>\frac{\overline{X}-\mu}{\frac{S}{\sqrt{n}}}\sim t(n-1)<br>$$</p>
-<h4 id="5-4-4-F-分布-Fisher"><a href="#5-4-4-F-分布-Fisher" class="headerlink" title="5.4.4 $$F$$ 分布 (Fisher)"></a>5.4.4 $$F$$ 分布 (Fisher)</h4><h5 id="定义5-4：-F-分布"><a href="#定义5-4：-F-分布" class="headerlink" title="定义5.4：$$F$$ 分布"></a>定义5.4：$$F$$ 分布</h5><p>设 $X\sim\chi^2(n_1)$，$Y\sim\chi^2(n_2)$，且 $X$ 和 $Y$ 相互独立，则随机变量<br>$$<br>F=\frac{\frac{X}{n_1}}{\frac{Y}{n_2}}=\frac{n_2}{n_1}\frac{X}{Y}<br>$$<br>称为服从自由度为 $n_1，n_2$ 的 $F$ 分布，记为 $F(n_1，n_2)$，其中 $n_1$ 称为第一自由度，$n_2$ 称为第二自由度。</p>
-<h5 id="定理5-23：-F-分布的倒数对称性"><a href="#定理5-23：-F-分布的倒数对称性" class="headerlink" title="定理5.23：$$F$$ 分布的倒数对称性"></a>定理5.23：$$F$$ 分布的倒数对称性</h5><p>$$<br>F_{1-\alpha}(n_1,\ n_2)=\frac{1}{F_{\alpha}(n_1, \ n_2)}<br>$$</p>
-<h5 id="定理5-24：-F-分布密度函数"><a href="#定理5-24：-F-分布密度函数" class="headerlink" title="定理5.24：$$F$$ 分布密度函数"></a>定理5.24：$$F$$ 分布密度函数</h5><p>$F(n_1, \ n_2)$ 分布的概率密度函数为：<br>$$<br>f(x;\ n_1,\ n_2) = \frac{\Gamma(\frac{n_1+n_2}{2})}{\Gamma(\frac{n_1}{2})\Gamma(\frac{n_2}{2})}(\frac{n_1}{n_2})^{\frac{n_1}{2}}\frac{x^{\frac{n_1-2}{2}}}{(1+\frac{n_1}{n_2}x)^{\frac{n_1+n_2}{2}}}，\ x&gt;0<br>$$</p>
-<h5 id="定理5-25：-F-分布数学期望"><a href="#定理5-25：-F-分布数学期望" class="headerlink" title="定理5.25：$$F$$ 分布数学期望"></a>定理5.25：$$F$$ 分布数学期望</h5><p>若 $X\sim F(n_1，n_2)$，则：<br>$$<br>E(X)=\frac{n_2}{n_2-2}，\ n_2&gt;2\<br>Var(X)=\frac{n_2^2(2n_1+2n_2-4)}{n_1(n_2-2)^2(n_2-4)}，\ n_2&gt;4<br>$$</p>
-<h5 id="定理5-26：正态分布逼近定理"><a href="#定理5-26：正态分布逼近定理" class="headerlink" title="定理5.26：正态分布逼近定理"></a>定理5.26：正态分布逼近定理</h5><p>设 $X_{i}\ (i=1，2，…，n_1)$ ， $Y_{i}\ (i=1，2，…，n_2)$ ，是分别来自两正态总体  $\mathbb{N}(\mu_1,\sigma_1^2)$， $\mathbb{N}(\mu_2,\sigma_2^2)$，则：<br>$$<br>\frac{(\overline X-\overline Y)-(\mu_1-\mu_2)}{\sqrt{\frac{\sigma_1^2}{n_1}+\frac{\sigma_2^2}{n_2}}}\sim \mathbb{N}(0,\ 1)<br>$$</p>
-<h5 id="定理5-27：方差抽样分布定理"><a href="#定理5-27：方差抽样分布定理" class="headerlink" title="定理5.27：方差抽样分布定理"></a>定理5.27：方差抽样分布定理</h5><p>设 $X_{i}\ (i=1，2，…，n_1)$ ， $Y_{i}\ (i=1，2，…，n_2)$ ，是分别来自两正态总体  $\mathbb{N}(\mu_1,\sigma_1^2)$， $\mathbb{N}(\mu_2,\sigma_2^2)$，$S_1^2,\ S_2^2 $ 分别为两样本方差，则：<br>$$<br>\frac{S_1^2/S_2^2}{\sigma_1^2/\sigma_2^2}\sim F(n_1-1,\ n_2-1)<br>$$</p>
+                <h2 id="第五章-抽样分布">第五章 抽样分布</h2>
+<h3 id="数据抽样">5.1 数据抽样</h3>
+<h4 id="数据分析">5.1.1 数据分析</h4>
+<h5 id="全体数据-rightarrow-整体结论">1. 全体数据 <span
+class="math inline">\(\rightarrow\)</span> 整体结论</h5>
+<h5
+id="全体数据-rightarrow-样本数据-rightarrow-样本结论-rightarrow-整体结论">1.
+全体数据 <span class="math inline">\(\rightarrow\)</span> 样本数据 <span
+class="math inline">\(\rightarrow\)</span> 样本结论 <span
+class="math inline">\(\rightarrow\)</span> 整体结论</h5>
+<h4 id="抽样方法">5.1.2 抽样方法</h4>
+<h5 id="简单随机抽样">1. 简单随机抽样</h5>
+<h5 id="系统抽样">2. 系统抽样</h5>
+<h5 id="整群抽样">3. 整群抽样</h5>
+<h5 id="分层抽样">4. 分层抽样</h5>
+<h4 id="抽样应用示例">5.1.3 抽样应用示例</h4>
+<h3 id="矩与抽样分布">5.2 矩与抽样分布</h3>
+<h4 id="矩与统计量">5.2.1 矩与统计量</h4>
+<h5 id="定理5.1统计量抽样收敛定理">定理5.1：统计量抽样收敛定理</h5>
+<p>设总体 <span class="math inline">\(X\)</span> 的均值是 <span
+class="math inline">\(\mu\)</span> ，方差为 <span
+class="math inline">\(\sigma^2\)</span> ，<span
+class="math inline">\(X_i(i = 1,2,…,n)\)</span> 为 <span
+class="math inline">\(X\)</span> 的一个样本，则：</p>
+<p>（1）<span class="math inline">\(E(\overline{X}) = \mu\)</span> （
+<span class="math inline">\(\overline X\)</span>是 <span
+class="math inline">\(\mu\)</span> 的无偏估计）</p>
+<p>（2）<span
+class="math inline">\(Var(\overline{X})=\frac{\sigma^2}{n}\)</span></p>
+<p>（3）<span class="math inline">\(E(S^2)=\sigma^2\)</span> （<span
+class="math inline">\(S^2\)</span> 是 <span
+class="math inline">\(\sigma^2\)</span> 的无偏估计）</p>
+<p>其中，<span class="math inline">\(S^2\)</span> 要考虑偏差，有 <span
+class="math inline">\(S^2 = \frac{1}{n - 1}\displaystyle\sum_{i =
+1}^{n}(X_i - \overline{X})^2\)</span></p>
+<h4 id="抽样分布">5.2.2 抽样分布</h4>
+<h5 id="抽样分布的种类">1. 抽样分布的种类</h5>
+<p>目前已知的抽样分布就多大几十种，但是常见的抽样分布只有四种：<span
+class="math inline">\(Gauss\)</span> 分布，<span
+class="math inline">\(t\)</span> 分布，<span
+class="math inline">\(F\)</span> 分布，<span
+class="math inline">\(\chi^2\)</span> 分布</p>
+<h4 id="抽样分布示例">5.2.3 抽样分布示例</h4>
+<h3 id="极限定理">5.3 极限定理</h3>
+<h4 id="矩的不等式">5.3.1 矩的不等式</h4>
+<h5 id="定理5.2marcov不等式">定理5.2：Marcov不等式</h5>
+<p>设 <span class="math inline">\(X\)</span>
+是非负随机变量且具有数学期望 <span class="math inline">\(E(X)\)</span>
+，则 <span class="math inline">\(\forall{\varepsilon} &gt;
+0\)</span>，有： <span class="math display">\[
+P(X\geq\varepsilon)\leq\frac{E(X)}{\varepsilon}
+\]</span></p>
+<h5 id="定理5.3chebyshev不等式">定理5.3：Chebyshev不等式</h5>
+<p>设随机变量 <span class="math inline">\(X\)</span> 具有数学期望 <span
+class="math inline">\(E(X)=\mu\)</span> ，<span
+class="math inline">\(Var(X) = \sigma^2\)</span> ，则 <span
+class="math inline">\(\forall{\varepsilon} &gt; 0\)</span> ，有： <span
+class="math display">\[
+P(|x-\mu|\geq\varepsilon)\leq\frac{\sigma^2}{\varepsilon^2}
+\]</span></p>
+<h4 id="大数定律">5.3.2 大数定律</h4>
+<h5 id="定理5.4方差为0的充要条件">定理5.4：方差为0的充要条件</h5>
+<p><span class="math inline">\(Var(X)=0\)</span> <span
+class="math inline">\(iff.\)</span> <span
+class="math inline">\(P(X=E(X)) = 1\)</span></p>
+<h5 id="定理5.5bernoulli大数定律">定理5.5：Bernoulli大数定律</h5>
+<p><span class="math inline">\(X_n\sim\mathbb{B}(n,\ p)\)</span>，<span
+class="math inline">\(\forall\varepsilon&gt;0\)</span>，有： <span
+class="math display">\[
+\displaystyle{\lim_{n\rightarrow\infty}}P(|\frac{x_n}{n}-p|&lt;\varepsilon)=1
+\]</span></p>
+<h5 id="定理5.6chebyshev大数定律">定理5.6：Chebyshev大数定律</h5>
+<p>设 <span class="math inline">\(X_i(i =
+1,2,…,n)\)</span>为独立同分布随机变量，数学期望 <span
+class="math inline">\(E(X) = \mu\)</span> 和有限的方差 <span
+class="math inline">\(Var(X_i) = \sigma_i^2\)</span>，<span
+class="math inline">\(\forall\ \varepsilon&gt;0\)</span>，有： <span
+class="math display">\[
+\displaystyle{\lim_{n\rightarrow\infty}}P(|\frac{1}{n}\sum_{i=1}^{n}X_i-\frac{1}{n}\sum_{i=1}^{n}EX_i|&lt;\varepsilon)=1
+\]</span></p>
+<h5 id="定理5.7khinchin大数定律">定理5.7：Khinchin大数定律</h5>
+<p>设 <span class="math inline">\(X_i(i = 1,2,…,n)\)</span> 为 <span
+class="math inline">\(X\)</span> 的独立同分布随机变量，数学期望 <span
+class="math inline">\(E(X_i) = \mu\)</span> 存在，<span
+class="math inline">\(\forall\ \varepsilon&gt;0\)</span>，有： <span
+class="math display">\[
+\displaystyle{\lim_{n\rightarrow\infty}}P(|\frac{1}{n}\sum_{i=1}^{n}X_i-\mu|&lt;\varepsilon)=1
+\]</span></p>
+<h5 id="定理5.8弱大数定律">定理5.8：弱大数定律</h5>
+<p>设 <span class="math inline">\(X_i(i = 1,2,…,n)\)</span>
+为独立同分布随机变量，数学期望 <span class="math inline">\(E(X)\)</span>
+存在，则 <span class="math inline">\(\overline{X}_n\)</span>
+依概率收敛于 <span class="math inline">\(EX\)</span> ，即 <span
+class="math inline">\(\forall\ \varepsilon &gt;0\)</span>，有： <span
+class="math display">\[
+\displaystyle{\lim_{n\rightarrow\infty}}P(|\frac{x_n}{n}-p|&lt;\varepsilon)=1
+\]</span></p>
+<h4 id="中心极限定理">5.3.3 中心极限定理</h4>
+<h5 id="定理5.9de-moivre-laplace中心极限定理">定理5.9：De
+Moivre-Laplace中心极限定理</h5>
+<p><span class="math inline">\(X_n\sim\mathbb{B}(n,\ p)\)</span> ，则：
+<span class="math display">\[
+\lim_{n\rightarrow\infty}P(\frac{X_n-np}{\sqrt{np(1-p)}}\leq{x})=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{x}e^{\frac{-t^2}{2}}dt
+\]</span></p>
+<h5
+id="定理5.10独立同分布中心极限定理">定理5.10：独立同分布中心极限定理</h5>
+<p>设 <span class="math inline">\(X_i(i = 1,2,…,n)\)</span>
+为独立同分布随机变量，数学期望 <span class="math inline">\(E(X) =
+\mu\)</span> 和有限的方差 <span class="math inline">\(Var(X_i) =
+\sigma_i^2\)</span>，随机变量之和 <span
+class="math inline">\(\displaystyle\sum_{i = 1}^{n}X_i\)</span> ，设：
+<span class="math display">\[
+Y_n = \frac{\displaystyle\sum_{i = 1}^{n}X_i-E(\displaystyle\sum_{i =
+1}^{n}X_i)}{\sqrt{D(\displaystyle\sum_{i =
+1}^{n}X_i)}}=\frac{\displaystyle\sum_{i =
+1}^{n}X_i-n\mu}{\sqrt{n}\sigma}
+\]</span> 则： <span class="math display">\[
+\lim_{n\rightarrow\infty}P(Y_n\leq{x})=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{x}e^{\frac{-t^2}{2}}dt=\Phi(x)
+\]</span></p>
+<h5 id="定理5.11独立同分布正态样本">定理5.11：独立同分布正态样本</h5>
+<p><span class="math inline">\(X_i\)</span> <span
+class="math inline">\((i = 1，2，…，n)\)</span> 是总体 <span
+class="math inline">\(\mathbb{N}(\mu,\sigma^2)\)</span> 的样本，<span
+class="math inline">\(\overline{X}\)</span> 是样本均值，则： <span
+class="math display">\[
+\overline{X}\sim\mathbb{N}(\mu,\frac{\sigma^2}{n})
+\]</span></p>
+<h3 id="常用抽样分布">5.4 常用抽样分布</h3>
+<h4 id="gamma函数">5.4.1 <span
+class="math inline">\(\Gamma\)</span>函数</h4>
+<h5 id="定义5.1gamma函数">定义5.1：<span
+class="math inline">\(\Gamma\)</span>函数</h5>
+<p>实数域上 <span class="math inline">\(\Gamma\)</span> 函数定义为：
+<span class="math display">\[
+\Gamma(x)=\int_{0}^{+\infty}t^{x-1}e^{-t}dt\ (x&gt;0)
+\]</span> <span class="math inline">\(\Gamma\)</span> 函数的重要性质：
+<span class="math display">\[
+\begin{align}
+&amp;\Gamma(n) = (n-1)!\ \ \ n\in\mathbb{N}\\
+&amp;\Gamma(1-x)\Gamma(x) =\frac{\pi}{sin\pi{x}}\\
+&amp;\Gamma(\frac{1}{2}) =\sqrt{\pi}\\
+&amp;\Gamma(x)\rightarrow\sqrt{2\pi}e^{-x}x^{x-\frac{1}{2}}\ \ \
+x\rightarrow+\infty
+\end{align}
+\]</span></p>
+<h4 id="chi2-分布-karl-pearson">5.4.2 <span
+class="math inline">\(\chi^{2}\)</span> 分布 (Karl Pearson)</h4>
+<h5 id="定理5.2chi2分布">定理5.2：<span
+class="math inline">\(\chi^{2}\)</span>分布</h5>
+<p>设 <span class="math inline">\(X_i(i = 1,2,…,n)\)</span> 为 <span
+class="math inline">\(\mathbb{N}(0,1)\)</span>
+的独立同分布随机变量，则称随机变量： <span class="math display">\[
+\chi^2 = \sum_{i=1}^{n}X_i^2
+\]</span> 为服从自由度为 <span class="math inline">\(n\)</span> 的 <span
+class="math inline">\(\chi^2\)</span> 分布，记为 <span
+class="math inline">\(\chi^2(n)\)</span></p>
+<h5 id="定理5.12chi2分布可加性">定理5.12：<span
+class="math inline">\(\chi^{2}\)</span>分布可加性</h5>
+<p>设 <span class="math inline">\(X_1 \sim \chi^2(n_1)\)</span>，<span
+class="math inline">\(X_2 \sim\chi^2(n_2)\)</span>，且 <span
+class="math inline">\(X_1\)</span> 和 <span
+class="math inline">\(X_2\)</span> 相互独立，则： <span
+class="math display">\[
+X_1+X_2\sim\chi^2(n_1+n_2)
+\]</span></p>
+<h5 id="定理5.13chi2分布的概率密度">定理5.13：<span
+class="math inline">\(\chi^{2}\)</span>分布的概率密度</h5>
+<p><span class="math inline">\(\chi^2(n)\)</span> 分布的概率密度函数为：
+<span class="math display">\[
+f(x)=\frac{1}{2^{\frac{n}{2}}\Gamma(\frac{n}{2})}x^{\frac{n}{2}-1}e^{-\frac{x}{2}}
+\]</span></p>
+<h5 id="定理5.14chi2分布的是数字特征">定理5.14：<span
+class="math inline">\(\chi^{2}\)</span>分布的是数字特征</h5>
+<p>若 <span class="math inline">\(X \sim \chi^2(n)\)</span>，则 <span
+class="math inline">\(E(X)=n\)</span>，<span
+class="math inline">\(Var(X)=2n\)</span></p>
+<h5 id="定理5.15均值抽样分布定理">定理5.15：均值抽样分布定理</h5>
+<p><span class="math inline">\(X_i\)</span> <span
+class="math inline">\((i = 1，2，…，n)\)</span> 是总体 <span
+class="math inline">\(\mathbb{N}(\mu,\sigma^2)\)</span> 的样本，<span
+class="math inline">\(\overline{X}\)</span> 是样本均值，则： <span
+class="math display">\[
+\overline{X}\sim\mathbb{N}(\mu,\frac{\sigma^2}{n})
+\]</span></p>
+<h5 id="定理5.16方差抽样分布定理">定理5.16：方差抽样分布定理</h5>
+<p><span class="math inline">\(X_i\)</span> (i = 1，2，…，n) 是总体
+<span class="math inline">\(\mathbb{N}(\mu,\sigma^2)\)</span>
+的样本，<span class="math inline">\(S^2\)</span> 是样本方差，则有：
+<span class="math display">\[
+\frac{(n-1)S^2}{\sigma^2}\sim\chi^2(n-1)
+\]</span></p>
+<h4 id="t-分布-gosset">5.4.3 <span class="math inline">\(t\)</span> 分布
+(Gosset)</h4>
+<h5 id="定义5.3t-分布">定义5.3：<span class="math inline">\(t\)</span>
+分布</h5>
+<p>设 <span class="math inline">\(X\sim\mathbb{N}(0,1)\)</span>，<span
+class="math inline">\(Y\sim\chi^2(n)\)</span>，且 <span
+class="math inline">\(X\)</span> 和 <span
+class="math inline">\(Y\)</span> 相互独立，则随机变量 <span
+class="math display">\[
+t=\frac{X}{\sqrt{\frac{Y}{n}}}
+\]</span> 称为服从自由度为 <span class="math inline">\(n\)</span> 的
+<span class="math inline">\(t\)</span> 分布，记为 <span
+class="math inline">\(t(n)\)</span></p>
+<h5 id="定理5.17预备定理">定理5.17：预备定理</h5>
+<p>设 <span class="math inline">\((X_1\)</span>，<span
+class="math inline">\(X_{2})\)</span> 是二维随机变量，其分布密度函数为
+<span class="math inline">\(f(x_1,\ x_2)\)</span>，且 <span
+class="math inline">\(X_1\)</span> 和 <span
+class="math inline">\(X_2\)</span> 相互独立，则 <span
+class="math inline">\(X\)</span> 的分布密度函数为： <span
+class="math display">\[
+f_X(x)=f_{x_1}(xx_2)f_{x_2}(x_2)|x_2|dx_2
+\]</span></p>
+<h5 id="定理5.18t-分布密度函数">定理5.18：<span
+class="math inline">\(t\)</span> 分布密度函数</h5>
+<p><span class="math inline">\(t(n)\)</span> 的密度函数为: <span
+class="math display">\[
+f(x)=\frac{\Gamma(\frac{n+1}{2})}{\sqrt{n\pi}\Gamma(\frac{n}{2})}(1+\frac{x^2}{n})^{-\frac{n+1}{2}}
+\]</span></p>
+<h5 id="定理5.19t-分布数字特征">定理5.19：<span
+class="math inline">\(t\)</span> 分布数字特征</h5>
+<p><span class="math inline">\(X\sim t(n)\)</span> ，则：</p>
+<p><span class="math display">\[
+\begin{align}
+E(X) &amp;= 0\\
+Var(X)&amp;=\frac{n}{n-2}
+\end{align}
+\]</span></p>
+<h5 id="定理5.20t-分布对称性">定理5.20：<span
+class="math inline">\(t\)</span> 分布对称性</h5>
+<p>对于给定的正数 <span class="math inline">\(\alpha\
+(0&lt;\alpha&lt;1)\)</span>，称满足条件 <span
+class="math inline">\(P(t&gt;t_{\alpha}(n))=\int_{t_{\alpha}(n)}^{+\infty}f(x)dx=\alpha\)</span>
+的点 <span class="math inline">\(t_{\alpha}(n)\)</span> 称为 <span
+class="math inline">\(t(n)\)</span> 上的 <span
+class="math inline">\(\alpha\)</span> 分位点。则： <span
+class="math display">\[
+t_{1-\alpha}(n)=-t_{\alpha}{(n)}
+\]</span></p>
+<h5 id="定理5.21t-分布的正态收敛性">定理5.21：<span
+class="math inline">\(t\)</span> 分布的正态收敛性</h5>
+<p><span class="math inline">\(t_(n)\)</span> 分布的概率密度 <span
+class="math inline">\(f(x)\)</span> 趋向于标准正态分布的概率密度，即：
+<span class="math display">\[
+\lim_{n\rightarrow\infty}f(x)=\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}，
+(-\infty&lt;x&lt;+\infty)
+\]</span></p>
+<h5 id="定理5.22均值抽样分布定理">定理5.22：均值抽样分布定理</h5>
+<p><span class="math display">\[X_i\ (i = 1，2，…，n)\]</span> 是总体
+<span class="math inline">\(\mathbb{N}(\mu,\sigma^2)\)</span>
+的样本，总体方差未知，样本均值和样本方差分别为 <span
+class="math inline">\(\overline{X}\)</span> 和 <span
+class="math inline">\(S^2\)</span> ，则： <span class="math display">\[
+\frac{\overline{X}-\mu}{\frac{S}{\sqrt{n}}}\sim t(n-1)
+\]</span></p>
+<h4 id="f-分布-fisher">5.4.4 <span class="math inline">\(F\)</span> 分布
+(Fisher)</h4>
+<h5 id="定义5.4f-分布">定义5.4：<span class="math inline">\(F\)</span>
+分布</h5>
+<p>设 <span class="math inline">\(X\sim\chi^2(n_1)\)</span>，<span
+class="math inline">\(Y\sim\chi^2(n_2)\)</span>，且 <span
+class="math inline">\(X\)</span> 和 <span
+class="math inline">\(Y\)</span> 相互独立，则随机变量 <span
+class="math display">\[
+F=\frac{\frac{X}{n_1}}{\frac{Y}{n_2}}=\frac{n_2}{n_1}\frac{X}{Y}
+\]</span> 称为服从自由度为 <span class="math inline">\(n_1，n_2\)</span>
+的 <span class="math inline">\(F\)</span> 分布，记为 <span
+class="math inline">\(F(n_1，n_2)\)</span>，其中 <span
+class="math inline">\(n_1\)</span> 称为第一自由度，<span
+class="math inline">\(n_2\)</span> 称为第二自由度。</p>
+<h5 id="定理5.23f-分布的倒数对称性">定理5.23：<span
+class="math inline">\(F\)</span> 分布的倒数对称性</h5>
+<p><span class="math display">\[
+F_{1-\alpha}(n_1,\ n_2)=\frac{1}{F_{\alpha}(n_1, \ n_2)}
+\]</span></p>
+<h5 id="定理5.24f-分布密度函数">定理5.24：<span
+class="math inline">\(F\)</span> 分布密度函数</h5>
+<p><span class="math inline">\(F(n_1, \ n_2)\)</span>
+分布的概率密度函数为： <span class="math display">\[
+f(x;\ n_1,\ n_2) =
+\frac{\Gamma(\frac{n_1+n_2}{2})}{\Gamma(\frac{n_1}{2})\Gamma(\frac{n_2}{2})}(\frac{n_1}{n_2})^{\frac{n_1}{2}}\frac{x^{\frac{n_1-2}{2}}}{(1+\frac{n_1}{n_2}x)^{\frac{n_1+n_2}{2}}}，\
+x&gt;0
+\]</span></p>
+<h5 id="定理5.25f-分布数学期望">定理5.25：<span
+class="math inline">\(F\)</span> 分布数学期望</h5>
+<p>若 <span class="math inline">\(X\sim F(n_1，n_2)\)</span>，则： <span
+class="math display">\[
+E(X)=\frac{n_2}{n_2-2}，\ n_2&gt;2\\
+Var(X)=\frac{n_2^2(2n_1+2n_2-4)}{n_1(n_2-2)^2(n_2-4)}，\ n_2&gt;4
+\]</span></p>
+<h5 id="定理5.26正态分布逼近定理">定理5.26：正态分布逼近定理</h5>
+<p>设 <span class="math inline">\(X_{i}\ (i=1，2，…，n_1)\)</span> ，
+<span class="math inline">\(Y_{i}\ (i=1，2，…，n_2)\)</span>
+，是分别来自两正态总体 <span
+class="math inline">\(\mathbb{N}(\mu_1,\sigma_1^2)\)</span>， <span
+class="math inline">\(\mathbb{N}(\mu_2,\sigma_2^2)\)</span>，则： <span
+class="math display">\[
+\frac{(\overline X-\overline
+Y)-(\mu_1-\mu_2)}{\sqrt{\frac{\sigma_1^2}{n_1}+\frac{\sigma_2^2}{n_2}}}\sim
+\mathbb{N}(0,\ 1)
+\]</span></p>
+<h5 id="定理5.27方差抽样分布定理">定理5.27：方差抽样分布定理</h5>
+<p>设 <span class="math inline">\(X_{i}\ (i=1，2，…，n_1)\)</span> ，
+<span class="math inline">\(Y_{i}\ (i=1，2，…，n_2)\)</span>
+，是分别来自两正态总体 <span
+class="math inline">\(\mathbb{N}(\mu_1,\sigma_1^2)\)</span>， <span
+class="math inline">\(\mathbb{N}(\mu_2,\sigma_2^2)\)</span>，$S_1<sup>2, S_2</sup>2
+$ 分别为两样本方差，则： <span class="math display">\[
+\frac{S_1^2/S_2^2}{\sigma_1^2/\sigma_2^2}\sim F(n_1-1,\ n_2-1)
+\]</span></p>
 
                 
               </div>

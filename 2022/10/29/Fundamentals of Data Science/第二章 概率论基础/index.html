@@ -18,12 +18,12 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="第二章 概率论基础2.1 概率定义2.1.1 集合表示定义 2.1：随机事件样本空间 $\Omega$ 的任意一个子集 $\Omega’$ 称为随机事件，简称事件。记某次实验结果 $\omega$ ，当 $\omega\in\Omega’$ 时，我们称这一事件 $\Omega’$ 发生 2.1.2 古典概率定义 2.2：古典概率$\Omega &#x3D; {\omega_1,\ \omega_2,\ …,">
+    <meta name="description" content="第二章 概率论基础 2.1 概率定义 2.1.1 集合表示 定义 2.1：随机事件 样本空间 \(\Omega\) 的任意一个子集 \(\Omega&#39;\) 称为随机事件，简称事件。记某次实验结果 \(\omega\) ，当 \(\omega\in\Omega&#39;\) 时，我们称这一事件 \(\Omega&#39;\) 发生 2.1.2 古典概率 定义 2.2：古典概率 \(\Omeg">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第二章 概率论基础">
 <meta property="og:url" content="https://wuchentian.github.io/2022/10/29/Fundamentals%20of%20Data%20Science/%E7%AC%AC%E4%BA%8C%E7%AB%A0%20%E6%A6%82%E7%8E%87%E8%AE%BA%E5%9F%BA%E7%A1%80/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="第二章 概率论基础2.1 概率定义2.1.1 集合表示定义 2.1：随机事件样本空间 $\Omega$ 的任意一个子集 $\Omega’$ 称为随机事件，简称事件。记某次实验结果 $\omega$ ，当 $\omega\in\Omega’$ 时，我们称这一事件 $\Omega’$ 发生 2.1.2 古典概率定义 2.2：古典概率$\Omega &#x3D; {\omega_1,\ \omega_2,\ …,">
+<meta property="og:description" content="第二章 概率论基础 2.1 概率定义 2.1.1 集合表示 定义 2.1：随机事件 样本空间 \(\Omega\) 的任意一个子集 \(\Omega&#39;\) 称为随机事件，简称事件。记某次实验结果 \(\omega\) ，当 \(\omega\in\Omega&#39;\) 时，我们称这一事件 \(\Omega&#39;\) 发生 2.1.2 古典概率 定义 2.2：古典概率 \(\Omeg">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-10-29T00:57:00.000Z">
 <meta property="article:modified_time" content="2022-10-29T00:58:30.436Z">
@@ -235,7 +235,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.9k words
+          2k words
         
       </span>
     
@@ -246,7 +246,7 @@
         
         
         
-          16 mins
+          17 mins
         
       </span>
     
@@ -289,33 +289,137 @@
             
               <div class="markdown-body">
                 
-                <h2 id="第二章-概率论基础"><a href="#第二章-概率论基础" class="headerlink" title="第二章 概率论基础"></a>第二章 概率论基础</h2><h3 id="2-1-概率定义"><a href="#2-1-概率定义" class="headerlink" title="2.1 概率定义"></a>2.1 概率定义</h3><h4 id="2-1-1-集合表示"><a href="#2-1-1-集合表示" class="headerlink" title="2.1.1 集合表示"></a>2.1.1 集合表示</h4><h5 id="定义-2-1：随机事件"><a href="#定义-2-1：随机事件" class="headerlink" title="定义 2.1：随机事件"></a>定义 2.1：随机事件</h5><p>样本空间 $\Omega$ 的任意一个子集 $\Omega’$ 称为随机事件，简称事件。记某次实验结果 $\omega$ ，当 $\omega\in\Omega’$ 时，我们称这一事件 $\Omega’$ 发生</p>
-<h4 id="2-1-2-古典概率"><a href="#2-1-2-古典概率" class="headerlink" title="2.1.2 古典概率"></a>2.1.2 古典概率</h4><h5 id="定义-2-2：古典概率"><a href="#定义-2-2：古典概率" class="headerlink" title="定义 2.2：古典概率"></a>定义 2.2：古典概率</h5><p>$\Omega = {\omega_1,\ \omega_2,\ …,\ \omega_n}$ 有穷且每个样本点等可能，即 $P({\omega_i}) = \frac{1}{n}$，则称这样的概率类型为古典概率</p>
-<h4 id="2-1-3-几何概率"><a href="#2-1-3-几何概率" class="headerlink" title="2.1.3 几何概率"></a>2.1.3 几何概率</h4><p>试验可能结果是欧几里得空间中的点，所有样本点的集合 $\Omega$ 是此空间中的一个几何图形，满足条件 $0&lt;m(\Omega)&lt;+\infty$ ，这里 $m(\Omega)$ 表示该集合的勒贝格测度（如长度，面积，体积等）。对 $\Omega$ 的任何可测子集 $A$ 的几何概率定义为<br>$$<br>P(A) = \frac{m(A)}{m(\Omega)}<br>$$</p>
-<h4 id="2-1-4-概率公理化"><a href="#2-1-4-概率公理化" class="headerlink" title="2.1.4 概率公理化"></a>2.1.4 概率公理化</h4><h5 id="定义2-4：概率公理化定义"><a href="#定义2-4：概率公理化定义" class="headerlink" title="定义2.4：概率公理化定义"></a>定义2.4：概率公理化定义</h5><p>随机试验样本空间为 $\Omega$ ，任意事件 $A$ 赋予一实数 $P(A)$，满足下列三个条件</p>
-<ol>
-<li><p>非负性：$P(A)\geq0$</p>
-</li>
-<li><p>规范性：$P(\Omega) = 1$</p>
-</li>
-<li><p>可列可加性：若事件 $A_k(k = 1,\ 2,\ …,\infty)$ 两两不相容，则<br>$$<br>P(\bigcup_{i = 1}^{\infty}A_i) = \displaystyle\sum_{i = 1}^{n}P(A_i)<br>$$</p>
-</li>
+                <h2 id="第二章-概率论基础">第二章 概率论基础</h2>
+<h3 id="概率定义">2.1 概率定义</h3>
+<h4 id="集合表示">2.1.1 集合表示</h4>
+<h5 id="定义-2.1随机事件">定义 2.1：随机事件</h5>
+<p>样本空间 <span class="math inline">\(\Omega\)</span> 的任意一个子集
+<span class="math inline">\(\Omega&#39;\)</span>
+称为随机事件，简称事件。记某次实验结果 <span
+class="math inline">\(\omega\)</span> ，当 <span
+class="math inline">\(\omega\in\Omega&#39;\)</span> 时，我们称这一事件
+<span class="math inline">\(\Omega&#39;\)</span> 发生</p>
+<h4 id="古典概率">2.1.2 古典概率</h4>
+<h5 id="定义-2.2古典概率">定义 2.2：古典概率</h5>
+<p><span class="math inline">\(\Omega = \{\omega_1,\ \omega_2,\ …,\
+\omega_n\}\)</span> 有穷且每个样本点等可能，即 <span
+class="math inline">\(P(\{\omega_i\}) =
+\frac{1}{n}\)</span>，则称这样的概率类型为古典概率</p>
+<h4 id="几何概率">2.1.3 几何概率</h4>
+<p>试验可能结果是欧几里得空间中的点，所有样本点的集合 <span
+class="math inline">\(\Omega\)</span> 是此空间中的一个几何图形，满足条件
+<span class="math inline">\(0&lt;m(\Omega)&lt;+\infty\)</span> ，这里
+<span class="math inline">\(m(\Omega)\)</span>
+表示该集合的勒贝格测度（如长度，面积，体积等）。对 <span
+class="math inline">\(\Omega\)</span> 的任何可测子集 <span
+class="math inline">\(A\)</span> 的几何概率定义为 <span
+class="math display">\[
+P(A) = \frac{m(A)}{m(\Omega)}
+\]</span></p>
+<h4 id="概率公理化">2.1.4 概率公理化</h4>
+<h5 id="定义2.4概率公理化定义">定义2.4：概率公理化定义</h5>
+<p>随机试验样本空间为 <span class="math inline">\(\Omega\)</span>
+，任意事件 <span class="math inline">\(A\)</span> 赋予一实数 <span
+class="math inline">\(P(A)\)</span>，满足下列三个条件</p>
+<ol type="1">
+<li><p>非负性：<span class="math inline">\(P(A)\geq0\)</span></p></li>
+<li><p>规范性：<span class="math inline">\(P(\Omega) =
+1\)</span></p></li>
+<li><p>可列可加性：若事件 <span class="math inline">\(A_k(k = 1,\ 2,\
+…,\infty)\)</span> 两两不相容，则 <span class="math display">\[
+P(\bigcup_{i = 1}^{\infty}A_i) = \displaystyle\sum_{i = 1}^{n}P(A_i)
+\]</span></p></li>
 </ol>
-<p>称 $P:\mathscr{F}\rightarrow\mathbb{R}$ 为概率函数，简称概率</p>
-<h5 id="引理-2-1：空集为零"><a href="#引理-2-1：空集为零" class="headerlink" title="引理 2.1：空集为零"></a>引理 2.1：空集为零</h5><p>$$<br>P(\varnothing) = 0<br>$$</p>
-<h5 id="引理-2-2：互补性"><a href="#引理-2-2：互补性" class="headerlink" title="引理 2.2：互补性"></a>引理 2.2：互补性</h5><p>$$<br>P(\overline{A}) = 1-P(A)<br>$$</p>
-<h5 id="引理-2-3：单调性"><a href="#引理-2-3：单调性" class="headerlink" title="引理 2.3：单调性"></a>引理 2.3：单调性</h5><p>设 $A, B$ 是两个事件，则<br>$$<br>A\subseteq B \implies P(A)\leq P(B)<br>$$</p>
-<h5 id="引理-2-4：可拆性"><a href="#引理-2-4：可拆性" class="headerlink" title="引理 2.4：可拆性"></a>引理 2.4：可拆性</h5><p>对于任意两个随机事件 $E_1,\ E_2$<br>$$<br>P(E_1\cup E_2) = P(E_1)+P(E_2)- P(E_1\cap E_2)<br>$$</p>
-<h5 id="引理-2-5：事件概率的估计"><a href="#引理-2-5：事件概率的估计" class="headerlink" title="引理 2.5：事件概率的估计"></a>引理 2.5：事件概率的估计</h5><p>对任意有限或可列无穷的事件序列 $E_1,E_2, …,E_n$，总有<br>$$<br>P\bigg(\bigcup_{i&gt;1}E_i\bigg)\leq\sum_{i\geq1}P(E_i)<br>$$</p>
-<h3 id="2-2-概率计算"><a href="#2-2-概率计算" class="headerlink" title="2.2 概率计算"></a>2.2 概率计算</h3><h4 id="2-2-1-条件概率"><a href="#2-2-1-条件概率" class="headerlink" title="2.2.1 条件概率"></a>2.2.1 条件概率</h4><h5 id="定义2-5：条件概率"><a href="#定义2-5：条件概率" class="headerlink" title="定义2.5：条件概率"></a>定义2.5：条件概率</h5><p>对于事件 $A$ 和 $B$ , 若 $P(B) \not= 0$，称<br>$$<br>P(A|B) = \frac{P(AB)}{P(B)}<br>$$</p>
-<h4 id="2-2-2-乘法公式"><a href="#2-2-2-乘法公式" class="headerlink" title="2.2.2 乘法公式"></a>2.2.2 乘法公式</h4><h5 id="定理-2-1：乘法公式"><a href="#定理-2-1：乘法公式" class="headerlink" title="定理 2.1：乘法公式"></a>定理 2.1：乘法公式</h5><p>若 $P(A_1)&gt;0$，则 $P(A_1A_2)= P(A_1)P(A_2|A_1)$ ，一般地，我们有<br>$$<br>P(\prod_{i = 1}^{n}A_i) = P(A_1)P(A_2|A_1)P(A_3|A_1A_2)…P(A_n|A_1A_2A_3…A_{n-1})<br>$$</p>
-<h4 id="2-2-3-全概率公式"><a href="#2-2-3-全概率公式" class="headerlink" title="2.2.3 全概率公式"></a>2.2.3 全概率公式</h4><p>设 $B_k(k = 1,\ 2,\ …,\ n)$ 是样本空间 $\Omega$ 的一个完备事件组，且 $P(B_k)&gt;0\ (k = 1,\ 2,\ …,\ n)$，则对于任意随机事件 $A$ ，有<br>$$<br>P(A) = \sum_{i =1}^nP(B_i)P(A|B_i)<br>$$</p>
-<h4 id="2-2-4-Bayes公式"><a href="#2-2-4-Bayes公式" class="headerlink" title="2.2.4 Bayes公式"></a>2.2.4 Bayes公式</h4><p>设 $B_k(k = 1,\ 2,\ …,\ n)$ 是样本空间 $\Omega$ 的一个完备事件组，且 $P(B_k)&gt;0\ (k = 1,\ 2,\ …,\ n)$，则对于任意随机事件 $A,\ P(A)&gt;0$ ，有<br>$$<br>P(B_i|A) = \frac{P(A|B_i)P(B_i)}{P(A)}<br>$$</p>
-<h4 id="2-2-5-独立性"><a href="#2-2-5-独立性" class="headerlink" title="2.2.5 独立性"></a>2.2.5 独立性</h4><h5 id="定义2-6：独立性"><a href="#定义2-6：独立性" class="headerlink" title="定义2.6：独立性"></a>定义2.6：独立性</h5><p>一般地，若事件 $A$ 和 $B$ , 满足<br>$$<br>P(AB)=P(A)P(B)<br>$$<br>则称事件 $A,B$ 相互独立</p>
-<p>一般地，若事件 $A_k(k = 1,\ 2,\ …,\ n)$ 对于任意 $I\subset {1,\ 2,\ …,\ n}$，有<br>$$<br>P(\bigcap_{i\in I}A_i) = \prod_{i\in I}P(A_i)<br>$$<br>则称 $A_k(k = 1,\ 2,\ …,\ n)$ 相互独立</p>
-<h5 id="定理-2-4：独立性的另一定义"><a href="#定理-2-4：独立性的另一定义" class="headerlink" title="定理 2.4：独立性的另一定义"></a>定理 2.4：独立性的另一定义</h5><p>设 $A$，$B$  是两个事件，且 $P(A) &gt; 0$ ，则  $A$，$B$  独立当且仅当<br>$$<br>P(B|A) = P(B)<br>$$</p>
-<h5 id="定理-2-5：独立性的推论"><a href="#定理-2-5：独立性的推论" class="headerlink" title="定理 2.5：独立性的推论"></a>定理 2.5：独立性的推论</h5><p>若事件 $A$，$B$  独立，则对下列各对事件均相互独立<br>$$<br>A\ &amp;\ \overline{B}\ \overline{A}\ &amp;\ B\ \overline{A}\ &amp;\ \overline{B}<br>$$</p>
-<h3 id="2-3随机测试示例"><a href="#2-3随机测试示例" class="headerlink" title="2.3随机测试示例"></a>2.3随机测试示例</h3><h4 id="2-3-1-问题背景"><a href="#2-3-1-问题背景" class="headerlink" title="2.3.1 问题背景"></a>2.3.1 问题背景</h4><h4 id="2-3-2-随机测试初步"><a href="#2-3-2-随机测试初步" class="headerlink" title="2.3.2 随机测试初步"></a>2.3.2 随机测试初步</h4><h4 id="2-3-3-随机测试改进"><a href="#2-3-3-随机测试改进" class="headerlink" title="2.3.3 随机测试改进"></a>2.3.3 随机测试改进</h4>
+<p>称 <span
+class="math inline">\(P:\mathscr{F}\rightarrow\mathbb{R}\)</span>
+为概率函数，简称概率</p>
+<h5 id="引理-2.1空集为零">引理 2.1：空集为零</h5>
+<p><span class="math display">\[
+P(\varnothing) = 0
+\]</span></p>
+<h5 id="引理-2.2互补性">引理 2.2：互补性</h5>
+<p><span class="math display">\[
+P(\overline{A}) = 1-P(A)
+\]</span></p>
+<h5 id="引理-2.3单调性">引理 2.3：单调性</h5>
+<p>设 <span class="math inline">\(A, B\)</span> 是两个事件，则 <span
+class="math display">\[
+A\subseteq B \implies P(A)\leq P(B)
+\]</span></p>
+<h5 id="引理-2.4可拆性">引理 2.4：可拆性</h5>
+<p>对于任意两个随机事件 <span class="math inline">\(E_1,\ E_2\)</span>
+<span class="math display">\[
+P(E_1\cup E_2) = P(E_1)+P(E_2)- P(E_1\cap E_2)
+\]</span></p>
+<h5 id="引理-2.5事件概率的估计">引理 2.5：事件概率的估计</h5>
+<p>对任意有限或可列无穷的事件序列 <span class="math inline">\(E_1,E_2,
+…,E_n\)</span>，总有 <span class="math display">\[
+P\bigg(\bigcup_{i&gt;1}E_i\bigg)\leq\sum_{i\geq1}P(E_i)
+\]</span></p>
+<h3 id="概率计算">2.2 概率计算</h3>
+<h4 id="条件概率">2.2.1 条件概率</h4>
+<h5 id="定义2.5条件概率">定义2.5：条件概率</h5>
+<p>对于事件 <span class="math inline">\(A\)</span> 和 <span
+class="math inline">\(B\)</span> , 若 <span class="math inline">\(P(B)
+\not= 0\)</span>，称 <span class="math display">\[
+P(A|B) = \frac{P(AB)}{P(B)}
+\]</span></p>
+<h4 id="乘法公式">2.2.2 乘法公式</h4>
+<h5 id="定理-2.1乘法公式">定理 2.1：乘法公式</h5>
+<p>若 <span class="math inline">\(P(A_1)&gt;0\)</span>，则 <span
+class="math inline">\(P(A_1A_2)= P(A_1)P(A_2|A_1)\)</span>
+，一般地，我们有 <span class="math display">\[
+P(\prod_{i = 1}^{n}A_i) =
+P(A_1)P(A_2|A_1)P(A_3|A_1A_2)…P(A_n|A_1A_2A_3…A_{n-1})
+\]</span></p>
+<h4 id="全概率公式">2.2.3 全概率公式</h4>
+<p>设 <span class="math inline">\(B_k(k = 1,\ 2,\ …,\ n)\)</span>
+是样本空间 <span class="math inline">\(\Omega\)</span>
+的一个完备事件组，且 <span class="math inline">\(P(B_k)&gt;0\ (k = 1,\
+2,\ …,\ n)\)</span>，则对于任意随机事件 <span
+class="math inline">\(A\)</span> ，有 <span class="math display">\[
+P(A) = \sum_{i =1}^nP(B_i)P(A|B_i)
+\]</span></p>
+<h4 id="bayes公式">2.2.4 Bayes公式</h4>
+<p>设 <span class="math inline">\(B_k(k = 1,\ 2,\ …,\ n)\)</span>
+是样本空间 <span class="math inline">\(\Omega\)</span>
+的一个完备事件组，且 <span class="math inline">\(P(B_k)&gt;0\ (k = 1,\
+2,\ …,\ n)\)</span>，则对于任意随机事件 <span class="math inline">\(A,\
+P(A)&gt;0\)</span> ，有 <span class="math display">\[
+P(B_i|A) = \frac{P(A|B_i)P(B_i)}{P(A)}
+\]</span></p>
+<h4 id="独立性">2.2.5 独立性</h4>
+<h5 id="定义2.6独立性">定义2.6：独立性</h5>
+<p>一般地，若事件 <span class="math inline">\(A\)</span> 和 <span
+class="math inline">\(B\)</span> , 满足 <span class="math display">\[
+P(AB)=P(A)P(B)
+\]</span> 则称事件 <span class="math inline">\(A,B\)</span> 相互独立</p>
+<p>一般地，若事件 <span class="math inline">\(A_k(k = 1,\ 2,\ …,\
+n)\)</span> 对于任意 <span class="math inline">\(I\subset \{1,\ 2,\ …,\
+n\}\)</span>，有 <span class="math display">\[
+P(\bigcap_{i\in I}A_i) = \prod_{i\in I}P(A_i)
+\]</span> 则称 <span class="math inline">\(A_k(k = 1,\ 2,\ …,\
+n)\)</span> 相互独立</p>
+<h5 id="定理-2.4独立性的另一定义">定理 2.4：独立性的另一定义</h5>
+<p>设 <span class="math inline">\(A\)</span>，<span
+class="math inline">\(B\)</span> 是两个事件，且 <span
+class="math inline">\(P(A) &gt; 0\)</span> ，则 <span
+class="math inline">\(A\)</span>，<span class="math inline">\(B\)</span>
+独立当且仅当 <span class="math display">\[
+P(B|A) = P(B)
+\]</span></p>
+<h5 id="定理-2.5独立性的推论">定理 2.5：独立性的推论</h5>
+<p>若事件 <span class="math inline">\(A\)</span>，<span
+class="math inline">\(B\)</span> 独立，则对下列各对事件均相互独立 <span
+class="math display">\[
+A\ \&amp;\ \overline{B}\\ \overline{A}\ \&amp;\ B\\ \overline{A}\
+\&amp;\ \overline{B}
+\]</span></p>
+<h3 id="随机测试示例">2.3随机测试示例</h3>
+<h4 id="问题背景">2.3.1 问题背景</h4>
+<h4 id="随机测试初步">2.3.2 随机测试初步</h4>
+<h4 id="随机测试改进">2.3.3 随机测试改进</h4>
+
                 
               </div>
             

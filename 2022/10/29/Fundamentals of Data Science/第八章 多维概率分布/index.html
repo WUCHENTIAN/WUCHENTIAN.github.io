@@ -18,15 +18,15 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="第八章 多维概率分布8.1 多维概率分布8.1.1 联合分布 二维随机变量 设样本空间为 $\Omega &#x3D; e$，$X &#x3D; X(e)$，和 $Y &#x3D; Y(e)$，是定义在 $\Omega$ 上的随机变量，由他们构成的一个变量 $(X,Y)$ 叫做二维随机变量或二维随机向量   定义 8.1：联合分布设 $(X,Y)$ 是二维随机变量， $x,y$ 是任意实数，称二元函数$$F(x,y) &#x3D; P(">
+    <meta name="description" content="第八章 多维概率分布 8.1 多维概率分布 8.1.1 联合分布  二维随机变量 设样本空间为 \(\Omega &#x3D; e\)，\(X &#x3D; X(e)\)，和 \(Y &#x3D; Y(e)\)，是定义在 \(\Omega\) 上的随机变量，由他们构成的一个变量 \((X,Y)\) 叫做二维随机变量或二维随机向量  定义 8.1：联合分布 设 \((X,Y)\) 是二维随机变量， \(x,y\) 是任意实数，称">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第八章 多维概率分布">
 <meta property="og:url" content="https://wuchentian.github.io/2022/10/29/Fundamentals%20of%20Data%20Science/%E7%AC%AC%E5%85%AB%E7%AB%A0%20%E5%A4%9A%E7%BB%B4%E6%A6%82%E7%8E%87%E5%88%86%E5%B8%83/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="第八章 多维概率分布8.1 多维概率分布8.1.1 联合分布 二维随机变量 设样本空间为 $\Omega &#x3D; e$，$X &#x3D; X(e)$，和 $Y &#x3D; Y(e)$，是定义在 $\Omega$ 上的随机变量，由他们构成的一个变量 $(X,Y)$ 叫做二维随机变量或二维随机向量   定义 8.1：联合分布设 $(X,Y)$ 是二维随机变量， $x,y$ 是任意实数，称二元函数$$F(x,y) &#x3D; P(">
+<meta property="og:description" content="第八章 多维概率分布 8.1 多维概率分布 8.1.1 联合分布  二维随机变量 设样本空间为 \(\Omega &#x3D; e\)，\(X &#x3D; X(e)\)，和 \(Y &#x3D; Y(e)\)，是定义在 \(\Omega\) 上的随机变量，由他们构成的一个变量 \((X,Y)\) 叫做二维随机变量或二维随机向量  定义 8.1：联合分布 设 \((X,Y)\) 是二维随机变量， \(x,y\) 是任意实数，称">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-10-29T01:03:00.000Z">
-<meta property="article:modified_time" content="2022-10-29T01:04:09.152Z">
+<meta property="article:modified_time" content="2022-10-29T06:30:36.655Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="矩">
 <meta property="article:tag" content="概率分布">
@@ -234,7 +234,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.7k words
+          4k words
         
       </span>
     
@@ -245,7 +245,7 @@
         
         
         
-          32 mins
+          34 mins
         
       </span>
     
@@ -288,39 +288,251 @@
             
               <div class="markdown-body">
                 
-                <h2 id="第八章-多维概率分布"><a href="#第八章-多维概率分布" class="headerlink" title="第八章 多维概率分布"></a>第八章 多维概率分布</h2><h3 id="8-1-多维概率分布"><a href="#8-1-多维概率分布" class="headerlink" title="8.1 多维概率分布"></a>8.1 多维概率分布</h3><h4 id="8-1-1-联合分布"><a href="#8-1-1-联合分布" class="headerlink" title="8.1.1 联合分布"></a>8.1.1 联合分布</h4><ol>
+                <h2 id="第八章-多维概率分布">第八章 多维概率分布</h2>
+<h3 id="多维概率分布">8.1 多维概率分布</h3>
+<h4 id="联合分布">8.1.1 联合分布</h4>
+<ol type="1">
 <li><p>二维随机变量</p>
-<p>设样本空间为 $\Omega = e$，$X = X(e)$，和 $Y = Y(e)$，是定义在 $\Omega$ 上的随机变量，由他们构成的一个变量 $(X,Y)$ 叫做二维随机变量或二维随机向量</p>
-</li>
+<p>设样本空间为 <span class="math inline">\(\Omega = e\)</span>，<span
+class="math inline">\(X = X(e)\)</span>，和 <span
+class="math inline">\(Y = Y(e)\)</span>，是定义在 <span
+class="math inline">\(\Omega\)</span> 上的随机变量，由他们构成的一个变量
+<span class="math inline">\((X,Y)\)</span>
+叫做二维随机变量或二维随机向量</p></li>
 </ol>
-<h5 id="定义-8-1：联合分布"><a href="#定义-8-1：联合分布" class="headerlink" title="定义 8.1：联合分布"></a>定义 8.1：联合分布</h5><p>设 $(X,Y)$ 是二维随机变量， $x,y$ 是任意实数，称二元函数<br>$$<br>F(x,y) = P(X\leq x\cap Y\leq y) = P(X\leq x,Y\leq y)<br>$$<br>为二元随机变量 $(X,Y)$ 的联合分布函数</p>
-<h5 id="定义-8-2：二维离散随机变量概率分布律"><a href="#定义-8-2：二维离散随机变量概率分布律" class="headerlink" title="定义 8.2：二维离散随机变量概率分布律"></a>定义 8.2：二维离散随机变量概率分布律</h5><p>若二维随机变量的可能取值只有有限个或者可列无穷个，则称二维随机变量为离散型随机变量。二维离散型随机变量 $(X,Y)$ 的所有可能取值为 $(x_i,y_i),(i=1,2,…,n)$，则称<br>$$<br>P{X = x_i,Y = y_i} = p_{ij}<br>$$<br>为二维离散行随机变量 $(X,Y)$ 的概率分布律，简称分布律</p>
+<h5 id="定义-8.1联合分布">定义 8.1：联合分布</h5>
+<p>设 <span class="math inline">\((X,Y)\)</span> 是二维随机变量， <span
+class="math inline">\(x,y\)</span> 是任意实数，称二元函数 <span
+class="math display">\[
+F(x,y) = P(X\leq x\cap Y\leq y) = P(X\leq x,Y\leq y)
+\]</span> 为二元随机变量 <span class="math inline">\((X,Y)\)</span>
+的联合分布函数</p>
+<h5 id="定义-8.2二维离散随机变量概率分布律">定义
+8.2：二维离散随机变量概率分布律</h5>
+<p>若二维随机变量的可能取值只有有限个或者可列无穷个，则称二维随机变量为离散型随机变量。二维离散型随机变量
+<span class="math inline">\((X,Y)\)</span> 的所有可能取值为 <span
+class="math inline">\((x_i,y_i),(i=1,2,…,n)\)</span>，则称 <span
+class="math display">\[
+P\{X = x_i,Y = y_i\} = p_{ij}
+\]</span> 为二维离散行随机变量 <span
+class="math inline">\((X,Y)\)</span> 的概率分布律，简称分布律</p>
 <p>注意，二维离散随机变量的概率分布仍然满足概率的公理化定义：非负性，规范性，可列可加性（级数）</p>
-<h5 id="定义-8-3：二位连续随机变量的概率密度"><a href="#定义-8-3：二位连续随机变量的概率密度" class="headerlink" title="定义 8.3：二位连续随机变量的概率密度"></a>定义 8.3：二位连续随机变量的概率密度</h5><p>设二维随机变量 $(X,Y)$ 的分布函数为 $F(x,y)$，如果存在非负函数 $f(x,y)$，使得 $\forall x,y\in\mathbb{R}$，都有<br>$$<br>F(x,y) = \int_{-\infty}^{x}\int_{-\infty}^{y}f(s,t)dsdt<br>$$<br>则称 $(X,Y)$ 为二位连续随机变量，并称非负函数 $f(x,y)$ 为 $(X,Y)$ 的概率密度函数，或称 $f(x,y)$ 为 $X$ 和 $Y$ 的联合概率密度</p>
-<p>注意，二维连续随机变量的概率分布仍然满足概率的公理化定义：非负性，规范性，可列可加性（级数），在此基础上，我们还有<br>$$<br>f(x,y) = \frac{\partial^2F(x,y)}{\partial x\partial y}<br>$$</p>
-<h4 id="8-1-2-边缘分布"><a href="#8-1-2-边缘分布" class="headerlink" title="8.1.2 边缘分布"></a>8.1.2 边缘分布</h4><h5 id="定义-8-4：二维随机变量的边缘分布"><a href="#定义-8-4：二维随机变量的边缘分布" class="headerlink" title="定义 8.4：二维随机变量的边缘分布"></a>定义 8.4：二维随机变量的边缘分布</h5><p>设 $(X,Y)$ 为二维随机变量，称一维随机变量 $X$ 或 $Y$ 的概率分布为二维随机变量 $(X,Y)$ 关于 $X$ 或 $Y$ 对应的边缘分布，分别记作 $F_X(x), F_Y(y)$</p>
-<h5 id="定义-8-5：二维离散随机变量的边缘分布律"><a href="#定义-8-5：二维离散随机变量的边缘分布律" class="headerlink" title="定义 8.5：二维离散随机变量的边缘分布律"></a>定义 8.5：二维离散随机变量的边缘分布律</h5><p>设二维随机变量 $(X,Y)$ 的分布律为 $p_{ij}$，那么对于随机变量 $X$，$Y$ 其各自的分布律对于固定的 $i,j = 1,2,…$， 满足<br>$$<br>P{X=x_i} = \sum_jp_{ij}=p_i<br>$$<br>则称 $p_i$ 为随机变量 $(X,Y)$ 的边缘分布律。</p>
-<h5 id="定义-8-6：二维连续随机变量的边缘概率密度"><a href="#定义-8-6：二维连续随机变量的边缘概率密度" class="headerlink" title="定义 8.6：二维连续随机变量的边缘概率密度"></a>定义 8.6：二维连续随机变量的边缘概率密度</h5><p>设二维随机变量 $(X,Y)$ 的概率密度为 $f(x,y)$，边缘概率密度 $f_X(x)$ 和 $f_Y(y)$ 定义为<br>$$<br>f_X(x) = \int_{-\infty}^{+\infty}f(x,y)dy\<br>f_Y(y) = \int_{-\infty}^{+\infty}f(x,y)dx<br>$$</p>
-<h4 id="8-1-3-条件分布"><a href="#8-1-3-条件分布" class="headerlink" title="8.1.3 条件分布"></a>8.1.3 条件分布</h4><h5 id="定义-8-7：离散型随机变量的条件概率"><a href="#定义-8-7：离散型随机变量的条件概率" class="headerlink" title="定义 8.7：离散型随机变量的条件概率"></a>定义 8.7：离散型随机变量的条件概率</h5><p>设 $(X,Y)$ 是二维离散型随机变量，其分布律为 $P{X=x_i,Y=y_i}=p_{ij}$，其边缘概率分别为 $p_{i\cdot}\ p_{\cdot j}$，则条件概率定义为<br>$$<br>P{X=x_i|Y=y_i}=\frac{P{X=x_i,Y=y_i}}{P{Y=y_i}} = \frac{p_{ij}}{p_{\cdot j}}\<br>P{Y=y_i|X=x_i}=\frac{P{X=x_i,Y=y_i}}{P{X=x_i}} = \frac{p_{ij}}{p_{i \cdot}}<br>$$</p>
-<h5 id="定义-8-8：连续型随机变量的条件概率"><a href="#定义-8-8：连续型随机变量的条件概率" class="headerlink" title="定义 8.8：连续型随机变量的条件概率"></a>定义 8.8：连续型随机变量的条件概率</h5><p>设 $(X,Y)$ 是二维连续型随机变量，其概率密度为 $f(x,y)$，其边缘改率分别为 $f_X(x), f_Y(y)$，则条件概率定义为<br>$$<br>f_{X|Y}(x|y) = \frac{f(x,y)}{f_Y(y)}\<br>f_{Y|X}(y|x) = \frac{f(x,y)}{f_X(x)}\<br>$$<br>连续型随机变量的条件概率分布定义为<br>$$<br>F_{X|Y}(x|y) = P{X\leq x|Y=y}=\int_{-\infty}^{x}\frac{f(x,y)}{f_Y(y)}dx\<br>F_{Y|X}(y|x) = P{Y\leq y|X=x}=\int_{-\infty}^{y}\frac{f(x,y)}{f_X(x)}dy\<br>$$</p>
-<h4 id="8-1-4-独立性"><a href="#8-1-4-独立性" class="headerlink" title="8.1.4 独立性"></a>8.1.4 独立性</h4><h5 id="定义-8-9：独立性"><a href="#定义-8-9：独立性" class="headerlink" title="定义 8.9：独立性"></a>定义 8.9：独立性</h5><p>二维随机变量 $(X,Y)$ 的分布函数及其边缘分布函数分别设为 $F(x,y)$ 和 $F_X(x),\ F_Y(y)$，若<br>$$<br>\forall (x,y):F(x,y) = F_X(x)F_Y(y)<br>$$<br>则称随机变量 $X$ 和 $Y$ 是相互独立的</p>
-<h5 id="定义-8-10：离散随机变量的独立性"><a href="#定义-8-10：离散随机变量的独立性" class="headerlink" title="定义 8.10：离散随机变量的独立性"></a>定义 8.10：离散随机变量的独立性</h5><p>离散二维随机变量 $(X,Y)$ 的联合分布律和边缘分布律分别设为 $p_{ij}$ 和 $p_{i\cdot},\ p_{\cdot j}$，若<br>$$<br>\forall (i，j):p_{ij} = p_{i\cdot}\times p_{\cdot j}<br>$$<br>则称随机变量 $X$ 和 $Y$ 是相互独立的</p>
-<h5 id="定义-8-11：连续随机变量的独立性"><a href="#定义-8-11：连续随机变量的独立性" class="headerlink" title="定义 8.11：连续随机变量的独立性"></a>定义 8.11：连续随机变量的独立性</h5><p>连续二维随机变量 $(X,Y)$ 的联合分布律和边缘分布律分别设为 $f(x,y)$ 和 $f_X(x),\ f_Y(y)$，若<br>$$<br>\forall (x,y):f(x,y) = f_X(x)\times f_Y(y)<br>$$<br>则称随机变量 $X$ 和 $Y$ 是相互独立的</p>
-<h3 id="8-2-多维分布的矩"><a href="#8-2-多维分布的矩" class="headerlink" title="8.2 多维分布的矩"></a>8.2 多维分布的矩</h3><h4 id="8-2-1-独立性的多维矩"><a href="#8-2-1-独立性的多维矩" class="headerlink" title="8.2.1 独立性的多维矩"></a>8.2.1 独立性的多维矩</h4><h5 id="定理-8-1："><a href="#定理-8-1：" class="headerlink" title="定理 8.1："></a>定理 8.1：</h5><p>已知 $X$ 和 $Y$ 相互独立，则有：<br>$$<br>E(XY) = E(X)E(Y)<br>$$</p>
-<h5 id="定理-8-2："><a href="#定理-8-2：" class="headerlink" title="定理 8.2："></a>定理 8.2：</h5><p>已知 $X$ 和 $Y$ 相互独立，则有：<br>$$<br>D(X+Y) = D(X) + D(Y)<br>$$</p>
-<h4 id="8-2-2-相关性的多维矩"><a href="#8-2-2-相关性的多维矩" class="headerlink" title="8.2.2 相关性的多维矩"></a>8.2.2 相关性的多维矩</h4><h5 id="定义-8-12：协方差"><a href="#定义-8-12：协方差" class="headerlink" title="定义 8.12：协方差"></a>定义 8.12：协方差</h5><p>随机变量 $X$ 和 $Y$ 的协方差定义为<br>$$<br>Cov(X,Y)\triangleq E(X-E(X))E(Y-E(Y))<br>$$</p>
-<h5 id="定理-8-3：协方差计算"><a href="#定理-8-3：协方差计算" class="headerlink" title="定理 8.3：协方差计算"></a>定理 8.3：协方差计算</h5><p>$$<br>Cov(X,Y) = E(XY)-E(X)E(Y)<br>$$</p>
-<h5 id="推论-8-1："><a href="#推论-8-1：" class="headerlink" title="推论 8.1："></a>推论 8.1：</h5><p>对于任意随机变量 $X,Y,Z$，不难得出：<br>$$<br>Cov(X,Y)=Cov(Y,X)\<br>Cov(a,a)=0\<br>Cov(aX,bY)=abCov(X,Y)\<br>Cov(X+Y,Z)=Cov(X,Z)+Cov(Y,Z)<br>$$</p>
-<h5 id="推论-8-2："><a href="#推论-8-2：" class="headerlink" title="推论 8.2："></a>推论 8.2：</h5><p>对于任意随机变量 $X,Y:$<br>$$<br>D(X\pm Y)=D(X)+D(Y)\pm 2Cov(X,Y)<br>$$</p>
-<h5 id="推论-8-3："><a href="#推论-8-3：" class="headerlink" title="推论 8.3："></a>推论 8.3：</h5><p>若 $X$ 与 $Y$ 相互独立，则：<br>$$<br>Cov(X,Y) = 0<br>$$</p>
-<h5 id="定义-8-13：相关系数"><a href="#定义-8-13：相关系数" class="headerlink" title="定义 8.13：相关系数"></a>定义 8.13：相关系数</h5><p>协方差的数值会收到 $X,Y$ 的量纲的影响，为了更加客观地度量变量之间的关系，我们将协方差归一化，定义为相关系数。若随机变量 $X$ 和 $Y$ 的数学期望和方差都存在，则称：<br>$$<br>\rho_{XY}=\frac{Cov(X,Y)}{\sqrt{D(X)D(Y)}}\<br>$$<br>为随机变量 $X$ 和 $Y$ 的相关系数</p>
-<h5 id="定理-8-4：Schwarz不等式"><a href="#定理-8-4：Schwarz不等式" class="headerlink" title="定理 8.4：Schwarz不等式"></a>定理 8.4：Schwarz不等式</h5><p>$$<br>Cov^2(X,Y)\leq \sigma^2_X\sigma^2_Y\<br>$$</p>
-<h5 id="推论-8-4：相关系数归一性"><a href="#推论-8-4：相关系数归一性" class="headerlink" title="推论 8.4：相关系数归一性"></a>推论 8.4：相关系数归一性</h5><p>$$<br>|\rho_{XY}|\leq 1\<br>$$</p>
-<h5 id="定理-8-5：线性相关定理"><a href="#定理-8-5：线性相关定理" class="headerlink" title="定理 8.5：线性相关定理"></a>定理 8.5：线性相关定理</h5><p>$|\rho_{XY}|=1$ 的充要条件是 $X,Y$ 几乎处处线性相关</p>
-<h3 id="8-3-常用二维分布"><a href="#8-3-常用二维分布" class="headerlink" title="8.3 常用二维分布"></a>8.3 常用二维分布</h3><h4 id="8-3-1-二维均匀分布"><a href="#8-3-1-二维均匀分布" class="headerlink" title="8.3.1 二维均匀分布"></a>8.3.1 二维均匀分布</h4><h5 id="定义-8-14：二维均匀分布"><a href="#定义-8-14：二维均匀分布" class="headerlink" title="定义 8.14：二维均匀分布"></a>定义 8.14：二维均匀分布</h5><p>设 $G$ 是平面上的有界闭区域，其面积为 $A$，若二维随机变量 $(X,Y)$ 具有概率密度<br>$$<br>\forall(x,y)\in G:f(x,y)=\frac{1}{A}\<br>\forall(x,y)\not \in G:f(x,y) = 0\<br>$$<br>则称 $(X,Y)$ 在 $G$ 上二维均匀分布</p>
-<h4 id="8-3-2-二维正态分布"><a href="#8-3-2-二维正态分布" class="headerlink" title="8.3.2 二维正态分布"></a>8.3.2 二维正态分布</h4><p>如果随机变量 $(X,Y)$ 的概率密度为<br>$$<br>f(x,y) = \frac{1}{2\pi\sigma_1\sigma_2\sqrt{1-\rho^2}}e^{-\frac{1}{2(1-\rho)^2}\bigg[\frac{(x-\mu_1)^2}{\sigma_1^2}-2\rho\frac{(x-\mu_1)(y-\mu_2)}{\sigma_1\sigma_2}+\frac{(y-\mu_2)^2}{\sigma_2^2}\bigg]}\<br>-\infty&lt;x,y&lt;+\infty\<br>$$<br>则称 $(X,Y)$ 服从参数为 $\mu_1,\mu_2,\sigma_1,\sigma_2,\rho$ 的二维正态分布，记为<br>$$<br>(X,Y)\sim \mathbb{N}(\mu_1,\mu_2,\sigma_1^2,\sigma_2^2,\rho)\<br>$$</p>
-<h3 id="8-4-函数的概率分布"><a href="#8-4-函数的概率分布" class="headerlink" title="8.4 函数的概率分布"></a>8.4 函数的概率分布</h3><h4 id="8-4-1-离散函数的分布"><a href="#8-4-1-离散函数的分布" class="headerlink" title="8.4.1 离散函数的分布"></a>8.4.1 离散函数的分布</h4><h4 id="8-4-2-连续函数的分布"><a href="#8-4-2-连续函数的分布" class="headerlink" title="8.4.2 连续函数的分布"></a>8.4.2 连续函数的分布</h4><h5 id="定理-8-6：函数的分布定理"><a href="#定理-8-6：函数的分布定理" class="headerlink" title="定理 8.6：函数的分布定理"></a>定理 8.6：函数的分布定理</h5><p>$X$ 的密度函数为 $f_X(x)$，$-\infty&lt;x&lt;+\infty$，$Y = g(X)$ 严格单调，即 $g’(x)&gt;0 $ 或 $ g’(x)&lt;0$，则 $Y$ 的密度函数为：<br>$$<br>f_Y(x) = f_X(h(y))|h’(y)|\ \ \ (a&lt;y&lt;b)\<br>$$<br>其中<br>$$<br>&amp;a = min(g(-\infty),g(+\infty))\ &amp;b = max(g(-\infty),\ g(+\infty))\ &amp;h(y) = g^{-1}(x)\<br>$$</p>
-<h4 id="8-4-3-极值函数的分布"><a href="#8-4-3-极值函数的分布" class="headerlink" title="8.4.3 极值函数的分布"></a>8.4.3 极值函数的分布</h4>
+<h5 id="定义-8.3二位连续随机变量的概率密度">定义
+8.3：二位连续随机变量的概率密度</h5>
+<p>设二维随机变量 <span class="math inline">\((X,Y)\)</span>
+的分布函数为 <span
+class="math inline">\(F(x,y)\)</span>，如果存在非负函数 <span
+class="math inline">\(f(x,y)\)</span>，使得 <span
+class="math inline">\(\forall x,y\in\mathbb{R}\)</span>，都有 <span
+class="math display">\[
+F(x,y) = \int_{-\infty}^{x}\int_{-\infty}^{y}f(s,t)dsdt
+\]</span> 则称 <span class="math inline">\((X,Y)\)</span>
+为二位连续随机变量，并称非负函数 <span
+class="math inline">\(f(x,y)\)</span> 为 <span
+class="math inline">\((X,Y)\)</span> 的概率密度函数，或称 <span
+class="math inline">\(f(x,y)\)</span> 为 <span
+class="math inline">\(X\)</span> 和 <span
+class="math inline">\(Y\)</span> 的联合概率密度</p>
+<p>注意，二维连续随机变量的概率分布仍然满足概率的公理化定义：非负性，规范性，可列可加性（级数），在此基础上，我们还有
+<span class="math display">\[
+f(x,y) = \frac{\partial^2F(x,y)}{\partial x\partial y}
+\]</span></p>
+<h4 id="边缘分布">8.1.2 边缘分布</h4>
+<h5 id="定义-8.4二维随机变量的边缘分布">定义
+8.4：二维随机变量的边缘分布</h5>
+<p>设 <span class="math inline">\((X,Y)\)</span>
+为二维随机变量，称一维随机变量 <span class="math inline">\(X\)</span> 或
+<span class="math inline">\(Y\)</span> 的概率分布为二维随机变量 <span
+class="math inline">\((X,Y)\)</span> 关于 <span
+class="math inline">\(X\)</span> 或 <span
+class="math inline">\(Y\)</span> 对应的边缘分布，分别记作 <span
+class="math inline">\(F_X(x), F_Y(y)\)</span></p>
+<h5 id="定义-8.5二维离散随机变量的边缘分布律">定义
+8.5：二维离散随机变量的边缘分布律</h5>
+<p>设二维随机变量 <span class="math inline">\((X,Y)\)</span> 的分布律为
+<span class="math inline">\(p_{ij}\)</span>，那么对于随机变量 <span
+class="math inline">\(X\)</span>，<span class="math inline">\(Y\)</span>
+其各自的分布律对于固定的 <span class="math inline">\(i,j =
+1,2,…\)</span>， 满足 <span class="math display">\[
+P\{X=x_i\} = \sum_jp_{ij}=p_i
+\]</span> 则称 <span class="math inline">\(p_i\)</span> 为随机变量 <span
+class="math inline">\((X,Y)\)</span> 的边缘分布律。</p>
+<h5 id="定义-8.6二维连续随机变量的边缘概率密度">定义
+8.6：二维连续随机变量的边缘概率密度</h5>
+<p>设二维随机变量 <span class="math inline">\((X,Y)\)</span>
+的概率密度为 <span class="math inline">\(f(x,y)\)</span>，边缘概率密度
+<span class="math inline">\(f_X(x)\)</span> 和 <span
+class="math inline">\(f_Y(y)\)</span> 定义为 <span
+class="math display">\[
+f_X(x) = \int_{-\infty}^{+\infty}f(x,y)dy\\
+f_Y(y) = \int_{-\infty}^{+\infty}f(x,y)dx
+\]</span></p>
+<h4 id="条件分布">8.1.3 条件分布</h4>
+<h5 id="定义-8.7离散型随机变量的条件概率">定义
+8.7：离散型随机变量的条件概率</h5>
+<p>设 <span class="math inline">\((X,Y)\)</span>
+是二维离散型随机变量，其分布律为 <span
+class="math inline">\(P\{X=x_i,Y=y_i\}=p_{ij}\)</span>，其边缘概率分别为
+<span class="math inline">\(p_{i\cdot}\ p_{\cdot
+j}\)</span>，则条件概率定义为 <span class="math display">\[
+P\{X=x_i|Y=y_i\}=\frac{P\{X=x_i,Y=y_i\}}{P\{Y=y_i\}} =
+\frac{p_{ij}}{p_{\cdot j}}\\
+P\{Y=y_i|X=x_i\}=\frac{P\{X=x_i,Y=y_i\}}{P\{X=x_i\}} =
+\frac{p_{ij}}{p_{i \cdot}}
+\]</span></p>
+<h5 id="定义-8.8连续型随机变量的条件概率">定义
+8.8：连续型随机变量的条件概率</h5>
+<p>设 <span class="math inline">\((X,Y)\)</span>
+是二维连续型随机变量，其概率密度为 <span
+class="math inline">\(f(x,y)\)</span>，其边缘改率分别为 <span
+class="math inline">\(f_X(x), f_Y(y)\)</span>，则条件概率定义为 <span
+class="math display">\[
+f_{X|Y}(x|y) = \frac{f(x,y)}{f_Y(y)}\\
+f_{Y|X}(y|x) = \frac{f(x,y)}{f_X(x)}\\
+\]</span> 连续型随机变量的条件概率分布定义为 <span
+class="math display">\[
+F_{X|Y}(x|y) = P\{X\leq
+x|Y=y\}=\int_{-\infty}^{x}\frac{f(x,y)}{f_Y(y)}dx\\
+F_{Y|X}(y|x) = P\{Y\leq
+y|X=x\}=\int_{-\infty}^{y}\frac{f(x,y)}{f_X(x)}dy\\
+\]</span></p>
+<h4 id="独立性">8.1.4 独立性</h4>
+<h5 id="定义-8.9独立性">定义 8.9：独立性</h5>
+<p>二维随机变量 <span class="math inline">\((X,Y)\)</span>
+的分布函数及其边缘分布函数分别设为 <span
+class="math inline">\(F(x,y)\)</span> 和 <span
+class="math inline">\(F_X(x),\ F_Y(y)\)</span>，若 <span
+class="math display">\[
+\forall (x,y):F(x,y) = F_X(x)F_Y(y)
+\]</span> 则称随机变量 <span class="math inline">\(X\)</span> 和 <span
+class="math inline">\(Y\)</span> 是相互独立的</p>
+<h5 id="定义-8.10离散随机变量的独立性">定义
+8.10：离散随机变量的独立性</h5>
+<p>离散二维随机变量 <span class="math inline">\((X,Y)\)</span>
+的联合分布律和边缘分布律分别设为 <span
+class="math inline">\(p_{ij}\)</span> 和 <span
+class="math inline">\(p_{i\cdot},\ p_{\cdot j}\)</span>，若 <span
+class="math display">\[
+\forall (i，j):p_{ij} = p_{i\cdot}\times p_{\cdot j}
+\]</span> 则称随机变量 <span class="math inline">\(X\)</span> 和 <span
+class="math inline">\(Y\)</span> 是相互独立的</p>
+<h5 id="定义-8.11连续随机变量的独立性">定义
+8.11：连续随机变量的独立性</h5>
+<p>连续二维随机变量 <span class="math inline">\((X,Y)\)</span>
+的联合分布律和边缘分布律分别设为 <span
+class="math inline">\(f(x,y)\)</span> 和 <span
+class="math inline">\(f_X(x),\ f_Y(y)\)</span>，若 <span
+class="math display">\[
+\forall (x,y):f(x,y) = f_X(x)\times f_Y(y)
+\]</span> 则称随机变量 <span class="math inline">\(X\)</span> 和 <span
+class="math inline">\(Y\)</span> 是相互独立的</p>
+<h3 id="多维分布的矩">8.2 多维分布的矩</h3>
+<h4 id="独立性的多维矩">8.2.1 独立性的多维矩</h4>
+<h5 id="定理-8.1">定理 8.1：</h5>
+<p>已知 <span class="math inline">\(X\)</span> 和 <span
+class="math inline">\(Y\)</span> 相互独立，则有： <span
+class="math display">\[
+E(XY) = E(X)E(Y)
+\]</span></p>
+<h5 id="定理-8.2">定理 8.2：</h5>
+<p>已知 <span class="math inline">\(X\)</span> 和 <span
+class="math inline">\(Y\)</span> 相互独立，则有： <span
+class="math display">\[
+D(X+Y) = D(X) + D(Y)
+\]</span></p>
+<h4 id="相关性的多维矩">8.2.2 相关性的多维矩</h4>
+<h5 id="定义-8.12协方差">定义 8.12：协方差</h5>
+<p>随机变量 <span class="math inline">\(X\)</span> 和 <span
+class="math inline">\(Y\)</span> 的协方差定义为 <span
+class="math display">\[
+Cov(X,Y)\triangleq E(X-E(X))E(Y-E(Y))
+\]</span></p>
+<h5 id="定理-8.3协方差计算">定理 8.3：协方差计算</h5>
+<p><span class="math display">\[
+Cov(X,Y) = E(XY)-E(X)E(Y)
+\]</span></p>
+<h5 id="推论-8.1">推论 8.1：</h5>
+<p>对于任意随机变量 <span
+class="math inline">\(X,Y,Z\)</span>，不难得出： <span
+class="math display">\[
+Cov(X,Y)=Cov(Y,X)\\
+Cov(a,a)=0\\
+Cov(aX,bY)=abCov(X,Y)\\
+Cov(X+Y,Z)=Cov(X,Z)+Cov(Y,Z)
+\]</span></p>
+<h5 id="推论-8.2">推论 8.2：</h5>
+<p>对于任意随机变量 <span class="math inline">\(X,Y:\)</span> <span
+class="math display">\[
+D(X\pm Y)=D(X)+D(Y)\pm 2Cov(X,Y)
+\]</span></p>
+<h5 id="推论-8.3">推论 8.3：</h5>
+<p>若 <span class="math inline">\(X\)</span> 与 <span
+class="math inline">\(Y\)</span> 相互独立，则： <span
+class="math display">\[
+Cov(X,Y) = 0
+\]</span></p>
+<h5 id="定义-8.13相关系数">定义 8.13：相关系数</h5>
+<p>协方差的数值会收到 <span class="math inline">\(X,Y\)</span>
+的量纲的影响，为了更加客观地度量变量之间的关系，我们将协方差归一化，定义为相关系数。若随机变量
+<span class="math inline">\(X\)</span> 和 <span
+class="math inline">\(Y\)</span> 的数学期望和方差都存在，则称： <span
+class="math display">\[
+\rho_{XY}=\frac{Cov(X,Y)}{\sqrt{D(X)D(Y)}}\\
+\]</span> 为随机变量 <span class="math inline">\(X\)</span> 和 <span
+class="math inline">\(Y\)</span> 的相关系数</p>
+<h5 id="定理-8.4schwarz不等式">定理 8.4：Schwarz不等式</h5>
+<p><span class="math display">\[
+Cov^2(X,Y)\leq \sigma^2_X\sigma^2_Y\\
+\]</span></p>
+<h5 id="推论-8.4相关系数归一性">推论 8.4：相关系数归一性</h5>
+<p><span class="math display">\[
+|\rho_{XY}|\leq 1\\
+\]</span></p>
+<h5 id="定理-8.5线性相关定理">定理 8.5：线性相关定理</h5>
+<p><span class="math inline">\(|\rho_{XY}|=1\)</span> 的充要条件是 <span
+class="math inline">\(X,Y\)</span> 几乎处处线性相关</p>
+<h3 id="常用二维分布">8.3 常用二维分布</h3>
+<h4 id="二维均匀分布">8.3.1 二维均匀分布</h4>
+<h5 id="定义-8.14二维均匀分布">定义 8.14：二维均匀分布</h5>
+<p>设 <span class="math inline">\(G\)</span>
+是平面上的有界闭区域，其面积为 <span
+class="math inline">\(A\)</span>，若二维随机变量 <span
+class="math inline">\((X,Y)\)</span> 具有概率密度 <span
+class="math display">\[
+\forall(x,y)\in G:f(x,y)=\frac{1}{A}\\
+\forall(x,y)\not \in G:f(x,y) = 0\\
+\]</span> 则称 <span class="math inline">\((X,Y)\)</span> 在 <span
+class="math inline">\(G\)</span> 上二维均匀分布</p>
+<h4 id="二维正态分布">8.3.2 二维正态分布</h4>
+<p>如果随机变量 <span class="math inline">\((X,Y)\)</span> 的概率密度为
+<span class="math display">\[
+f(x,y) =
+\frac{1}{2\pi\sigma_1\sigma_2\sqrt{1-\rho^2}}e^{-\frac{1}{2(1-\rho)^2}\bigg[\frac{(x-\mu_1)^2}{\sigma_1^2}-2\rho\frac{(x-\mu_1)(y-\mu_2)}{\sigma_1\sigma_2}+\frac{(y-\mu_2)^2}{\sigma_2^2}\bigg]}\\
+-\infty&lt;x,y&lt;+\infty\\
+\]</span> 则称 <span class="math inline">\((X,Y)\)</span> 服从参数为
+<span class="math inline">\(\mu_1,\mu_2,\sigma_1,\sigma_2,\rho\)</span>
+的二维正态分布，记为 <span class="math display">\[
+(X,Y)\sim \mathbb{N}(\mu_1,\mu_2,\sigma_1^2,\sigma_2^2,\rho)\\
+\]</span></p>
+<h3 id="函数的概率分布">8.4 函数的概率分布</h3>
+<h4 id="离散函数的分布">8.4.1 离散函数的分布</h4>
+<h4 id="连续函数的分布">8.4.2 连续函数的分布</h4>
+<h5 id="定理-8.6函数的分布定理">定理 8.6：函数的分布定理</h5>
+<p><span class="math inline">\(X\)</span> 的密度函数为 <span
+class="math inline">\(f_X(x)\)</span>，<span
+class="math inline">\(-\infty&lt;x&lt;+\infty\)</span>，<span
+class="math inline">\(Y = g(X)\)</span> 严格单调，即 $g'(x)&gt;0 $ 或 $
+g'(x)&lt;0$，则 <span class="math inline">\(Y\)</span> 的密度函数为：
+<span class="math display">\[
+f_Y(x) = f_X(h(y))|h&#39;(y)|\ \ \ (a&lt;y&lt;b)\\
+\]</span> 其中 <span class="math display">\[
+\begin{align}
+&amp;a = min(g(-\infty),g(+\infty))\\ &amp;b = max(g(-\infty),\
+g(+\infty))\\ &amp;h(y) = g^{-1}(x)
+\end{align}
+\]</span></p>
+<h4 id="极值函数的分布">8.4.3 极值函数的分布</h4>
+
                 
               </div>
             

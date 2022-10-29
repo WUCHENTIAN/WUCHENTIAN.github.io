@@ -18,12 +18,12 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="queue是一种容器转换器模板，调用#include&lt; queue&gt;即可使用队列类。 1. 头文件1#include &lt;queue&gt;    2. queue 初始化1queue&lt;Type, Container&gt; &#x2F;&#x2F;(&lt;数据类型，容器类型&gt;）   初始化时必须要有数据类型，容器可省略，省略时则默认为deque 类型  注意：不能用vector容器初始">
+    <meta name="description" content="queue是一种容器转换器模板，调用#include&lt; queue&gt;即可使用队列类。 1. 头文件 1#include &lt;queue&gt; 2. queue 初始化 1queue&lt;Type, Container&gt; &#x2F;&#x2F;(&lt;数据类型，容器类型&gt;） 初始化时必须要有数据类型，容器可省略，省略时则默认为deque 类型 注意：不能用vector容器初始化que">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C++ queue">
 <meta property="og:url" content="https://wuchentian.github.io/2022/10/26/C++%20Basic/STL%20Containers/C++%20queue/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="queue是一种容器转换器模板，调用#include&lt; queue&gt;即可使用队列类。 1. 头文件1#include &lt;queue&gt;    2. queue 初始化1queue&lt;Type, Container&gt; &#x2F;&#x2F;(&lt;数据类型，容器类型&gt;）   初始化时必须要有数据类型，容器可省略，省略时则默认为deque 类型  注意：不能用vector容器初始">
+<meta property="og:description" content="queue是一种容器转换器模板，调用#include&lt; queue&gt;即可使用队列类。 1. 头文件 1#include &lt;queue&gt; 2. queue 初始化 1queue&lt;Type, Container&gt; &#x2F;&#x2F;(&lt;数据类型，容器类型&gt;） 初始化时必须要有数据类型，容器可省略，省略时则默认为deque 类型 注意：不能用vector容器初始化que">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-10-26T09:08:00.000Z">
 <meta property="article:modified_time" content="2022-10-29T02:00:34.978Z">
@@ -289,58 +289,49 @@
               <div class="markdown-body">
                 
                 <p>queue是一种容器转换器模板，调用<code>#include&lt; queue&gt;</code>即可使用队列类。</p>
-<h4 id="1-头文件"><a href="#1-头文件" class="headerlink" title="1. 头文件"></a>1. 头文件</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;queue&gt;</span></span><br></code></pre></td></tr></table></figure>
-
-
-
-<h4 id="2-queue-初始化"><a href="#2-queue-初始化" class="headerlink" title="2. queue 初始化"></a>2. queue 初始化</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c++">queue&lt;Type, Container&gt; <span class="hljs-comment">//(&lt;数据类型，容器类型&gt;）</span><br></code></pre></td></tr></table></figure>
-
-<p> 初始化时必须要有数据类型，容器可省略，省略时则默认为<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=deque&spm=1001.2101.3001.7020">deque</a> 类型</p>
-<p> <strong>注意：不能用vector容器初始化queue</strong></p>
-<p> 因为<code>queue</code>转换器要求容器支持<code>front(), back(), push_back()</code>及 <code>pop_front()</code>，说明<code>queue</code>的数据从容器后端入栈而从前端出栈。所以可以使用<code>deque（double-ended queue，双端队列）</code>和<code>list</code>对<code>queue</code>初始化，而<code>vector</code>因其缺少<code>pop_front()</code>，不能用于<code>queue</code>。</p>
-<p> 常见的初始化实例如下：</p>
+<h4 id="头文件">1. 头文件</h4>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;queue&gt;</span></span><br></code></pre></td></tr></table></figure>
+<h4 id="queue-初始化">2. queue 初始化</h4>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c++">queue&lt;Type, Container&gt; <span class="hljs-comment">//(&lt;数据类型，容器类型&gt;）</span><br></code></pre></td></tr></table></figure>
+<p>初始化时必须要有数据类型，容器可省略，省略时则默认为<a
+target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=deque&amp;spm=1001.2101.3001.7020">deque</a>
+类型</p>
+<p><strong>注意：不能用vector容器初始化queue</strong></p>
+<p>因为<code>queue</code>转换器要求容器支持<code>front(), back(), push_back()</code>及
+<code>pop_front()</code>，说明<code>queue</code>的数据从容器后端入栈而从前端出栈。所以可以使用<code>deque（double-ended queue，双端队列）</code>和<code>list</code>对<code>queue</code>初始化，而<code>vector</code>因其缺少<code>pop_front()</code>，不能用于<code>queue</code>。</p>
+<p>常见的初始化实例如下：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs cpp">queue&lt;<span class="hljs-type">int</span>&gt; q1;<br>queue&lt;<span class="hljs-type">double</span>&gt; q2;  <br>queue＜<span class="hljs-type">char</span>＞ q3；<br><span class="hljs-comment">//默认为用deque容器实现的queue；</span><br><br>C++<br></code></pre></td></tr></table></figure>
-
-
-
-<h4 id="3-queue-常用函数"><a href="#3-queue-常用函数" class="headerlink" title="3. queue 常用函数"></a>3. queue 常用函数</h4><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-function"><span class="hljs-title">push</span><span class="hljs-params">()</span></span> <span class="hljs-comment">//在队尾插入一个元素</span><br><br><span class="hljs-function"><span class="hljs-title">pop</span><span class="hljs-params">()</span></span> <span class="hljs-comment">//删除队列第一个元素</span><br><br><span class="hljs-function"><span class="hljs-title">size</span><span class="hljs-params">()</span></span> <span class="hljs-comment">//返回队列中元素个数</span><br><br><span class="hljs-function"><span class="hljs-title">empty</span><span class="hljs-params">()</span></span> <span class="hljs-comment">//如果队列空则返回true</span><br><br><span class="hljs-function"><span class="hljs-title">front</span><span class="hljs-params">()</span></span> <span class="hljs-comment">//返回队列中的第一个元素</span><br><br><span class="hljs-function"><span class="hljs-title">back</span><span class="hljs-params">()</span></span> <span class="hljs-comment">//返回队列中最后一个元素</span><br><br>C++<br></code></pre></td></tr></table></figure>
-
-
-
-<h4 id="4-queue-使用实例"><a href="#4-queue-使用实例" class="headerlink" title="4. queue 使用实例"></a>4. queue 使用实例</h4><ol>
+<h4 id="queue-常用函数">3. queue 常用函数</h4>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-function"><span class="hljs-title">push</span><span class="hljs-params">()</span></span> <span class="hljs-comment">//在队尾插入一个元素</span><br><br><span class="hljs-function"><span class="hljs-title">pop</span><span class="hljs-params">()</span></span> <span class="hljs-comment">//删除队列第一个元素</span><br><br><span class="hljs-function"><span class="hljs-title">size</span><span class="hljs-params">()</span></span> <span class="hljs-comment">//返回队列中元素个数</span><br><br><span class="hljs-function"><span class="hljs-title">empty</span><span class="hljs-params">()</span></span> <span class="hljs-comment">//如果队列空则返回true</span><br><br><span class="hljs-function"><span class="hljs-title">front</span><span class="hljs-params">()</span></span> <span class="hljs-comment">//返回队列中的第一个元素</span><br><br><span class="hljs-function"><span class="hljs-title">back</span><span class="hljs-params">()</span></span> <span class="hljs-comment">//返回队列中最后一个元素</span><br><br>C++<br></code></pre></td></tr></table></figure>
+<h4 id="queue-使用实例">4. queue 使用实例</h4>
+<ol type="1">
 <li><code>push()</code>在队尾插入一个元素</li>
 </ol>
 <figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs maxima">queue &lt;<span class="hljs-built_in">string</span>&gt; q;<br>q.<span class="hljs-built_in">push</span>(<span class="hljs-string">&quot;first&quot;</span>);<br>q.<span class="hljs-built_in">push</span>(<span class="hljs-string">&quot;second&quot;</span>);<br>cout&lt;&lt;q.front()&lt;&lt;endl;<br><br>//输出 <span class="hljs-built_in">first</span><br><br>C++<br></code></pre></td></tr></table></figure>
-
-<ol start="2">
+<ol start="2" type="1">
 <li><code>pop()</code> 将队列中最靠前位置的元素删除，没有返回值</li>
 </ol>
 <figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs maxima">queue &lt;<span class="hljs-built_in">string</span>&gt; q;<br>q.<span class="hljs-built_in">push</span>(<span class="hljs-string">&quot;first&quot;</span>);<br>q.<span class="hljs-built_in">push</span>(<span class="hljs-string">&quot;second&quot;</span>);<br>q.<span class="hljs-built_in">pop</span>();<br>cout&lt;&lt;q.front()&lt;&lt;endl;<br><br>// 输出 <span class="hljs-built_in">second</span> <br>// 因为 <span class="hljs-built_in">first</span> 已经被<span class="hljs-built_in">pop</span>（）函数删掉了<br><br>C++<br></code></pre></td></tr></table></figure>
-
-<ol start="3">
+<ol start="3" type="1">
 <li><code>size()</code> 返回队列中元素个数</li>
 </ol>
 <figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs gradle">queue &lt;string&gt; q;<br>q.<span class="hljs-keyword">push</span>(<span class="hljs-string">&quot;first&quot;</span>);<br>q.<span class="hljs-keyword">push</span>(<span class="hljs-string">&quot;second&quot;</span>);<br>cout&lt;&lt;q.<span class="hljs-keyword">size</span>()&lt;&lt;endl;<br><br><span class="hljs-comment">//输出2，因为队列中有两个元素</span><br><br>C++<br></code></pre></td></tr></table></figure>
-
-<ol start="4">
+<ol start="4" type="1">
 <li><code>empty()</code> 如果队列空则返回<code>true</code></li>
 </ol>
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs awk">queue &lt;string&gt; q;<br>cout&lt;&lt;q.empty()&lt;&lt;endl;<br>q.push(<span class="hljs-string">&quot;first&quot;</span>);<br>q.push(<span class="hljs-string">&quot;second&quot;</span>);<br>cout&lt;&lt;q.empty()&lt;&lt;endl;<br><br><span class="hljs-regexp">//</span>分别输出<span class="hljs-number">1</span>和<span class="hljs-number">0</span><br><span class="hljs-regexp">//</span>最开始队列为空，返回值为<span class="hljs-number">1</span>（ture）；<br><span class="hljs-regexp">//</span>插入两个元素后，队列不为空，返回值为<span class="hljs-number">0</span>（false）；<br><br>C++<br></code></pre></td></tr></table></figure>
-
-<ol start="5">
+<ol start="5" type="1">
 <li><code>front()</code> 返回队列中的第一个元素</li>
 </ol>
 <figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs maxima">queue &lt;<span class="hljs-built_in">string</span>&gt; q;<br>q.<span class="hljs-built_in">push</span>(<span class="hljs-string">&quot;first&quot;</span>);<br>q.<span class="hljs-built_in">push</span>(<span class="hljs-string">&quot;second&quot;</span>);<br>cout&lt;&lt;q.front()&lt;&lt;endl;<br>q.<span class="hljs-built_in">pop</span>();<br>cout&lt;&lt;q.front()&lt;&lt;endl;<br><br>// 第一行输出<span class="hljs-built_in">first</span>；<br>// 第二行输出<span class="hljs-built_in">second</span>，因为<span class="hljs-built_in">pop</span>（）已经将<span class="hljs-built_in">first</span>删除了<br><br>C++<br></code></pre></td></tr></table></figure>
-
-<ol start="6">
+<ol start="6" type="1">
 <li><code>back()</code> 返回队列中最后一个元素</li>
 </ol>
 <figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs arcade">queue &lt;string&gt; q;<br>q.<span class="hljs-built_in">push</span>(<span class="hljs-string">&quot;first&quot;</span>);<br>q.<span class="hljs-built_in">push</span>(<span class="hljs-string">&quot;second&quot;</span>);<br>cout&lt;&lt;q.<span class="hljs-built_in">back</span>()&lt;&lt;endl;<br><br><span class="hljs-comment">//输出最后一个元素second</span><br><br>C++<br></code></pre></td></tr></table></figure>
-
-
-
-<h4 id="5-参考文章"><a href="#5-参考文章" class="headerlink" title="5. 参考文章"></a>5. 参考文章</h4><ol>
-<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/KEPROM/article/details/109744379">C++队列queue用法详解</a></li>
+<h4 id="参考文章">5. 参考文章</h4>
+<ol type="1">
+<li><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/KEPROM/article/details/109744379">C++队列queue用法详解</a></li>
 </ol>
 
                 

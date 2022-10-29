@@ -18,12 +18,12 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="1. 起因事情是这样：在最近的一次C++作业中，我需要用链表实现一个双向队列。 我对链表节点的实现如下: 12345678struct Node&amp;#123;    Node *next;    Node *prev;    int val;    Node(int val, Node *prev, Node *next)；&amp;#125;;CRMSH  我对双向队列的实现如下： 12345678910">
+    <meta name="description" content="1. 起因 事情是这样：在最近的一次C++作业中，我需要用链表实现一个双向队列。 我对链表节点的实现如下: 12345678struct Node&amp;#123;    Node *next;    Node *prev;    int val;    Node(int val, Node *prev, Node *next)；&amp;#125;;CRMSH 我对双向队列的实现如下： 12345678910">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C++内存分配——从类的初始化开始">
 <meta property="og:url" content="https://wuchentian.github.io/2022/10/19/C++%20Basic/Object%20Oriented/C++%20%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E2%80%94%E2%80%94%E4%BB%8E%E7%B1%BB%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96%E5%BC%80%E5%A7%8B%20/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1. 起因事情是这样：在最近的一次C++作业中，我需要用链表实现一个双向队列。 我对链表节点的实现如下: 12345678struct Node&amp;#123;    Node *next;    Node *prev;    int val;    Node(int val, Node *prev, Node *next)；&amp;#125;;CRMSH  我对双向队列的实现如下： 12345678910">
+<meta property="og:description" content="1. 起因 事情是这样：在最近的一次C++作业中，我需要用链表实现一个双向队列。 我对链表节点的实现如下: 12345678struct Node&amp;#123;    Node *next;    Node *prev;    int val;    Node(int val, Node *prev, Node *next)；&amp;#125;;CRMSH 我对双向队列的实现如下： 12345678910">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-10-19T09:08:00.000Z">
 <meta property="article:modified_time" content="2022-10-29T04:22:20.918Z">
@@ -287,64 +287,70 @@
             
               <div class="markdown-body">
                 
-                <h4 id="1-起因"><a href="#1-起因" class="headerlink" title="1. 起因"></a>1. 起因</h4><p>事情是这样：在最近的一次C++作业中，我需要用<strong>链表</strong>实现一个<strong>双向队列</strong>。</p>
+                <h4 id="起因">1. 起因</h4>
+<p>事情是这样：在最近的一次C++作业中，我需要用<strong>链表</strong>实现一个<strong>双向队列</strong>。</p>
 <p>我对链表节点的实现如下:</p>
 <figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">struct <span class="hljs-keyword">Node</span><span class="hljs-title">&#123;</span><br><span class="hljs-title">    Node</span> *next;<br>    <span class="hljs-keyword">Node</span> <span class="hljs-title">*prev</span>;<br>    int val;<br>    <span class="hljs-keyword">Node</span><span class="hljs-title">(int</span> val, <span class="hljs-keyword">Node</span> <span class="hljs-title">*prev</span>, <span class="hljs-keyword">Node</span> <span class="hljs-title">*next</span>)；<br>&#125;;<br><br>CRMSH<br></code></pre></td></tr></table></figure>
-
 <p>我对双向队列的实现如下：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">Deque</span>&#123;<br>    <span class="hljs-type">int</span> size;<br>  	<span class="hljs-comment">/**</span><br><span class="hljs-comment">  	* front 和 rear 分别为虚拟头指针和尾指针</span><br><span class="hljs-comment">  	*/</span><br>    Node *front;<br>    Node *rear;<br>    <span class="hljs-built_in">Deque</span>();<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">push_front</span><span class="hljs-params">(<span class="hljs-type">int</span> value)</span></span>;<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">push_back</span><span class="hljs-params">(<span class="hljs-type">int</span> value)</span></span>;<br>    <span class="hljs-type">void</span> pop_front;<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">pop_back</span><span class="hljs-params">()</span></span>;<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">get_size</span><span class="hljs-params">()</span> <span class="hljs-type">const</span></span>;<br>  	~<span class="hljs-built_in">Deque</span>() = deafult;<br>&#125;;<br><br></code></pre></td></tr></table></figure>
-
-
-
-<p>当我试图利用 <code>Deque::push_back(int value)</code> 函数向队列中添加元素时，我起初的写法如下：</p>
+<p>当我试图利用 <code>Deque::push_back(int value)</code>
+函数向队列中添加元素时，我起初的写法如下：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs c++">Deque::<span class="hljs-built_in">push_back</span>(<span class="hljs-type">int</span> value)&#123;<br>  	<span class="hljs-comment">/**</span><br><span class="hljs-comment">  	* @param value 新节点的值</span><br><span class="hljs-comment">  	* @param prev 新节点的前一个节点</span><br><span class="hljs-comment">  	* @param next 新节点的下一个节点</span><br><span class="hljs-comment">  	* @return 一个船新节点</span><br><span class="hljs-comment">  	*/</span><br>    Node node = *<span class="hljs-keyword">new</span> <span class="hljs-built_in">Node</span>(value, rear-&gt;prev, rear);<br>    rear-&gt;prev-&gt;next = &amp;node;<br>    ......<br>&#125;<br><br></code></pre></td></tr></table></figure>
-
-<p>但是程序每次运行到这里都会中断，debug 显示无论我 new 多少个新的 node， 它们的地址都是一样的，因此所有新节点都连着它本身，于是爆栈了。但是如果我把写法改成如下这样，程序就恢复了正常：</p>
+<p>但是程序每次运行到这里都会中断，debug 显示无论我 new 多少个新的
+node，
+它们的地址都是一样的，因此所有新节点都连着它本身，于是爆栈了。但是如果我把写法改成如下这样，程序就恢复了正常：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs c++">Deque::<span class="hljs-built_in">push_back</span>(<span class="hljs-type">int</span> value)&#123;<br>  	<span class="hljs-comment">/**</span><br><span class="hljs-comment">  	* @param value 新节点的值</span><br><span class="hljs-comment">  	* @param prev 新节点的前一个节点</span><br><span class="hljs-comment">  	* @param next 新节点的下一个节点</span><br><span class="hljs-comment">  	* @return 一个船新节点</span><br><span class="hljs-comment">  	*/</span><br>    Node *node = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Node</span>(value, rear-&gt;prev, rear);<br>    rear-&gt;prev-&gt;next = node;<br>    ......<br>&#125;<br><br></code></pre></td></tr></table></figure>
-
-
-
-<h4 id="2-一个合理的解释"><a href="#2-一个合理的解释" class="headerlink" title="2. 一个合理的解释"></a>2. 一个合理的解释</h4><p>首先我们需要了解 C++ 的内存分配</p>
+<h4 id="一个合理的解释">2. 一个合理的解释</h4>
+<p>首先我们需要了解 C++ 的内存分配</p>
 <table>
+
 <thead>
-<tr>
+<tr class="header">
 <th>名称</th>
 <th>特性</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td><strong>栈</strong></td>
 <td>由编译器在需要时自动分配，不需要时自动清除的变量存储区。通常存放局部变量、函数参数等。</td>
 </tr>
-<tr>
+<tr class="even">
 <td><strong>堆</strong></td>
-<td>由 new 分配的内存块，由程序员释放（编译器不管），一般一个 new 与一个 delete 对应，一个 new[] 与一个 delete[] 对应。如果程序员没有释放掉，资源将由操作系统在程序结束后自动回收。</td>
+<td>由 new 分配的内存块，由程序员释放（编译器不管），一般一个 new 与一个
+delete 对应，一个 new[] 与一个 delete[]
+对应。如果程序员没有释放掉，资源将由操作系统在程序结束后自动回收。</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><strong>自由存储区</strong></td>
-<td>由 malloc 等分配的内存块，和堆十分相似，用free来释放。（实际上和堆是同一块区域）</td>
+<td>由 malloc
+等分配的内存块，和堆十分相似，用free来释放。（实际上和堆是同一块区域）</td>
 </tr>
-<tr>
+<tr class="even">
 <td><strong>全局/静态存储区</strong></td>
-<td>全局变量和静态变量被分配到同一块内存中（在 C 语言中，全局变量又分为初始化的和未初始化的，C++ 中没有这一区分）。</td>
+<td>全局变量和静态变量被分配到同一块内存中（在 C
+语言中，全局变量又分为初始化的和未初始化的，C++ 中没有这一区分）。</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><strong>常量存储区</strong></td>
 <td>这是一块特殊存储区，里边存放常量，不允许修改。</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c++">Node *node = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Node</span>(value, rear-&gt;prev, rear);<br></code></pre></td></tr></table></figure>
-
-<p>我们知道，由 <code>new</code> 建立的变量存储在堆中。因此上述代码在堆区新建一个对象，并且返回该对象的地址，由 <code>Node</code> 类型指针 <code>node</code> 存储。</p>
+<p>我们知道，由 <code>new</code>
+建立的变量存储在堆中。因此上述代码在堆区新建一个对象，并且返回该对象的地址，由
+<code>Node</code> 类型指针 <code>node</code> 存储。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c++">Node node = *<span class="hljs-keyword">new</span> <span class="hljs-built_in">Node</span>(value, rear-&gt;prev, rear);<br></code></pre></td></tr></table></figure>
-
-<p>上述代码同样新建一个 <code>Node</code> 对象，并将这个 Node 对象的值存储到一个 <code>Node</code> 类型的变量 <code>node</code> 中，相当于如下代码:</p>
+<p>上述代码同样新建一个 <code>Node</code> 对象，并将这个 Node
+对象的值存储到一个 <code>Node</code> 类型的变量 <code>node</code>
+中，相当于如下代码:</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs c++">Node *np = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Node</span>(value, rear-&gt;prev, rear);<br>Node node = *np;<br><span class="hljs-comment">/**</span><br><span class="hljs-comment">* node 只是值传递</span><br><span class="hljs-comment">*/</span><br></code></pre></td></tr></table></figure>
-
 <p>因此，在下一步的</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c++">rear-&gt;prev-&gt;next = &amp;node;<br></code></pre></td></tr></table></figure>
-
-<p>中，<code>&amp;node</code> 根本就不是那个指向新节点的指针 <code>np</code>，而是一个临时栈变量 <code>node</code> 的地址。这里相当于 <code>np-&gt;prev-&gt;next = &amp;node</code>。</p>
+<p>中，<code>&amp;node</code> 根本就不是那个指向新节点的指针
+<code>np</code>，而是一个临时栈变量 <code>node</code> 的地址。这里相当于
+<code>np-&gt;prev-&gt;next = &amp;node</code>。</p>
 <pre><code class=" mermaid">graph LR
 rear_prev---&gt;
 rear---&gt;rear_prev
@@ -353,17 +359,14 @@ new_Node
 &amp;node---&gt;
 somewhere
 </code></pre>
-
 <p>转变成了</p>
 <pre><code class=" mermaid">graph LR
 np--&gt;rear
 np--&gt;rear_prev--&gt;&amp;node--&gt;rear_prev
 &amp;node--&gt;rear
 </code></pre>
-
 <p>再经过</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c++">rear-&gt;prev = &amp;node<br></code></pre></td></tr></table></figure>
-
 <p>这一步后，转变为</p>
 <pre><code class=" mermaid">graph LR
 np--&gt;rear
@@ -372,13 +375,13 @@ np--&gt;
 rear
 &amp;node--&gt;&amp;node--&gt;&amp;node
 </code></pre>
-
 <p>在 <code>node</code>这里出现了死循环，导致内存爆了</p>
-<h3 id="3-源码"><a href="#3-源码" class="headerlink" title="3. 源码"></a>3. 源码</h3><p>在这里贴上我所有成员函数的具体实现：</p>
+<h3 id="源码">3. 源码</h3>
+<p>在这里贴上我所有成员函数的具体实现：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><code class="hljs c++">Node::<span class="hljs-built_in">Node</span>(<span class="hljs-type">int</span> val, Node *prev, Node *next)&#123;<br>    <span class="hljs-keyword">this</span>-&gt;val = val;<br>    <span class="hljs-keyword">this</span>-&gt;next = next;<br>    <span class="hljs-keyword">this</span>-&gt;prev = prev;<br>&#125;<br><br><br>Deque::<span class="hljs-built_in">Deque</span>()&#123;<br>    <span class="hljs-keyword">this</span>-&gt;size = <span class="hljs-number">0</span>;<br>    front = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Node</span>(<span class="hljs-number">-1</span>, <span class="hljs-literal">nullptr</span>, <span class="hljs-literal">nullptr</span>);<br>    rear = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Node</span>(<span class="hljs-number">-1</span>, front, <span class="hljs-literal">nullptr</span>);<br>    front-&gt;next = rear;<br>    front-&gt;prev = <span class="hljs-literal">nullptr</span>;<br>    rear-&gt;next = <span class="hljs-literal">nullptr</span>;<br>    rear-&gt;prev = front;<br>&#125;<br><br>Deque::<span class="hljs-built_in">push_front</span>(<span class="hljs-type">int</span> value)&#123;<br>    Node *node = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Node</span>(value, front, front-&gt;next);<br>    node-&gt;next-&gt;prev = node;<br>    front-&gt;next = node;<br>    <span class="hljs-keyword">this</span>-&gt;size++;<br>&#125;<br><br>Deque::<span class="hljs-built_in">push_back</span>(<span class="hljs-type">int</span> value)&#123;<br>    Node *node = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Node</span>(value, rear-&gt;prev, rear);<br>    rear-&gt;prev-&gt;next = node;<br>    rear-&gt;prev = node;<br>    <span class="hljs-keyword">this</span>-&gt;size++;<br>&#125;<br><br>Deque::<span class="hljs-built_in">get_size</span>() <span class="hljs-type">const</span>&#123;<br>    cout &lt;&lt; <span class="hljs-keyword">this</span>-&gt;size &lt;&lt; endl;<br>&#125;<br><br>Deque::<span class="hljs-built_in">pop_front</span>()&#123;<br>    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>-&gt;size &lt;= <span class="hljs-number">0</span>)&#123;<br>        cout &lt;&lt; <span class="hljs-number">-1</span> &lt;&lt; endl;<br>    &#125;<br>    <span class="hljs-keyword">else</span>&#123;<br>        cout &lt;&lt; (*(front-&gt;next)).val &lt;&lt; endl;<br>        front-&gt;next = front-&gt;next-&gt;next;<br>        front-&gt;next-&gt;prev = front;<br>        <span class="hljs-keyword">this</span>-&gt;size--;<br>    &#125;<br>&#125;<br><br>Deque::<span class="hljs-built_in">pop_back</span>()&#123;<br>    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>-&gt;size &lt;= <span class="hljs-number">0</span>)&#123;<br>        cout &lt;&lt; <span class="hljs-number">-1</span> &lt;&lt; endl;<br>    &#125;<br>    <span class="hljs-keyword">else</span>&#123;<br>        cout &lt;&lt; (*(rear-&gt;prev)).val &lt;&lt; endl;<br>        rear-&gt;prev = rear-&gt;prev-&gt;prev;<br>        rear-&gt;prev-&gt;next = rear;<br>        <span class="hljs-keyword">this</span>-&gt;size--;<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
-
-<h4 id="4-参考文章"><a href="#4-参考文章" class="headerlink" title="4. 参考文章"></a>4. 参考文章</h4><ol>
-<li><a target="_blank" rel="noopener" href="http://t.csdn.cn/5QbW0">http://t.csdn.cn/5QbW0</a></li>
+<h4 id="参考文章">4. 参考文章</h4>
+<ol type="1">
+<li>http://t.csdn.cn/5QbW0</li>
 </ol>
 
                 

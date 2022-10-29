@@ -18,15 +18,15 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="第七章 假设检验7.1 假设检验概述7.1.1 基本概念 原假设 (Null Hypothesis) $$H_0$$: $$\mu &#x3D; \mu_0$$  备择假设（Alternative Hypothesis）$$H_1$$：$$\mu \not&#x3D; \mu_0$$  显著性水平（Significance Level）$$\alpha$$：小概率水平  确定假设的界限 $$\mathcal{K}$$">
+    <meta name="description" content="第七章 假设检验 7.1 假设检验概述 7.1.1 基本概念  原假设 (Null Hypothesis) \(H_0\): \(\mu &#x3D; \mu_0\) 备择假设（Alternative Hypothesis）\(H_1\)：\(\mu \not&#x3D; \mu_0\) 显著性水平（Significance Level）\(\alpha\)：小概率水平 确定假设的界限 \(\mathcal{K}\)">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第七章 假设检验">
 <meta property="og:url" content="https://wuchentian.github.io/2022/10/29/Fundamentals%20of%20Data%20Science/%E7%AC%AC%E4%B8%83%E7%AB%A0%20%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="第七章 假设检验7.1 假设检验概述7.1.1 基本概念 原假设 (Null Hypothesis) $$H_0$$: $$\mu &#x3D; \mu_0$$  备择假设（Alternative Hypothesis）$$H_1$$：$$\mu \not&#x3D; \mu_0$$  显著性水平（Significance Level）$$\alpha$$：小概率水平  确定假设的界限 $$\mathcal{K}$$">
+<meta property="og:description" content="第七章 假设检验 7.1 假设检验概述 7.1.1 基本概念  原假设 (Null Hypothesis) \(H_0\): \(\mu &#x3D; \mu_0\) 备择假设（Alternative Hypothesis）\(H_1\)：\(\mu \not&#x3D; \mu_0\) 显著性水平（Significance Level）\(\alpha\)：小概率水平 确定假设的界限 \(\mathcal{K}\)">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-10-29T01:02:00.000Z">
-<meta property="article:modified_time" content="2022-10-29T01:03:06.334Z">
+<meta property="article:modified_time" content="2022-10-29T06:59:02.933Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="假设检验">
 <meta name="twitter:card" content="summary_large_image">
@@ -233,7 +233,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.8k words
+          1.9k words
         
       </span>
     
@@ -287,76 +287,144 @@
             
               <div class="markdown-body">
                 
-                <h2 id="第七章-假设检验"><a href="#第七章-假设检验" class="headerlink" title="第七章 假设检验"></a>第七章 假设检验</h2><h3 id="7-1-假设检验概述"><a href="#7-1-假设检验概述" class="headerlink" title="7.1 假设检验概述"></a>7.1 假设检验概述</h3><h4 id="7-1-1-基本概念"><a href="#7-1-1-基本概念" class="headerlink" title="7.1.1 基本概念"></a>7.1.1 基本概念</h4><ol>
-<li><p>原假设 (Null Hypothesis) $$H_0$$: $$\mu = \mu_0$$</p>
-</li>
-<li><p>备择假设（Alternative Hypothesis）$$H_1$$：$$\mu \not= \mu_0$$</p>
-</li>
-<li><p>显著性水平（Significance Level）$$\alpha$$：小概率水平</p>
-</li>
-<li><p>确定假设的界限 $$\mathcal{K}$$</p>
-</li>
+                <h2 id="第七章-假设检验">第七章 假设检验</h2>
+<h3 id="假设检验概述">7.1 假设检验概述</h3>
+<h4 id="基本概念">7.1.1 基本概念</h4>
+<ol type="1">
+<li><p>原假设 (Null Hypothesis) <span
+class="math inline">\(H_0\)</span>: <span class="math inline">\(\mu =
+\mu_0\)</span></p></li>
+<li><p>备择假设（Alternative Hypothesis）<span
+class="math inline">\(H_1\)</span>：<span class="math inline">\(\mu
+\not= \mu_0\)</span></p></li>
+<li><p>显著性水平（Significance Level）<span
+class="math inline">\(\alpha\)</span>：小概率水平</p></li>
+<li><p>确定假设的界限 <span
+class="math inline">\(\mathcal{K}\)</span></p></li>
 </ol>
-<p>​    5. 假设检验的拒绝域 $$\mathscr{D} \subseteq \mathbb{X}^n$$ </p>
-<h4 id="7-1-2-两种错误"><a href="#7-1-2-两种错误" class="headerlink" title="7.1.2 两种错误"></a>7.1.2 两种错误</h4><h5 id="1-第一类错误"><a href="#1-第一类错误" class="headerlink" title="1. 第一类错误"></a>1. 第一类错误</h5><h5 id="2-第二类错误"><a href="#2-第二类错误" class="headerlink" title="2. 第二类错误"></a>2. 第二类错误</h5><h4 id="7-1-3-显著性水平与p值"><a href="#7-1-3-显著性水平与p值" class="headerlink" title="7.1.3 显著性水平与p值"></a>7.1.3 显著性水平与p值</h4><h5 id="1-使用p值进行假设检验的基本法则是："><a href="#1-使用p值进行假设检验的基本法则是：" class="headerlink" title="1. 使用p值进行假设检验的基本法则是："></a>1. 使用p值进行假设检验的基本法则是：</h5><p>​    若 $p$ 值小于 $\alpha $ , 则拒绝 $H_0$，否则就不拒绝 $H_0$   ($\alpha$ 决定是否显著，$p$ 表现有多显著) </p>
-<p>​    $p$ 值越小，则认为拒绝原假设的理由越充分</p>
-<h4 id="7-1-4-单边与双边检验"><a href="#7-1-4-单边与双边检验" class="headerlink" title="7.1.4 单边与双边检验"></a>7.1.4 单边与双边检验</h4><h5 id="1-双边（Two-Tail）检验"><a href="#1-双边（Two-Tail）检验" class="headerlink" title="1. 双边（Two-Tail）检验"></a>1. 双边（Two-Tail）检验</h5><p>$$<br>H_0:\mu=\mu_0,\ H_1:\mu=\mu_1<br>$$</p>
-<h5 id="2-单边（One-Tail）假设"><a href="#2-单边（One-Tail）假设" class="headerlink" title="2. 单边（One-Tail）假设"></a>2. 单边（One-Tail）假设</h5><p>$$<br>H_0:\mu\leq\mu_0,\ H_1:\mu&gt;\mu_0<br>$$</p>
-<h4 id="7-1-5-基本步骤"><a href="#7-1-5-基本步骤" class="headerlink" title="7.1.5 基本步骤"></a>7.1.5 基本步骤</h4><ol>
-<li><p>建立原假设和备选假设，选择合适的 $p$ 值</p>
-</li>
-<li><p>对总体抽样，获取总体样本值</p>
-</li>
-<li><p>选取统计量（其抽样分布要明确，不含参数）</p>
-</li>
-<li><p>分两种（或同时）方法进行决策判断</p>
-</li>
+<p>​ 5. 假设检验的拒绝域 <span class="math inline">\(\mathscr{D}
+\subseteq \mathbb{X}^n\)</span></p>
+<h4 id="两种错误">7.1.2 两种错误</h4>
+<h5 id="第一类错误">1. 第一类错误</h5>
+<h5 id="第二类错误">2. 第二类错误</h5>
+<h4 id="显著性水平与p值">7.1.3 显著性水平与p值</h4>
+<h5 id="使用p值进行假设检验的基本法则是">1.
+使用p值进行假设检验的基本法则是：</h5>
+<p>​ 若 <span class="math inline">\(p\)</span> 值小于 $$ , 则拒绝 <span
+class="math inline">\(H_0\)</span>，否则就不拒绝 <span
+class="math inline">\(H_0\)</span> (<span
+class="math inline">\(\alpha\)</span> 决定是否显著，<span
+class="math inline">\(p\)</span> 表现有多显著)</p>
+<p>​ <span class="math inline">\(p\)</span>
+值越小，则认为拒绝原假设的理由越充分</p>
+<h4 id="单边与双边检验">7.1.4 单边与双边检验</h4>
+<h5 id="双边two-tail检验">1. 双边（Two-Tail）检验</h5>
+<p><span class="math display">\[
+H_0:\mu=\mu_0,\ H_1:\mu=\mu_1
+\]</span></p>
+<h5 id="单边one-tail假设">2. 单边（One-Tail）假设</h5>
+<p><span class="math display">\[
+H_0:\mu\leq\mu_0,\ H_1:\mu&gt;\mu_0
+\]</span></p>
+<h4 id="基本步骤">7.1.5 基本步骤</h4>
+<ol type="1">
+<li><p>建立原假设和备选假设，选择合适的 <span
+class="math inline">\(p\)</span> 值</p></li>
+<li><p>对总体抽样，获取总体样本值</p></li>
+<li><p>选取统计量（其抽样分布要明确，不含参数）</p></li>
+<li><p>分两种（或同时）方法进行决策判断</p></li>
 </ol>
-<p>​        &lt;1&gt; 利用 $\alpha$ 决定什么是拒绝域</p>
-<p>​        &lt;2&gt; 利用样本数据计算 $p$ 值，将其与 $\alpha$ 比较</p>
-<h3 id="7-2-参数假设检验-先假定分布形式，再来估计参数"><a href="#7-2-参数假设检验-先假定分布形式，再来估计参数" class="headerlink" title="7.2 参数假设检验 (先假定分布形式，再来估计参数)"></a>7.2 参数假设检验 (先假定分布形式，再来估计参数)</h3><h4 id="7-2-1-Z-检验-大样本或方差已知"><a href="#7-2-1-Z-检验-大样本或方差已知" class="headerlink" title="7.2.1  Z 检验 (大样本或方差已知)"></a>7.2.1  Z 检验 (大样本或方差已知)</h4><ol>
-<li><p>建立有关均值的备择假设和原假设，选择合适的显著性水平 $\alpha$</p>
-</li>
-<li><p>建立统计量 $Z\sim \mathbb{N}(0,\ 1)$，计算统计量数值 $z$</p>
-</li>
-<li><p>根据统计量数值和显著性水平 $\alpha$ 决定拒绝域</p>
-</li>
-<li><p>判断是否落入拒绝域，有需要的话再考察 $p$ 值</p>
-</li>
+<p>​ &lt;1&gt; 利用 <span class="math inline">\(\alpha\)</span>
+决定什么是拒绝域</p>
+<p>​ &lt;2&gt; 利用样本数据计算 <span class="math inline">\(p\)</span>
+值，将其与 <span class="math inline">\(\alpha\)</span> 比较</p>
+<h3 id="参数假设检验-先假定分布形式再来估计参数">7.2 参数假设检验
+(先假定分布形式，再来估计参数)</h3>
+<h4 id="z-检验-大样本或方差已知">7.2.1 Z 检验 (大样本或方差已知)</h4>
+<ol type="1">
+<li><p>建立有关均值的备择假设和原假设，选择合适的显著性水平 <span
+class="math inline">\(\alpha\)</span></p></li>
+<li><p>建立统计量 <span class="math inline">\(Z\sim \mathbb{N}(0,\
+1)\)</span>，计算统计量数值 <span
+class="math inline">\(z\)</span></p></li>
+<li><p>根据统计量数值和显著性水平 <span
+class="math inline">\(\alpha\)</span> 决定拒绝域</p></li>
+<li><p>判断是否落入拒绝域，有需要的话再考察 <span
+class="math inline">\(p\)</span> 值</p></li>
 </ol>
-<h4 id="7-2-2-t-检验-小样本且-sigma-2-未知"><a href="#7-2-2-t-检验-小样本且-sigma-2-未知" class="headerlink" title="7.2.2  t 检验 (小样本且 $\sigma^2$ 未知)"></a>7.2.2  t 检验 (小样本且 $\sigma^2$ 未知)</h4><ol>
-<li><p>建立有关均值的备择假设和原假设，选择合适的显著性水平 $\alpha$</p>
-</li>
-<li><p>建立统计量 $t\sim t(n’)$，计算统计量数值 $t$</p>
-</li>
-<li><p>根据统计量数值和显著性水平 $\alpha$ 决定拒绝域</p>
-</li>
-<li><p>判断是否落入拒绝域，有需要的话再考察 $p$ 值</p>
-</li>
+<h4 id="t-检验-小样本且-sigma2-未知">7.2.2 t 检验 (小样本且 <span
+class="math inline">\(\sigma^2\)</span> 未知)</h4>
+<ol type="1">
+<li><p>建立有关均值的备择假设和原假设，选择合适的显著性水平 <span
+class="math inline">\(\alpha\)</span></p></li>
+<li><p>建立统计量 <span class="math inline">\(t\sim
+t(n&#39;)\)</span>，计算统计量数值 <span
+class="math inline">\(t\)</span></p></li>
+<li><p>根据统计量数值和显著性水平 <span
+class="math inline">\(\alpha\)</span> 决定拒绝域</p></li>
+<li><p>判断是否落入拒绝域，有需要的话再考察 <span
+class="math inline">\(p\)</span> 值</p></li>
 </ol>
-<h4 id="7-2-3-chi-2-检验-判断方差变化是否显著"><a href="#7-2-3-chi-2-检验-判断方差变化是否显著" class="headerlink" title="7.2.3  $$\chi^2$$检验 (判断方差变化是否显著)"></a>7.2.3  $$\chi^2$$检验 (判断方差变化是否显著)</h4><ol>
-<li><p>建立有关均值的备择假设和原假设，选择合适的显著性水平 $\alpha$</p>
-</li>
-<li><p>建立统计量 $\chi^2\sim \chi^2(n’)$，计算统计量数值 $\chi^2$</p>
-</li>
-<li><p>根据统计量数值和显著性水平 $\alpha$ 决定拒绝域</p>
-</li>
-<li><p>判断是否落入拒绝域，有需要的话再考察 $p$ 值</p>
-</li>
+<h4 id="chi2检验-判断方差变化是否显著">7.2.3 <span
+class="math inline">\(\chi^2\)</span>检验 (判断方差变化是否显著)</h4>
+<ol type="1">
+<li><p>建立有关均值的备择假设和原假设，选择合适的显著性水平 <span
+class="math inline">\(\alpha\)</span></p></li>
+<li><p>建立统计量 <span class="math inline">\(\chi^2\sim
+\chi^2(n&#39;)\)</span>，计算统计量数值 <span
+class="math inline">\(\chi^2\)</span></p></li>
+<li><p>根据统计量数值和显著性水平 <span
+class="math inline">\(\alpha\)</span> 决定拒绝域</p></li>
+<li><p>判断是否落入拒绝域，有需要的话再考察 <span
+class="math inline">\(p\)</span> 值</p></li>
 </ol>
-<h4 id="7-2-4-F检验-判断方差比变化是否显著"><a href="#7-2-4-F检验-判断方差比变化是否显著" class="headerlink" title="7.2.4  F检验 (判断方差比变化是否显著)"></a>7.2.4  F检验 (判断方差比变化是否显著)</h4><ol>
-<li><p>建立有关均值的备择假设和原假设，选择合适的显著性水平 $\alpha$</p>
-</li>
-<li><p>建立统计量 $F\sim F(n_1,\ n_2)$，计算统计量数值 $F$</p>
-</li>
-<li><p>根据统计量数值和显著性水平 $\alpha$ 决定拒绝域</p>
-</li>
-<li><p>判断是否落入拒绝域，有需要的话再考察 $p$ 值</p>
-</li>
+<h4 id="f检验-判断方差比变化是否显著">7.2.4 F检验
+(判断方差比变化是否显著)</h4>
+<ol type="1">
+<li><p>建立有关均值的备择假设和原假设，选择合适的显著性水平 <span
+class="math inline">\(\alpha\)</span></p></li>
+<li><p>建立统计量 <span class="math inline">\(F\sim F(n_1,\
+n_2)\)</span>，计算统计量数值 <span
+class="math inline">\(F\)</span></p></li>
+<li><p>根据统计量数值和显著性水平 <span
+class="math inline">\(\alpha\)</span> 决定拒绝域</p></li>
+<li><p>判断是否落入拒绝域，有需要的话再考察 <span
+class="math inline">\(p\)</span> 值</p></li>
 </ol>
-<h3 id="7-3-非参数假设检验（对总体分布形式未知）"><a href="#7-3-非参数假设检验（对总体分布形式未知）" class="headerlink" title="7.3 非参数假设检验（对总体分布形式未知）"></a>7.3 非参数假设检验（对总体分布形式未知）</h3><h4 id="7-3-1-符号检验（Sign-Test）"><a href="#7-3-1-符号检验（Sign-Test）" class="headerlink" title="7.3.1 符号检验（Sign Test）"></a>7.3.1 符号检验（Sign Test）</h4><h4 id="7-3-2-秩和检验（Wilcoxon-Rank-Sum）"><a href="#7-3-2-秩和检验（Wilcoxon-Rank-Sum）" class="headerlink" title="7.3.2 秩和检验（Wilcoxon Rank-Sum）"></a>7.3.2 秩和检验（Wilcoxon Rank-Sum）</h4><h5 id="1-秩（Rank）指的是两组数据混合排序后的序号均值"><a href="#1-秩（Rank）指的是两组数据混合排序后的序号均值" class="headerlink" title="1. 秩（Rank）指的是两组数据混合排序后的序号均值"></a>1. 秩（Rank）指的是两组数据混合排序后的序号均值</h5><h5 id="定理7-1：大样本逼近"><a href="#定理7-1：大样本逼近" class="headerlink" title="定理7.1：大样本逼近"></a>定理7.1：大样本逼近</h5><p>当两样本容量较大时（经验要求 $n_1$, $n_2 &gt; 10$ ），秩和统计检验量 $T$ 近似服从 $$\mathbb{N}(\mu,\sigma^2)$$，其中：<br>$$<br>\mu=\frac{n_1(n_1+n_2+1)}{2}\<br>\sigma^2=\frac{n_1n_2(n_1+n_2+1)}{12}<br>$$<br>则：<br>$$<br>U=\frac{T-\mu}{\sigma}\sim\mathbb{N}(0,\ 1)<br>$$<br>所以秩和检验的拒绝域为 $|U|&gt;z_{\frac{\alpha}{2}}$</p>
-<h4 id="7-3-3-偏度峰度检验"><a href="#7-3-3-偏度峰度检验" class="headerlink" title="7.3.3 偏度峰度检验"></a>7.3.3 偏度峰度检验</h4><h5 id="1-偏度与峰度"><a href="#1-偏度与峰度" class="headerlink" title="1. 偏度与峰度"></a>1. 偏度与峰度</h5><p>偏度：<br>$$<br>\nu_1\triangleq\frac{E((X-E(X))^3)}{(Var(X))^{\frac{3}{2}}}=E[(\frac{X-E(X)}{\sqrt{Var(X)}})^{3}]\<br>$$<br>峰度：<br>$$<br>\nu_1\triangleq\frac{E((X-E(X))^4)}{(Var(X))^{2}}=E[(\frac{X-E(X)}{\sqrt{Var(X)}})^{4}]\<br>$$</p>
-<h5 id="2"><a href="#2" class="headerlink" title="2."></a>2.</h5><h4 id="7-3-4-chi-2-拟合优度检验"><a href="#7-3-4-chi-2-拟合优度检验" class="headerlink" title="7.3.4 $$\chi^{2}$$拟合优度检验"></a>7.3.4 $$\chi^{2}$$拟合优度检验</h4><h5 id="定理7-2：Pearson定理"><a href="#定理7-2：Pearson定理" class="headerlink" title="定理7.2：Pearson定理"></a>定理7.2：Pearson定理</h5><h4 id="7-3-5-chi-2-独立性检验"><a href="#7-3-5-chi-2-独立性检验" class="headerlink" title="7.3.5 $$\chi^{2}$$独立性检验"></a>7.3.5 $$\chi^{2}$$独立性检验</h4>
+<h3 id="非参数假设检验对总体分布形式未知">7.3
+非参数假设检验（对总体分布形式未知）</h3>
+<h4 id="符号检验sign-test">7.3.1 符号检验（Sign Test）</h4>
+<h4 id="秩和检验wilcoxon-rank-sum">7.3.2 秩和检验（Wilcoxon
+Rank-Sum）</h4>
+<h5 id="秩rank指的是两组数据混合排序后的序号均值">1.
+秩（Rank）指的是两组数据混合排序后的序号均值</h5>
+<h5 id="定理7.1大样本逼近">定理7.1：大样本逼近</h5>
+<p>当两样本容量较大时（经验要求 <span
+class="math inline">\(n_1\)</span>, <span class="math inline">\(n_2 &gt;
+10\)</span> ），秩和统计检验量 <span class="math inline">\(T\)</span>
+近似服从 <span
+class="math inline">\(\mathbb{N}(\mu,\sigma^2)\)</span>，其中： <span
+class="math display">\[
+\mu=\frac{n_1(n_1+n_2+1)}{2}\\
+\sigma^2=\frac{n_1n_2(n_1+n_2+1)}{12}
+\]</span> 则： <span class="math display">\[
+U=\frac{T-\mu}{\sigma}\sim\mathbb{N}(0,\ 1)
+\]</span> 所以秩和检验的拒绝域为 <span
+class="math inline">\(|U|&gt;z_{\frac{\alpha}{2}}\)</span></p>
+<h4 id="偏度峰度检验">7.3.3 偏度峰度检验</h4>
+<h5 id="偏度与峰度">1. 偏度与峰度</h5>
+<p>偏度： <span class="math display">\[
+\nu_1\triangleq\frac{E((X-E(X))^3)}{(Var(X))^{\frac{3}{2}}}=E[(\frac{X-E(X)}{\sqrt{Var(X)}})^{3}]\\
+\]</span> 峰度： <span class="math display">\[
+\nu_1\triangleq\frac{E((X-E(X))^4)}{(Var(X))^{2}}=E[(\frac{X-E(X)}{\sqrt{Var(X)}})^{4}]\\
+\]</span></p>
+<h5 id="section">2.</h5>
+<h4 id="chi2拟合优度检验">7.3.4 <span
+class="math inline">\(\chi^{2}\)</span>拟合优度检验</h4>
+<h5 id="定理7.2pearson定理">定理7.2：Pearson定理</h5>
+<h4 id="chi2独立性检验">7.3.5 <span
+class="math inline">\(\chi^{2}\)</span>独立性检验</h4>
+
                 
               </div>
             

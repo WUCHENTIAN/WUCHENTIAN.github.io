@@ -18,12 +18,12 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="第一章 数据分析初探1.1 认识数据定义 1.1：数据数据是自然世界抽象为集合元素的表示。在实际应用中，采用某种数学元素作为数据的抽象表示，数据集作为相应的集合 定义 1.2：信息数据赋予某种结构获得信息 $\mathcal{I&#x3D;S}(\mathcal D)$。信息通常能被人类所理解，并被用来消除不确定性。 定义 1.3：偏序结构$A$ 上的关系 $R$ 是自反的，反对称的，传递的。则 $R$ 是">
+    <meta name="description" content="第一章 数据分析初探 1.1 认识数据 定义 1.1：数据 数据是自然世界抽象为集合元素的表示。在实际应用中，采用某种数学元素作为数据的抽象表示，数据集作为相应的集合 定义 1.2：信息 数据赋予某种结构获得信息 \(\mathcal{I&#x3D;S}(\mathcal D)\)。信息通常能被人类所理解，并被用来消除不确定性。 定义 1.3：偏序结构 \(A\) 上的关系 \(R\) 是自反的，反对称的，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第一章 数据分析初探">
 <meta property="og:url" content="https://wuchentian.github.io/2022/10/29/Fundamentals%20of%20Data%20Science/%E7%AC%AC%E4%B8%80%E7%AB%A0%20%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%88%9D%E6%8E%A2/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="第一章 数据分析初探1.1 认识数据定义 1.1：数据数据是自然世界抽象为集合元素的表示。在实际应用中，采用某种数学元素作为数据的抽象表示，数据集作为相应的集合 定义 1.2：信息数据赋予某种结构获得信息 $\mathcal{I&#x3D;S}(\mathcal D)$。信息通常能被人类所理解，并被用来消除不确定性。 定义 1.3：偏序结构$A$ 上的关系 $R$ 是自反的，反对称的，传递的。则 $R$ 是">
+<meta property="og:description" content="第一章 数据分析初探 1.1 认识数据 定义 1.1：数据 数据是自然世界抽象为集合元素的表示。在实际应用中，采用某种数学元素作为数据的抽象表示，数据集作为相应的集合 定义 1.2：信息 数据赋予某种结构获得信息 \(\mathcal{I&#x3D;S}(\mathcal D)\)。信息通常能被人类所理解，并被用来消除不确定性。 定义 1.3：偏序结构 \(A\) 上的关系 \(R\) 是自反的，反对称的，">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-10-29T00:56:00.000Z">
 <meta property="article:modified_time" content="2022-10-29T00:57:24.451Z">
@@ -235,7 +235,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.2k words
+          2.3k words
         
       </span>
     
@@ -289,30 +289,131 @@
             
               <div class="markdown-body">
                 
-                <h2 id="第一章-数据分析初探"><a href="#第一章-数据分析初探" class="headerlink" title="第一章 数据分析初探"></a>第一章 数据分析初探</h2><h3 id="1-1-认识数据"><a href="#1-1-认识数据" class="headerlink" title="1.1 认识数据"></a>1.1 认识数据</h3><h5 id="定义-1-1：数据"><a href="#定义-1-1：数据" class="headerlink" title="定义 1.1：数据"></a>定义 1.1：数据</h5><p>数据是自然世界抽象为集合元素的表示。在实际应用中，采用某种数学元素作为数据的抽象表示，数据集作为相应的集合</p>
-<h5 id="定义-1-2：信息"><a href="#定义-1-2：信息" class="headerlink" title="定义 1.2：信息"></a>定义 1.2：信息</h5><p>数据赋予某种结构获得信息 $\mathcal{I=S}(\mathcal D)$。信息通常能被人类所理解，并被用来消除不确定性。</p>
-<h5 id="定义-1-3：偏序结构"><a href="#定义-1-3：偏序结构" class="headerlink" title="定义 1.3：偏序结构"></a>定义 1.3：偏序结构</h5><p>$A$ 上的关系 $R$ 是自反的，反对称的，传递的。则 $R$ 是一个偏序，集合 $A$ 与 $R$一起称作偏序集，记做 $(A,\ R)$，在不引起混淆的情况下，可以简写成 $A$</p>
-<h5 id="定义-1-4：知识"><a href="#定义-1-4：知识" class="headerlink" title="定义 1.4：知识"></a>定义 1.4：知识</h5><p>知识是信息和规则的二元组 $\mathcal{K}=&lt;\mathcal{I,R}&gt;$。信息与规则结合获得知识，并且能够推理出更多的知识</p>
-<h3 id="1-2-数据类型"><a href="#1-2-数据类型" class="headerlink" title="1.2 数据类型"></a>1.2 数据类型</h3><h5 id="定义1-5：定类数据（Norminal）"><a href="#定义1-5：定类数据（Norminal）" class="headerlink" title="定义1.5：定类数据（Norminal）"></a>定义1.5：定类数据（Norminal）</h5><p>定类数据是对事物进行分类的结果，表现为类别，是仅仅反映观测对象所属类别的数据</p>
-<h5 id="定义-1-6：定序数据（Original）"><a href="#定义-1-6：定序数据（Original）" class="headerlink" title="定义 1.6：定序数据（Original）"></a>定义 1.6：定序数据（Original）</h5><p>定序数据是只仅仅反映观测对象等级，顺序关系的数据，是有定序尺度计量而形成的，表现为类别，可以进行排序，属于品质数据</p>
-<h5 id="定义-1-7：定距数据（Interval）"><a href="#定义-1-7：定距数据（Interval）" class="headerlink" title="定义 1.7：定距数据（Interval）"></a>定义 1.7：定距数据（Interval）</h5><p>定距数据是指具有顺序和距离属性的数据，室友定距尺度计量形成的，表现为数值，可以进行加、减运算以精确计算的数据</p>
-<h5 id="定义-1-8：定比数据（Ratio）"><a href="#定义-1-8：定比数据（Ratio）" class="headerlink" title="定义 1.8：定比数据（Ratio）"></a>定义 1.8：定比数据（Ratio）</h5><p>定比数据是指具有顺序，距离和比例属性的数据，室友定比尺度计量形成的，表现为数值，可以进行四则运算。没有负数。</p>
-<h3 id="1-3-数据汇总"><a href="#1-3-数据汇总" class="headerlink" title="1.3 数据汇总"></a>1.3 数据汇总</h3><h5 id="定义-1-9：众数"><a href="#定义-1-9：众数" class="headerlink" title="定义 1.9：众数"></a>定义 1.9：众数</h5><p>众数是一批数据中出现次数最多的那个数，记为 $M_0$</p>
-<h5 id="定义-1-10：中位数"><a href="#定义-1-10：中位数" class="headerlink" title="定义 1.10：中位数"></a>定义 1.10：中位数</h5><p>设一批数据经过排序之后为 $X_1,\ X_2,\ …,\ X_n$，则其中位数 $M_e \triangleq M_{[\frac{n+1}{2}]}$</p>
-<h5 id="定义-1-11：四分位数"><a href="#定义-1-11：四分位数" class="headerlink" title="定义 1.11：四分位数"></a>定义 1.11：四分位数</h5><p>一批数据按升序排序后为 $X_1,\ X_2\ ,…,\ X_n$，则其第 $i$ 位的四分位数 $Q_i \triangleq \frac{i(n+1)}{4},\ (i = 1,\ 2,\ 3)$</p>
-<h5 id="定义-1-12：算术平均值"><a href="#定义-1-12：算术平均值" class="headerlink" title="定义 1.12：算术平均值"></a>定义 1.12：算术平均值</h5><p>设一批数据 $X_1,\ X_2\ ,…,\ X_n$，则其算数平均值<br>$$<br>\overline{X}\triangleq\frac{1}{n}\sum_{i = 1}^{n}X_i<br>$$</p>
-<h5 id="定理-1-1：算术平均值归零性"><a href="#定理-1-1：算术平均值归零性" class="headerlink" title="定理 1.1：算术平均值归零性"></a>定理 1.1：算术平均值归零性</h5><p>设一批数据 $X_1,\ X_2\ ,…,\ X_n$，$\overline{X}$ 为其算数平均值，则<br>$$<br>\sum_{i = 1}^{n}(X_i-\overline{X}) = 0<br>$$</p>
-<h5 id="定义-1-13：加权算术平均值"><a href="#定义-1-13：加权算术平均值" class="headerlink" title="定义 1.13：加权算术平均值"></a>定义 1.13：加权算术平均值</h5><p>设一批数据 $X_1,\ X_2\ ,…,\ X_n$，相应的权重为  $\omega_1,\ \omega_2\ ,…,\ \omega_n$，不失一般性，我们假设权重和为 $1$ ，则其加权算术平均值为<br>$$<br>\overline{X} = \sum_{i = 1}^{n}\omega_iX_i<br>$$</p>
-<h5 id="定义-1-14：内四分位距"><a href="#定义-1-14：内四分位距" class="headerlink" title="定义 1.14：内四分位距"></a>定义 1.14：内四分位距</h5><p>内四分位距 $\triangleq Q_3-Q_1$</p>
-<h5 id="定义-1-15：偏差平方和，方差和标准差"><a href="#定义-1-15：偏差平方和，方差和标准差" class="headerlink" title="定义 1.15：偏差平方和，方差和标准差"></a>定义 1.15：偏差平方和，方差和标准差</h5><p> 设一批数据为 $X_1,\ X_2\ ,…,\ X_n$，则数据的偏差平方和为每个数据与平均值偏差平方的和，即<br>$$<br>d^2\triangleq\sum_{i = 1}^{n}(X_i-\overline X)^2<br>$$<br>数据的方差 $S^2$ 为偏差平方和的平均值<br>$$<br>S^2\triangleq {d^2\over n}<br>$$<br>数据的标准差 $S$ 为方差的算术平方根<br>$$<br>S \triangleq \sqrt{S^2}<br>$$</p>
-<h5 id="定理-1-2：偏差平方和计算公式"><a href="#定理-1-2：偏差平方和计算公式" class="headerlink" title="定理 1.2：偏差平方和计算公式"></a>定理 1.2：偏差平方和计算公式</h5><p>设一批数据为 $X_1,\ X_2\ ,…,\ X_n$，其方差为 $S^2$，则<br>$$<br>d^2= \sum_{i = 1}^{n}X_i^2-{(\displaystyle\sum_{i = 1}^nX_i)^2\over n}<br>$$</p>
-<h5 id="定义-1-16：修正方差和标准差"><a href="#定义-1-16：修正方差和标准差" class="headerlink" title="定义 1.16：修正方差和标准差"></a>定义 1.16：修正方差和标准差</h5><p>设一批数据为 $X_1,\ X_2\ ,…,\ X_n$，则数据的方差和标准差 $S^2,\ S$ 为<br>$$<br>S^2 = {d^2\over n -1}\S = \sqrt{S^2}<br>$$</p>
-<h5 id="定义-1-17：变异系数"><a href="#定义-1-17：变异系数" class="headerlink" title="定义 1.17：变异系数"></a>定义 1.17：变异系数</h5><p>样本的变异系数为样本标准差除以样本的均值</p>
-<h5 id="定理-1-3：算术平均值偏差极小性"><a href="#定理-1-3：算术平均值偏差极小性" class="headerlink" title="定理 1.3：算术平均值偏差极小性"></a>定理 1.3：算术平均值偏差极小性</h5><p>设数据 $X_1,\ X_2\ ,…,\ X_n$，$\overline{X}$ 为其算术均值，则算术平均值 $\overline X$ 的偏差平方和最小，即<br>$$<br>\overline{X} = arg\min_{a}\sum_{i = 1}^{n}(X_i - a)^2<br>$$</p>
-<h5 id="定义-1-18：矩"><a href="#定义-1-18：矩" class="headerlink" title="定义 1.18：矩"></a>定义 1.18：矩</h5><p>设一批数据 $X_1,\ X_2\ ,…,\ X_n$，其 $k$ 阶原点矩定义为 $(k\in\mathbb{N})$<br>$$<br>A_k = {1\over n}\sum_{i = 1}^{n}x_i^k<br>$$<br>其 $k$ 阶中心矩定义为 $(k\in\mathbb{N})$<br>$$<br>B_k = {1\over n}\sum_{i = 1}^{n}(X_i - \overline{X})^k<br>$$</p>
-<h5 id="定理-1-4：矩表示"><a href="#定理-1-4：矩表示" class="headerlink" title="定理 1.4：矩表示"></a>定理 1.4：矩表示</h5><p>$$<br>B_k = \sum_{i = 0}^{n}C_n^i(-A_1)^iA_{n-i}<br>$$</p>
-<h5 id="定义-1-19：偏度"><a href="#定义-1-19：偏度" class="headerlink" title="定义 1.19：偏度"></a>定义 1.19：偏度</h5><p>设一批数据 $X_1,\ X_2\ ,…,\ X_n$，则其偏度 $s^3$ 为<br>$$<br>s^3\triangleq {B_3\over B_2^{1.5}}<br>$$</p>
-<h5 id="定义-1-20：峰度"><a href="#定义-1-20：峰度" class="headerlink" title="定义 1.20：峰度"></a>定义 1.20：峰度</h5><p>设一批数据 $X_1,\ X_2\ ,…,\ X_n$，则其峰度 $s^4$ 为<br>$$<br>s^4 = {B_4\over B_2^2}<br>$$</p>
+                <h2 id="第一章-数据分析初探">第一章 数据分析初探</h2>
+<h3 id="认识数据">1.1 认识数据</h3>
+<h5 id="定义-1.1数据">定义 1.1：数据</h5>
+<p>数据是自然世界抽象为集合元素的表示。在实际应用中，采用某种数学元素作为数据的抽象表示，数据集作为相应的集合</p>
+<h5 id="定义-1.2信息">定义 1.2：信息</h5>
+<p>数据赋予某种结构获得信息 <span
+class="math inline">\(\mathcal{I=S}(\mathcal
+D)\)</span>。信息通常能被人类所理解，并被用来消除不确定性。</p>
+<h5 id="定义-1.3偏序结构">定义 1.3：偏序结构</h5>
+<p><span class="math inline">\(A\)</span> 上的关系 <span
+class="math inline">\(R\)</span> 是自反的，反对称的，传递的。则 <span
+class="math inline">\(R\)</span> 是一个偏序，集合 <span
+class="math inline">\(A\)</span> 与 <span
+class="math inline">\(R\)</span>一起称作偏序集，记做 <span
+class="math inline">\((A,\ R)\)</span>，在不引起混淆的情况下，可以简写成
+<span class="math inline">\(A\)</span></p>
+<h5 id="定义-1.4知识">定义 1.4：知识</h5>
+<p>知识是信息和规则的二元组 <span
+class="math inline">\(\mathcal{K}=&lt;\mathcal{I,R}&gt;\)</span>。信息与规则结合获得知识，并且能够推理出更多的知识</p>
+<h3 id="数据类型">1.2 数据类型</h3>
+<h5 id="定义1.5定类数据norminal">定义1.5：定类数据（Norminal）</h5>
+<p>定类数据是对事物进行分类的结果，表现为类别，是仅仅反映观测对象所属类别的数据</p>
+<h5 id="定义-1.6定序数据original">定义 1.6：定序数据（Original）</h5>
+<p>定序数据是只仅仅反映观测对象等级，顺序关系的数据，是有定序尺度计量而形成的，表现为类别，可以进行排序，属于品质数据</p>
+<h5 id="定义-1.7定距数据interval">定义 1.7：定距数据（Interval）</h5>
+<p>定距数据是指具有顺序和距离属性的数据，室友定距尺度计量形成的，表现为数值，可以进行加、减运算以精确计算的数据</p>
+<h5 id="定义-1.8定比数据ratio">定义 1.8：定比数据（Ratio）</h5>
+<p>定比数据是指具有顺序，距离和比例属性的数据，室友定比尺度计量形成的，表现为数值，可以进行四则运算。没有负数。</p>
+<h3 id="数据汇总">1.3 数据汇总</h3>
+<h5 id="定义-1.9众数">定义 1.9：众数</h5>
+<p>众数是一批数据中出现次数最多的那个数，记为 <span
+class="math inline">\(M_0\)</span></p>
+<h5 id="定义-1.10中位数">定义 1.10：中位数</h5>
+<p>设一批数据经过排序之后为 <span class="math inline">\(X_1,\ X_2,\ …,\
+X_n\)</span>，则其中位数 <span class="math inline">\(M_e \triangleq
+M_{[\frac{n+1}{2}]}\)</span></p>
+<h5 id="定义-1.11四分位数">定义 1.11：四分位数</h5>
+<p>一批数据按升序排序后为 <span class="math inline">\(X_1,\ X_2\ ,…,\
+X_n\)</span>，则其第 <span class="math inline">\(i\)</span> 位的四分位数
+<span class="math inline">\(Q_i \triangleq \frac{i(n+1)}{4},\ (i = 1,\
+2,\ 3)\)</span></p>
+<h5 id="定义-1.12算术平均值">定义 1.12：算术平均值</h5>
+<p>设一批数据 <span class="math inline">\(X_1,\ X_2\ ,…,\
+X_n\)</span>，则其算数平均值 <span class="math display">\[
+\overline{X}\triangleq\frac{1}{n}\sum_{i = 1}^{n}X_i
+\]</span></p>
+<h5 id="定理-1.1算术平均值归零性">定理 1.1：算术平均值归零性</h5>
+<p>设一批数据 <span class="math inline">\(X_1,\ X_2\ ,…,\
+X_n\)</span>，<span class="math inline">\(\overline{X}\)</span>
+为其算数平均值，则 <span class="math display">\[
+\sum_{i = 1}^{n}(X_i-\overline{X}) = 0
+\]</span></p>
+<h5 id="定义-1.13加权算术平均值">定义 1.13：加权算术平均值</h5>
+<p>设一批数据 <span class="math inline">\(X_1,\ X_2\ ,…,\
+X_n\)</span>，相应的权重为 <span class="math inline">\(\omega_1,\
+\omega_2\ ,…,\ \omega_n\)</span>，不失一般性，我们假设权重和为 <span
+class="math inline">\(1\)</span> ，则其加权算术平均值为 <span
+class="math display">\[
+\overline{X} = \sum_{i = 1}^{n}\omega_iX_i
+\]</span></p>
+<h5 id="定义-1.14内四分位距">定义 1.14：内四分位距</h5>
+<p>内四分位距 <span class="math inline">\(\triangleq
+Q_3-Q_1\)</span></p>
+<h5 id="定义-1.15偏差平方和方差和标准差">定义
+1.15：偏差平方和，方差和标准差</h5>
+<p>设一批数据为 <span class="math inline">\(X_1,\ X_2\ ,…,\
+X_n\)</span>，则数据的偏差平方和为每个数据与平均值偏差平方的和，即 <span
+class="math display">\[
+d^2\triangleq\sum_{i = 1}^{n}(X_i-\overline X)^2
+\]</span> 数据的方差 <span class="math inline">\(S^2\)</span>
+为偏差平方和的平均值 <span class="math display">\[
+S^2\triangleq {d^2\over n}
+\]</span> 数据的标准差 <span class="math inline">\(S\)</span>
+为方差的算术平方根 <span class="math display">\[
+S \triangleq \sqrt{S^2}
+\]</span></p>
+<h5 id="定理-1.2偏差平方和计算公式">定理 1.2：偏差平方和计算公式</h5>
+<p>设一批数据为 <span class="math inline">\(X_1,\ X_2\ ,…,\
+X_n\)</span>，其方差为 <span class="math inline">\(S^2\)</span>，则
+<span class="math display">\[
+d^2= \sum_{i = 1}^{n}X_i^2-{(\displaystyle\sum_{i = 1}^nX_i)^2\over n}
+\]</span></p>
+<h5 id="定义-1.16修正方差和标准差">定义 1.16：修正方差和标准差</h5>
+<p>设一批数据为 <span class="math inline">\(X_1,\ X_2\ ,…,\
+X_n\)</span>，则数据的方差和标准差 <span class="math inline">\(S^2,\
+S\)</span> 为 <span class="math display">\[
+S^2 = {d^2\over n -1}\\S = \sqrt{S^2}
+\]</span></p>
+<h5 id="定义-1.17变异系数">定义 1.17：变异系数</h5>
+<p>样本的变异系数为样本标准差除以样本的均值</p>
+<h5 id="定理-1.3算术平均值偏差极小性">定理
+1.3：算术平均值偏差极小性</h5>
+<p>设数据 <span class="math inline">\(X_1,\ X_2\ ,…,\
+X_n\)</span>，<span class="math inline">\(\overline{X}\)</span>
+为其算术均值，则算术平均值 <span class="math inline">\(\overline
+X\)</span> 的偏差平方和最小，即 <span class="math display">\[
+\overline{X} = arg\min_{a}\sum_{i = 1}^{n}(X_i - a)^2
+\]</span></p>
+<h5 id="定义-1.18矩">定义 1.18：矩</h5>
+<p>设一批数据 <span class="math inline">\(X_1,\ X_2\ ,…,\
+X_n\)</span>，其 <span class="math inline">\(k\)</span> 阶原点矩定义为
+<span class="math inline">\((k\in\mathbb{N})\)</span> <span
+class="math display">\[
+A_k = {1\over n}\sum_{i = 1}^{n}x_i^k
+\]</span> 其 <span class="math inline">\(k\)</span> 阶中心矩定义为 <span
+class="math inline">\((k\in\mathbb{N})\)</span> <span
+class="math display">\[
+B_k = {1\over n}\sum_{i = 1}^{n}(X_i - \overline{X})^k
+\]</span></p>
+<h5 id="定理-1.4矩表示">定理 1.4：矩表示</h5>
+<p><span class="math display">\[
+B_k = \sum_{i = 0}^{n}C_n^i(-A_1)^iA_{n-i}
+\]</span></p>
+<h5 id="定义-1.19偏度">定义 1.19：偏度</h5>
+<p>设一批数据 <span class="math inline">\(X_1,\ X_2\ ,…,\
+X_n\)</span>，则其偏度 <span class="math inline">\(s^3\)</span> 为 <span
+class="math display">\[
+s^3\triangleq {B_3\over B_2^{1.5}}
+\]</span></p>
+<h5 id="定义-1.20峰度">定义 1.20：峰度</h5>
+<p>设一批数据 <span class="math inline">\(X_1,\ X_2\ ,…,\
+X_n\)</span>，则其峰度 <span class="math inline">\(s^4\)</span> 为 <span
+class="math display">\[
+s^4 = {B_4\over B_2^2}
+\]</span></p>
 
                 
               </div>

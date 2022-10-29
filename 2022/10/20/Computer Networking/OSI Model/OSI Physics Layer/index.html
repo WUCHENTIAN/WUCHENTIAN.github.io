@@ -18,20 +18,18 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="OSI层次：物理层 关键词：信号和介质 定义了在系统之间为了链路所需的电气的、功能的特征 (包括介质) 定义了电压级别、电压变化时机、物理数据速率、最大传输距离、物理连接器，以及其他相似性质  1. 网络连接类型 多路复用共享介质  多个主机可以访问同一介质 这意味着它们都共享相同的介质 —— 即是”wire” 如下图：  graph LR s[&#x3D;&#x3D; &#x3D;&#x3D; &#x3D;&#x3D; &#x3D;&#x3D; &#x3D;&#x3D; &#x3D;&#x3D; &#x3D;&#x3D; &#x3D;&#x3D; &#x3D;&#x3D;">
+    <meta name="description" content="OSI层次：物理层  关键词：信号和介质 定义了在系统之间为了链路所需的电气的、功能的特征 (包括介质) 定义了电压级别、电压变化时机、物理数据速率、最大传输距离、物理连接器，以及其他相似性质  1. 网络连接类型  多路复用共享介质  多个主机可以访问同一介质 这意味着它们都共享相同的介质 —— 即是&quot;wire&quot; 如下图：  graph LR s[&#x3D;&#x3D; &#x3D;&#x3D; &#x3D;&#x3D; &#x3D;&#x3D; &#x3D;&#x3D; &#x3D;&#x3D; &#x3D;&#x3D; &#x3D;&#x3D;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="OSI Physics Layer">
 <meta property="og:url" content="https://wuchentian.github.io/2022/10/20/Computer%20Networking/OSI%20Model/OSI%20Physics%20Layer/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="OSI层次：物理层 关键词：信号和介质 定义了在系统之间为了链路所需的电气的、功能的特征 (包括介质) 定义了电压级别、电压变化时机、物理数据速率、最大传输距离、物理连接器，以及其他相似性质  1. 网络连接类型 多路复用共享介质  多个主机可以访问同一介质 这意味着它们都共享相同的介质 —— 即是”wire” 如下图：  graph LR s[&#x3D;&#x3D; &#x3D;&#x3D; &#x3D;&#x3D; &#x3D;&#x3D; &#x3D;&#x3D; &#x3D;&#x3D; &#x3D;&#x3D; &#x3D;&#x3D; &#x3D;&#x3D;">
+<meta property="og:description" content="OSI层次：物理层  关键词：信号和介质 定义了在系统之间为了链路所需的电气的、功能的特征 (包括介质) 定义了电压级别、电压变化时机、物理数据速率、最大传输距离、物理连接器，以及其他相似性质  1. 网络连接类型  多路复用共享介质  多个主机可以访问同一介质 这意味着它们都共享相同的介质 —— 即是&quot;wire&quot; 如下图：  graph LR s[&#x3D;&#x3D; &#x3D;&#x3D; &#x3D;&#x3D; &#x3D;&#x3D; &#x3D;&#x3D; &#x3D;&#x3D; &#x3D;&#x3D; &#x3D;&#x3D;">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210290929399.png">
 <meta property="article:published_time" content="2022-10-20T09:08:00.000Z">
 <meta property="article:modified_time" content="2022-10-29T04:23:17.676Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="hardware">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210290929399.png">
   
   
   
@@ -289,16 +287,18 @@
             
               <div class="markdown-body">
                 
-                <h1 id="OSI层次：物理层"><a href="#OSI层次：物理层" class="headerlink" title="OSI层次：物理层"></a>OSI层次：物理层</h1><blockquote>
+                <h1 id="osi层次物理层">OSI层次：物理层</h1>
+<blockquote>
 <p>关键词：信号和介质</p>
 <p>定义了在系统之间为了链路所需的电气的、功能的特征 (包括介质)</p>
 <p>定义了电压级别、电压变化时机、物理数据速率、最大传输距离、物理连接器，以及其他相似性质</p>
 </blockquote>
-<h2 id="1-网络连接类型"><a href="#1-网络连接类型" class="headerlink" title="1. 网络连接类型"></a>1. 网络连接类型</h2><ol>
+<h2 id="网络连接类型">1. 网络连接类型</h2>
+<ol type="1">
 <li><p>多路复用共享介质</p>
 <ul>
 <li>多个主机可以访问同一介质</li>
-<li>这意味着它们都共享相同的介质 —— 即是”wire”</li>
+<li>这意味着它们都共享相同的介质 —— 即是"wire"</li>
 <li>如下图：</li>
 </ul>
 <pre><code class=" mermaid">graph LR
@@ -320,24 +320,38 @@ a((a))--&gt;
 b((b))
 </code></pre></li>
 </ol>
-<h2 id="2-局域网介质"><a href="#2-局域网介质" class="headerlink" title="2. 局域网介质"></a>2. 局域网介质</h2><p><strong>什么是局域网</strong></p>
-<p> 局域网是一种网络种类，覆盖范围一般是方圆几千米之内，其具备的安装便捷、成本节约、扩展方便等特点使其在各类办公室内运用广泛。局域网可以实现<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/1452357?fromModule=lemma_inlink">文件管理</a>、应用软件共享、<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%89%93%E5%8D%B0%E6%9C%BA%E5%85%B1%E4%BA%AB/1979511?fromModule=lemma_inlink">打印机共享</a>等功能，在使用过程当中，通过维护局域网网络安全，能够有效地保护资料安全，保证局域网网络能够正常稳定的运行。</p>
-<h3 id="2-1-UTP"><a href="#2-1-UTP" class="headerlink" title="2.1. UTP"></a>2.1. UTP</h3><blockquote>
+<h2 id="局域网介质">2. 局域网介质</h2>
+<p><strong>什么是局域网</strong></p>
+<p>局域网是一种网络种类，覆盖范围一般是方圆几千米之内，其具备的安装便捷、成本节约、扩展方便等特点使其在各类办公室内运用广泛。局域网可以实现<a
+target="_blank" rel="noopener" href="https://baike.baidu.com/item/文件管理/1452357?fromModule=lemma_inlink">文件管理</a>、应用软件共享、<a
+target="_blank" rel="noopener" href="https://baike.baidu.com/item/打印机共享/1979511?fromModule=lemma_inlink">打印机共享</a>等功能，在使用过程当中，通过维护局域网网络安全，能够有效地保护资料安全，保证局域网网络能够正常稳定的运行。</p>
+<h3 id="utp">2.1. UTP</h3>
+<blockquote>
 <p><strong>无屏蔽双绞线</strong> (Unshielded Twisted Pair)</p>
 </blockquote>
-<h4 id="2-1-2-UTP-的分类"><a href="#2-1-2-UTP-的分类" class="headerlink" title="2.1.2. UTP 的分类"></a>2.1.2. UTP 的分类</h4><p><strong>一类线</strong>：主要用于语音传输，不用于数据传输</p>
-<p><strong>二类线</strong>：传输频率 1 MHz，用于语音和最高 4 Mbps 的数据传输，常见于令牌网</p>
-<p><strong>三类线</strong>：EIA / TIA568 标准指定电缆，传输频率 16 MHz ，用于语音传输及最高传输速率为 10 Mbps 的数据传输，主要用于10BASE-T</p>
-<p><strong>四类线</strong>：传输频率为 20 MHz ，用于语音传输和最高传输速率 16 Mbps的数据传输，主要用于令牌网和 10BASE-T/100BASE-T</p>
-<p><strong>五类线</strong>：增加了绕线密度，外套高质量绝缘材料，用于语音和数据传输 (主要为100/1000BASE-T)，是最常用的以太网电缆</p>
+<h4 id="utp-的分类">2.1.2. UTP 的分类</h4>
+<p><strong>一类线</strong>：主要用于语音传输，不用于数据传输</p>
+<p><strong>二类线</strong>：传输频率 1 MHz，用于语音和最高 4 Mbps
+的数据传输，常见于令牌网</p>
+<p><strong>三类线</strong>：EIA / TIA568 标准指定电缆，传输频率 16 MHz
+，用于语音传输及最高传输速率为 10 Mbps 的数据传输，主要用于10BASE-T</p>
+<p><strong>四类线</strong>：传输频率为 20 MHz
+，用于语音传输和最高传输速率 16 Mbps的数据传输，主要用于令牌网和
+10BASE-T/100BASE-T</p>
+<p><strong>五类线</strong>：增加了绕线密度，外套高质量绝缘材料，用于语音和数据传输
+(主要为100/1000BASE-T)，是最常用的以太网电缆</p>
 <p><strong>超五类线</strong>：衰减小，串扰少，具有更高的衰减/串扰比和信噪比、更小的时延误差，主要用于1000BASE-T</p>
 <p><strong>六类线</strong>：传输频率为1MHz～250MHz，性能远高于超五类标准，适用于高于1Gbps的应用</p>
 <p><strong>七类线</strong>：带宽为600MHz，可能用于今后的10G比特以太网。</p>
-<h3 id="2-2-Coaxial-Cable"><a href="#2-2-Coaxial-Cable" class="headerlink" title="2.2. Coaxial Cable"></a>2.2. Coaxial Cable</h3><blockquote>
+<h3 id="coaxial-cable">2.2. Coaxial Cable</h3>
+<blockquote>
 <p><strong>同轴电缆</strong></p>
 </blockquote>
-<p><a target="_blank" rel="noopener" href="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Internet-computing/img/lec02/5.png"><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210290929399.png" srcset="/img/loading.gif" lazyload alt="img"></a></p>
-<ol>
+<p><a
+target="_blank" rel="noopener" href="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Internet-computing/img/lec02/5.png"><img
+src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210290929399.png" srcset="/img/loading.gif" lazyload
+alt="img" /></a></p>
+<ol type="1">
 <li>薄/厚</li>
 <li>与双绞线相比，不使用中继器的网络运行时间更长</li>
 <li>比光纤便宜但比双绞线贵</li>
@@ -345,7 +359,9 @@ b((b))
 <li>500m左右，无论如何比双绞线传输更加远，成本也要高一点</li>
 <li>内置无线网卡肯定没有同轴电缆，同轴电缆是比较落后的工艺。</li>
 </ol>
-<h2 id=""><a href="#" class="headerlink" title=""></a></h2><h2 id="2-网线的分类"><a href="#2-网线的分类" class="headerlink" title="2.网线的分类"></a>2.网线的分类</h2><p>a.直通线</p>
+<h2 id="section"></h2>
+<h2 id="网线的分类">2.网线的分类</h2>
+<p>a.直通线</p>
 <p>在所有末端使用T568A或者T568B</p>
 <p>用于连接<strong>PC和交换机</strong>以及连接<strong>交换机和路由器</strong></p>
 <p>b.反转线（控制线）</p>
@@ -355,25 +371,35 @@ b((b))
 <p>一端是T568A，另一端是T568B</p>
 <p>可用于PC与路由器直连，也可用于连接两个或多个集线器或交换机</p>
 <p>连接两个独立的工作站以创建迷你局域网</p>
-<h1 id="3-数据通信基本知识"><a href="#3-数据通信基本知识" class="headerlink" title="3.数据通信基本知识"></a>3.数据通信基本知识</h1><h2 id="①基本术语"><a href="#①基本术语" class="headerlink" title="①基本术语"></a>①基本术语</h2><p>信号：数据的电气或者电磁的表现</p>
+<h1 id="数据通信基本知识">3.数据通信基本知识</h1>
+<h2 id="基本术语">①基本术语</h2>
+<p>信号：数据的电气或者电磁的表现</p>
 <p>码元：在使用时间域（或简称为时域）的波形表示数字信号时，代表不同离散数值的基本波形。</p>
-<h2 id="②信号处理"><a href="#②信号处理" class="headerlink" title="②信号处理"></a>②信号处理</h2><p>模拟信号可以被分为简单信号和复合信号</p>
-<p> 简单信号（正弦波）不能被分解为更简单的模拟信号</p>
-<p> 复合信号可以被分解为多个<strong>正弦波</strong></p>
+<h2 id="信号处理">②信号处理</h2>
+<p>模拟信号可以被分为简单信号和复合信号</p>
+<p>简单信号（正弦波）不能被分解为更简单的模拟信号</p>
+<p>复合信号可以被分解为多个<strong>正弦波</strong></p>
 <p>复合模拟信号的分解：<strong>傅立叶分析</strong></p>
-<p> 任何一个周期为T的有理周期性函数 g(t)可分解为若干项 （可能无限多项）正弦和余弦函数之和：<br>$$<br>g(t) = \frac12c+\sum_{i = 1}^{\infty}a_n\sin(2\pi nft)+\sum_{i = 1}^{\infty}b_n\cos(2\pi nft)<br>$$<br>数字信号一般是非周期性的，通常在传输介质上表现为方波</p>
+<p>任何一个周期为T的有理周期性函数 g(t)可分解为若干项
+（可能无限多项）正弦和余弦函数之和： <span class="math display">\[
+g(t) = \frac12c+\sum_{i = 1}^{\infty}a_n\sin(2\pi nft)+\sum_{i =
+1}^{\infty}b_n\cos(2\pi nft)
+\]</span> 数字信号一般是非周期性的，通常在传输介质上表现为方波</p>
 <p>一个数字信号可以分解为无穷多个被称为谐波的简单正弦波，每个谐波都具有不同的频率与相位</p>
 <p>在介质上发送数字信号时，其实质是在发送无穷多的简单谐波，如果某些分量未能忠实地通过介质传输，则在接收端将产生信号畸变</p>
 <p>由于介质本身的限制，信号畸变是难以完全避免的</p>
 <p>任何实际的信道都不是理想的，在传输信号时会产生各种失真以及带来多种干扰。</p>
 <p>码元传输的速率越高，或信号传输的距离越远，在信道的输出端的波形的失真就越严重</p>
-<h2 id="③理论基础"><a href="#③理论基础" class="headerlink" title="③理论基础"></a>③理论基础</h2><p>a.波特率和比特率</p>
+<h2 id="理论基础">③理论基础</h2>
+<p>a.波特率和比特率</p>
 <p>波特率（调制速率）：信号每秒钟变化的次数</p>
 <p>比特率：每秒钟传送的二进制位数。</p>
 <p>b.波特率与比特率的关系取决于信号值与比特位的关系</p>
 <p>例：每个信号值表示为３位，则比特率是波特率的３倍；每个信号值表示为１位，则比特率和波特率相同</p>
-<p>对于比特率为a bps的信道，发送８位所需的时间为 8/a秒，若８位为一个周期Ｔ，则一次谐波的频率是： f = a/8 Hz</p>
-<h2 id="④数据通信技术：编码方式"><a href="#④数据通信技术：编码方式" class="headerlink" title="④数据通信技术：编码方式)"></a>④数据通信技术：编码方式)</h2>
+<p>对于比特率为a bps的信道，发送８位所需的时间为
+8/a秒，若８位为一个周期Ｔ，则一次谐波的频率是： f = a/8 Hz</p>
+<h2 id="数据通信技术编码方式">④数据通信技术：编码方式)</h2>
+
                 
               </div>
             
