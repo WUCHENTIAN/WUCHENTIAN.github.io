@@ -1,0 +1,736 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/BrBa.jpg">
+  <link rel="icon" href="/img/BrBa.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="第六章6.1 点估计6.1.1 矩估计定义6.1：矩估计随机变量$$X$$服从某总体分布，其中包含k个未知参数，$$θ_i(i &#x3D; 1, 2, … , k), \ μ_l &#x3D; E(X^l)$$ 为总体的 $$l$$ 阶矩。$$X_i(i &#x3D; 1, 2, … , n)$$是来自于$$X$$的样本，那么求解以下方程组得到的估计值$$θ_i(i &#x3D; 1, 2, …, k)$$的方法称为矩估计法。$$μ_">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第六章 参数估计">
+<meta property="og:url" content="https://wuchentian.github.io/2022/10/29/Fundamentals%20of%20Data%20Science/%E7%AC%AC%E5%85%AD%E7%AB%A0%20%E5%8F%82%E6%95%B0%E4%BC%B0%E8%AE%A1/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="第六章6.1 点估计6.1.1 矩估计定义6.1：矩估计随机变量$$X$$服从某总体分布，其中包含k个未知参数，$$θ_i(i &#x3D; 1, 2, … , k), \ μ_l &#x3D; E(X^l)$$ 为总体的 $$l$$ 阶矩。$$X_i(i &#x3D; 1, 2, … , n)$$是来自于$$X$$的样本，那么求解以下方程组得到的估计值$$θ_i(i &#x3D; 1, 2, …, k)$$的方法称为矩估计法。$$μ_">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-10-29T01:01:00.000Z">
+<meta property="article:modified_time" content="2022-10-29T01:02:16.834Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="参数估计">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>第六章 参数估计 - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"wuchentian.github.io","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                Links
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/background.jpeg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="第六章 参数估计"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-10-29 09:01" pubdate>
+          October 29, 2022 am
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.5k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          29 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">第六章 参数估计</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="第六章"><a href="#第六章" class="headerlink" title="第六章"></a>第六章</h2><h3 id="6-1-点估计"><a href="#6-1-点估计" class="headerlink" title="6.1 点估计"></a>6.1 点估计</h3><h4 id="6-1-1-矩估计"><a href="#6-1-1-矩估计" class="headerlink" title="6.1.1 矩估计"></a>6.1.1 矩估计</h4><h5 id="定义6-1：矩估计"><a href="#定义6-1：矩估计" class="headerlink" title="定义6.1：矩估计"></a>定义6.1：矩估计</h5><p>随机变量$$X$$服从某总体分布，其中包含k个未知参数，$$θ_i(i = 1, 2, … , k), \ μ_l = E(X^l)$$ 为总体的 $$l$$ 阶矩。$$X_i(i = 1, 2, … , n)$$是来自于$$X$$的样本，那么求解以下方程组得到的估计值$$θ_i(i = 1, 2, …, k)$$的方法称为矩估计法。<br>$$<br>μ_i = A_i(i = 1, 2, …， k)<br>$$</p>
+<h5 id="定理6-1-矩估计定理"><a href="#定理6-1-矩估计定理" class="headerlink" title="定理6.1 矩估计定理"></a>定理6.1 矩估计定理</h5><p>设随机变量$$X$$的数学期望和$$μ$$和方差$$σ^2$$都存在，且有估计量$$σ^2&gt;0$$。$$μ$$ 和 $$σ^2$$ 均未知。$$X_i(i = 1, 2, …， n)$$为来自$$X$$的样本。则$$μ$$和$${σ}^2$$的估计量分别为<br>$$<br>\hat{μ} = \overline{X}\<br>\hat{σ}^2 = \frac{1}{n}\sum_{i = 1}^{n}(X_i - \overline{X})^2<br>$$</p>
+<h4 id="6-1-2-极大似然估计"><a href="#6-1-2-极大似然估计" class="headerlink" title="6.1.2 极大似然估计"></a>6.1.2 极大似然估计</h4><h5 id="定义6-2：极大似然估计"><a href="#定义6-2：极大似然估计" class="headerlink" title="定义6.2：极大似然估计"></a>定义6.2：极大似然估计</h5><p>$$x$$ 是样本值，$$θ$$ 为需要估计的总体参数，$$L$$ 为似然函数，极大似然估计的等式定义如下：<br>$$<br>\hatθ_{MLE}(x) = \underset{θ}{arg\max}L(θ)<br>$$<br>其中，对于随机变量 $$X$$, 似然函数 $$L(θ) = \displaystyle\prod_{i = 1}^nP(X = x)$$</p>
+<h5 id="定理6-2：Poisson分布极大似然估计定理"><a href="#定理6-2：Poisson分布极大似然估计定理" class="headerlink" title="定理6.2：Poisson分布极大似然估计定理"></a>定理6.2：Poisson分布极大似然估计定理</h5><p>设$$X\sim\pi(\lambda)$$,$$X_i(i = 1,2,…,n)$$为$$X$$的一个样本,则$$\hat{\lambda} = \overline{X}$$</p>
+<h5 id="定理6-3：Exponential分布极大似然估计定理"><a href="#定理6-3：Exponential分布极大似然估计定理" class="headerlink" title="定理6.3：Exponential分布极大似然估计定理"></a>定理6.3：Exponential分布极大似然估计定理</h5><p>设$$X\sim\mathbb{E}(\lambda)$$, $$X_i(i = 1,2,…,n)$$为$$X$$的一个样本,则$$\hat{\lambda} = \frac{1}{\overline{X}}$$</p>
+<h5 id="定理6-4：Gauss分布极大似然估计定理"><a href="#定理6-4：Gauss分布极大似然估计定理" class="headerlink" title="定理6.4：Gauss分布极大似然估计定理"></a>定理6.4：Gauss分布极大似然估计定理</h5><p>设$$X\sim\mathbb{N}(\mu,\sigma^2)$$, $$X_i(i = 1,2,…,n)$$为$$X$$的一个样本, 则<br>$$<br>\hat{μ} = \overline{X}\<br>\hat{σ}^2 = \frac{1}{n}\sum_{i = 1}^{n}(X_i - \overline{X})^2<br>$$</p>
+<h5 id="定理6-5：Uniform分布极大似然估计定理"><a href="#定理6-5：Uniform分布极大似然估计定理" class="headerlink" title="定理6.5：Uniform分布极大似然估计定理"></a>定理6.5：Uniform分布极大似然估计定理</h5><p>设$$X\sim\mathbb{U}(a,b)$$, $$X_i(i = 1,2,…,n)$$为 $$X$$ 的一个样本, 则$$a$$和$$b$$的极大似然估计分别为 $$min_i{X_i}$$，$$max_i{X_i}$$</p>
+<h4 id="6-1-3-截尾估计"><a href="#6-1-3-截尾估计" class="headerlink" title="6.1.3 截尾估计"></a>6.1.3 截尾估计</h4><h4 id="6-1-4-评估分析"><a href="#6-1-4-评估分析" class="headerlink" title="6.1.4 评估分析"></a>6.1.4 评估分析</h4><h5 id="定义6-3：估计的无偏性"><a href="#定义6-3：估计的无偏性" class="headerlink" title="定义6.3：估计的无偏性"></a>定义6.3：估计的无偏性</h5><p>无偏估计指的是估计量抽样分布的数学期望等于被估总体参数。即对于 $$\hat\theta(X_1,\ X_2, …，\ X_n)$$，$$E(\hat\theta)$$ 存在且有<br>$$<br>E(\hat{\theta}) = \theta<br>$$<br>则称 $$\hat\theta$$ 为 $$\theta$$ 的无偏估计</p>
+<h5 id="引理6-1："><a href="#引理6-1：" class="headerlink" title="引理6.1："></a>引理6.1：</h5><p> $$X_i(i = 1,2,…,n)$$为$$X$$的一个样本，$$g(x)$$是$$x$$的函数且 $$E(g(X_i))$$ 和 $$Var(g(X_i))$$ 存在，则<br>$$<br>E(\sum_{i = 1}^ng(X_i)) = n(E(g(X_1)))\<br>Var(\sum_{i = 1}^ng(X_i)) = n(Var(g(X_1)))<br>$$</p>
+<h5 id="定理6-6"><a href="#定理6-6" class="headerlink" title="定理6.6:"></a>定理6.6:</h5><p>设总体$$X$$的均值是$$\mu$$，方差为$$\sigma^2$$，$$X_i(i = 1,2,…,n)$$为$$X$$的一个样本，则：</p>
+<p>（1）$$E(\overline{X}) = \mu$$ （ $$\overline X$$是 $$\mu$$ 的无偏估计）</p>
+<p>（2）$$Var(\overline{X})=\frac{\sigma^2}{n}$$</p>
+<p>（3）$$E(S^2)=\sigma^2$$   （$$S^2$$ 是 $$\sigma^2$$ 的无偏估计）</p>
+<p>其中，$$S^2$$要考虑偏差，有$$S^2 = \displaystyle \frac{1}{n - 1}\displaystyle\sum_{i = 1}^{n}(X_i - \overline{X})^2$$</p>
+<h5 id="定理6-7"><a href="#定理6-7" class="headerlink" title="定理6.7:"></a>定理6.7:</h5><p>设总体 $$X$$ 的 $$k$$ 阶矩$$\mu_k = E(X^k)$$，$$k \geq 1$$ 存在，无论总体服从什么分布，$$k$$ 阶样本矩$$A_k = \frac{1}{n}\displaystyle\sum_{i = 1}^nX_i^k$$是$$k$$阶总体矩$$\mu_k$$的无偏估计</p>
+<h5 id="定义6-4：估计的有效性"><a href="#定义6-4：估计的有效性" class="headerlink" title="定义6.4：估计的有效性"></a>定义6.4：估计的有效性</h5><p>对于总体未知参数的两个无偏估计量，相应抽样分布的方差小视为更有效，即，若 $$\hat\theta_1，\hat\theta_2$$ 为 $$\theta$$ 的两个无偏估计，有<br>$$<br>Var(\hat\theta_1) &lt; Var(\hat\theta_2)<br>$$<br>则称 $$\hat\theta_1$$ 比 $$\hat\theta_2$$ 更有效</p>
+<h5 id="定义6-5：估计的一致性（类比于一致收敛）"><a href="#定义6-5：估计的一致性（类比于一致收敛）" class="headerlink" title="定义6.5：估计的一致性（类比于一致收敛）"></a>定义6.5：估计的一致性（类比于一致收敛）</h5><p>一致性是指随着样本容量$$n$$增大，估计量越来越接近总体参数。即对于任意$$\epsilon &gt; 0$$，有<br>$$<br>\lim_{n\rightarrow\infty}P(|\hat\theta - \theta|&lt;\epsilon) = 1<br>$$<br>则称 $$\hat\theta$$ 是 $$\ \theta\ $$的一致性估计量</p>
+<h3 id="6-2-区间估计"><a href="#6-2-区间估计" class="headerlink" title="6.2 区间估计"></a>6.2 区间估计</h3><h5 id="定义6-6：置信区间"><a href="#定义6-6：置信区间" class="headerlink" title="定义6.6：置信区间"></a>定义6.6：置信区间</h5><p>设总体 $$X$$ 的分布$$\ F(x;\theta)$$ 中含有未知参数 $$\theta$$ ，若存在样本的两个估计量 $$\underline{\theta}(X_i)$$ 和 $$\overline{\theta}(X_i)$$ $$(i = 1, \ 2,\ …,\ n)$$ 使得对于给定的 $$\alpha\ (0 &lt; \alpha &lt;1)$$ ，有<br>$$<br>P(\underline\theta&lt;\theta&lt;\overline\theta) = 1 - \alpha<br>$$<br> 则称随机区间 $$(\underline\theta，\overline\theta)$$ 为总体参数 $$\theta$$ 的置信水平为 $$1 - \alpha$$ 的（双侧）置信区间，$$\underline\theta$$ 和 $$ \overline\theta$$ 分别为置信下限和置信上限</p>
+<h4 id="6-2-1-单总体均值区间估计"><a href="#6-2-1-单总体均值区间估计" class="headerlink" title="6.2.1 单总体均值区间估计"></a>6.2.1 单总体均值区间估计</h4><h5 id="估计条件-1-X-sim-mathbb-N-mu-sigma-2-且-sigma-2-已知，-mu-未知"><a href="#估计条件-1-X-sim-mathbb-N-mu-sigma-2-且-sigma-2-已知，-mu-未知" class="headerlink" title="估计条件 1 $$X\sim\mathbb{N}(\mu,\sigma^2)$$ 且 $$\sigma^2$$ 已知，$$\mu$$ 未知"></a>估计条件 1 $$X\sim\mathbb{N}(\mu,\sigma^2)$$ 且 $$\sigma^2$$ 已知，$$\mu$$ 未知</h5><h5 id="估计条件-2-X-sim-mathbb-N-mu-sigma-2-且-sigma-2-，-mu-未知"><a href="#估计条件-2-X-sim-mathbb-N-mu-sigma-2-且-sigma-2-，-mu-未知" class="headerlink" title="估计条件 2. $$X\sim\mathbb{N}(\mu,\sigma^2)$$ 且 $$\sigma^2$$，$$\mu$$ 未知"></a>估计条件 2. $$X\sim\mathbb{N}(\mu,\sigma^2)$$ 且 $$\sigma^2$$，$$\mu$$ 未知</h5><h5 id="估计条件-3-X-不服从Gauss分布，但是样本容量较大（大于30）"><a href="#估计条件-3-X-不服从Gauss分布，但是样本容量较大（大于30）" class="headerlink" title="估计条件 3. $$X$$ 不服从Gauss分布，但是样本容量较大（大于30）"></a>估计条件 3. $$X$$ 不服从Gauss分布，但是样本容量较大（大于30）</h5><h4 id="6-2-2-单总体方差区间估计"><a href="#6-2-2-单总体方差区间估计" class="headerlink" title="6.2.2 单总体方差区间估计"></a>6.2.2 单总体方差区间估计</h4><h5 id="估计条件-1-X-sim-mathbb-N-mu-sigma-2-且-sigma-2-，-mu-未知"><a href="#估计条件-1-X-sim-mathbb-N-mu-sigma-2-且-sigma-2-，-mu-未知" class="headerlink" title="估计条件 1. $$X\sim\mathbb{N}(\mu,\sigma^2)$$ 且 $$\sigma^2$$，$$\mu$$ 未知"></a>估计条件 1. $$X\sim\mathbb{N}(\mu,\sigma^2)$$ 且 $$\sigma^2$$，$$\mu$$ 未知</h5><h4 id="6-2-3-双总体均值差区间估计"><a href="#6-2-3-双总体均值差区间估计" class="headerlink" title="6.2.3 双总体均值差区间估计"></a>6.2.3 双总体均值差区间估计</h4><h5 id="估计条件-1-X-sim-mathbb-N-mu-1-sigma-1-2-，-Y-sim-mathbb-N-mu-2-sigma-2-2-且-sigma-2-，-mu-1-mu-2-未知，-sigma-1-2-sigma-2-2-已知"><a href="#估计条件-1-X-sim-mathbb-N-mu-1-sigma-1-2-，-Y-sim-mathbb-N-mu-2-sigma-2-2-且-sigma-2-，-mu-1-mu-2-未知，-sigma-1-2-sigma-2-2-已知" class="headerlink" title="估计条件 1. $$X\sim\mathbb{N}(\mu_1,\sigma_1^2)$$ ，$$Y\sim\mathbb{N}(\mu_2,\sigma_2^2)$$ 且 $$\sigma^2$$，$$\mu_1,\ \mu_2$$ 未知，$$\sigma_1^2,\ \sigma_2^2$$ 已知"></a>估计条件 1. $$X\sim\mathbb{N}(\mu_1,\sigma_1^2)$$ ，$$Y\sim\mathbb{N}(\mu_2,\sigma_2^2)$$ 且 $$\sigma^2$$，$$\mu_1,\ \mu_2$$ 未知，$$\sigma_1^2,\ \sigma_2^2$$ 已知</h5><h5 id="估计条件-2-X-sim-mathbb-N-mu-1-sigma-1-2-，-Y-sim-mathbb-N-mu-2-sigma-2-2-且-sigma-2-，-mu-1-mu-2-未知，-sigma-1-2-sigma-2-2-未知，但-sigma-1-2-sigma-2-2"><a href="#估计条件-2-X-sim-mathbb-N-mu-1-sigma-1-2-，-Y-sim-mathbb-N-mu-2-sigma-2-2-且-sigma-2-，-mu-1-mu-2-未知，-sigma-1-2-sigma-2-2-未知，但-sigma-1-2-sigma-2-2" class="headerlink" title="估计条件 2. $$X\sim\mathbb{N}(\mu_1,\sigma_1^2)$$ ，$$Y\sim\mathbb{N}(\mu_2,\sigma_2^2)$$ 且 $$\sigma^2$$，$$\mu_1,\ \mu_2$$ 未知，$$\sigma_1^2,\ \sigma_2^2$$ 未知，但 $$\sigma_1^2=\sigma_2^2$$"></a>估计条件 2. $$X\sim\mathbb{N}(\mu_1,\sigma_1^2)$$ ，$$Y\sim\mathbb{N}(\mu_2,\sigma_2^2)$$ 且 $$\sigma^2$$，$$\mu_1,\ \mu_2$$ 未知，$$\sigma_1^2,\ \sigma_2^2$$ 未知，但 $$\sigma_1^2=\sigma_2^2$$</h5><h5 id="估计条件3-X-和-Y-不服从Gauss分布，但是样本容量均较大（大于30）"><a href="#估计条件3-X-和-Y-不服从Gauss分布，但是样本容量均较大（大于30）" class="headerlink" title="估计条件3. $$X$$ 和 $$Y$$ 不服从Gauss分布，但是样本容量均较大（大于30）"></a>估计条件3. $$X$$ 和 $$Y$$ 不服从Gauss分布，但是样本容量均较大（大于30）</h5><h4 id="6-2-4-双总体方差比区间估计"><a href="#6-2-4-双总体方差比区间估计" class="headerlink" title="6.2.4 双总体方差比区间估计"></a>6.2.4 双总体方差比区间估计</h4><h5 id="估计条件-1-X-sim-mathbb-N-mu-1-sigma-1-2-，-Y-sim-mathbb-N-mu-2-sigma-2-2-且-sigma-2-，-mu-1-mu-2-未知，-sigma-1-2-sigma-2-2-未知"><a href="#估计条件-1-X-sim-mathbb-N-mu-1-sigma-1-2-，-Y-sim-mathbb-N-mu-2-sigma-2-2-且-sigma-2-，-mu-1-mu-2-未知，-sigma-1-2-sigma-2-2-未知" class="headerlink" title="估计条件 1. $$X\sim\mathbb{N}(\mu_1,\sigma_1^2)$$ ，$$Y\sim\mathbb{N}(\mu_2,\sigma_2^2)$$ 且 $$\sigma^2$$，$$\mu_1,\ \mu_2$$ 未知，$$\sigma_1^2,\ \sigma_2^2$$ 未知"></a>估计条件 1. $$X\sim\mathbb{N}(\mu_1,\sigma_1^2)$$ ，$$Y\sim\mathbb{N}(\mu_2,\sigma_2^2)$$ 且 $$\sigma^2$$，$$\mu_1,\ \mu_2$$ 未知，$$\sigma_1^2,\ \sigma_2^2$$ 未知</h5><h4 id="6-2-5-二项分布区间估计（考察Bernoulli分布正态逼近定理）"><a href="#6-2-5-二项分布区间估计（考察Bernoulli分布正态逼近定理）" class="headerlink" title="6.2.5 二项分布区间估计（考察Bernoulli分布正态逼近定理）"></a>6.2.5 二项分布区间估计（考察Bernoulli分布正态逼近定理）</h4><h4 id="6-2-6-单侧置信区间"><a href="#6-2-6-单侧置信区间" class="headerlink" title="6.2.6 单侧置信区间"></a>6.2.6 单侧置信区间</h4>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Fundamentals-of-Data-Science/" class="category-chain-item">Fundamentals of Data Science</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%8F%82%E6%95%B0%E4%BC%B0%E8%AE%A1/">#参数估计</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>第六章 参数估计</div>
+      <div>https://wuchentian.github.io/2022/10/29/Fundamentals of Data Science/第六章 参数估计/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>October 29, 2022</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/10/29/Fundamentals%20of%20Data%20Science/%E7%AC%AC%E4%B8%83%E7%AB%A0%20%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C/" title="第七章 假设检验">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">第七章 假设检验</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/10/29/Fundamentals%20of%20Data%20Science/%E7%AC%AC%E4%BA%94%E7%AB%A0%20%E6%8A%BD%E6%A0%B7%E5%88%86%E5%B8%83/" title="第五章 抽样分布">
+                        <span class="hidden-mobile">第五章 抽样分布</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;Table of Contents</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('mermaid' in window) {
+        mermaid.init();
+      }
+    });
+  });
+</script>
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>

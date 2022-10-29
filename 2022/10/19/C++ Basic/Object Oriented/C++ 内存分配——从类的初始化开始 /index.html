@@ -1,0 +1,818 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/BrBa.jpg">
+  <link rel="icon" href="/img/BrBa.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="1. 起因事情是这样：在最近的一次C++作业中，我需要用链表实现一个双向队列。 我对链表节点的实现如下: 12345678struct Node&amp;#123;    Node *next;    Node *prev;    int val;    Node(int val, Node *prev, Node *next)；&amp;#125;;CRMSH  我对双向队列的实现如下： 12345678910">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++内存分配——从类的初始化开始">
+<meta property="og:url" content="https://wuchentian.github.io/2022/10/19/C++%20Basic/Object%20Oriented/C++%20%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E2%80%94%E2%80%94%E4%BB%8E%E7%B1%BB%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96%E5%BC%80%E5%A7%8B%20/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1. 起因事情是这样：在最近的一次C++作业中，我需要用链表实现一个双向队列。 我对链表节点的实现如下: 12345678struct Node&amp;#123;    Node *next;    Node *prev;    int val;    Node(int val, Node *prev, Node *next)；&amp;#125;;CRMSH  我对双向队列的实现如下： 12345678910">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-10-19T09:08:00.000Z">
+<meta property="article:modified_time" content="2022-10-29T04:22:20.918Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Object Oriented">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>C++内存分配——从类的初始化开始 - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"wuchentian.github.io","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                Links
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/background.jpeg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="C++内存分配——从类的初始化开始"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-10-19 17:08" pubdate>
+          October 19, 2022 pm
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.3k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          28 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">C++内存分配——从类的初始化开始</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h4 id="1-起因"><a href="#1-起因" class="headerlink" title="1. 起因"></a>1. 起因</h4><p>事情是这样：在最近的一次C++作业中，我需要用<strong>链表</strong>实现一个<strong>双向队列</strong>。</p>
+<p>我对链表节点的实现如下:</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">struct <span class="hljs-keyword">Node</span><span class="hljs-title">&#123;</span><br><span class="hljs-title">    Node</span> *next;<br>    <span class="hljs-keyword">Node</span> <span class="hljs-title">*prev</span>;<br>    int val;<br>    <span class="hljs-keyword">Node</span><span class="hljs-title">(int</span> val, <span class="hljs-keyword">Node</span> <span class="hljs-title">*prev</span>, <span class="hljs-keyword">Node</span> <span class="hljs-title">*next</span>)；<br>&#125;;<br><br>CRMSH<br></code></pre></td></tr></table></figure>
+
+<p>我对双向队列的实现如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">Deque</span>&#123;<br>    <span class="hljs-type">int</span> size;<br>  	<span class="hljs-comment">/**</span><br><span class="hljs-comment">  	* front 和 rear 分别为虚拟头指针和尾指针</span><br><span class="hljs-comment">  	*/</span><br>    Node *front;<br>    Node *rear;<br>    <span class="hljs-built_in">Deque</span>();<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">push_front</span><span class="hljs-params">(<span class="hljs-type">int</span> value)</span></span>;<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">push_back</span><span class="hljs-params">(<span class="hljs-type">int</span> value)</span></span>;<br>    <span class="hljs-type">void</span> pop_front;<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">pop_back</span><span class="hljs-params">()</span></span>;<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">get_size</span><span class="hljs-params">()</span> <span class="hljs-type">const</span></span>;<br>  	~<span class="hljs-built_in">Deque</span>() = deafult;<br>&#125;;<br><br></code></pre></td></tr></table></figure>
+
+
+
+<p>当我试图利用 <code>Deque::push_back(int value)</code> 函数向队列中添加元素时，我起初的写法如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs c++">Deque::<span class="hljs-built_in">push_back</span>(<span class="hljs-type">int</span> value)&#123;<br>  	<span class="hljs-comment">/**</span><br><span class="hljs-comment">  	* @param value 新节点的值</span><br><span class="hljs-comment">  	* @param prev 新节点的前一个节点</span><br><span class="hljs-comment">  	* @param next 新节点的下一个节点</span><br><span class="hljs-comment">  	* @return 一个船新节点</span><br><span class="hljs-comment">  	*/</span><br>    Node node = *<span class="hljs-keyword">new</span> <span class="hljs-built_in">Node</span>(value, rear-&gt;prev, rear);<br>    rear-&gt;prev-&gt;next = &amp;node;<br>    ......<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<p>但是程序每次运行到这里都会中断，debug 显示无论我 new 多少个新的 node， 它们的地址都是一样的，因此所有新节点都连着它本身，于是爆栈了。但是如果我把写法改成如下这样，程序就恢复了正常：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs c++">Deque::<span class="hljs-built_in">push_back</span>(<span class="hljs-type">int</span> value)&#123;<br>  	<span class="hljs-comment">/**</span><br><span class="hljs-comment">  	* @param value 新节点的值</span><br><span class="hljs-comment">  	* @param prev 新节点的前一个节点</span><br><span class="hljs-comment">  	* @param next 新节点的下一个节点</span><br><span class="hljs-comment">  	* @return 一个船新节点</span><br><span class="hljs-comment">  	*/</span><br>    Node *node = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Node</span>(value, rear-&gt;prev, rear);<br>    rear-&gt;prev-&gt;next = node;<br>    ......<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+
+
+<h4 id="2-一个合理的解释"><a href="#2-一个合理的解释" class="headerlink" title="2. 一个合理的解释"></a>2. 一个合理的解释</h4><p>首先我们需要了解 C++ 的内存分配</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>特性</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>栈</strong></td>
+<td>由编译器在需要时自动分配，不需要时自动清除的变量存储区。通常存放局部变量、函数参数等。</td>
+</tr>
+<tr>
+<td><strong>堆</strong></td>
+<td>由 new 分配的内存块，由程序员释放（编译器不管），一般一个 new 与一个 delete 对应，一个 new[] 与一个 delete[] 对应。如果程序员没有释放掉，资源将由操作系统在程序结束后自动回收。</td>
+</tr>
+<tr>
+<td><strong>自由存储区</strong></td>
+<td>由 malloc 等分配的内存块，和堆十分相似，用free来释放。（实际上和堆是同一块区域）</td>
+</tr>
+<tr>
+<td><strong>全局/静态存储区</strong></td>
+<td>全局变量和静态变量被分配到同一块内存中（在 C 语言中，全局变量又分为初始化的和未初始化的，C++ 中没有这一区分）。</td>
+</tr>
+<tr>
+<td><strong>常量存储区</strong></td>
+<td>这是一块特殊存储区，里边存放常量，不允许修改。</td>
+</tr>
+</tbody></table>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c++">Node *node = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Node</span>(value, rear-&gt;prev, rear);<br></code></pre></td></tr></table></figure>
+
+<p>我们知道，由 <code>new</code> 建立的变量存储在堆中。因此上述代码在堆区新建一个对象，并且返回该对象的地址，由 <code>Node</code> 类型指针 <code>node</code> 存储。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c++">Node node = *<span class="hljs-keyword">new</span> <span class="hljs-built_in">Node</span>(value, rear-&gt;prev, rear);<br></code></pre></td></tr></table></figure>
+
+<p>上述代码同样新建一个 <code>Node</code> 对象，并将这个 Node 对象的值存储到一个 <code>Node</code> 类型的变量 <code>node</code> 中，相当于如下代码:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs c++">Node *np = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Node</span>(value, rear-&gt;prev, rear);<br>Node node = *np;<br><span class="hljs-comment">/**</span><br><span class="hljs-comment">* node 只是值传递</span><br><span class="hljs-comment">*/</span><br></code></pre></td></tr></table></figure>
+
+<p>因此，在下一步的</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c++">rear-&gt;prev-&gt;next = &amp;node;<br></code></pre></td></tr></table></figure>
+
+<p>中，<code>&amp;node</code> 根本就不是那个指向新节点的指针 <code>np</code>，而是一个临时栈变量 <code>node</code> 的地址。这里相当于 <code>np-&gt;prev-&gt;next = &amp;node</code>。</p>
+<pre><code class=" mermaid">graph LR
+rear_prev---&gt;
+rear---&gt;rear_prev
+np---&gt;
+new_Node
+&amp;node---&gt;
+somewhere
+</code></pre>
+
+<p>转变成了</p>
+<pre><code class=" mermaid">graph LR
+np--&gt;rear
+np--&gt;rear_prev--&gt;&amp;node--&gt;rear_prev
+&amp;node--&gt;rear
+</code></pre>
+
+<p>再经过</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c++">rear-&gt;prev = &amp;node<br></code></pre></td></tr></table></figure>
+
+<p>这一步后，转变为</p>
+<pre><code class=" mermaid">graph LR
+np--&gt;rear
+np--&gt;
+&amp;node--&gt;
+rear
+&amp;node--&gt;&amp;node--&gt;&amp;node
+</code></pre>
+
+<p>在 <code>node</code>这里出现了死循环，导致内存爆了</p>
+<h3 id="3-源码"><a href="#3-源码" class="headerlink" title="3. 源码"></a>3. 源码</h3><p>在这里贴上我所有成员函数的具体实现：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><code class="hljs c++">Node::<span class="hljs-built_in">Node</span>(<span class="hljs-type">int</span> val, Node *prev, Node *next)&#123;<br>    <span class="hljs-keyword">this</span>-&gt;val = val;<br>    <span class="hljs-keyword">this</span>-&gt;next = next;<br>    <span class="hljs-keyword">this</span>-&gt;prev = prev;<br>&#125;<br><br><br>Deque::<span class="hljs-built_in">Deque</span>()&#123;<br>    <span class="hljs-keyword">this</span>-&gt;size = <span class="hljs-number">0</span>;<br>    front = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Node</span>(<span class="hljs-number">-1</span>, <span class="hljs-literal">nullptr</span>, <span class="hljs-literal">nullptr</span>);<br>    rear = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Node</span>(<span class="hljs-number">-1</span>, front, <span class="hljs-literal">nullptr</span>);<br>    front-&gt;next = rear;<br>    front-&gt;prev = <span class="hljs-literal">nullptr</span>;<br>    rear-&gt;next = <span class="hljs-literal">nullptr</span>;<br>    rear-&gt;prev = front;<br>&#125;<br><br>Deque::<span class="hljs-built_in">push_front</span>(<span class="hljs-type">int</span> value)&#123;<br>    Node *node = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Node</span>(value, front, front-&gt;next);<br>    node-&gt;next-&gt;prev = node;<br>    front-&gt;next = node;<br>    <span class="hljs-keyword">this</span>-&gt;size++;<br>&#125;<br><br>Deque::<span class="hljs-built_in">push_back</span>(<span class="hljs-type">int</span> value)&#123;<br>    Node *node = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Node</span>(value, rear-&gt;prev, rear);<br>    rear-&gt;prev-&gt;next = node;<br>    rear-&gt;prev = node;<br>    <span class="hljs-keyword">this</span>-&gt;size++;<br>&#125;<br><br>Deque::<span class="hljs-built_in">get_size</span>() <span class="hljs-type">const</span>&#123;<br>    cout &lt;&lt; <span class="hljs-keyword">this</span>-&gt;size &lt;&lt; endl;<br>&#125;<br><br>Deque::<span class="hljs-built_in">pop_front</span>()&#123;<br>    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>-&gt;size &lt;= <span class="hljs-number">0</span>)&#123;<br>        cout &lt;&lt; <span class="hljs-number">-1</span> &lt;&lt; endl;<br>    &#125;<br>    <span class="hljs-keyword">else</span>&#123;<br>        cout &lt;&lt; (*(front-&gt;next)).val &lt;&lt; endl;<br>        front-&gt;next = front-&gt;next-&gt;next;<br>        front-&gt;next-&gt;prev = front;<br>        <span class="hljs-keyword">this</span>-&gt;size--;<br>    &#125;<br>&#125;<br><br>Deque::<span class="hljs-built_in">pop_back</span>()&#123;<br>    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>-&gt;size &lt;= <span class="hljs-number">0</span>)&#123;<br>        cout &lt;&lt; <span class="hljs-number">-1</span> &lt;&lt; endl;<br>    &#125;<br>    <span class="hljs-keyword">else</span>&#123;<br>        cout &lt;&lt; (*(rear-&gt;prev)).val &lt;&lt; endl;<br>        rear-&gt;prev = rear-&gt;prev-&gt;prev;<br>        rear-&gt;prev-&gt;next = rear;<br>        <span class="hljs-keyword">this</span>-&gt;size--;<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<h4 id="4-参考文章"><a href="#4-参考文章" class="headerlink" title="4. 参考文章"></a>4. 参考文章</h4><ol>
+<li><a target="_blank" rel="noopener" href="http://t.csdn.cn/5QbW0">http://t.csdn.cn/5QbW0</a></li>
+</ol>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/C-Basic/" class="category-chain-item">C++ Basic</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/C-Basic/Object-Oriented/" class="category-chain-item">Object Oriented</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Object-Oriented/">#Object Oriented</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>C++内存分配——从类的初始化开始</div>
+      <div>https://wuchentian.github.io/2022/10/19/C++ Basic/Object Oriented/C++ 内存分配——从类的初始化开始 /</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>October 19, 2022</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/10/20/Computer%20Networking/OSI%20Model/OSI%20Physics%20Layer/" title="OSI Physics Layer">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">OSI Physics Layer</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/10/16/Java%20Basic/Java%20IO/" title="Java IO">
+                        <span class="hidden-mobile">Java IO</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;Table of Contents</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('mermaid' in window) {
+        mermaid.init();
+      }
+    });
+  });
+</script>
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>
