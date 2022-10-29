@@ -1,0 +1,698 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/BrBa.jpg">
+  <link rel="icon" href="/img/BrBa.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="stack 容器有广泛的应用。例如，编辑器中的 undo (撤销)机制就是用堆栈来记录连续的变化。撤销操作可以取消最后一个操作，这也是发生在堆栈顶部的操作。编译器使用堆栈来解析算术表达式， 当然也可以用堆栈来记录 C++ 代码的函数调用。 1. 头文件1#include &lt;stack&gt;    2. 初始化下面展示了如何定义一个用来存放字符串对象的 stack 容器： 1std::sta">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++ stack">
+<meta property="og:url" content="https://wuchentian.github.io/2022/10/10/C++%20Basic/STL%20Containers/C++%20stack/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="stack 容器有广泛的应用。例如，编辑器中的 undo (撤销)机制就是用堆栈来记录连续的变化。撤销操作可以取消最后一个操作，这也是发生在堆栈顶部的操作。编译器使用堆栈来解析算术表达式， 当然也可以用堆栈来记录 C++ 代码的函数调用。 1. 头文件1#include &lt;stack&gt;    2. 初始化下面展示了如何定义一个用来存放字符串对象的 stack 容器： 1std::sta">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-10-10T09:08:00.000Z">
+<meta property="article:modified_time" content="2022-10-29T01:49:32.778Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Data Structure">
+<meta property="article:tag" content="STL">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>C++ stack - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"wuchentian.github.io","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/background.jpeg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="C++ stack"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-10-10 17:08" pubdate>
+          October 10, 2022 pm
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          5.7k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          48 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">C++ stack</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p><code>stack</code> 容器有广泛的应用。例如，编辑器中的 <code>undo</code> (撤销)机制就是用堆栈来记录连续的变化。撤销操作可以取消最后一个操作，这也是发生在堆栈顶部的操作。编译器使用堆栈来解析算术表达式， 当然也可以用堆栈来记录 C++ 代码的函数调用。</p>
+<h4 id="1-头文件"><a href="#1-头文件" class="headerlink" title="1. 头文件"></a>1. 头文件</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stack&gt;</span></span><br></code></pre></td></tr></table></figure>
+
+
+
+<h4 id="2-初始化"><a href="#2-初始化" class="headerlink" title="2. 初始化"></a>2. 初始化</h4><p>下面展示了如何定义一个用来存放字符串对象的 stack 容器：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c++">std::stack&lt;std::string&gt; words;<br></code></pre></td></tr></table></figure>
+
+<p>stack 容器适配器的模板有两个参数。第一个参数是存储对象的类型，第二个参数是底层容器的类型。<code>stack&lt;T&gt;</code> 的底层容器默认是 <code>deque&lt;T&gt;</code>容器，因此模板类型其实是 <code>stack&lt;typename T, typename Container=deque&lt;T&gt;&gt;</code>。通过指定第二个模板类型参数，可以使用任意类型的底层容器，只要它们支持 <code>back()、push_back()、pop_back()、empty()、size()</code> 这些操作。</p>
+<p>下面展示了如何定义一个使用 <code>list&lt;T&gt;</code> 的堆栈：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c++">std::stack&lt;std::string,std::list&lt;std::string&gt;&gt; fruit;<br></code></pre></td></tr></table></figure>
+
+<p><code>stack&lt;T&gt;</code> 模板定义了拷贝构造函数，因而可以复制现有的 <code>stack</code> 容器：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c++">std::stack&lt;<span class="hljs-type">double</span>,std::list&lt;<span class="hljs-type">double</span>&gt;&gt;copy_stack &#123;my_stack&#125;<br></code></pre></td></tr></table></figure>
+
+<p><code>copy_stack</code> 是 <code>my_stack</code> 的副本。在使用拷贝构造函数时，既可以用初始化列表，也可以用圆括号。</p>
+<h4 id="3-常用函数和操作"><a href="#3-常用函数和操作" class="headerlink" title="3. 常用函数和操作"></a>3. 常用函数和操作</h4><ol>
+<li>和其他序列容器相比，<code>stack</code> 是一类存储机制简单、所提供操作较少的容器。下面是 <code>stack</code> 容器可以提供的一套完整操作：</li>
+</ol>
+<ul>
+<li><code>top()</code>：返回一个栈顶元素的引用，类型为 <code>T&amp;</code>。如果栈为空，返回值未定义。</li>
+<li><code>push(const T&amp; obj)</code>：可以将对象副本压入栈顶。这是通过调用底层容器的 <code>push_back()</code> 函数完成的。</li>
+<li><code>push(T&amp;&amp; obj)</code>：以移动对象的方式将对象压入栈顶。这是通过调用底层容器的有右值引用参数的 push_back() 函数完成的。</li>
+<li><code>pop()</code>：弹出栈顶元素。</li>
+<li><code>size()</code>：返回栈中元素的个数。</li>
+<li><code>empty()</code>：在栈中没有元素的情况下返回 <code>true</code>。</li>
+<li><code>emplace()</code>：用传入的参数调用构造函数，在栈顶生成对象。</li>
+<li><code>swap(stack&lt;T&gt; &amp; other_stack)</code>：将当前栈中的元素和参数中的元素交换。参数所包含元素的类型必须和当前栈的相同。对于 stack 对象有一个特例化的全局函数 swap() 可以使用</li>
+</ul>
+<ol>
+<li><code>stack&lt;T&gt;</code> 模板也定义了复制和移动版的 <code>operator=()</code> 函数，因此可以将一个 <code>stack</code> 对象赋值给另一个 <code>stack</code> 对象。<code>stack</code> 对象有一整套比较运算符。比较运算通过字典的方式来比较底层容器中相应的元素。字典比较是一种用来对字典中的单词进行排序的方式。依次比较对应元素的值，直到遇到两个不相等的元素。第一个不匹配的元素会作为字典比较的结果。如果一个 <code>stack</code> 的元素比另一个 <code>stack</code> 的多，但是所匹配的元素都相等，那么元素多的那个 <code>stack</code> 容器大于元素少的 <code>stack</code> 容器。</li>
+<li>下面用 <code>stack</code> 实现一个表达式求值</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// A simple calculator using stack containers</span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;cmath&gt;</span>                                          <span class="hljs-comment">// For pow() function</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span>                                       <span class="hljs-comment">// For standard streams</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stack&gt;</span>                                          <span class="hljs-comment">// For stack&lt;T&gt; container</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;algorithm&gt;</span>                                      <span class="hljs-comment">// For remove()</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdexcept&gt;</span>                                      <span class="hljs-comment">// For runtime_error exception</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;string&gt;</span>                                         <span class="hljs-comment">// For string class</span></span><br><span class="hljs-keyword">using</span> std::string;<br><br><span class="hljs-comment">// Returns value for operator precedence</span><br><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">size_t</span> <span class="hljs-title">precedence</span><span class="hljs-params">(<span class="hljs-type">const</span> <span class="hljs-type">char</span> op)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">if</span> (op == <span class="hljs-string">&#x27;+&#x27;</span> || op == <span class="hljs-string">&#x27;-&#x27;</span>)<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">if</span> (op == <span class="hljs-string">&#x27;*&#x27;</span> || op == <span class="hljs-string">&#x27;/&#x27;</span>)<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">2</span>;<br>    <span class="hljs-keyword">if</span> (op == <span class="hljs-string">&#x27;^&#x27;</span>)<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">3</span>;<br>    <span class="hljs-keyword">throw</span> std::runtime_error &#123;string &#123;<span class="hljs-string">&quot;invalid operator in precedence() function: &quot;</span>&#125; + op&#125;;<br>&#125;<br><br><span class="hljs-comment">// Execute an operation</span><br><span class="hljs-function"><span class="hljs-type">double</span> <span class="hljs-title">execute</span><span class="hljs-params">(std::stack&lt;<span class="hljs-type">char</span>&gt;&amp; ops, std::stack&lt;<span class="hljs-type">double</span>&gt;&amp; operands)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-type">double</span> result &#123;&#125;;<br>    <span class="hljs-type">double</span> rhs &#123;operands.<span class="hljs-built_in">top</span>()&#125;;                            <span class="hljs-comment">// Get rhs...</span><br>    operands.<span class="hljs-built_in">pop</span>();                                         <span class="hljs-comment">// ...and delete from stack</span><br>    <span class="hljs-type">double</span> lhs &#123;operands.<span class="hljs-built_in">top</span>()&#125;;                            <span class="hljs-comment">// Get lhs...</span><br>    operands.<span class="hljs-built_in">pop</span>();                                         <span class="hljs-comment">// ...and delete from stack</span><br><br>    <span class="hljs-keyword">switch</span> (ops.<span class="hljs-built_in">top</span>())                                      <span class="hljs-comment">// Execute current op</span><br>    &#123;<br>        <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;+&#x27;</span>:<br>            result = lhs + rhs;<br>            <span class="hljs-keyword">break</span>;<br>        <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;-&#x27;</span>:<br>            result = lhs - rhs;<br>            <span class="hljs-keyword">break</span>;<br>        <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;*&#x27;</span>:<br>            result = lhs * rhs;<br>            <span class="hljs-keyword">break</span>;<br>        <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;/&#x27;</span>:<br>            result = lhs / rhs;<br>            <span class="hljs-keyword">break</span>;<br>        <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;^&#x27;</span>:<br>            result = std::<span class="hljs-built_in">pow</span>(lhs, rhs);<br>            <span class="hljs-keyword">break</span>;<br>        <span class="hljs-keyword">default</span>:<br>            <span class="hljs-keyword">throw</span> std::runtime_error &#123;string&#123;<span class="hljs-string">&quot;invalid operator: &quot;</span>&#125; + ops.<span class="hljs-built_in">top</span>()&#125;;<br>    &#125;<br>    ops.<span class="hljs-built_in">pop</span>();                                              <span class="hljs-comment">// Delete op just executed</span><br>    operands.<span class="hljs-built_in">push</span>(result);<br>    <span class="hljs-keyword">return</span> result;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    std::stack&lt;<span class="hljs-type">double</span>&gt; operands;                            <span class="hljs-comment">// Push-down stack of operands</span><br>    std::stack&lt;<span class="hljs-type">char</span>&gt; operators;                             <span class="hljs-comment">// Push-down stack of operators</span><br>    string exp;                                             <span class="hljs-comment">// Expression to be evaluated</span><br>    std::cout &lt;&lt; <span class="hljs-string">&quot;An arithmetic expression can include the operators +, -, *, /, and ^ for exponentiation.&quot;</span> &lt;&lt; std::endl;<br>    <span class="hljs-keyword">try</span>&#123;<br>        <span class="hljs-keyword">while</span> (<span class="hljs-literal">true</span>)&#123;<br>            std::cout &lt;&lt; <span class="hljs-string">&quot;Enter an arithmetic expression and press Enter - enter an empty line to end:&quot;</span> &lt;&lt; std::endl;<br>            std::<span class="hljs-built_in">getline</span>(std::cin, exp, <span class="hljs-string">&#x27;\n&#x27;</span>);<br>            <span class="hljs-keyword">if</span> (exp.<span class="hljs-built_in">empty</span>()) <span class="hljs-keyword">break</span>;<br>          <br>            <span class="hljs-comment">// Remove spaces</span><br>            exp.<span class="hljs-built_in">erase</span>(std::<span class="hljs-built_in">remove</span>(std::<span class="hljs-built_in">begin</span>(exp), std::<span class="hljs-built_in">end</span>(exp), <span class="hljs-string">&#x27; &#x27;</span>), std::<span class="hljs-built_in">end</span>(exp));<br><br>            <span class="hljs-type">size_t</span> index &#123;&#125;;                                    <span class="hljs-comment">// Index to expression string</span><br><br>            <span class="hljs-comment">// Every expression must start with a numerical operand</span><br>            operands.<span class="hljs-built_in">push</span>(std::<span class="hljs-built_in">stod</span>(exp, &amp;index));              <span class="hljs-comment">// Push the first (lhs) operand on the stack</span><br><br>            <span class="hljs-keyword">while</span> (<span class="hljs-literal">true</span>)&#123;<br>                operators.<span class="hljs-built_in">push</span>(exp[index++]);                     <span class="hljs-comment">// Push the operator on to the stack</span><br><br>                <span class="hljs-comment">// Get rhs operand</span><br>                <span class="hljs-type">size_t</span> i &#123;&#125;;                                      <span class="hljs-comment">// Index to substring</span><br>                operands.<span class="hljs-built_in">push</span>(std::<span class="hljs-built_in">stod</span>(exp.<span class="hljs-built_in">substr</span>(index), &amp;i));  <span class="hljs-comment">// Push rhs operand</span><br>                index += i;                                       <span class="hljs-comment">// Increment expression index</span><br><br>                <span class="hljs-keyword">if</span> (index == exp.<span class="hljs-built_in">length</span>())                        <span class="hljs-comment">// If we are at end of exp...</span><br>                &#123;<br>                    <span class="hljs-keyword">while</span> (!operators.<span class="hljs-built_in">empty</span>())                      <span class="hljs-comment">// ...execute outstanding ops</span><br>                        <span class="hljs-built_in">execute</span>(operators, operands);<br>                    <span class="hljs-keyword">break</span>;<br>                &#125;<br><br>                <span class="hljs-comment">// If we reach here, there&#x27;s another op...</span><br>                <span class="hljs-comment">// If there&#x27;s a previous op of equal or higher precedence execute it</span><br>                <span class="hljs-keyword">while</span> (!operators.<span class="hljs-built_in">empty</span>() &amp;&amp; <span class="hljs-built_in">precedence</span>(exp[index]) &lt;= <span class="hljs-built_in">precedence</span>(operators.<span class="hljs-built_in">top</span>()))<br>                    <span class="hljs-built_in">execute</span>(operators, operands);                   <span class="hljs-comment">//  Execute previous op.</span><br>            &#125;<br>            std::cout &lt;&lt; <span class="hljs-string">&quot;result = &quot;</span> &lt;&lt; operands.<span class="hljs-built_in">top</span>() &lt;&lt; std::endl;<br>        &#125;<br>    &#125;<br>    <span class="hljs-built_in">catch</span> (<span class="hljs-type">const</span> std::exception&amp; e)<br>    &#123;<br>        std::cerr &lt;&lt; e.<span class="hljs-built_in">what</span>() &lt;&lt; std::endl;<br>    &#125;<br>    std::cout &lt;&lt; <span class="hljs-string">&quot;Calculator ending...&quot;</span> &lt;&lt; std::endl;<br>&#125;<br><br>C++<br></code></pre></td></tr></table></figure>
+
+<p> <a target="_blank" rel="noopener" href="http://c.biancheng.net/view/180.html">while 循环</a>包含在一个 try 代码块中，这样就可以捕获抛出的任何异常。在 <code>catch</code> 代码块中，调用异常对象的成员函数 <code>what()</code> 会将错误信息输出到标准错误流中。在一个死循环中执行输入操作，当输入一个空字符串时，循环结束。可以使用 <code>remove()</code> 算法消除非空字符串中的空格。<code>remove()</code> 不能移除元素，而只能通过移动元素的方式来覆盖要移除的元素。</p>
+<p> 为了移除 <code>exp</code> 字符串中剩下的多余元素，可以用两个迭代器作为参数调用 <code>erase()</code>。其中第一个迭代器由 <code>remove()</code> 返回，指向字符串的最后一个有效元素的后面位置。第二个迭代器是字符串原始状态的结束迭代器。这两个迭代器指定范围的元素会被删除。</p>
+<p> 每个浮点操作数的值都是用定义在头文件 <code>string</code> 中的 <code>stod()</code> 函数获取的。这会将第一个字符串参数中的字符序列转换为 <code>double</code> 值。函数会从第一个表示有效浮点数的字符串的第一个字符开始，获取最长字符序列。第二个参数是一个整型<a target="_blank" rel="noopener" href="http://c.biancheng.net/c/80/">指针</a>，保存的是字符串中非数字部分第一个字符的索引。<code>string</code> 头文件中定义了 <code>stod()</code> 函数，它可以返回一个 <code>float</code> 值。 <code>stod()</code>会返回一个 <code>long double</code> 值。</p>
+<p> 因为所有的运算符都需要两个操作数，所以有效的输入字符串格式总是为 <code>operand op operand op operand</code>，等等。序列的第一个和最后一个元素都是操作数，每对操作数之间有一个运算符。因为有效表达式总是以操作数开头，所以第一个操作数在分析表达式的嵌套循环之前被提取出来。在循环中，输入字符串的运算符会被压入 <code>operators</code> 栈。在确认没有到达字符串末尾后，再从 <code>exp</code> 提取第二个操作数。这时，<code>stod()</code> 的第一个参数是从 <code>index</code> 开始的 <code>exp</code> 字符串，它是被压入 <code>operators</code> 栈的运算符后的字符。非数字字符串的第一个索引保存在 <code>i</code> 中。因为 <code>i</code> 是相对于 <code>index </code>的，所以我们会将 <code>index</code> 加上 <code>i</code>的值，使它指向操作数后的一个运算符(如果是 <code>exp</code> 中的最后一个操作数，它会指向字符串末尾的下一个位置)。</p>
+<p> 当 <code>index</code> 的值超过 <code>exp</code> 的最后一个字符时，会执行 <code>operators </code>容器中剩下的运算符。如果没有到达字符串末尾，<code>operators</code> 容器也不为空，我们会比较 <code>operators</code> 栈顶运算符和 <code>exp</code> 中下一个运算符的优先级。如果栈顶运算符的优先级高于下一个运算符，就先执行栈顶的运算符。否则，就不执行栈顶运算符，在下一次循环开始时，将下一个运算符压入 <code>operators</code> 栈。通过这种方式，就可以正确计算出带优先级的表达式的值。</p>
+<h4 id="4-参考文章-amp-视频"><a href="#4-参考文章-amp-视频" class="headerlink" title="4. 参考文章 &amp; 视频"></a>4. 参考文章 &amp; 视频</h4><ol>
+<li><a target="_blank" rel="noopener" href="http://c.biancheng.net/view/478.html">C++ stack(STL stack)用法详解</a></li>
+<li><a target="_blank" rel="noopener" href="https://b23.tv/hIdZ8ul">【数据结构】《编程实现》(栈的应用)（表达式的求值）-哔哩哔哩</a></li>
+</ol>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/C-Basic/" class="category-chain-item">C++ Basic</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/C-Basic/STL-Containers/" class="category-chain-item">STL Containers</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Data-Structure/">#Data Structure</a>
+      
+        <a href="/tags/STL/">#STL</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>C++ stack</div>
+      <div>https://wuchentian.github.io/2022/10/10/C++ Basic/STL Containers/C++ stack/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>October 10, 2022</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/10/10/C++%20Basic/%E8%80%83%E8%AF%95%E5%BF%85%E5%A4%87/C++%20%E5%B8%B8%E7%94%A8%E6%89%8B%E5%86%99%E5%87%BD%E6%95%B0/" title="C++ stack">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">C++ stack</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/10/10/Data%20Structure/LinkedList/" title="LinkedList">
+                        <span class="hidden-mobile">LinkedList</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;Table of Contents</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>

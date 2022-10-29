@@ -1,0 +1,686 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/BrBa.jpg">
+  <link rel="icon" href="/img/BrBa.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="第五章 抽样分布5.1 数据抽样5.1.1 数据分析1. 全体数据 $$\rightarrow$$ 整体结论1. 全体数据 $$\rightarrow$$ 样本数据 $$\rightarrow$$ 样本结论 $$\rightarrow$$ 整体结论5.1.2 抽样方法1. 简单随机抽样2. 系统抽样3. 整群抽样4. 分层抽样5.1.3 抽样应用示例5.2 矩与抽样分布5.2.1 矩与统计量定理5">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第五章 抽样分布">
+<meta property="og:url" content="https://wuchentian.github.io/2022/10/29/Fundamentals%20of%20Data%20Science/%E7%AC%AC%E4%BA%94%E7%AB%A0%20%E6%8A%BD%E6%A0%B7%E5%88%86%E5%B8%83/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="第五章 抽样分布5.1 数据抽样5.1.1 数据分析1. 全体数据 $$\rightarrow$$ 整体结论1. 全体数据 $$\rightarrow$$ 样本数据 $$\rightarrow$$ 样本结论 $$\rightarrow$$ 整体结论5.1.2 抽样方法1. 简单随机抽样2. 系统抽样3. 整群抽样4. 分层抽样5.1.3 抽样应用示例5.2 矩与抽样分布5.2.1 矩与统计量定理5">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-10-29T01:00:00.000Z">
+<meta property="article:modified_time" content="2022-10-29T01:01:30.722Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="抽样分布">
+<meta property="article:tag" content="极限定理">
+<meta property="article:tag" content="大数定律">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>第五章 抽样分布 - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"wuchentian.github.io","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/background.jpeg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="第五章 抽样分布"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-10-29 09:00" pubdate>
+          October 29, 2022 am
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          5.8k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          49 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">第五章 抽样分布</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="第五章-抽样分布"><a href="#第五章-抽样分布" class="headerlink" title="第五章 抽样分布"></a>第五章 抽样分布</h2><h3 id="5-1-数据抽样"><a href="#5-1-数据抽样" class="headerlink" title="5.1 数据抽样"></a>5.1 数据抽样</h3><h4 id="5-1-1-数据分析"><a href="#5-1-1-数据分析" class="headerlink" title="5.1.1 数据分析"></a>5.1.1 数据分析</h4><h5 id="1-全体数据-rightarrow-整体结论"><a href="#1-全体数据-rightarrow-整体结论" class="headerlink" title="1. 全体数据 $$\rightarrow$$ 整体结论"></a>1. 全体数据 $$\rightarrow$$ 整体结论</h5><h5 id="1-全体数据-rightarrow-样本数据-rightarrow-样本结论-rightarrow-整体结论"><a href="#1-全体数据-rightarrow-样本数据-rightarrow-样本结论-rightarrow-整体结论" class="headerlink" title="1. 全体数据 $$\rightarrow$$ 样本数据 $$\rightarrow$$ 样本结论 $$\rightarrow$$ 整体结论"></a>1. 全体数据 $$\rightarrow$$ 样本数据 $$\rightarrow$$ 样本结论 $$\rightarrow$$ 整体结论</h5><h4 id="5-1-2-抽样方法"><a href="#5-1-2-抽样方法" class="headerlink" title="5.1.2 抽样方法"></a>5.1.2 抽样方法</h4><h5 id="1-简单随机抽样"><a href="#1-简单随机抽样" class="headerlink" title="1. 简单随机抽样"></a>1. 简单随机抽样</h5><h5 id="2-系统抽样"><a href="#2-系统抽样" class="headerlink" title="2. 系统抽样"></a>2. 系统抽样</h5><h5 id="3-整群抽样"><a href="#3-整群抽样" class="headerlink" title="3. 整群抽样"></a>3. 整群抽样</h5><h5 id="4-分层抽样"><a href="#4-分层抽样" class="headerlink" title="4. 分层抽样"></a>4. 分层抽样</h5><h4 id="5-1-3-抽样应用示例"><a href="#5-1-3-抽样应用示例" class="headerlink" title="5.1.3 抽样应用示例"></a>5.1.3 抽样应用示例</h4><h3 id="5-2-矩与抽样分布"><a href="#5-2-矩与抽样分布" class="headerlink" title="5.2 矩与抽样分布"></a>5.2 矩与抽样分布</h3><h4 id="5-2-1-矩与统计量"><a href="#5-2-1-矩与统计量" class="headerlink" title="5.2.1 矩与统计量"></a>5.2.1 矩与统计量</h4><h5 id="定理5-1：统计量抽样收敛定理"><a href="#定理5-1：统计量抽样收敛定理" class="headerlink" title="定理5.1：统计量抽样收敛定理"></a>定理5.1：统计量抽样收敛定理</h5><p>设总体$$X$$的均值是$$\mu$$，方差为$$\sigma^2$$，$$X_i(i = 1,2,…,n)$$为$$X$$的一个样本，则：</p>
+<p>（1）$$E(\overline{X}) = \mu$$ （ $$\overline X$$是 $$\mu$$ 的无偏估计）</p>
+<p>（2）$$Var(\overline{X})=\frac{\sigma^2}{n}$$</p>
+<p>（3）$$E(S^2)=\sigma^2$$   （$$S^2$$ 是 $$\sigma^2$$ 的无偏估计）</p>
+<p>其中，$$S^2$$要考虑偏差，有$$S^2 = \frac{1}{n - 1}\displaystyle\sum_{i = 1}^{n}(X_i - \overline{X})^2$$</p>
+<h4 id="5-2-2-抽样分布"><a href="#5-2-2-抽样分布" class="headerlink" title="5.2.2 抽样分布"></a>5.2.2 抽样分布</h4><h5 id="1-抽样分布的种类"><a href="#1-抽样分布的种类" class="headerlink" title="1. 抽样分布的种类"></a>1. 抽样分布的种类</h5><p>目前已知的抽样分布就多大几十种，但是常见的抽样分布只有四种：$$Gauss$$ 分布，$$t$$ 分布，$$F$$ 分布，$$\chi^2$$ 分布</p>
+<h4 id="5-2-3-抽样分布示例"><a href="#5-2-3-抽样分布示例" class="headerlink" title="5.2.3 抽样分布示例"></a>5.2.3 抽样分布示例</h4><h3 id="5-3-极限定理"><a href="#5-3-极限定理" class="headerlink" title="5.3 极限定理"></a>5.3 极限定理</h3><h4 id="5-3-1-矩的不等式"><a href="#5-3-1-矩的不等式" class="headerlink" title="5.3.1 矩的不等式"></a>5.3.1 矩的不等式</h4><h5 id="定理5-2：Marcov不等式"><a href="#定理5-2：Marcov不等式" class="headerlink" title="定理5.2：Marcov不等式"></a>定理5.2：Marcov不等式</h5><p>设$$\ X\ $$是非负随机变量且具有数学期望 $$E(X)$$ ，则 $$\forall{\varepsilon} &gt; 0$$，有：<br>$$<br>P(X\geq\varepsilon)\leq\frac{E(X)}{\varepsilon}<br>$$</p>
+<h5 id="定理5-3：Chebyshev不等式"><a href="#定理5-3：Chebyshev不等式" class="headerlink" title="定理5.3：Chebyshev不等式"></a>定理5.3：Chebyshev不等式</h5><p>设随机变量$$\ X\ $$具有数学期望 $$E(X)=\mu$$， $$Var(X) = \sigma^2$$ ，则 $$\forall{\varepsilon} &gt; 0$$ ，有：<br>$$<br>P(|x-\mu|\geq\varepsilon)\leq\frac{\sigma^2}{\varepsilon^2}<br>$$</p>
+<h4 id="5-3-2-大数定律"><a href="#5-3-2-大数定律" class="headerlink" title="5.3.2 大数定律"></a>5.3.2 大数定律</h4><h5 id="定理5-4：方差为0的充要条件"><a href="#定理5-4：方差为0的充要条件" class="headerlink" title="定理5.4：方差为0的充要条件"></a>定理5.4：方差为0的充要条件</h5><p>$$Var(X)=0$$ $$iff.$$ $$P(X=E(X)) = 1$$</p>
+<h5 id="定理5-5：Bernoulli大数定律"><a href="#定理5-5：Bernoulli大数定律" class="headerlink" title="定理5.5：Bernoulli大数定律"></a>定理5.5：Bernoulli大数定律</h5><p>$$X_n\sim\mathbb{B}(n,\ p)$$，$$\forall\varepsilon&gt;0$$，有：<br>$$<br>\displaystyle{\lim_{n\rightarrow\infty}}P(|\frac{x_n}{n}-p|&lt;\varepsilon)=1<br>$$</p>
+<h5 id="定理5-6：Chebyshev大数定律"><a href="#定理5-6：Chebyshev大数定律" class="headerlink" title="定理5.6：Chebyshev大数定律"></a>定理5.6：Chebyshev大数定律</h5><p> 设 $$X_i(i = 1,2,…,n)$$为独立同分布随机变量，数学期望 $$E(X) = \mu$$ 和有限的方差 $$Var(X_i) = \sigma_i^2$$，$$\forall\ \varepsilon&gt;0$$，有：<br>$$<br>\displaystyle{\lim_{n\rightarrow\infty}}P(|\frac{1}{n}\sum_{i=1}^{n}X_i-\frac{1}{n}\sum_{i=1}^{n}EX_i|&lt;\varepsilon)=1<br>$$</p>
+<h5 id="定理5-7：Khinchin大数定律"><a href="#定理5-7：Khinchin大数定律" class="headerlink" title="定理5.7：Khinchin大数定律"></a>定理5.7：Khinchin大数定律</h5><p> 设 $$X_i(i = 1,2,…,n)$$为 $$X$$ 的独立同分布随机变量，数学期望 $$E(X_i) = \mu$$ 存在，$$\forall\ \varepsilon&gt;0$$，有：<br>$$<br>\displaystyle{\lim_{n\rightarrow\infty}}P(|\frac{1}{n}\sum_{i=1}^{n}X_i-\mu|&lt;\varepsilon)=1<br>$$</p>
+<h5 id="定理5-8：弱大数定律"><a href="#定理5-8：弱大数定律" class="headerlink" title="定理5.8：弱大数定律"></a>定理5.8：弱大数定律</h5><p> 设 $$X_i(i = 1,2,…,n)$$为独立同分布随机变量，数学期望 $$E(X)$$ 存在，则 $$\overline{X}<em>n$$ 依概率收敛于 $$EX$$ ，即 $$\forall\ \varepsilon &gt;0$$，有：<br>$$<br>\displaystyle{\lim</em>{n\rightarrow\infty}}P(|\frac{x_n}{n}-p|&lt;\varepsilon)=1<br>$$</p>
+<h4 id="5-3-3-中心极限定理"><a href="#5-3-3-中心极限定理" class="headerlink" title="5.3.3 中心极限定理"></a>5.3.3 中心极限定理</h4><h5 id="定理5-9：De-Moivre-Laplace中心极限定理"><a href="#定理5-9：De-Moivre-Laplace中心极限定理" class="headerlink" title="定理5.9：De Moivre-Laplace中心极限定理"></a>定理5.9：De Moivre-Laplace中心极限定理</h5><p>$$X_n\sim\mathbb{B}(n,\ p)$$，则：<br>$$<br>\lim_{n\rightarrow\infty}P(\frac{X_n-np}{\sqrt{np(1-p)}}\leq{x})=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{x}e^{\frac{-t^2}{2}}dt<br>$$</p>
+<h5 id="定理5-10：独立同分布中心极限定理"><a href="#定理5-10：独立同分布中心极限定理" class="headerlink" title="定理5.10：独立同分布中心极限定理"></a>定理5.10：独立同分布中心极限定理</h5><p> 设 $$X_i(i = 1,2,…,n)$$为独立同分布随机变量，数学期望 $$E(X) = \mu$$ 和有限的方差 $$Var(X_i) = \sigma_i^2$$，随机变量之和 $$\displaystyle\sum_{i = 1}^{n}X_i$$ ，设：<br>$$<br>Y_n = \frac{\displaystyle\sum_{i = 1}^{n}X_i-E(\displaystyle\sum_{i = 1}^{n}X_i)}{\sqrt{D(\displaystyle\sum_{i = 1}^{n}X_i)}}=\frac{\displaystyle\sum_{i = 1}^{n}X_i-n\mu}{\sqrt{n}\sigma}<br>$$<br>则：<br>$$<br>\lim_{n\rightarrow\infty}P(Y_n\leq{x})=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{x}e^{\frac{-t^2}{2}}dt=\Phi(x)<br>$$</p>
+<h5 id="定理5-11：独立同分布正态样本"><a href="#定理5-11：独立同分布正态样本" class="headerlink" title="定理5.11：独立同分布正态样本"></a>定理5.11：独立同分布正态样本</h5><p>$$X_i$$ (i = 1，2，…，n) 是总体 $\mathbb{N}(\mu,\sigma^2)$ 的样本，$$\overline{X}$$ 是样本均值，则：<br>$$<br>\overline{X}\sim\mathbb{N}(\mu,\frac{\sigma^2}{n})<br>$$</p>
+<h3 id="5-4-常用抽样分布"><a href="#5-4-常用抽样分布" class="headerlink" title="5.4 常用抽样分布"></a>5.4 常用抽样分布</h3><h4 id="5-4-1-Gamma-函数"><a href="#5-4-1-Gamma-函数" class="headerlink" title="5.4.1 $$\Gamma$$函数"></a>5.4.1 $$\Gamma$$函数</h4><h5 id="定义5-1：-Gamma-函数"><a href="#定义5-1：-Gamma-函数" class="headerlink" title="定义5.1：$$\Gamma$$函数"></a>定义5.1：$$\Gamma$$函数</h5><p>实数域上 $$\Gamma$$ 函数定义为：<br>$$<br>\Gamma(x)=\int_{0}^{+\infty}t^{x-1}e^{-t}dt\ (x&gt;0)<br>$$<br>$$\Gamma$$ 函数的重要性质：<br>$$<br>\Gamma(n) = (n-1)!\ \ \ n\in\mathbb{N}\<br>\Gamma(1-x)\Gamma(x)=\frac{\pi}{sin\pi{x}}\<br>\Gamma(\frac{1}{2})=\sqrt{\pi}\<br>\Gamma(x)\rightarrow\sqrt{2\pi}e^{-x}x^{x-\frac{1}{2}}\ \ \ x\rightarrow+\infty<br>$$</p>
+<h4 id="5-4-2-chi-2-分布-Karl-Pearson"><a href="#5-4-2-chi-2-分布-Karl-Pearson" class="headerlink" title="5.4.2  $$\chi^{2}$$ 分布 (Karl Pearson)"></a>5.4.2  $$\chi^{2}$$ 分布 (Karl Pearson)</h4><h5 id="定理5-2：-chi-2-分布"><a href="#定理5-2：-chi-2-分布" class="headerlink" title="定理5.2：$$\chi^{2}$$分布"></a>定理5.2：$$\chi^{2}$$分布</h5><p>设 $$X_i(i = 1,2,…,n)$$为 $\mathbb{N}(0,1)$ 的独立同分布随机变量，则称随机变量：<br>$$<br>\chi^2 = \sum_{i=1}^{n}X_i^2<br>$$<br>为服从自由度为 $n$ 的 $\chi^2$ 分布，记为 $\chi^2(n)$</p>
+<h5 id="定理5-12：-chi-2-分布可加性"><a href="#定理5-12：-chi-2-分布可加性" class="headerlink" title="定理5.12：$$\chi^{2}$$分布可加性"></a>定理5.12：$$\chi^{2}$$分布可加性</h5><p>设 $X_1 \sim \chi^2(n_1)$，$X_2 \sim\chi^2(n_2)$，且 $X_1$ 和 $X_2$ 相互独立，则：<br>$$<br>X_1+X_2\sim\chi^2(n_1+n_2)<br>$$</p>
+<h5 id="定理5-13：-chi-2-分布的概率密度"><a href="#定理5-13：-chi-2-分布的概率密度" class="headerlink" title="定理5.13：$$\chi^{2}$$分布的概率密度"></a>定理5.13：$$\chi^{2}$$分布的概率密度</h5><p>$$\chi^2(n)$$ 分布的概率密度函数为：<br>$$<br>f(x)=\frac{1}{2^{\frac{n}{2}}\Gamma(\frac{n}{2})}x^{\frac{n}{2}-1}e^{-\frac{x}{2}}<br>$$</p>
+<h5 id="定理5-14：-chi-2-分布的是数字特征"><a href="#定理5-14：-chi-2-分布的是数字特征" class="headerlink" title="定理5.14：$$\chi^{2}$$分布的是数字特征"></a>定理5.14：$$\chi^{2}$$分布的是数字特征</h5><p>若 $X \sim \chi^2(n)$，则 $E(X)=n$，$Var(X)=2n$</p>
+<h5 id="定理5-15：均值抽样分布定理"><a href="#定理5-15：均值抽样分布定理" class="headerlink" title="定理5.15：均值抽样分布定理"></a>定理5.15：均值抽样分布定理</h5><p>$$X_i$$ (i = 1，2，…，n) 是总体 $\mathbb{N}(\mu,\sigma^2)$ 的样本，$$\overline{X}$$ 是样本均值，则：<br>$$<br>\overline{X}\sim\mathbb{N}(\mu,\frac{\sigma^2}{n})<br>$$</p>
+<h5 id="定理5-16：方差抽样分布定理"><a href="#定理5-16：方差抽样分布定理" class="headerlink" title="定理5.16：方差抽样分布定理"></a>定理5.16：方差抽样分布定理</h5><p>$$X_i$$ (i = 1，2，…，n) 是总体 $\mathbb{N}(\mu,\sigma^2)$ 的样本，$S^2$ 是样本方差，则有：<br>$$<br>\frac{(n-1)S^2}{\sigma^2}\sim\chi^2(n-1)<br>$$</p>
+<h4 id="5-4-3-t-分布-Gosset"><a href="#5-4-3-t-分布-Gosset" class="headerlink" title="5.4.3  $$t$$ 分布 (Gosset)"></a>5.4.3  $$t$$ 分布 (Gosset)</h4><h5 id="定义5-3：-t-分布"><a href="#定义5-3：-t-分布" class="headerlink" title="定义5.3：$$t$$ 分布"></a>定义5.3：$$t$$ 分布</h5><p>设 $X\sim\mathbb{N}(0,1)$，$Y\sim\chi^2(n)$，且 $X$ 和 $Y$ 相互独立，则随机变量<br>$$<br>t=\frac{X}{\sqrt{\frac{Y}{n}}}<br>$$<br>称为服从自由度为 $n$ 的 $t$ 分布，记为 $t(n)$</p>
+<h5 id="定理5-17：预备定理"><a href="#定理5-17：预备定理" class="headerlink" title="定理5.17：预备定理"></a>定理5.17：预备定理</h5><p>设 $(X_1$，$X_{2})$ 是二维随机变量，其分布密度函数为 $f(x_1,\ x_2)$，且 $X_1$ 和 $X_2$ 相互独立，则 $$ 的分布密度函数为：<br>$$<br>f_X(x)=f_{x_1}(xx_2)f_{x_2}(x_2)|x_2|dx_2<br>$$</p>
+<h5 id="定理5-18：-t-分布密度函数"><a href="#定理5-18：-t-分布密度函数" class="headerlink" title="定理5.18：$$t$$ 分布密度函数"></a>定理5.18：$$t$$ 分布密度函数</h5><p>$t(n)$ 的密度函数为:<br>$$<br>f(x)=\frac{\Gamma(\frac{n+1}{2})}{\sqrt{n\pi}\Gamma(\frac{n}{2})}(1+\frac{x^2}{n})^{-\frac{n+1}{2}}<br>$$</p>
+<h5 id="定理5-19：-t-分布数字特征"><a href="#定理5-19：-t-分布数字特征" class="headerlink" title="定理5.19：$$t$$ 分布数字特征"></a>定理5.19：$$t$$ 分布数字特征</h5><p>$X\sim t(n)$ ，则：<br>$$<br>E(X) = 0\<br>Var(X)=\frac{n}{n-2}<br>$$</p>
+<h5 id="定理5-20：-t-分布对称性"><a href="#定理5-20：-t-分布对称性" class="headerlink" title="定理5.20：$$t$$ 分布对称性"></a>定理5.20：$$t$$ 分布对称性</h5><p>对于给定的正数 $\alpha\ (0&lt;\alpha&lt;1)$，称满足条件 $P(t&gt;t_{\alpha}(n))=\int_{t_{\alpha}(n)}^{+\infty}f(x)dx=\alpha$ 的点 $t_{\alpha}(n)$ 称为 $t(n)$ 上的 $\alpha$ 分位点。则：<br>$$<br>t_{1-\alpha}(n)=-t_{\alpha}{(n)}<br>$$</p>
+<h5 id="定理5-21：-t-分布的正态收敛性"><a href="#定理5-21：-t-分布的正态收敛性" class="headerlink" title="定理5.21：$$t$$ 分布的正态收敛性"></a>定理5.21：$$t$$ 分布的正态收敛性</h5><p>$t_(n)$ 分布的概率密度 $f(x)$ 趋向于标准正态分布的概率密度，即：<br>$$<br>\lim_{n\rightarrow\infty}f(x)=\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}， (-\infty&lt;x&lt;+\infty)<br>$$</p>
+<h5 id="定理5-22：均值抽样分布定理"><a href="#定理5-22：均值抽样分布定理" class="headerlink" title="定理5.22：均值抽样分布定理"></a>定理5.22：均值抽样分布定理</h5><p>$$X_i\ (i = 1，2，…，n)$$  是总体 $\mathbb{N}(\mu,\sigma^2)$ 的样本，总体方差未知，样本均值和样本方差分别为 $\overline{X}$ 和 $S^2$ ，则：<br>$$<br>\frac{\overline{X}-\mu}{\frac{S}{\sqrt{n}}}\sim t(n-1)<br>$$</p>
+<h4 id="5-4-4-F-分布-Fisher"><a href="#5-4-4-F-分布-Fisher" class="headerlink" title="5.4.4 $$F$$ 分布 (Fisher)"></a>5.4.4 $$F$$ 分布 (Fisher)</h4><h5 id="定义5-4：-F-分布"><a href="#定义5-4：-F-分布" class="headerlink" title="定义5.4：$$F$$ 分布"></a>定义5.4：$$F$$ 分布</h5><p>设 $X\sim\chi^2(n_1)$，$Y\sim\chi^2(n_2)$，且 $X$ 和 $Y$ 相互独立，则随机变量<br>$$<br>F=\frac{\frac{X}{n_1}}{\frac{Y}{n_2}}=\frac{n_2}{n_1}\frac{X}{Y}<br>$$<br>称为服从自由度为 $n_1，n_2$ 的 $F$ 分布，记为 $F(n_1，n_2)$，其中 $n_1$ 称为第一自由度，$n_2$ 称为第二自由度。</p>
+<h5 id="定理5-23：-F-分布的倒数对称性"><a href="#定理5-23：-F-分布的倒数对称性" class="headerlink" title="定理5.23：$$F$$ 分布的倒数对称性"></a>定理5.23：$$F$$ 分布的倒数对称性</h5><p>$$<br>F_{1-\alpha}(n_1,\ n_2)=\frac{1}{F_{\alpha}(n_1, \ n_2)}<br>$$</p>
+<h5 id="定理5-24：-F-分布密度函数"><a href="#定理5-24：-F-分布密度函数" class="headerlink" title="定理5.24：$$F$$ 分布密度函数"></a>定理5.24：$$F$$ 分布密度函数</h5><p>$F(n_1, \ n_2)$ 分布的概率密度函数为：<br>$$<br>f(x;\ n_1,\ n_2) = \frac{\Gamma(\frac{n_1+n_2}{2})}{\Gamma(\frac{n_1}{2})\Gamma(\frac{n_2}{2})}(\frac{n_1}{n_2})^{\frac{n_1}{2}}\frac{x^{\frac{n_1-2}{2}}}{(1+\frac{n_1}{n_2}x)^{\frac{n_1+n_2}{2}}}，\ x&gt;0<br>$$</p>
+<h5 id="定理5-25：-F-分布数学期望"><a href="#定理5-25：-F-分布数学期望" class="headerlink" title="定理5.25：$$F$$ 分布数学期望"></a>定理5.25：$$F$$ 分布数学期望</h5><p>若 $X\sim F(n_1，n_2)$，则：<br>$$<br>E(X)=\frac{n_2}{n_2-2}，\ n_2&gt;2\<br>Var(X)=\frac{n_2^2(2n_1+2n_2-4)}{n_1(n_2-2)^2(n_2-4)}，\ n_2&gt;4<br>$$</p>
+<h5 id="定理5-26：正态分布逼近定理"><a href="#定理5-26：正态分布逼近定理" class="headerlink" title="定理5.26：正态分布逼近定理"></a>定理5.26：正态分布逼近定理</h5><p>设 $X_{i}\ (i=1，2，…，n_1)$ ， $Y_{i}\ (i=1，2，…，n_2)$ ，是分别来自两正态总体  $\mathbb{N}(\mu_1,\sigma_1^2)$， $\mathbb{N}(\mu_2,\sigma_2^2)$，则：<br>$$<br>\frac{(\overline X-\overline Y)-(\mu_1-\mu_2)}{\sqrt{\frac{\sigma_1^2}{n_1}+\frac{\sigma_2^2}{n_2}}}\sim \mathbb{N}(0,\ 1)<br>$$</p>
+<h5 id="定理5-27：方差抽样分布定理"><a href="#定理5-27：方差抽样分布定理" class="headerlink" title="定理5.27：方差抽样分布定理"></a>定理5.27：方差抽样分布定理</h5><p>设 $X_{i}\ (i=1，2，…，n_1)$ ， $Y_{i}\ (i=1，2，…，n_2)$ ，是分别来自两正态总体  $\mathbb{N}(\mu_1,\sigma_1^2)$， $\mathbb{N}(\mu_2,\sigma_2^2)$，$S_1^2,\ S_2^2 $ 分别为两样本方差，则：<br>$$<br>\frac{S_1^2/S_2^2}{\sigma_1^2/\sigma_2^2}\sim F(n_1-1,\ n_2-1)<br>$$</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Fundamentals-of-Data-Science/" class="category-chain-item">Fundamentals of Data Science</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%8A%BD%E6%A0%B7%E5%88%86%E5%B8%83/">#抽样分布</a>
+      
+        <a href="/tags/%E6%9E%81%E9%99%90%E5%AE%9A%E7%90%86/">#极限定理</a>
+      
+        <a href="/tags/%E5%A4%A7%E6%95%B0%E5%AE%9A%E5%BE%8B/">#大数定律</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>第五章 抽样分布</div>
+      <div>https://wuchentian.github.io/2022/10/29/Fundamentals of Data Science/第五章 抽样分布/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>October 29, 2022</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/10/29/Fundamentals%20of%20Data%20Science/%E7%AC%AC%E5%85%AD%E7%AB%A0%20%E5%8F%82%E6%95%B0%E4%BC%B0%E8%AE%A1/" title="第六章 参数估计">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">第六章 参数估计</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/10/29/Fundamentals%20of%20Data%20Science/%E7%AC%AC%E5%9B%9B%E7%AB%A0%20%E5%B8%B8%E7%94%A8%E6%A6%82%E7%8E%87%E5%88%86%E5%B8%83/" title="第四章 常用概率分布">
+                        <span class="hidden-mobile">第四章 常用概率分布</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;Table of Contents</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>

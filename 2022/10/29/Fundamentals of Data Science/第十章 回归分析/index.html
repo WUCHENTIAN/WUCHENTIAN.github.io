@@ -1,0 +1,665 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/BrBa.jpg">
+  <link rel="icon" href="/img/BrBa.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="第十章 回归分析10.1 一元线性回归分析10.1.1 基本步骤​    &lt;1&gt; 采集样本 ​    &lt;2&gt; 回归分析 ​    &lt;3&gt; 对回归方程显著性检验 ​    &lt;4&gt; 预测与控制 10.1.2 最小二乘估计称 $y &#x3D; a+bx+e$ 为一元线性回归方程，其中 $a+bx$ 表示 $y$ 随 $x$ 线性变化的部分，$e$ 是一切随机因素的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第十章 回归分析">
+<meta property="og:url" content="https://wuchentian.github.io/2022/10/29/Fundamentals%20of%20Data%20Science/%E7%AC%AC%E5%8D%81%E7%AB%A0%20%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="第十章 回归分析10.1 一元线性回归分析10.1.1 基本步骤​    &lt;1&gt; 采集样本 ​    &lt;2&gt; 回归分析 ​    &lt;3&gt; 对回归方程显著性检验 ​    &lt;4&gt; 预测与控制 10.1.2 最小二乘估计称 $y &#x3D; a+bx+e$ 为一元线性回归方程，其中 $a+bx$ 表示 $y$ 随 $x$ 线性变化的部分，$e$ 是一切随机因素的">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-10-29T01:05:00.000Z">
+<meta property="article:modified_time" content="2022-10-29T01:06:12.777Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="回归分析">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>第十章 回归分析 - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"wuchentian.github.io","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/background.jpeg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="第十章 回归分析"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-10-29 09:05" pubdate>
+          October 29, 2022 am
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.5k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          21 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">第十章 回归分析</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="第十章-回归分析"><a href="#第十章-回归分析" class="headerlink" title="第十章 回归分析"></a>第十章 回归分析</h2><h3 id="10-1-一元线性回归分析"><a href="#10-1-一元线性回归分析" class="headerlink" title="10.1 一元线性回归分析"></a>10.1 一元线性回归分析</h3><h4 id="10-1-1-基本步骤"><a href="#10-1-1-基本步骤" class="headerlink" title="10.1.1 基本步骤"></a>10.1.1 基本步骤</h4><p>​    &lt;1&gt; 采集样本</p>
+<p>​    &lt;2&gt; 回归分析</p>
+<p>​    &lt;3&gt; 对回归方程显著性检验</p>
+<p>​    &lt;4&gt; 预测与控制</p>
+<h4 id="10-1-2-最小二乘估计"><a href="#10-1-2-最小二乘估计" class="headerlink" title="10.1.2 最小二乘估计"></a>10.1.2 最小二乘估计</h4><p>称 $y = a+bx+e$ 为一元线性回归方程，其中 $a+bx$ 表示 $y$ 随 $x$ 线性变化的部分，$e$ 是一切随机因素的总和，要使得这一误差最小，考察<br>$$<br>y_i=a+bx_i+e_i<br>$$<br>令<br>$$<br>Q(a,b)=\sum_{i=1}^ne_i^2=\sum_{i=1}^n(a+bx_i-y_i)^2<br>$$<br>根据微分方程极值原理，令<br>$$<br>\left{</p>
+<p>\begin{array}{<strong>lr</strong>}<br>\frac{\partial Q}{\partial a}=-2\sum_{i=1}^n(y_i-a-bx_i)=0\<br>\frac{\partial Q}{\partial b}=-2\sum_{i=1}^nx_i(y_i-a-bx_i)=0\<br>\end{array}</p>
+<p>\right.<br>$$<br>解得<br>$$<br>\left{<br>\begin{array}{**lr}<br>\hat a=\overline y-\hat b\<br>\hat b=\frac{l_{xy}}{l_{xx}}<br>\end{array}<br>\right.<br>$$<br>其中<br>$$<br>\left{<br>\begin{array}{**lr}</p>
+<p>l_{xy}=\displaystyle \sum_{i=1}^n(x_i-\overline x)(y_i-\overline y)=\sum_{i=1}^nx_iy_i-\frac{1}{n}(\sum_{i=1}^ny_i)(\sum_{i=1}^nx_i)<br>\l_{xx}=\displaystyle \sum_{i=1}^n(x_i-\overline x)^2=\sum_{i=1}^nx_i^2-\frac{1}{n}(\sum_{i=1}^nx_i)^2<br>\end{array}<br>\right.<br>$$<br>同时，我们用<br>$$<br>r^2=\frac{S_R}{S_T}<br>$$<br>表示回归直线对样本的拟合程度（$|r|$ 越接近 1，拟合程度越高），或者可以用残差（开根号后为标准残差）来表示偏差累计<br>$$<br>S_y^2=\frac{S_e}{n-2}=\frac{\displaystyle \sum_i(y_i-\hat y_i)^2}{n-2}<br>$$</p>
+<h4 id="10-1-3-显著性检验"><a href="#10-1-3-显著性检验" class="headerlink" title="10.1.3 显著性检验"></a>10.1.3 显著性检验</h4><h5 id="定义："><a href="#定义：" class="headerlink" title="定义："></a>定义：</h5><p>​    &lt;1&gt; 总偏差平方和 $S_T$:<br>$$<br>S_T:=\sum_{i=1}^n(y_i-\overline y)^2<br>$$<br>​    &lt;2&gt; 回归偏差平方和 $S_R$<br>$$<br>S_R:=\sum_{i=1}^n(\hat y_i-\overline y)^2<br>$$<br>​    &lt;3&gt; 随机误差 $S_e$:<br>$$<br>S_e:=\sum_{i=1}^n(y_i-\hat y_i)^2<br>$$</p>
+<h5 id="定理-10-1："><a href="#定理-10-1：" class="headerlink" title="定理 10.1："></a>定理 10.1：</h5><p>一元线性回归分析中，总偏差平方和等于回归偏差平方和与随机误差之和，即：<br>$$<br>S_T=S_R+S_e<br>$$</p>
+<h3 id="10-2-多元线性回归分析"><a href="#10-2-多元线性回归分析" class="headerlink" title="10.2 多元线性回归分析"></a>10.2 多元线性回归分析</h3><h4 id="10-2-1-基本步骤"><a href="#10-2-1-基本步骤" class="headerlink" title="10.2.1 基本步骤"></a>10.2.1 基本步骤</h4><p>​    考察因变量 $y$ 与 $m-1$ 个自变量 $x_1,x_2,…,x_{m-1}$ 的关系，分析如下的多元线性回归模型，即<br>$$<br>y=\beta_0 + \sum_{i=1}^{m-1}\beta_ix_i + e<br>$$<br>​    为了方便，采用以下记号：<br>$$<br>Y=<br>\left[<br>\begin{array}{}<br>y_1\<br>y_2\<br>\ \vdots\<br>y_n<br>\end{array}<br>\right],<br>\beta=<br>\left[<br>\begin{array}{}<br>\beta_0\<br>\beta_1\<br>\ \vdots\<br>\beta_{m-1}<br>\end{array}<br>\right],<br>e=<br>\left[<br>\begin{array}{}<br>e_1\<br>e_2\<br>\ \vdots\<br>e_n<br>\end{array}<br>\right],<br>X=<br>\left[<br>\begin{array}{}<br>1 &amp; x_{11} &amp; \cdots &amp; x_{1(m-1)}\<br>1 &amp; x_{21} &amp; \cdots &amp; x_{2(m-1)}\<br>\ \vdots &amp; \vdots &amp; \vdots &amp; \vdots\<br>1 &amp; x_{n1} &amp; \cdots &amp; x_{n(m-1)}<br>\end{array}<br>\right]<br>$$<br>则多元线性模型可简化为<br>$$<br>\left{<br>\begin{array}{**lr}<br>Y= X\beta + e\<br>e\sim\N(0,\sigma^2I_n)<br>\end{array}<br>\right.<br>$$<br>则相应地，<br>$$<br>\hat\beta=(X^TX)^{-1}X^TY\<br>e=Y-\hat Y=(I-H)Y\<br>S_T=Y^TY-\frac{1}{n}Y^TJY\<br>S_e=Y^TY-\hat\beta X^TY\<br>S_R=S_T-S_e\<br>r^2=\frac{S_R}{S_T}<br>$$</p>
+<h4 id="10-2-2-偏回归系数分析"><a href="#10-2-2-偏回归系数分析" class="headerlink" title="10.2.2 偏回归系数分析"></a>10.2.2 偏回归系数分析</h4><p>​    回归关系显著并不意味着每个自变量 $x_j$ 对 $y$ 的影响都显著。若 $x_j$ 对 $y$ 无影响，那么线性方程中对应的 $\beta_j=0$。我们对每个自变量进行以下假设检验：<br>$$<br>H_0: \beta_j=0\<br>H_1:\beta_j\not =0<br>$$<br> 我们需要计算检验统计量：<br>$$<br>\frac{\hat\beta_j-\beta_j}{S(\hat\beta_j)}\sim t(n-m)<br>$$<br>所以，$\beta_j$ 的 $1-\alpha$ 置信区间为<br>$$<br>\hat\beta_j\pm t_{\alpha\over 2}(n-m)S(\hat\beta_j)<br>$$</p>
+<h3 id="10-3-非线性回归分析"><a href="#10-3-非线性回归分析" class="headerlink" title="10.3 非线性回归分析"></a>10.3 非线性回归分析</h3><h4 id="10-3-1-基本步骤"><a href="#10-3-1-基本步骤" class="headerlink" title="10.3.1 基本步骤"></a>10.3.1 基本步骤</h4><p>​    &lt;1&gt; 进行变量变换实现线性化</p>
+<p>​    &lt;2&gt; 进行线性回归预测</p>
+<p>​    &lt;3&gt; 进行反变换实现数据还原</p>
+<h4 id="10-3-2-非线性函数"><a href="#10-3-2-非线性函数" class="headerlink" title="10.3.2 非线性函数"></a>10.3.2 非线性函数</h4><h5 id="双曲线模型"><a href="#双曲线模型" class="headerlink" title="双曲线模型"></a>双曲线模型</h5><p>$$<br>\frac{1}{y}=a+\frac{b}{x}<br>$$</p>
+<h5 id="指数模型"><a href="#指数模型" class="headerlink" title="指数模型"></a>指数模型</h5><p>$$<br>y=ae^{bx}<br>$$</p>
+<h5 id="对数模型"><a href="#对数模型" class="headerlink" title="对数模型"></a>对数模型</h5><p>$$<br>y=a+blnx<br>$$</p>
+<h5 id="幂函数模型"><a href="#幂函数模型" class="headerlink" title="幂函数模型"></a>幂函数模型</h5><p>$$<br>y=ax^b<br>$$</p>
+<h4 id="10-3-3-线性化变换"><a href="#10-3-3-线性化变换" class="headerlink" title="10.3.3 线性化变换"></a>10.3.3 线性化变换</h4><p>​    &lt;1&gt; 转化</p>
+<p>​    &lt;2&gt; 分割</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Fundamentals-of-Data-Science/" class="category-chain-item">Fundamentals of Data Science</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/">#回归分析</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>第十章 回归分析</div>
+      <div>https://wuchentian.github.io/2022/10/29/Fundamentals of Data Science/第十章 回归分析/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>October 29, 2022</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/10/29/Fundamentals%20of%20Data%20Science/%E7%AC%AC%E5%8D%81%E4%B8%80%E7%AB%A0%20%E4%BF%A1%E6%81%AF%E4%B8%8E%E7%86%B5/" title="第十一章 信息与熵">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">第十一章 信息与熵</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/10/29/Fundamentals%20of%20Data%20Science/%E7%AC%AC%E4%B9%9D%E7%AB%A0%20%E9%AB%98%E7%BB%B4%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/" title="第九章 高维数据处理">
+                        <span class="hidden-mobile">第九章 高维数据处理</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;Table of Contents</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>
