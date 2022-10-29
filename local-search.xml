@@ -4,6 +4,48 @@
   
   
   <entry>
+    <title>目标检测问题概述</title>
+    <link href="/2022/10/29/Computer%20Vision/Object%20Detection/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E9%97%AE%E9%A2%98%E6%A6%82%E8%BF%B0/"/>
+    <url>/2022/10/29/Computer%20Vision/Object%20Detection/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E9%97%AE%E9%A2%98%E6%A6%82%E8%BF%B0/</url>
+    
+    <content type="html"><![CDATA[<h4 id="目标检测问题">1. 目标检测问题</h4><ol type="1"><li>目标检测 (Object Deteciton)问题是计算机视觉的一个子方向，是在图片中对<strong>可变数量</strong>的目标进行查找和分类，主要包括三个难点</li></ol><ul><li>目标种类和数量问题</li><li>目标尺度问题</li><li>外在环境干扰问题</li></ul><ol start="2" type="1"><li>一些类似的子方向</li></ol><ul><li>Image Classification：将图像中的元素分类</li><li>Semantic Segmentation：将图像中同一类的元素归类</li><li>Instance Segmentation：将图像中每一个元素分类</li><li>Object Detection（Object Localization）：将图像中的元素确定位置</li></ul><h4 id="目标检测方法">2. 目标检测方法</h4><h5 id="目标检测方法的演变">2.1. 目标检测方法的演变</h5><p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210292300935.png" alt="image-20221029213051893" style="zoom:67%;" /></p><h5 id="目标提取方法算法的基本流程">2.2. 目标提取方法算法的基本流程</h5><pre><code class=" mermaid">graph LR输入--&gt;候选框--&gt;特征提取--&gt;分类器判定目标&amp;背景--&gt;NMS--&gt;输出输入----&gt;特征提取+直接回归---&gt;NMS</code></pre><p>其中，<ahref="https://blog.csdn.net/shuzfan/article/details/52711706"><strong>NMS</strong></a>(<strong>non maximum suppression, 非极大值抑制</strong>)是一种抑制非极大值元素而搜索产生极大值的算法</p><h5 id="传统的主流目标检测方法">2.3. 传统的主流目标检测方法</h5><ul><li>Viola-Jones</li><li>HOG + SVM</li><li>DPM（目前非深度学习方法中性能最优的方法，但相对于深度学习还是有较大差距）</li></ul><h5 id="基于深度学习的主流目标检测方法">2.4.基于深度学习的主流目标检测方法</h5><ul><li>One-Stage (YOLO &amp; SSD series)</li><li>Two-Stage (Faster RCNN series)</li></ul><h4 id="深度神经网络">3. 深度神经网络</h4><h5 id="rnn-网络">3.1. RNN 网络</h5><h5 id="cnn-网络">3.2. CNN 网络</h5><h5 id="回归网络">3.3. 回归网络</h5>]]></content>
+    
+    
+    <categories>
+      
+      <category>Computer Vision</category>
+      
+      <category>Object Detection</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>CV</tag>
+      
+      <tag>Object Deteciton</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title></title>
+    <link href="/2022/10/29/Computer%20Vision/YOLO/%E6%9C%AA%E5%91%BD%E5%90%8D/"/>
+    <url>/2022/10/29/Computer%20Vision/YOLO/%E6%9C%AA%E5%91%BD%E5%90%8D/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title></title>
     <link href="/2022/10/29/Java%20Basic/Java%20%E4%B8%AD%E7%9A%84%E5%BC%82%E5%B8%B8%E6%8D%95%E8%8E%B7/"/>
     <url>/2022/10/29/Java%20Basic/Java%20%E4%B8%AD%E7%9A%84%E5%BC%82%E5%B8%B8%E6%8D%95%E8%8E%B7/</url>

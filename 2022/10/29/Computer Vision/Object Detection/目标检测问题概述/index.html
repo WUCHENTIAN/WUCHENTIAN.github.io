@@ -18,19 +18,25 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://wuchentian.github.io/2022/10/29/Java%20Basic/Java%20%E4%B8%AD%E7%9A%84%E5%BC%82%E5%B8%B8%E6%8D%95%E8%8E%B7/index.html">
+    <meta name="description" content="1. 目标检测问题  目标检测 (Object Deteciton) 问题是计算机视觉的一个子方向，是在图片中对可变数量的目标进行查找和分类，主要包括三个难点   目标种类和数量问题 目标尺度问题 外在环境干扰问题   一些类似的子方向   Image Classification：将图像中的元素分类 Semantic Segmentation：将图像中同一类的元素归类 Instance Segm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="目标检测问题概述">
+<meta property="og:url" content="https://wuchentian.github.io/2022/10/29/Computer%20Vision/Object%20Detection/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E9%97%AE%E9%A2%98%E6%A6%82%E8%BF%B0/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1. 目标检测问题  目标检测 (Object Deteciton) 问题是计算机视觉的一个子方向，是在图片中对可变数量的目标进行查找和分类，主要包括三个难点   目标种类和数量问题 目标尺度问题 外在环境干扰问题   一些类似的子方向   Image Classification：将图像中的元素分类 Semantic Segmentation：将图像中同一类的元素归类 Instance Segm">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-10-29T07:59:59.206Z">
-<meta property="article:modified_time" content="2022-10-29T07:59:59.206Z">
+<meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210292300935.png">
+<meta property="article:published_time" content="2022-10-29T13:18:00.000Z">
+<meta property="article:modified_time" content="2022-10-29T15:44:58.428Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="CV">
+<meta property="article:tag" content="Object Deteciton">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210292300935.png">
   
   
   
-  <title>Hexo</title>
+  <title>目标检测问题概述 - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -207,7 +213,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text=""></span>
+            <span id="subtitle" data-typed-text="目标检测问题概述"></span>
           
         </div>
 
@@ -218,7 +224,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-10-29 15:59" pubdate>
+        <time datetime="2022-10-29 21:18" pubdate>
           October 29, 2022 pm
         </time>
       </span>
@@ -230,7 +236,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          0 words
+          615 words
         
       </span>
     
@@ -241,7 +247,7 @@
         
         
         
-          1 mins
+          6 mins
         
       </span>
     
@@ -279,12 +285,58 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none"></h1>
+            <h1 style="display: none">目标检测问题概述</h1>
             
             
               <div class="markdown-body">
                 
-                
+                <h4 id="目标检测问题">1. 目标检测问题</h4>
+<ol type="1">
+<li>目标检测 (Object Deteciton)
+问题是计算机视觉的一个子方向，是在图片中对<strong>可变数量</strong>的目标进行查找和分类，主要包括三个难点</li>
+</ol>
+<ul>
+<li>目标种类和数量问题</li>
+<li>目标尺度问题</li>
+<li>外在环境干扰问题</li>
+</ul>
+<ol start="2" type="1">
+<li>一些类似的子方向</li>
+</ol>
+<ul>
+<li>Image Classification：将图像中的元素分类</li>
+<li>Semantic Segmentation：将图像中同一类的元素归类</li>
+<li>Instance Segmentation：将图像中每一个元素分类</li>
+<li>Object Detection（Object Localization）：将图像中的元素确定位置</li>
+</ul>
+<h4 id="目标检测方法">2. 目标检测方法</h4>
+<h5 id="目标检测方法的演变">2.1. 目标检测方法的演变</h5>
+<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210292300935.png" srcset="/img/loading.gif" lazyload alt="image-20221029213051893" style="zoom:67%;" /></p>
+<h5 id="目标提取方法算法的基本流程">2.2. 目标提取方法算法的基本流程</h5>
+<pre><code class=" mermaid">graph LR
+输入--&gt;候选框--&gt;特征提取--&gt;分类器判定目标&amp;背景--&gt;NMS--&gt;输出
+输入----&gt;特征提取+直接回归---&gt;NMS
+</code></pre>
+<p>其中，<a
+target="_blank" rel="noopener" href="https://blog.csdn.net/shuzfan/article/details/52711706"><strong>NMS</strong></a>
+(<strong>non maximum suppression, 非极大值抑制</strong>)
+是一种抑制非极大值元素而搜索产生极大值的算法</p>
+<h5 id="传统的主流目标检测方法">2.3. 传统的主流目标检测方法</h5>
+<ul>
+<li>Viola-Jones</li>
+<li>HOG + SVM</li>
+<li>DPM（目前非深度学习方法中性能最优的方法，但相对于深度学习还是有较大差距）</li>
+</ul>
+<h5 id="基于深度学习的主流目标检测方法">2.4.
+基于深度学习的主流目标检测方法</h5>
+<ul>
+<li>One-Stage (YOLO &amp; SSD series)</li>
+<li>Two-Stage (Faster RCNN series)</li>
+</ul>
+<h4 id="深度神经网络">3. 深度神经网络</h4>
+<h5 id="rnn-网络">3.1. RNN 网络</h5>
+<h5 id="cnn-网络">3.2. CNN 网络</h5>
+<h5 id="回归网络">3.3. 回归网络</h5>
 
                 
               </div>
@@ -293,6 +345,43 @@
             <div>
               <div class="post-metas my-3">
   
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Computer-Vision/" class="category-chain-item">Computer Vision</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/Computer-Vision/Object-Detection/" class="category-chain-item">Object Detection</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/CV/">#CV</a>
+      
+        <a href="/tags/Object-Deteciton/">#Object Deteciton</a>
+      
+    </div>
   
 </div>
 
@@ -302,8 +391,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div></div>
-      <div>https://wuchentian.github.io/2022/10/29/Java Basic/Java 中的异常捕获/</div>
+      <div>目标检测问题概述</div>
+      <div>https://wuchentian.github.io/2022/10/29/Computer Vision/Object Detection/目标检测问题概述/</div>
     </div>
     <div class="license-meta">
       
@@ -347,18 +436,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/10/29/Computer%20Vision/YOLO/%E6%9C%AA%E5%91%BD%E5%90%8D/" title="">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile"></span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/10/29/Fundamentals%20of%20Data%20Science/%E7%AC%AC%E5%8D%81%E4%B8%80%E7%AB%A0%20%E4%BF%A1%E6%81%AF%E4%B8%8E%E7%86%B5/" title="第十一章 信息与熵">
-                        <span class="hidden-mobile">第十一章 信息与熵</span>
+                      <a href="/2022/10/29/Computer%20Vision/YOLO/%E6%9C%AA%E5%91%BD%E5%90%8D/" title="">
+                        <span class="hidden-mobile"></span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
