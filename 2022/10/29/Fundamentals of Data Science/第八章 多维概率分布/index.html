@@ -26,7 +26,7 @@
 <meta property="og:description" content="第八章 多维概率分布 8.1 多维概率分布 8.1.1 联合分布  二维随机变量 设样本空间为 \(\Omega &#x3D; e\)，\(X &#x3D; X(e)\)，和 \(Y &#x3D; Y(e)\)，是定义在 \(\Omega\) 上的随机变量，由他们构成的一个变量 \((X,Y)\) 叫做二维随机变量或二维随机向量  定义 8.1：联合分布 设 \((X,Y)\) 是二维随机变量， \(x,y\) 是任意实数，称">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-10-29T01:03:00.000Z">
-<meta property="article:modified_time" content="2022-10-29T07:19:09.854Z">
+<meta property="article:modified_time" content="2022-10-29T07:33:53.666Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="矩">
 <meta property="article:tag" content="概率分布">
@@ -234,7 +234,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4k words
+          4.3k words
         
       </span>
     
@@ -245,7 +245,7 @@
         
         
         
-          34 mins
+          36 mins
         
       </span>
     
@@ -364,8 +364,10 @@ class="math inline">\((X,Y)\)</span> 的边缘分布律。</p>
 <span class="math inline">\(f_X(x)\)</span> 和 <span
 class="math inline">\(f_Y(y)\)</span> 定义为 <span
 class="math display">\[
-f_X(x) = \int_{-\infty}^{+\infty}f(x,y)dy\\
-f_Y(y) = \int_{-\infty}^{+\infty}f(x,y)dx
+\begin{align}
+&amp;f_X(x) = \int_{-\infty}^{+\infty}f(x,y)dy\\
+&amp;f_Y(y) = \int_{-\infty}^{+\infty}f(x,y)dx
+\end{align}
 \]</span></p>
 <h4 id="条件分布">8.1.3 条件分布</h4>
 <h5 id="定义-8.7离散型随机变量的条件概率">定义
@@ -375,10 +377,12 @@ f_Y(y) = \int_{-\infty}^{+\infty}f(x,y)dx
 class="math inline">\(P\{X=x_i,Y=y_i\}=p_{ij}\)</span>，其边缘概率分别为
 <span class="math inline">\(p_{i\cdot}\ p_{\cdot
 j}\)</span>，则条件概率定义为 <span class="math display">\[
-P\{X=x_i|Y=y_i\}=\frac{P\{X=x_i,Y=y_i\}}{P\{Y=y_i\}} =
+\begin{align}
+&amp;P\{X=x_i|Y=y_i\}=\frac{P\{X=x_i,Y=y_i\}}{P\{Y=y_i\}} =
 \frac{p_{ij}}{p_{\cdot j}}\\
-P\{Y=y_i|X=x_i\}=\frac{P\{X=x_i,Y=y_i\}}{P\{X=x_i\}} =
+&amp;P\{Y=y_i|X=x_i\}=\frac{P\{X=x_i,Y=y_i\}}{P\{X=x_i\}} =
 \frac{p_{ij}}{p_{i \cdot}}
+\end{align}
 \]</span></p>
 <h5 id="定义-8.8连续型随机变量的条件概率">定义
 8.8：连续型随机变量的条件概率</h5>
@@ -387,14 +391,18 @@ P\{Y=y_i|X=x_i\}=\frac{P\{X=x_i,Y=y_i\}}{P\{X=x_i\}} =
 class="math inline">\(f(x,y)\)</span>，其边缘改率分别为 <span
 class="math inline">\(f_X(x), f_Y(y)\)</span>，则条件概率定义为 <span
 class="math display">\[
-f_{X|Y}(x|y) = \frac{f(x,y)}{f_Y(y)}\\
-f_{Y|X}(y|x) = \frac{f(x,y)}{f_X(x)}\\
+\begin{align}
+&amp;f_{X|Y}(x|y) = \frac{f(x,y)}{f_Y(y)}\\
+&amp;f_{Y|X}(y|x) = \frac{f(x,y)}{f_X(x)}\\
+\end{align}
 \]</span> 连续型随机变量的条件概率分布定义为 <span
 class="math display">\[
-F_{X|Y}(x|y) = P\{X\leq
+\begin{align}
+&amp;F_{X|Y}(x|y) = P\{X\leq
 x|Y=y\}=\int_{-\infty}^{x}\frac{f(x,y)}{f_Y(y)}dx\\
-F_{Y|X}(y|x) = P\{Y\leq
+&amp;F_{Y|X}(y|x) = P\{Y\leq
 y|X=x\}=\int_{-\infty}^{y}\frac{f(x,y)}{f_X(x)}dy\\
+\end{align}
 \]</span></p>
 <h4 id="独立性">8.1.4 独立性</h4>
 <h5 id="定义-8.9独立性">定义 8.9：独立性</h5>
@@ -455,10 +463,12 @@ Cov(X,Y) = E(XY)-E(X)E(Y)
 <p>对于任意随机变量 <span
 class="math inline">\(X,Y,Z\)</span>，不难得出： <span
 class="math display">\[
-Cov(X,Y)=Cov(Y,X)\\
-Cov(a,a)=0\\
-Cov(aX,bY)=abCov(X,Y)\\
-Cov(X+Y,Z)=Cov(X,Z)+Cov(Y,Z)
+\begin{align}
+&amp;Cov(X,Y)=Cov(Y,X)\\
+&amp;Cov(a,a)=0\\
+&amp;Cov(aX,bY)=abCov(X,Y)\\
+&amp;Cov(X+Y,Z)=Cov(X,Z)+Cov(Y,Z)
+\end{align}
 \]</span></p>
 <h5 id="推论-8.2">推论 8.2：</h5>
 <p>对于任意随机变量 <span class="math inline">\(X,Y:\)</span> <span
@@ -499,8 +509,10 @@ class="math inline">\(X,Y\)</span> 几乎处处线性相关</p>
 class="math inline">\(A\)</span>，若二维随机变量 <span
 class="math inline">\((X,Y)\)</span> 具有概率密度 <span
 class="math display">\[
-\forall(x,y)\in G:f(x,y)=\frac{1}{A}\\
-\forall(x,y)\not \in G:f(x,y) = 0\\
+\begin{align}
+&amp;\forall(x,y)\in G:f(x,y)=\frac{1}{A}\\
+&amp;\forall(x,y)\not \in G:f(x,y) = 0\\
+\end{align}
 \]</span> 则称 <span class="math inline">\((X,Y)\)</span> 在 <span
 class="math inline">\(G\)</span> 上二维均匀分布</p>
 <h4 id="二维正态分布">8.3.2 二维正态分布</h4>
