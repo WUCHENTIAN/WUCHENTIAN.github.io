@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html lang="en" data-default-color-scheme=auto>
+<html lang="en" data-default-color-scheme=dark>
 
 
 
@@ -18,15 +18,15 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="第四章 常用概率分布 4.1 离散概率分布 4.1.1 Bernoulli 分布 定义4.1 Bernoulli 分布 随机变量 \(X\) 服从参数 \(p\) 的伯努利分布，若： \[ P\{X &#x3D; k\} &#x3D; p^k(1-p)^{1-k}\\ k \in \{0,\ 1\} \] 记作 \[ X\sim Bern(p) \] 定理4.1 Bernoulli 分布矩生成函数 \(X\) 为伯努">
+    <meta name="description" content="第四章 常用概率分布 4.1 离散概率分布 4.1.1 Bernoulli 分布 定义4.1 Bernoulli 分布 随机变量 \(X\) 服从参数 \(p\) 的伯努利分布，若： \[ \begin{gather} &amp;P\{X &#x3D; k\} &#x3D; p^k(1-p)^{1-k}\\ &amp;k \in \{0,\ 1\} \end{gather} \] 记作 \[ X\sim Bern(p">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第四章 常用概率分布">
 <meta property="og:url" content="https://wuchentian.github.io/2022/10/29/Fundamentals%20of%20Data%20Science/%E7%AC%AC%E5%9B%9B%E7%AB%A0%20%E5%B8%B8%E7%94%A8%E6%A6%82%E7%8E%87%E5%88%86%E5%B8%83/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="第四章 常用概率分布 4.1 离散概率分布 4.1.1 Bernoulli 分布 定义4.1 Bernoulli 分布 随机变量 \(X\) 服从参数 \(p\) 的伯努利分布，若： \[ P\{X &#x3D; k\} &#x3D; p^k(1-p)^{1-k}\\ k \in \{0,\ 1\} \] 记作 \[ X\sim Bern(p) \] 定理4.1 Bernoulli 分布矩生成函数 \(X\) 为伯努">
+<meta property="og:description" content="第四章 常用概率分布 4.1 离散概率分布 4.1.1 Bernoulli 分布 定义4.1 Bernoulli 分布 随机变量 \(X\) 服从参数 \(p\) 的伯努利分布，若： \[ \begin{gather} &amp;P\{X &#x3D; k\} &#x3D; p^k(1-p)^{1-k}\\ &amp;k \in \{0,\ 1\} \end{gather} \] 记作 \[ X\sim Bern(p">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-10-29T01:00:00.000Z">
-<meta property="article:modified_time" content="2022-10-29T06:41:16.176Z">
+<meta property="article:modified_time" content="2022-10-30T09:00:03.028Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="概率分布">
 <meta name="twitter:card" content="summary_large_image">
@@ -233,7 +233,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4k words
+          4.7k words
         
       </span>
     
@@ -244,7 +244,7 @@
         
         
         
-          34 mins
+          40 mins
         
       </span>
     
@@ -294,8 +294,10 @@
 <p>随机变量 <span class="math inline">\(X\)</span> 服从参数 <span
 class="math inline">\(p\)</span> 的伯努利分布，若： <span
 class="math display">\[
-P\{X = k\} = p^k(1-p)^{1-k}\\
-k \in \{0,\ 1\}
+\begin{gather}
+&amp;P\{X = k\} = p^k(1-p)^{1-k}\\
+&amp;k \in \{0,\ 1\}
+\end{gather}
 \]</span> 记作 <span class="math display">\[
 X\sim Bern(p)
 \]</span></p>
@@ -310,14 +312,18 @@ M_X(s) = (1-p)+pe^s
 <p>随机变量 <span class="math inline">\(X\)</span> 服从参数 <span
 class="math inline">\(n,\ p\)</span> 的二项分布，若 <span
 class="math display">\[
-P\{X = k\} = \binom{n}{k}p^k(1-p)^{n-k}\\
-k = 1,\ 2,…,n
+\begin{gather}
+&amp;P\{X = k\} = \binom{n}{k}p^k(1-p)^{n-k}\\
+&amp;k = 1,\ 2,…,n
+\end{gather}
 \]</span> 其中 <span class="math inline">\(n,\ p\)</span> 为参数，记为
 <span class="math inline">\(X\sim \mathbb{B}(n,\ p)\)</span>.
 特别地，利用微分恒等式可以得到二项分布的数字特征 <span
 class="math display">\[
-E(X) = np\\
-V(X) = np(1-p)
+\begin{gather}
+&amp;E(X) = np\\
+&amp;V(X) = np(1-p)
+\end{gather}
 \]</span></p>
 <h5 id="定理4.2-binomial-分布矩生成函数">定理4.2 Binomial
 分布矩生成函数</h5>
@@ -334,12 +340,17 @@ X+Y\sim\mathbb{B}(m+n,\ p)
 <h4 id="poisson-分布">4.1.3 Poisson 分布</h4>
 <h5 id="定义4.3-poisson-分布">定义4.3 Poisson 分布</h5>
 <p>泊松分布的概率分布律为 <span class="math display">\[
-P\{X = k\} = \frac{\lambda^k}{k!}e^{-\lambda}\\k= 0,\ 1,\ 2,\ …
+\begin{gather}
+&amp;P\{X = k\} = \frac{\lambda^k}{k!}e^{-\lambda}\\
+&amp;k= 0,\ 1,\ 2,\ …
+\end{gather}
 \]</span> 其中 <span class="math inline">\(\lambda\)</span> 为参数，记作
 <span class="math inline">\(X\sim \pi(\lambda)\)</span>.
 利用简单的变形可得泊松分布的数字特征 <span class="math display">\[
-E(X) = \lambda\\
-V(X) = \lambda
+\begin{gather}
+&amp;E(X) = \lambda\\
+&amp;V(X) = \lambda
+\end{gather}
 \]</span></p>
 <h5 id="定理4.4-poisson-分布矩生成函数">定理4.4 Poisson
 分布矩生成函数</h5>
@@ -360,20 +371,28 @@ class="math inline">\(k\)</span>，有 <span class="math display">\[
 <h4 id="geometric-分布">4.1.4 Geometric 分布</h4>
 <h5 id="定义4.4-geometric-分布">定义4.4 Geometric 分布</h5>
 <p>几何分布的概率分布律为 <span class="math display">\[
-P\{X=k\}=(1-p)^{k-1}p\\k = 1,\ 2,\ …,\ n
+\begin{gather}
+P\{X=k\}=(1-p)^{k-1}p\\
+k = 1,\ 2,\ …,\ n
+\end{gather}
 \]</span> 其中 <span class="math inline">\(p\)</span> 为参数，记作 <span
 class="math inline">\(X\sim\mathbb{G}(p)\)</span>.
 利用等比数列求和错位相减得到几何分布的数字特征 <span
 class="math display">\[
-E(X) = \frac{1}{p}\\
-V(x) = \frac{1-p}{p^2}
+\begin{gather}
+&amp;E(X) = \frac{1}{p}\\
+&amp;V(x) = \frac{1-p}{p^2}
+\end{gather}
 \]</span></p>
 <h5 id="定理4.6-geometric-分布无记忆性">定理4.6 Geometric
 分布无记忆性</h5>
 <p>取值为正整数的随机变量 <span class="math inline">\(X\)</span>
 服从几何分布，当且仅当 <span class="math inline">\(X\)</span> 有无记忆性
 <span class="math display">\[
-P\{X&gt;m+n\ |\ X&gt;m\} = P\{X&gt;n\}\\ \forall m,\ n\geq0
+\begin{gather}
+&amp;P\{X&gt;m+n\ |\ X&gt;m\} = P\{X&gt;n\}\\
+&amp;\forall m,\ n\geq0
+\end{gather}
 \]</span></p>
 <h5 id="定理4.7-geometric-分布矩生成函数">定理4.7 Geometric
 分布矩生成函数</h5>
@@ -389,11 +408,17 @@ Negative-Binomial 分布(一般化的几何分布)</h5>
 class="math inline">\(r\)</span> 和 <span
 class="math inline">\(p\)</span> 的负二项分布，其概率分布律为 <span
 class="math display">\[
-\mathbb{NB}(k;r,p) = \binom{k-1}{n-r}(1-p)^{k-r}p^r\\k = r,\ r+1,\ ……
+\begin{gather}
+&amp;\mathbb{NB}(k;r,p) = \binom{k-1}{n-r}(1-p)^{k-r}p^r\\
+&amp;k = r,\ r+1,\ ……
+\end{gather}
 \]</span> 记作 <span class="math inline">\(X\sim\mathbb{NB}(r,\
 p)\)</span>. 特别地，利用组合恒等式不难求出负二项分布的数字特征 <span
 class="math display">\[
-E(X) = \frac{r}{p}\\V(X) = \frac{r(1-p)}{p^2}
+\begin{gather}
+E(X) = \frac{r}{p}\\
+V(X) = \frac{r(1-p)}{p^2}
+\end{gather}
 \]</span></p>
 <h5 id="定理4.8-negative-binomial-分布-poisson-逼近定理">定理4.8
 Negative-Binomial 分布 Poisson 逼近定理</h5>
@@ -406,15 +431,20 @@ Negative-Binomial 分布 Poisson 逼近定理</h5>
 <h4 id="hyper-geometric-分布">4.1.6 Hyper-Geometric 分布</h4>
 <h5 id="定义4.6-hyper-geometric分布">定义4.6 Hyper-Geometric分布</h5>
 <p>超几何分布的概率分布律为 <span class="math display">\[
-P(X=i) = \frac{\binom{m}{i}\binom{N-m}{n-i}}{\binom{N}{n}}\\
-i = 1,\ 2,\ …,\ n
+\begin{gather}
+&amp;P(X=i) = \frac{\binom{m}{i}\binom{N-m}{n-i}}{\binom{N}{n}}\\
+&amp;i = 1,\ 2,\ …,\ n
+\end{gather}
 \]</span> 其中参数 <span class="math inline">\(n,\ N,\ m\)</span>
 均为正整数且 <span class="math inline">\(m\le N,\ n\le N\)</span>，记作
 <span class="math inline">\(X\sim\mathbb{H}(N,n,m)\)</span>.
 特别地，利用极大似然估计不难得到超几何分布的数字特征 <span
 class="math display">\[
-E(X) = \frac{nm}{N}\\V(X) =
+\begin{gather}
+&amp;E(X) = \frac{nm}{N}\\
+&amp;V(X) =
 \frac{nm}{N}\bigg(\frac{(n-1)(m-1)}{N-1}+1-\frac{nm}{N}\bigg)
+\end{gather}
 \]</span></p>
 <h5 id="定理4.9-hyper-geometric-分布-binomial-逼近定理">定理4.9
 Hyper-Geometric 分布 Binomial 逼近定理</h5>
@@ -426,14 +456,18 @@ Hyper-Geometric 分布 Binomial 逼近定理</h5>
 <h4 id="uniform-分布">4.2.1 Uniform 分布</h4>
 <h5 id="定义4.7-uniform-分布">定义4.7 Uniform 分布</h5>
 <p>均匀分布的概率密度函数为 <span class="math display">\[
-f(x)= \frac{1}{b-a}\\
-a&lt;x&lt;b
+\begin{gather}
+&amp;f(x)= \frac{1}{b-a}\\
+&amp;a&lt;x&lt;b
+\end{gather}
 \]</span> 其中 <span class="math inline">\(a,\ b\)</span> 为参数，记作
 <span
 class="math inline">\(X\sim\mathbb{U}(a,b)\)</span>，利用定义不难求出均匀分布的数字特征
 <span class="math display">\[
-E(X) = \frac{a+b}{2}\\
-V(X) = \frac{(b-a)^2}{12}
+\begin{gather}
+&amp;E(X) = \frac{a+b}{2}\\
+&amp;V(X) = \frac{(b-a)^2}{12}
+\end{gather}
 \]</span></p>
 <h5 id="定理4.10-uniform-分布矩生成函数">定理4.10 Uniform
 分布矩生成函数</h5>
@@ -444,13 +478,19 @@ M_X(s) = \frac{e^{sb}-e^{sa}}{s(b-a)}
 <h4 id="exponential-分布">4.2.2 Exponential 分布</h4>
 <h5 id="定义4.8-exponential-分布">定义4.8 Exponential 分布</h5>
 <p>指数分布的概率密度为 <span class="math display">\[
-f(x) = \lambda e^{-\lambda x}\\x&gt;0
+\begin{gather}
+&amp;f(x) = \lambda e^{-\lambda x}\\
+&amp;x&gt;0
+\end{gather}
 \]</span> 其中 <span class="math inline">\(\lambda &gt; 0\)</span>
 为参数，称 <span class="math inline">\(X\)</span> 服从参数为 <span
 class="math inline">\(\lambda\)</span> 的指数分布，记作 <span
 class="math inline">\(X\sim\mathbb{E}(\lambda)\)</span>.
 利用矩生成函数不难算出指数分布的数字特征 <span class="math display">\[
-E(X) = \frac{1}{\lambda}\\V(X) = \frac{1}{\lambda^2}
+\begin{gather}
+&amp;E(X) = \frac{1}{\lambda}\\
+&amp;V(X) = \frac{1}{\lambda^2}
+\end{gather}
 \]</span></p>
 <h5 id="定理4.11-exponential-分布的无记忆性">定理4.11 Exponential
 分布的无记忆性</h5>
@@ -462,7 +502,10 @@ E(X) = \frac{1}{\lambda}\\V(X) = \frac{1}{\lambda^2}
 分布矩生成函数</h5>
 <p><span class="math inline">\(X\sim\mathbb{E}(\lambda)\)</span>，则
 <span class="math display">\[
-M_X(s) = \frac{\lambda}{\lambda-s}\\s&lt;\lambda
+\begin{gather}
+&amp;M_X(s) = \frac{\lambda}{\lambda-s}\\
+&amp;s&lt;\lambda
+\end{gather}
 \]</span></p>
 <h5 id="定理4.13-geometric-分布连续化定理">定理4.13 Geometric
 分布连续化定理</h5>
@@ -475,22 +518,29 @@ class="math display">\[
 <h4 id="normal-分布">4.2.3 Normal 分布</h4>
 <h5 id="定义4.9-normal-分布">定义4.9 Normal 分布</h5>
 <p>正态分布的概率密度为 <span class="math display">\[
-f(x) = \frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}}\\
--\infty&lt;x&lt;+\infty
+\begin{gather}
+&amp;f(x) =
+\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}}\\
+&amp;-\infty&lt;x&lt;+\infty
+\end{gather}
 \]</span></p>
 <p>其中，<span class="math inline">\(\mu,\sigma\)</span> 为参数，记作
 <span class="math inline">\(X\sim\mathbb{N}(\mu,\sigma^2)\)</span>.
 利用二重积分不难得到正态分布的数字特征 <span class="math display">\[
-E(X) = \mu\\
-V(X) = \sigma^2
+\begin{gather}
+&amp;E(X) = \mu\\
+&amp;V(X) = \sigma^2
+\end{gather}
 \]</span></p>
 <h5 id="定理4.14-standard-normal-分布的对称性">定理4.14 Standard Normal
 分布的对称性</h5>
 <p>为了方便，记标准正态分布的概率密度函数和分布函数分别为 <span
 class="math inline">\(\phi(x)\)</span> 和 <span
 class="math inline">\(\Phi(x)\)</span> <span class="math display">\[
-\phi(x) = \frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}\\
-\Phi(x) = \int_{-\infty}^{x}\phi(x)dx
+\begin{gather}
+&amp;\phi(x) = \frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}\\
+&amp;\Phi(x) = \int_{-\infty}^{x}\phi(x)dx
+\end{gather}
 \]</span> 则有 <span class="math display">\[
 \Phi(x) + \Phi(-x) = 1
 \]</span></p>
