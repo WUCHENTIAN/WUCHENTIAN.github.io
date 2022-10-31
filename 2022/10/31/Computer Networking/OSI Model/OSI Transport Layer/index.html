@@ -18,15 +18,15 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="OSI层次：传输层 一.第四层概述 1.第四层的功能 将上面应用层的数据分段 建立终端到终端的操作 将段从一台主机端发送到其它主机 流量控制和可靠性 ​ 可以比作与外国人对话，通常你让外国人重复他的话（可靠性），然后慢慢的说（流量控制） 2.两个格外重要的第四层协议 Transmission Control Protocol (TCP) 传输控制协议-&gt;可靠 ​ · 面向连接 ​ · 软件的">
+    <meta name="description" content="OSI层次：传输层 1. 第四层概述 1.1. 第四层的功能 将上面应用层的数据分段 建立终端到终端的操作 将段从一台主机端发送到其它主机 流量控制和可靠性 ​ 可以比作与外国人对话，通常你让外国人重复他的话（可靠性），然后慢慢的说（流量控制） 1.2. 两个重要的协议 传输控制协议（Transmission Control Protocol ，TCP ）  面向连接 软件的段检查 如果有丢失或者">
 <meta property="og:type" content="article">
 <meta property="og:title" content="OSI Transport Layer">
 <meta property="og:url" content="https://wuchentian.github.io/2022/10/31/Computer%20Networking/OSI%20Model/OSI%20Transport%20Layer/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="OSI层次：传输层 一.第四层概述 1.第四层的功能 将上面应用层的数据分段 建立终端到终端的操作 将段从一台主机端发送到其它主机 流量控制和可靠性 ​ 可以比作与外国人对话，通常你让外国人重复他的话（可靠性），然后慢慢的说（流量控制） 2.两个格外重要的第四层协议 Transmission Control Protocol (TCP) 传输控制协议-&gt;可靠 ​ · 面向连接 ​ · 软件的">
+<meta property="og:description" content="OSI层次：传输层 1. 第四层概述 1.1. 第四层的功能 将上面应用层的数据分段 建立终端到终端的操作 将段从一台主机端发送到其它主机 流量控制和可靠性 ​ 可以比作与外国人对话，通常你让外国人重复他的话（可靠性），然后慢慢的说（流量控制） 1.2. 两个重要的协议 传输控制协议（Transmission Control Protocol ，TCP ）  面向连接 软件的段检查 如果有丢失或者">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-10-31T02:53:00.000Z">
-<meta property="article:modified_time" content="2022-10-31T02:55:47.884Z">
+<meta property="article:modified_time" content="2022-10-31T07:55:25.941Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="transport">
 <meta name="twitter:card" content="summary_large_image">
@@ -288,27 +288,31 @@
               <div class="markdown-body">
                 
                 <h1 id="osi层次传输层">OSI层次：传输层</h1>
-<h2 id="一.第四层概述">一.第四层概述</h2>
-<h3 id="第四层的功能">1.第四层的功能</h3>
+<h2 id="第四层概述">1. 第四层概述</h2>
+<h3 id="第四层的功能">1.1. 第四层的功能</h3>
 <p>将上面应用层的数据分段</p>
 <p>建立终端到终端的操作</p>
 <p>将段从一台主机端发送到其它主机</p>
 <p>流量控制和可靠性</p>
 <p>​
 可以比作与外国人对话，通常你让外国人重复他的话（可靠性），然后慢慢的说（流量控制）</p>
-<h3 id="两个格外重要的第四层协议">2.两个格外重要的第四层协议</h3>
-<p>Transmission Control Protocol (TCP) 传输控制协议-&gt;可靠</p>
-<p>​ · 面向连接</p>
-<p>​ · 软件的段检查</p>
-<p>​ · 如果有丢失或者错误，重新发送</p>
-<p>​ · 使用确认</p>
-<p>​ · 提供流量控制</p>
-<p>User Datagram Protocol (UDP) 用户数据报协议-&gt;不可靠</p>
-<p>​ · 无连接</p>
-<p>​ · 不提供软件检查段</p>
-<p>​ · 不使用确认</p>
-<p>​ · 不提供流操作</p>
-<h3 id="服务类型">3.服务类型</h3>
+<h3 id="两个重要的协议">1.2. 两个重要的协议</h3>
+<p>传输控制协议（Transmission Control Protocol ，TCP ）</p>
+<ul>
+<li>面向连接</li>
+<li>软件的段检查</li>
+<li>如果有丢失或者错误，重新发送</li>
+<li>使用确认</li>
+<li>提供流量控制</li>
+</ul>
+<p>用户数据报协议（User Datagram Protocol，UDP）</p>
+<ul>
+<li>无连接</li>
+<li>不提供软件检查段</li>
+<li>不使用确认</li>
+<li>不提供流操作</li>
+</ul>
+<h3 id="服务类型">1.3. 服务类型</h3>
 <figure>
 <img
 src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311033989.png" srcset="/img/loading.gif" lazyload
@@ -320,14 +324,14 @@ alt="pic42" />
 <p>小于255的端口号保留给TCP 和 UDP 公共应用</p>
 <p>256-1023：公共端口 1024-49151：注册端口 49152-65535：客户端进程</p>
 <p>IP+2 Byte的端口号(Port)-&gt;指定主机上的某一个进程</p>
-<h3 id="套接字">4.套接字</h3>
+<h3 id="套接字-socket">1.4.套接字 (Socket)</h3>
 <p>套接字表示为（IP地址：端口号）</p>
 <p>每一个连接表示为(套接字来源, 套接字目的),
 这是一个点对点的全双工信道</p>
 <p>TCP 不支持多播和广播</p>
-<h2 id="二.tcptransmission-control-protocol">二.TCP(Transmission Control
+<h2 id="tcptransmission-control-protocol">2. TCP(Transmission Control
 Protocol)</h2>
-<h3 id="tcp中必须解决的问题">1.TCP中必须解决的问题</h3>
+<h3 id="tcp中必须解决的问题">2.1. TCP中必须解决的问题</h3>
 <p>可靠的传输</p>
 <p>流量控制</p>
 <p>​ 滑动窗口</p>
@@ -335,7 +339,7 @@ Protocol)</h2>
 <p>连接管理</p>
 <p>​ 建立连接：三次握手</p>
 <p>​ 释放连接：四次握手</p>
-<h3 id="tcp组成">2.TCP组成</h3>
+<h3 id="tcp组成">2.2. TCP组成</h3>
 <figure>
 <img
 src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311033890.png" srcset="/img/loading.gif" lazyload
@@ -391,7 +395,7 @@ alt="pic43" />
 <p>​ 数据字段加上 TCP 首部才等于整个的 TCP 报文段</p>
 <p><strong>填充字段</strong></p>
 <p>​ 这是为了使整个首部长度是4字节的整数倍</p>
-<h3 id="tcp协议">3.TCP协议</h3>
+<h3 id="tcp协议">2.3. TCP协议</h3>
 <p>主机用段交换数据 (TPDU)</p>
 <p>每个段有:</p>
 <p>​ 20字节的首部 (不包括可选部分)</p>
@@ -399,7 +403,7 @@ alt="pic43" />
 <p>段的大小必须和IP 包匹配，也必须满足底层的需求</p>
 <p>​ 如，以太网的MTU(Maximal Transfer Unit最大传输单元) 是1500
 字节每个字节有一个32位的序号</p>
-<h3 id="tcp建立连接">4.TCP：建立连接</h3>
+<h3 id="tcp建立连接">2.4. TCP：建立连接</h3>
 <h4 id="第一次握手">第一次握手</h4>
 <p>服务器: 执行最初的LISTEN和ACCEPT，被动地开始监听</p>
 <p>客户端: 执行最初的CONNECT, 产生一个SYN=1和ACK=0
@@ -436,7 +440,7 @@ src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLea
 alt="pic47" />
 <figcaption aria-hidden="true">pic47</figcaption>
 </figure>
-<h3 id="数据传输">5.数据传输</h3>
+<h3 id="数据传输">2.5. 数据传输</h3>
 <h4 id="a.停止等待协议">a.停止等待协议</h4>
 <figure>
 <img
@@ -455,7 +459,7 @@ src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLea
 alt="pic49" />
 <figcaption aria-hidden="true">pic49</figcaption>
 </figure>
-<h3 id="可靠的通讯">6.可靠的通讯</h3>
+<h3 id="可靠的通讯">2.6. 可靠的通讯</h3>
 <h4 id="a.arq-automatic-repeat-request自定重新发送请求">a.ARQ (Automatic
 Repeat reQuest)自定重新发送请求</h4>
 <p>重新发送的请求是自动发送的，接受者不需要请求重新发送错误的信息</p>
@@ -543,7 +547,7 @@ style="text-align: center;">不允许A再发送(到序号600的数据都已收�
 </tr>
 </tbody>
 </table>
-<h3 id="tcp释放连接">7.TCP：释放连接</h3>
+<h3 id="tcp释放连接">2.7. TCP：释放连接</h3>
 <figure>
 <img
 src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311035466.png" srcset="/img/loading.gif" lazyload
@@ -554,15 +558,15 @@ alt="pic54" />
 <p>答：1.保证A发送的最后一条确认可以到达B
 2.防止出现任何无效的连接请求段(在等待2
 MSL之后，我们可以保证连接上的所有段都已经消失)</p>
-<h3 id="tcp的有限状态机">8.TCP的有限状态机</h3>
+<h3 id="tcp的有限状态机">2.8. TCP的有限状态机</h3>
 <figure>
 <img
 src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311035310.png" srcset="/img/loading.gif" lazyload
 alt="pic55" />
 <figcaption aria-hidden="true">pic55</figcaption>
 </figure>
-<h2 id="三.udpuserdatagram-protocol">三.UDP(UserDatagram Protocol)</h2>
-<h3 id="udp概述">1.UDP概述</h3>
+<h2 id="udpuserdatagram-protocol">3.UDP(UserDatagram Protocol)</h2>
+<h3 id="udp概述">3.1. UDP概述</h3>
 <h4 id="a.为什么使用udp">a.为什么使用UDP</h4>
 <p>不需要建立连接(建立连接会增加时间延迟)</p>
 <p>简单: 尽最大努力交付</p>
@@ -589,8 +593,8 @@ src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLea
 alt="pic56" />
 <figcaption aria-hidden="true">pic56</figcaption>
 </figure>
-<h2 id="四.应用nat和pat">四.应用：NAT和PAT</h2>
-<h3 id="nat">1.NAT</h3>
+<h2 id="应用nat和pat">4.应用：NAT和PAT</h2>
+<h3 id="nat">4.1. NAT</h3>
 <h4 id="a.概念">a.概念</h4>
 <p>NAT, 是在IP包首部，用一个地址换另一个地址的过程</p>
 <p>实际上，NAT 用来允许被私有地分配地址的主机访问因特网</p>
@@ -641,7 +645,7 @@ alt="pic58" />
 <p>优点：因为不是每一个内部主机都需要同一时间访问外部，你可以用一小部分全局独一无二的地址来服务相对大量的私有地址的主机</p>
 <p>缺点：一对一映射</p>
 <p>如果私有地址空间是a/8，但是公共地址是a/24，同时只能有254台主机访问因特网</p>
-<h3 id="pat">2.PAT</h3>
+<h3 id="pat">4.2. PAT</h3>
 <h4 id="a.pat如何工作">a.PAT如何工作</h4>
 <figure>
 <img
