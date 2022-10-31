@@ -1,0 +1,1460 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=dark>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/ice.png">
+  <link rel="icon" href="/img/ice.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="路由和路由器 一.路由器基础 内部组成   pic80   RAM  暂时存储路由器配置文件 一旦失去动力或重启，RAM的内容就丢失了 存储的内容  路由表 ARP地址解析协议缓存 快速交换缓存 包缓存 包保留队列   NVRAM  非易失性RAM 存储备份&#x2F;启动配置文件 在路由器关闭或者重启时，内容不会丢失（可做文件恢复）  FLASH  EEPROM (Electronically Erasa">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Route &amp; Router">
+<meta property="og:url" content="https://wuchentian.github.io/2022/10/10/Computer%20Networking/OSI%20Model/Route%20&%20Router/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="路由和路由器 一.路由器基础 内部组成   pic80   RAM  暂时存储路由器配置文件 一旦失去动力或重启，RAM的内容就丢失了 存储的内容  路由表 ARP地址解析协议缓存 快速交换缓存 包缓存 包保留队列   NVRAM  非易失性RAM 存储备份&#x2F;启动配置文件 在路由器关闭或者重启时，内容不会丢失（可做文件恢复）  FLASH  EEPROM (Electronically Erasa">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-10-10T02:52:00.000Z">
+<meta property="article:modified_time" content="2022-10-31T03:12:58.290Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="hardware">
+<meta property="article:tag" content="router">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>Route &amp; Router - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"wuchentian.github.io","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                Links
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/background.jpeg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Route &amp; Router"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-10-10 10:52" pubdate>
+          October 10, 2022 am
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          5.7k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          48 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Route &amp; Router</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="路由和路由器">路由和路由器</h1>
+<h2 id="一.路由器基础">一.路由器基础</h2>
+<h3 id="内部组成">内部组成</h3>
+<figure>
+<img
+src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311044379.png" srcset="/img/loading.gif" lazyload
+alt="pic80" />
+<figcaption aria-hidden="true">pic80</figcaption>
+</figure>
+<ul>
+<li>RAM
+<ul>
+<li>暂时存储路由器配置文件</li>
+<li>一旦失去动力或重启，RAM的内容就丢失了</li>
+<li>存储的内容
+<ul>
+<li>路由表</li>
+<li>ARP地址解析协议缓存</li>
+<li>快速交换缓存</li>
+<li>包缓存</li>
+<li>包保留队列</li>
+</ul></li>
+</ul></li>
+<li>NVRAM
+<ul>
+<li>非易失性RAM</li>
+<li>存储备份/启动配置文件</li>
+<li>在路由器关闭或者重启时，内容不会丢失（可做文件恢复）</li>
+</ul></li>
+<li>FLASH
+<ul>
+<li>EEPROM (Electronically Erasable Programmable Read-Only Memory)</li>
+<li>保存思科IOS (Internet Operating System)</li>
+<li>允许不替换闪存芯片的软件更新</li>
+<li>可以保存多种IOS版本</li>
+<li>关闭时也可以保存</li>
+</ul></li>
+<li>ROM
+<ul>
+<li>包含POST(Power On Self Test)</li>
+<li>一个引导程序(加载思科IOS)</li>
+<li>运行系统软件
+<ul>
+<li>备份，削减IOS的版本</li>
+<li>更新需要安装的新芯片组</li>
+</ul></li>
+</ul></li>
+<li>Interfaces接口
+<ul>
+<li>通过网络连接，包进入或离开路由器</li>
+<li>连到底板上，或作为单独的模块</li>
+<li><img
+src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311044784.png" srcset="/img/loading.gif" lazyload
+title="fig:" alt="pic81" /></li>
+</ul></li>
+</ul>
+<h2 id="二.路由器启动流程">二.路由器启动流程</h2>
+<h3 id="系统启动流程">1.系统启动流程</h3>
+<ul>
+<li>进行一个自身通电测试(POST):在这个测试期间，路由器执行来自所有硬件模块的ROM的诊断程序</li>
+<li>验证CPU，存储器和网络连接端口的基础操作</li>
+<li>软件初始化</li>
+<li><img
+src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311044616.png" srcset="/img/loading.gif" lazyload
+title="fig:" alt="pic82" /></li>
+</ul>
+<h3 id="软件启动流程">2.软件启动流程</h3>
+<ul>
+<li>步骤1 – ROM里的通用引导程序在CPU芯片上执行</li>
+<li>步骤2 – 操作系统(Cisco
+IOS)可以在几个地方之一，位置在配置寄存器的引导区域显示</li>
+<li>步骤3 – 加载操作系统的镜像</li>
+<li>步骤4 –保存在NVRAM里的配置文件被加载到主存，并且一次执行一行</li>
+<li>步骤5 –
+如果NVRAM里没有有效的配置文件，那么执行一个问题导向的初始配置程序，即系统配置对话，也被称为setup
+mode设置模式.</li>
+</ul>
+<h3 id="路由器启动流程">3.路由器启动流程</h3>
+<ul>
+<li>设置模式并不应该进入有着复杂协议的路由器</li>
+<li>应该用设置来生成最小的配置，然后用各种各样的配置模式命令，而不是设置，来完成大部分路由器配置任务</li>
+<li><img
+src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311045399.png" srcset="/img/loading.gif" lazyload
+title="fig:" alt="pic83" /></li>
+</ul>
+<h3 id="基本的路由配置">4.基本的路由配置</h3>
+<figure>
+<img
+src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311045973.png" srcset="/img/loading.gif" lazyload
+alt="pic84" />
+<figcaption aria-hidden="true">pic84</figcaption>
+</figure>
+<h3 id="执行基本的编址方案">5.执行基本的编址方案</h3>
+<figure>
+<img
+src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311045495.png" srcset="/img/loading.gif" lazyload
+alt="pic85" />
+<figcaption aria-hidden="true">pic85</figcaption>
+</figure>
+<h3 id="检验基本的路由配置">6.检验基本的路由配置</h3>
+<ul>
+<li>使用 show running-config 命令</li>
+<li>存储路由器基本配置 copy running-config startup-config</li>
+<li>其他检验路由器的命令:
+<ul>
+<li>Show running-config – 显示当前随机访问存储器中的配置</li>
+<li>Show startup-config – 显示NVRAM中的配置文件</li>
+<li>Show IP route – 现实路由表</li>
+<li>Show interfaces – 显示所有接口的配置信息</li>
+<li>Show IP int brief -显示接口的简要信息</li>
+</ul></li>
+</ul>
+<h2 id="三.路由">三.路由</h2>
+<h3 id="基本概念">1.基本概念</h3>
+<ul>
+<li>路由器通常使用path
+determination路径选择和switching转换，两个基础功能，将包从一个数据链路转发到另一个</li>
+<li>Switching转换功能允许一个路由器接受来自接口的包然后将它通过第二个接口转发出去</li>
+<li>path
+determination路径选择功能使得路由器可以选择最合适的接口来转发包</li>
+<li>路由器使用地址的网络部分来选择转发包到下一个路由器的路径</li>
+<li>路由器直接使用地址的节点部分来连接目的网络，来发送包到正确的主机</li>
+<li><img
+src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311045913.png" srcset="/img/loading.gif" lazyload
+title="fig:" alt="pic86" /></li>
+</ul>
+<h3 id="静态和动态">2.静态和动态</h3>
+<ul>
+<li><figure>
+<img
+src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311045135.png" srcset="/img/loading.gif" lazyload
+alt="pic87" />
+<figcaption aria-hidden="true">pic87</figcaption>
+</figure></li>
+<li><p>为了安全的原因，你可能想要隐藏部分网络，然而动态路由想要显示所有关于网络的信息</p></li>
+<li><p>当一个网络只能被一条路径连接时，静态路由就足够了</p></li>
+<li><p>这种类型的分割被称为桩网络stub network.</p></li>
+<li><p>静态路由</p>
+<ul>
+<li><figure>
+<img
+src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311045256.png" srcset="/img/loading.gif" lazyload
+alt="pic88" />
+<figcaption aria-hidden="true">pic88</figcaption>
+</figure></li>
+<li><p>静态路由配置</p>
+<ul>
+<li><p>静态路由允许手动配置路由表</p></li>
+<li><figure>
+<img
+src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311046227.png" srcset="/img/loading.gif" lazyload
+alt="pic90" />
+<figcaption aria-hidden="true">pic90</figcaption>
+</figure></li>
+<li><figure>
+<img
+src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311046156.png" srcset="/img/loading.gif" lazyload
+alt="pic89" />
+<figcaption aria-hidden="true">pic89</figcaption>
+</figure></li>
+</ul></li>
+<li><p>管理距离</p>
+<ul>
+<li>管理距离是一个对于路由信息来源的信任度等级，表示为一个从0到255的数值</li>
+<li>数值越高，信任度等级越低</li>
+<li>所以静态路由的管理距离通常较低（1是默认值）</li>
+</ul></li>
+</ul></li>
+<li><p>动态路由</p>
+<ul>
+<li><figure>
+<img
+src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311046486.png" srcset="/img/loading.gif" lazyload
+alt="pic91" />
+<figcaption aria-hidden="true">pic91</figcaption>
+</figure></li>
+<li><p>动态路由协议在网络不同路径之间重定向（load
+share荷载分配）通信量</p></li>
+<li><figure>
+<img
+src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311046342.png" srcset="/img/loading.gif" lazyload
+alt="pic92" />
+<figcaption aria-hidden="true">pic92</figcaption>
+</figure></li>
+<li><p>动态路由依赖路由协议来在路由器间共享信息</p></li>
+<li><p>动态路由依赖两个基础的路由器功能：</p>
+<ul>
+<li>保持路由表</li>
+<li>把信息分发给其它路由器</li>
+</ul></li>
+<li><p>收敛发生时间</p></li>
+<li><figure>
+<img
+src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311046674.png" srcset="/img/loading.gif" lazyload
+alt="pic93" />
+<figcaption aria-hidden="true">pic93</figcaption>
+</figure></li>
+</ul></li>
+</ul>
+<h3 id="路由协议的分类">3.路由协议的分类</h3>
+<ul>
+<li><p>Distance-Vector Protocol 距离矢量协议</p>
+<ul>
+<li><figure>
+<img
+src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311046502.png" srcset="/img/loading.gif" lazyload
+alt="pic94" />
+<figcaption aria-hidden="true">pic94</figcaption>
+</figure></li>
+<li><p>距离矢量算法不允许路由器了解网络拓扑的确切结构</p></li>
+<li><p>基于距离矢量的路由算法 (也被称为Bellman-Ford algorithms)
+将路由表的周期性副本从路由器转发到另一个路由器</p></li>
+<li><p>问题：</p>
+<ul>
+<li><p>问题1：路由成环</p></li>
+<li><figure>
+<img
+src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311047638.png" srcset="/img/loading.gif" lazyload
+alt="pic95" />
+<figcaption aria-hidden="true">pic95</figcaption>
+</figure></li>
+<li><p>问题2：无限计数</p></li>
+<li><figure>
+<img
+src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311047664.png" srcset="/img/loading.gif" lazyload
+alt="pic96" />
+<figcaption aria-hidden="true">pic96</figcaption>
+</figure></li>
+<li><p>问题描述：</p>
+<ul>
+<li>无效的网络1更新会持续循环直到其它进程停止这个循环</li>
+<li>这种情况称为无限计数count to
+infinity，尽管基础事实是目的网络1已经关闭，包仍旧被不停地在网络中循环</li>
+<li>尽管路由器不停地计数，无效信息允许一个路由循环退出</li>
+</ul></li>
+<li><p>解决方案：</p>
+<ul>
+<li>方案一：定义最大
+<ul>
+<li><img
+src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311047046.png" srcset="/img/loading.gif" lazyload
+title="fig:" alt="pic97" /></li>
+</ul></li>
+<li>方案二：路由中毒
+<ul>
+<li>当网络5停止，路由器E通过给网络5添加一个表条目16或不可达，</li>
+<li>当路由器C收到来自路由器E的路由中毒，它反过来发送一个称为毒性逆转的更新给路由器。这保证了段上所有路由器都收到了有毒的路由信息</li>
+<li><img
+src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311047373.png" srcset="/img/loading.gif" lazyload
+title="fig:" alt="pic98" /></li>
+</ul></li>
+<li>方案三：水平分割
+<ul>
+<li><img
+src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311047100.png" srcset="/img/loading.gif" lazyload
+title="fig:" alt="pic99" /></li>
+</ul></li>
+<li>方案四：挂起计数器
+<ul>
+<li><img
+src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311047808.png" srcset="/img/loading.gif" lazyload
+title="fig:" alt="pic100" /></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>阻断发送路由更新</p>
+<ul>
+<li>为了阻止接口发送任何路由更新信息，使用以下命令行：
+<ul>
+<li>Router(config-router)#Passive-interface f0/0</li>
+</ul></li>
+<li>它只在使用距离矢量协议的时候有效，因为链路状态路由协议并不直接从邻居的路由表中获得拓扑信息</li>
+</ul></li>
+</ul></li>
+<li><p>链路状态协议</p>
+<ul>
+<li>基于路由算法，也被称为SPF (最短路径优先)
+算法的链路状态维持了一个复杂的拓扑信息数据库 链路状态路由使用了：
+<ul>
+<li>link-state advertisements(LSAs)链路状态广播</li>
+<li>一个拓扑数据库</li>
+<li>SPF算法，和基于SPF算法生成的树</li>
+<li>一个到各个网络的路径和端口的路由表</li>
+</ul></li>
+<li>RFC 1583包括OSPF链路状态概念和操作的描述</li>
+<li>具体描述
+<ul>
+<li>路由器互相交换LSAs 。每个路由器由直连网络开始</li>
+<li>每个并行路由器建立一个拓扑数据库，由互联网中所有LSAs组成 router in
+parallel with the other</li>
+<li>SPF算法计算网络可达性.
+路由器把这个逻辑拓扑建立成树，以自己为根，由链路状态协议互联网中所有可能到达每个网络的路径组成。接着，它按照SPF给路径分类</li>
+<li>路由器在路由表中，列出它的最佳路径，和通往这些目的网络的端口。它也维持其它拓扑元素和状态细节的数据库</li>
+<li><img
+src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311047169.png" srcset="/img/loading.gif" lazyload
+title="fig:" alt="pic101" /></li>
+</ul></li>
+<li>链路状态涉及方面
+<ul>
+<li>处理和内存需求
+<ul>
+<li>大多数情况下，运行链路状态路由协议，比用距离矢量路由协议，需要路由器使用更多内存、处理更多事务</li>
+</ul></li>
+<li>带宽需求
+<ul>
+<li>在最初的链路状态包洪泛flood的时候，所有路由器使用链路状态路由协议来发送LSA包到其它路由器。当路由器需要带宽时，这个行为像洪水一般冲刷了互联网，并且暂时减少了给携带用户数据的路由通信，可用的路由带宽。</li>
+</ul></li>
+</ul></li>
+<li>问题：链路状态更新
+<ul>
+<li>链路状态路由必须保证所有路由器获得了需要的LSA包</li>
+<li>有不同LASs集合的路由器，基于不同的拓扑数据，计算路由</li>
+<li><img
+src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311048951.png" srcset="/img/loading.gif" lazyload
+title="fig:" alt="pic102" /></li>
+</ul></li>
+<li>比较：链路状态和矢量协议
+<ul>
+<li>距离矢量：
+<ul>
+<li>从邻居的视角来看网络拓扑</li>
+<li>从路由器到路由器，增加距离矢量</li>
+<li>周期性、频繁的更新，汇聚慢</li>
+<li>向相邻的路由器发送路由表的副本</li>
+</ul></li>
+<li>链路状态：
+<ul>
+<li>获得整个网络拓扑的整体构造</li>
+<li>计算到达其它路由的最短路径</li>
+<li>事件触发更新，汇聚快</li>
+<li>把链路状态更新的部分发给其它路由器</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>混合协议</p>
+<ul>
+<li><figure>
+<img
+src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311048791.png" srcset="/img/loading.gif" lazyload
+alt="pic103" />
+<figcaption aria-hidden="true">pic103</figcaption>
+</figure></li>
+<li><p>混合协议的实例：</p>
+<ul>
+<li>OSI’s IS-IS 中间系统到中间系统协议</li>
+<li>Cisco’s EIGRP增强内部网关路由协议</li>
+</ul></li>
+</ul></li>
+<li><p>路由routing协议</p>
+<ul>
+<li><figure>
+<img
+src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311048979.png" srcset="/img/loading.gif" lazyload
+alt="pic104" />
+<figcaption aria-hidden="true">pic104</figcaption>
+</figure></li>
+<li><p>IP路由协议包括:</p>
+<ul>
+<li>RIP – 一个距离矢量路由协议</li>
+<li>IGRP – 思科的路由矢量路由协议</li>
+<li>OSPF – 一个链路状态路由协议</li>
+<li>EIGRP – 一个平衡的混合路由协议</li>
+</ul></li>
+<li><p>路由routing协议的主要目标</p>
+<ul>
+<li>最优路径—选择最好的路由</li>
+<li>高效性—最小化带宽和路由器处理器资源的使用</li>
+<li>快速汇聚Convergence—更快，更好。有些比其他汇聚更快</li>
+<li>灵活性—可以处理大多数情况，如高频率使用和失效路由</li>
+</ul></li>
+<li><figure>
+<img
+src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311048020.png" srcset="/img/loading.gif" lazyload
+alt="pic105" />
+<figcaption aria-hidden="true">pic105</figcaption>
+</figure></li>
+<li><p>定义默认路由</p>
+<ul>
+<li><figure>
+<img
+src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311048322.png" srcset="/img/loading.gif" lazyload
+alt="pic106" />
+<figcaption aria-hidden="true">pic106</figcaption>
+</figure></li>
+<li><p>默认路由使得路由表更短</p></li>
+<li><p>当一个目的网络条目不在路由表中的时候，包就被发往默认网络</p>
+<ul>
+<li>定义默认路由(1)
+<ul>
+<li>定义一个默认路由，使用动态路由协议</li>
+<li>Router(config)# ip default-network [network-number]</li>
+<li><img
+src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311048286.png" srcset="/img/loading.gif" lazyload
+title="fig:" alt="pic107" /></li>
+</ul></li>
+<li>定义默认路由(2)
+<ul>
+<li>定义一个默认路由为静态路由：</li>
+<li>Router(config)# ip route 0.0.0.0 0.0.0.0 [next-hop-ip-address|
+exit-interface]</li>
+<li>在配置默认路由后，使用show ip route 会显示： (172.16.1.2 is the
+default next-hop address)
+<ul>
+<li>0.0.0.0网络的最后一个网关是172.16.1.2</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>RIP历史</p>
+<ul>
+<li>RIP v1被看做是经典的内部网关协议
+<ul>
+<li>RIP
+v1是一个距离矢量协议，在已经决定好的时间间隔里，把它整个路由表广播给每一个相邻路由器
+。默认时间间隔为30s</li>
+<li>RIP 使用跳数作为度量标准，最大跳数为15</li>
+<li>RIPv1 有以下限制：
+<ul>
+<li>更新中不发送子网掩码信息</li>
+<li>它在255.255.255.255上广播更新</li>
+<li>它不支持鉴别authentication</li>
+<li>它不能支持VLSM或CIDR.</li>
+</ul></li>
+<li>RIP v1配置
+<ul>
+<li><figure>
+<img
+src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311049116.png" srcset="/img/loading.gif" lazyload
+alt="pic108" />
+<figcaption aria-hidden="true">pic108</figcaption>
+</figure>
+<ul>
+<li>路由器的“rip”命令选择RIP作为路由协议</li>
+<li>“network”命令分配一个基于网卡的网络地址，就是被直连的网络</li>
+</ul></li>
+<li><figure>
+<img
+src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311049706.png" srcset="/img/loading.gif" lazyload
+alt="pic109" />
+<figcaption aria-hidden="true">pic109</figcaption>
+</figure>
+<ul>
+<li>router rip
+<ul>
+<li>network 1.0.0.0</li>
+<li>network 2.0.0.0</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li>RIP v2 是 RIP v1的进阶版，共享以下优点：
+<ul>
+<li>它是一个距离矢量协议，使用跳数作为度量标准</li>
+<li>它用挂起计数器来防止路由循环 – 默认180s</li>
+<li>它用水平分割来防止路由循环</li>
+<li>它用16跳来表示无限距离</li>
+<li>RIP v2配置
+<ul>
+<li>“router”命令开始路由过程</li>
+<li>“network”命令实现以下三个功能：
+<ul>
+<li>路由更新通过一个接口多播出去</li>
+<li>如果路由更新进入同一个接口，它进入队列</li>
+<li>子网直接连到通知的接口</li>
+</ul></li>
+</ul></li>
+<li>RIP v2配置示例
+<ul>
+<li><img
+src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311049120.png" srcset="/img/loading.gif" lazyload
+title="fig:" alt="pic111" /></li>
+</ul></li>
+<li>核查&amp;解决纷争
+<ul>
+<li>核查 RIP v2
+<ul>
+<li>Router# show ip protocols
+<ul>
+<li>核查RIP配置</li>
+</ul></li>
+<li>Router# show ip route
+<ul>
+<li>展示IP路由表</li>
+</ul></li>
+</ul></li>
+<li>解决纷争RIP v2
+<ul>
+<li>Router# debug ip rip
+<ul>
+<li>展示RIP发送和收到的路由更新</li>
+</ul></li>
+<li>Router# undebug all (/no debug all)
+<ul>
+<li>Router# 关闭所有调试</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li>对比RIP v2和RIP v1
+<ul>
+<li><img
+src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311049571.png" srcset="/img/loading.gif" lazyload
+title="fig:" alt="pic110" /></li>
+</ul></li>
+</ul></li>
+<li><p>OSPF概览</p>
+<ul>
+<li>最短路径优先(OSPF) 是一个基于开放标准的链路状态路由协议</li>
+<li>它在IETF的多个标准中被描述
+<ul>
+<li>最近的描述是RFC 2328</li>
+</ul></li>
+<li>当和RIP v1 and RIP
+v2相比时，OSPF正在变成最好的IGP协议，因为它可扩展</li>
+</ul></li>
+<li><p>路由信息</p>
+<ul>
+<li>链路状态用于描述接口和到相邻路由器之间的关系</li>
+<li>链路状态的集合形成了一个链路状态数据库，有时叫拓扑数据库</li>
+<li>路由器以它们自己为根，实行Dijkstra shortest path first (SPF)
+算法，来建立SPF树 tree</li>
+<li>路由器通过SPF树计算最佳路径，然后选择最佳路径存入路由表</li>
+</ul></li>
+<li><p>OSPF vs RIP</p>
+<ul>
+<li></li>
+<li><table>
+<thead>
+<tr class="header">
+<th>OSPF</th>
+<th>RIP</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>使用带宽作为度量衡</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>适用于大型网络</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>可以进一步划分网络</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>支持 VLSM</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>快速汇聚</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>支持等耗的多种路径</td>
+<td>使用跳数来计数</td>
+</tr>
+<tr class="odd">
+<td>适用于小型网络 (15跳)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>宽等级设计</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>不支持 VLSM (RIP v1)</td>
+<td></td>
+</tr>
+</tbody>
+</table></li>
+<li><p>A到B的最佳路径是什么？</p></li>
+<li><figure>
+<img
+src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311049775.png" srcset="/img/loading.gif" lazyload
+alt="pic128" />
+<figcaption aria-hidden="true">pic128</figcaption>
+</figure></li>
+</ul></li>
+<li><p>OSPF好处</p>
+<ul>
+<li>OSPF 克服以下限制：
+<ul>
+<li>更强健</li>
+<li>更可扩展</li>
+</ul></li>
+<li>大型OSPF网络使用层级设计
+<ul>
+<li><img
+src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311049759.png" srcset="/img/loading.gif" lazyload
+title="fig:" alt="pic129" /></li>
+</ul></li>
+</ul></li>
+<li><p>OSPF术语</p>
+<ul>
+<li>链路：两个网络设备之间的物理连接</li>
+<li>链路状态：两个路由器之间链路的状态，包括关于路由器接口和它与相邻路由器之间关系的信息。</li>
+<li>开销cost：每个链路被分配的值，链路状态协议基于链路带宽，而不是跳数，分配给链路一个开销</li>
+<li>区域：有着同样区域ID的网络/路由器集合，在同一个区域的每个路由器有着同样的链路状态信息</li>
+<li>自治系统
+<ul>
+<li>邻居关系数据库邻居列表：一个有着所有，和本路由器建立双向通讯的，邻居的列表</li>
+<li>拓扑数据库所有路由的列表：一个关于互联网中其他所有路由器信息的列表，它展示了互联网的拓扑</li>
+<li>路由表最佳路径列表：优势叫做转发数据库，每个路由器的路由表都是独特的</li>
+</ul></li>
+<li>指定路由器(DR)：一个在OSPF多路访问网络中的路由器，被选中代表网络中所有路由器</li>
+<li>备份指定路由器(BDR)：一个备用的路由器，如果DR挂了，它就成DR了</li>
+</ul></li>
+<li><p>OSPF地区</p>
+<ul>
+<li>地区被定义为32位数
+<ul>
+<li>要么IP形式，要么单独十进制值</li>
+<li>Area 0 or Area 0.0.0.0</li>
+</ul></li>
+<li>Area 0：一个单独地区，地区号为0</li>
+<li>OSPF使用2级分层模型</li>
+<li>在多地区OSPF网络中，所有地区需要连接到area 0(backbone)</li>
+<li>示例
+<ul>
+<li><img
+src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311050455.png" srcset="/img/loading.gif" lazyload
+title="fig:" alt="pic130" /></li>
+</ul></li>
+</ul></li>
+<li><p>OSPF操作</p>
+<ul>
+<li>OSPF使用邻居邻接来获得对于整个网络的认知</li>
+<li>OSPF操作有5步：
+<ul>
+<li>Step1: 开始邻接关系</li>
+<li>Step2: 选择DR和BDR （如果需要）</li>
+<li>Step3: 发现路由</li>
+<li>Step4: 选择合适路由</li>
+<li>Step5: 维持路由信息</li>
+</ul></li>
+<li>OSPF有7种状态，它们是：
+<ul>
+<li>Init, 2Way, Ex Start, Exchange, Loading, Full</li>
+</ul></li>
+</ul></li>
+<li><p>最短路径算法</p>
+<ul>
+<li>最短路径算法计算了一个没有循环的拓扑，把当前节点作为开始点来检查返回的关于邻接节点的信息</li>
+<li><img
+src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311050983.png" srcset="/img/loading.gif" lazyload
+title="fig:" alt="pic131" /></li>
+</ul></li>
+<li><p>选择DR和BDR</p>
+<ul>
+<li><p>OSPF网络类型</p>
+<ul>
+<li>广播多路访问，如以太网</li>
+<li>点对点网路</li>
+<li>无广播多路访问（NBMA）</li>
+</ul></li>
+<li><figure>
+<img
+src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311050052.png" srcset="/img/loading.gif" lazyload
+alt="pic132" />
+<figcaption aria-hidden="true">pic132</figcaption>
+</figure></li>
+<li><p>DR&amp;BDR</p>
+<ul>
+<li><figure>
+<img
+src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311050132.png" srcset="/img/loading.gif" lazyload
+alt="pic133" />
+<figcaption aria-hidden="true">pic133</figcaption>
+</figure></li>
+<li><p>然后每个路由器与DR和BDR建立邻接</p></li>
+<li><p>DR 发送链路状态信息到网段上其它所有路由器，用多播地址224.0.0.5
+给所有OSPF路由器</p></li>
+<li><p>为了保证DR/BDR看见网端上所有路由器发送的链路状态，给所有DR/BDR的多播地址是224.0.0.6</p></li>
+</ul></li>
+</ul></li>
+<li><p>OSPF在多路访问介质中</p>
+<ul>
+<li>Giga/Fast/Ethernet, FDDI, Token Ring</li>
+<li><img
+src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311050239.png" srcset="/img/loading.gif" lazyload
+title="fig:" alt="pic134" /></li>
+</ul></li>
+<li><p>基本OSPF配置</p>
+<ul>
+<li>允许路由器使用OSPF
+<ul>
+<li><em>Router (config) # router ospf process-id</em>
+<ul>
+<li>process-id
+<ul>
+<li>值：1 ~ 65535</li>
+<li>识别路由器上的多个OSPF进程</li>
+<li>通常整个AS保持同样的进程ID</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li>识别路由器上的IP
+<ul>
+<li><em>Router (config-router) # network address wildcard-mask area
+area-id</em></li>
+<li>网络地址可以是一整个网络、子网、或接口地址</li>
+</ul></li>
+</ul></li>
+<li><p>OSPF开销=度量单位</p>
+<ul>
+<li>开销应用与所有路由器链路</li>
+<li>16位数(1 – 65,535)</li>
+<li>低开销 = 更令人满意</li>
+<li>路由选择是基于路径总开销制定的</li>
+<li>度量源自带宽</li>
+<li><img
+src="/Users/wuchentian/NJULearning/%E5%A4%A7%E4%BA%8C%E4%B8%8A%E5%AD%A6%E6%9C%9F/Computer%20Networking/notes/%E6%88%AA%E5%9B%BE/pic135.png" srcset="/img/loading.gif" lazyload
+title="fig:" alt="pic135" /></li>
+</ul></li>
+<li><p>OSPF路径开销</p>
+<ul>
+<li>连接到同一个链路的接口必须有一致的开销，否则，链路要被挂起
+<ul>
+<li>思科路由器对一个链路的默认开销是1784 ( 56Kbps 带宽 )
+<ul>
+<li><em>Router (config-if) # ip ospf cost number</em>（1-65535）</li>
+</ul></li>
+<li>如果链路由更低的速度，你必须指明实际链路速度
+<ul>
+<li><em>Router (config-if) # bandwidth number</em>（kbps）</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Computer-Network/" class="category-chain-item">Computer Network</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/Computer-Network/OSI-Model/" class="category-chain-item">OSI Model</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/hardware/">#hardware</a>
+      
+        <a href="/tags/router/">#router</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Route &amp; Router</div>
+      <div>https://wuchentian.github.io/2022/10/10/Computer Networking/OSI Model/Route &amp; Router/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>October 10, 2022</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/10/10/Computer%20Networking/OSI%20Model/LAN%20Switcher%20&amp;%20VLAN/" title="LAN Switcher &amp; VLAN">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">LAN Switcher &amp; VLAN</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/10/10/Data%20Structure/LinkedList/" title="LinkedList">
+                        <span class="hidden-mobile">LinkedList</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;Table of Contents</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('mermaid' in window) {
+        mermaid.init();
+      }
+    });
+  });
+</script>
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>

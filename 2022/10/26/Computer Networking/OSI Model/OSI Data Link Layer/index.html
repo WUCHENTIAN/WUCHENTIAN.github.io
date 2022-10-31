@@ -26,7 +26,7 @@
 <meta property="og:description" content="OSI层次：数据链路层  关键词：帧、介质访问控制 通过物理链路提供可靠的数据传输 关心物理寻址、网络拓扑、网络访问、错误识别、有序发送帧、流控制  1. 数据链路层概述 1.1. 概述 1.是一种逻辑概念 2.第2层协议定义了：链路上数据交换的格式 和 链路上两个节点的行为 3.数据链路层的传输只存在于相邻的链路上 1.2. LANS和数据链路层 1.主要任务：  错误通知 网络拓扑 数据流控制">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-10-26T09:08:00.000Z">
-<meta property="article:modified_time" content="2022-10-29T02:04:43.980Z">
+<meta property="article:modified_time" content="2022-10-31T02:53:44.445Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="DataLink">
 <meta name="twitter:card" content="summary_large_image">
@@ -336,11 +336,12 @@ target="_blank" rel="noopener" href="https://baike.baidu.com/item/介质访问�
 (布线是星型)</p>
 <p>FDDI (Fiber DistributedData Interface Network)：逻辑环形拓扑
 (信息流在环中) 和物理双环拓扑 (布线是双环形)</p>
-<p><a
-target="_blank" rel="noopener" href="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210241020402.png"><img
+<figure>
+<img
 src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291002465.png" srcset="/img/loading.gif" lazyload
-alt="pic75" /></a></p>
-<p>pic75</p>
+alt="pic75" />
+<figcaption aria-hidden="true">pic75</figcaption>
+</figure>
 <h3 id="mac-的访问方式">1.5. MAC 的访问方式</h3>
 <ol type="1">
 <li>两个宽泛的种类：</li>
@@ -383,20 +384,23 @@ Collision Detection (CSMA/CD</em></strong>)（考点！！！！！！）</li>
 <ul>
 <li><strong>介质访问控制</strong> Media <strong>Access Control</strong>
 <strong><em>(MAC)</em></strong> (向下层介质传输)</li>
-<li><strong>逻辑链路控制</strong>* Logical <strong>Link Control</strong>
+<li><strong>逻辑链路控制</strong> Logical <strong>Link Control</strong>
 <strong><em>(LLC)</em></strong> (向上层网络传输)</li>
 </ul></li>
 </ol>
-<p><a
-target="_blank" rel="noopener" href="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210241021605.png"><img
+<figure>
+<img
 src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291002603.png" srcset="/img/loading.gif" lazyload
-alt="pic76" /></a></p>
-<p>pic76</p>
+alt="pic76" />
+<figcaption aria-hidden="true">pic76</figcaption>
+</figure>
 <h3 id="mac子层重要考点">2.2. MAC子层（重要考点！！）</h3>
-<p><a
-target="_blank" rel="noopener" href="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210241021530.png"><img
+<figure>
+<img
 src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291002629.png" srcset="/img/loading.gif" lazyload
-alt="pic77" /></a></p>
+alt="pic77" />
+<figcaption aria-hidden="true">pic77</figcaption>
+</figure>
 <p>MAC 子层是帧中的域</p>
 <ol type="1">
 <li>报头</li>
@@ -436,10 +440,12 @@ alt="pic77" /></a></p>
 <p>IEEE要求，前6个十六进制数（从左到右）指出制造商或供应商的身份，还包括了组织唯一标识符</p>
 <p>剩下的6个十六进制数，由特定的供应商管理，包括接口编号</p>
 <p><strong>对应MAC子层的目的地址</strong></p>
-<p><a
-target="_blank" rel="noopener" href="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210262333792.png"><img
+<figure>
+<img
 src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291002694.png" srcset="/img/loading.gif" lazyload
-alt="img" /></a></p>
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
 <h3 id="以太网802.3广播">2.5. 以太网802.3广播</h3>
 <p>一种特殊的MAC地址</p>
 <p>广播（所有端口转发，做成总线的方式）</p>
@@ -456,10 +462,12 @@ alt="img" /></a></p>
 <p>以太网传输数据时，所有的PC都会接收数据，再根据需求考虑是否丢弃数据</p>
 <p>JAM SIGNAL：冲突信号，32位或者更多的1，所有的设备都会接收该信号</p>
 <h4 id="csmacd传输流程">CSMA/CD传输流程</h4>
-<p><a
-target="_blank" rel="noopener" href="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210262334687.png"><img
+<figure>
+<img
 src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291002703.png" srcset="/img/loading.gif" lazyload
-alt="pic79" /></a></p>
+alt="pic79" />
+<figcaption aria-hidden="true">pic79</figcaption>
+</figure>
 <h2 id="无线lan和csmacd">3. 无线LAN和CSMA/CD</h2>
 <h3 id="无线lan标准">3.1. 无线LAN标准</h3>
 <p><a
@@ -520,10 +528,12 @@ Mbps数据传输率</li>
 <p>当网段之间的通信量变得繁重，网桥会成为瓶颈，减慢通讯</p>
 <p><strong>网桥可以识别帧了</strong></p>
 <p><strong>透明网桥</strong></p>
-<p><a
-target="_blank" rel="noopener" href="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210262334762.png"><img
+<figure>
+<img
 src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291002710.png" srcset="/img/loading.gif" lazyload
-alt="pic11" /></a></p>
+alt="pic11" />
+<figcaption aria-hidden="true">pic11</figcaption>
+</figure>
 <figure>
 <img
 src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291004430.png" srcset="/img/loading.gif" lazyload
@@ -533,11 +543,12 @@ alt="pic11" />
 <p>“透明”是指局域网上的站点并不知道所发送的帧将经过哪几个网桥，因为网桥对各站来说是看不见的</p>
 <p>透明网桥是一种即插即用设备，其标准是 IEEE 802.1D</p>
 <p>目前以太网中使用得最多的网桥</p>
-<p><a
-target="_blank" rel="noopener" href="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210262334302.png"><img
+<figure>
+<img
 src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291002161.png" srcset="/img/loading.gif" lazyload
-alt="pic10" /></a></p>
-<p>pic10</p>
+alt="pic10" />
+<figcaption aria-hidden="true">pic10</figcaption>
+</figure>
 <p>问题：当网络上的设备想要发送数据的时候，但是它不知道目的地址</p>
 <p>发送一个广播给网络上的所有设备</p>
 <p>因为网络上每一个设备都要关注这种广播，网桥总是向前传输广播 ​
@@ -569,11 +580,12 @@ LANs中的网络拥堵的技术</p>
 <p>然而，所有连接到交换机的主机仍然在同一个广播域中：</p>
 <p>也就是说，从一个节点发出的广播仍然会被其他所有连接这个局域网交换机的主机接收</p>
 <h3 id="冲突域">4.4. 冲突域</h3>
-<p><a
-target="_blank" rel="noopener" href="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210262334639.png"><img
+<figure>
+<img
 src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291002214.png" srcset="/img/loading.gif" lazyload
-alt="pic12" /></a></p>
-<p>pic12</p>
+alt="pic12" />
+<figcaption aria-hidden="true">pic12</figcaption>
+</figure>
 <p>a.冲突域的桥分割</p>
 <p>用网桥来分割局域网的以太网，给每个用户提供更多带宽，因为每个网段上用户更少</p>
 <p>网桥不管第3层用什么协议，都会把数据帧继续传输下去</p>

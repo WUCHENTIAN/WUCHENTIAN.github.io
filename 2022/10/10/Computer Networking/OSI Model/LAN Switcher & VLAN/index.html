@@ -1,0 +1,1285 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=dark>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/ice.png">
+  <link rel="icon" href="/img/ice.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="局域网交换和VLAN 1. 交换 1.1. 交换操作  交换机有两个基础功能：  基于MAC地址，建立和维持交换表 (与网桥表类似) 在接口交换帧，发往目的地址   1.2. 对称交换  对称交换提供相同的带宽给端口间的交换连接 (10&#x2F;10 Mbps或100&#x2F;100 Mbps) 当用户试图访问别的网段上的服务器时，可能导致瓶颈   pic112   1.3. 不对称交换  不对称交换通过用更高带">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LAN Switcher &amp; VLAN">
+<meta property="og:url" content="https://wuchentian.github.io/2022/10/10/Computer%20Networking/OSI%20Model/LAN%20Switcher%20&%20VLAN/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="局域网交换和VLAN 1. 交换 1.1. 交换操作  交换机有两个基础功能：  基于MAC地址，建立和维持交换表 (与网桥表类似) 在接口交换帧，发往目的地址   1.2. 对称交换  对称交换提供相同的带宽给端口间的交换连接 (10&#x2F;10 Mbps或100&#x2F;100 Mbps) 当用户试图访问别的网段上的服务器时，可能导致瓶颈   pic112   1.3. 不对称交换  不对称交换通过用更高带">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-10-10T02:57:00.000Z">
+<meta property="article:modified_time" content="2022-10-31T03:12:39.697Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="hardware">
+<meta property="article:tag" content="switcher">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>LAN Switcher &amp; VLAN - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"wuchentian.github.io","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                Links
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/background.jpeg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="LAN Switcher &amp; VLAN"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-10-10 10:57" pubdate>
+          October 10, 2022 am
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.7k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          32 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">LAN Switcher &amp; VLAN</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="局域网交换和vlan">局域网交换和VLAN</h1>
+<h2 id="交换">1. 交换</h2>
+<h3 id="交换操作">1.1. 交换操作</h3>
+<ul>
+<li>交换机有两个基础功能：
+<ul>
+<li>基于MAC地址，建立和维持交换表 (与网桥表类似)</li>
+<li>在接口交换帧，发往目的地址</li>
+</ul></li>
+</ul>
+<h3 id="对称交换">1.2. 对称交换</h3>
+<ul>
+<li><p>对称交换提供相同的带宽给端口间的交换连接 (10/10 Mbps或100/100
+Mbps)</p></li>
+<li><p>当用户试图访问别的网段上的服务器时，可能导致瓶颈</p>
+<figure>
+<img
+src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311104764.png" srcset="/img/loading.gif" lazyload
+alt="pic112" />
+<figcaption aria-hidden="true">pic112</figcaption>
+</figure></li>
+</ul>
+<h3 id="不对称交换">1.3. 不对称交换</h3>
+<ul>
+<li><p>不对称交换通过用更高带宽(100
+Mbps)的端口连接服务器的网段，来减少了服务器上潜在的瓶颈</p></li>
+<li><p>不对称交换需要交换机内有存储缓冲区</p>
+<figure>
+<img
+src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311104776.png" srcset="/img/loading.gif" lazyload
+alt="pic113" />
+<figcaption aria-hidden="true">pic113</figcaption>
+</figure></li>
+</ul>
+<h3 id="存储缓冲区">1.4. 存储缓冲区</h3>
+<ul>
+<li>交换机中的存储区域，存有目的地址和传输数据，直到数据被交换的正确的输出端口
+<ul>
+<li>基于端口的存储缓冲区
+<ul>
+<li>每个端口的包被存成了一个队列</li>
+<li>如果是一个繁忙的目标端口，可能会因为一个包拖延其它包的传输</li>
+</ul></li>
+<li>共享存储缓冲区
+<ul>
+<li>常见的存储缓冲区是所有端口共享的</li>
+<li>允许包在一个端口是接收端RX，在另一个端口是发送端TX，不需要交换到另一个队列</li>
+</ul></li>
+</ul></li>
+</ul>
+<h3 id="交换方法">1.5. 交换方法</h3>
+<ul>
+<li><p>存储转发</p>
+<ul>
+<li>交换机收到整个帧，在发送到目的地址前，计算末尾CRC</li>
+</ul></li>
+<li><p>切入</p>
+<ul>
+<li>交换机会增加延迟，使用切入交换方法可以减少延迟</li>
+<li>快速转发交换—只检查目标MAC，接着立刻转发帧</li>
+<li>自由分段—读取开头的64字节来减少转发的错误</li>
+</ul>
+<figure>
+<img
+src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311104784.png" srcset="/img/loading.gif" lazyload
+alt="pic114" />
+<figcaption aria-hidden="true">pic114</figcaption>
+</figure></li>
+</ul>
+<h3 id="交换机">1.6. 交换机</h3>
+<ul>
+<li><p>第2层交换机</p>
+<figure>
+<img
+src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311104793.png" srcset="/img/loading.gif" lazyload
+alt="pic116" />
+<figcaption aria-hidden="true">pic116</figcaption>
+</figure></li>
+<li><p>第3层交换机</p>
+<figure>
+<img
+src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311104808.png" srcset="/img/loading.gif" lazyload
+alt="pic117" />
+<figcaption aria-hidden="true">pic117</figcaption>
+</figure></li>
+<li><p>第4层交换机</p>
+<p><img
+src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311104909.png" srcset="/img/loading.gif" lazyload
+alt="pic118" />多层交换机<img
+src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311104014.png" srcset="/img/loading.gif" lazyload
+alt="pic119" /></p></li>
+</ul>
+<h2 id="交换树协议">2.交换树协议</h2>
+<h3 id="桥接循环">2.1. 桥接循环</h3>
+<ul>
+<li>循环发生在网络中的原因有很多
+<ul>
+<li>通常因为蓄意提供冗余，导致网络中的循环</li>
+<li>也可能是配置错误
+<ul>
+<li>以下两个原因出现在网络中的循环是灾难性的：
+<ul>
+<li>广播循环</li>
+<li>过时的网桥表</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+<h3 id="冗余构造循环">2.2. 冗余构造循环</h3>
+<ul>
+<li><img
+src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311104044.png" srcset="/img/loading.gif" lazyload
+title="fig:" alt="pic115" /></li>
+</ul>
+<h3 id="第2层循环---淹没的单播帧">2.3. 第2层循环 - 淹没的单播帧</h3>
+<ul>
+<li><p>广播和第2层循环是一个危险的组合</p></li>
+<li><p>以太帧没有TTL域</p></li>
+<li><p>在一个以太帧开始循环后，它会一直进行直到有人关掉了其中一个交换机或打断一个链接</p></li>
+<li><p>交换机会触发主机A的网桥表条目 (导致CPU很高的使用)</p>
+<figure>
+<img
+src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311104140.png" srcset="/img/loading.gif" lazyload
+alt="pic120" />
+<figcaption aria-hidden="true">pic120</figcaption>
+</figure></li>
+</ul>
+<h3 id="stp概览">2.4. STP概览</h3>
+<ul>
+<li><p>生成树协议中的元素</p>
+<ul>
+<li>主要功能：允许交换机/网桥网络中存在冗余路径，却不会从循环效应中引发延迟</li>
+<li>STP通过计算一个稳定的生成树网络拓扑来阻止循环</li>
+<li>生成树帧 (又叫桥接协议数据单元BPDUs) 用于决定生成树拓扑</li>
+</ul></li>
+<li><p>STP 决策序列</p>
+<ul>
+<li>生成树通常使用同样的4步决策序列：
+<ul>
+<li>最低根的BID (桥识别符Bridge Identification)</li>
+<li>根网桥的最低路径开销</li>
+<li>最低发送BID</li>
+<li>最低端口ID</li>
+</ul></li>
+</ul></li>
+<li><p>BPDUS</p>
+<ul>
+<li><p>STP建立了一个根节点，叫根网桥</p></li>
+<li><p>得到的树源自根网桥</p></li>
+<li><p>不属于最短路径树的冗余链接被阻塞</p></li>
+<li><p>在阻塞链接上的接收的数据帧被抛弃</p></li>
+<li><p>符合无回路逻辑拓扑形式的交换机发送的消息是BPDU</p>
+<figure>
+<img
+src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311104183.png" srcset="/img/loading.gif" lazyload
+alt="pic121" />
+<figcaption aria-hidden="true">pic121</figcaption>
+</figure></li>
+</ul></li>
+<li><p>STP BPDU</p>
+<figure>
+<img
+src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311104267.png" srcset="/img/loading.gif" lazyload
+alt="pic122" />
+<figcaption aria-hidden="true">pic122</figcaption>
+</figure></li>
+<li><p>网桥标识符/BID</p>
+<ul>
+<li>一个网桥ID (BID): 8字节
+<ul>
+<li>BID高位子域(2字节)：网桥优先级
+<ul>
+<li>216种可能的值：0-65,535 (默认：32,768)</li>
+<li>通常表示为十进制形式</li>
+</ul></li>
+<li>低位子域(6字节)：交换机被分配的MAC地址
+<ul>
+<li>表示为十六进制形式</li>
+</ul></li>
+</ul></li>
+<li>STP 开销值: 开销越低越好</li>
+</ul></li>
+<li><p>选择根交换机</p>
+<ul>
+<li>通过寻找有着最低BID的交换机(通常被认为是网桥战争)，来选择根交换机.</li>
+<li>如果所有交换机使用默认网桥优先级32,768，那么MAC地址最低的就是打破平局的关键</li>
+</ul></li>
+<li><p>路径开销cost</p>
+<ul>
+<li><p>网桥使用开销的概念来评估他们与别的网桥之间的距离</p>
+<figure>
+<img
+src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311104302.png" srcset="/img/loading.gif" lazyload
+alt="pic123" />
+<figcaption aria-hidden="true">pic123</figcaption>
+</figure></li>
+</ul></li>
+<li><p>5种STP状态</p>
+<ul>
+<li>通过根据规则配置每个端口，来建立状态</li>
+<li>然后STP基于传输模式和潜在的循环，来修改状态</li>
+<li>默认的STP状态命令有：
+<ul>
+<li>阻塞Blocking—没有帧转发，接收BPDUs</li>
+<li>侦听Listening--没有帧转发，侦听数据帧</li>
+<li>学习Learning--没有帧转发，学习地址</li>
+<li>转发Forwarding--有帧转发，学习地址</li>
+<li>禁用Disabled--没有帧转发，不接受BPDUs</li>
+</ul></li>
+</ul></li>
+<li><p>最初的STP集合</p>
+<ul>
+<li>当网络刚开始，所有网桥向网络中发送BPDU信息</li>
+<li>他们立刻在BPDU集合上应用决策队列，来得出整个网络的生成树</li>
+</ul></li>
+<li><p>步骤</p>
+<ul>
+<li>步骤一 选择根网桥：选择一个根网桥来作为网络的中心
+<ul>
+<li>宣布它自己是根</li>
+<li>检查端口收到的所有BPDUs和即将在那个端口发送的BPDU</li>
+<li>对于每一个收到的BPDU，如果比该端口保存的BPDU的值低
+<ul>
+<li>旧的值被取代</li>
+<li>BPDU的发送方成为新的根</li>
+</ul></li>
+<li><img
+src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311104338.png" srcset="/img/loading.gif" lazyload
+title="fig:" alt="pic124" /></li>
+</ul></li>
+<li>步骤二 选择根端口：所有剩余网桥计算根端口的集合
+<ul>
+<li>每一个不是根的网桥必须选择一个根端口
+<ul>
+<li>网桥的根端口是离根网桥最近的端口</li>
+<li>根路径开销是到达根网桥的所有链接开销的累计</li>
+</ul></li>
+<li><img
+src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311104373.png" srcset="/img/loading.gif" lazyload
+title="fig:" alt="pic125" /></li>
+</ul></li>
+<li>步骤三 选择指定端口：所有剩余网桥计算指定端口的集合
+<ul>
+<li>选择指定端口(I)
+<ul>
+<li>每个网段有一个指定端口
+<ul>
+<li>用作一个网桥/交换机端口，在这里收发该网段上的通信</li>
+</ul></li>
+<li>包括给定网段的指定端口的网桥/交换机，认为是该网段的指定网桥</li>
+<li>所有网桥/交换机会阻塞它们的非指定端口</li>
+</ul></li>
+<li>选择指定端口(II)
+<ul>
+<li><img
+src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311104409.png" srcset="/img/loading.gif" lazyload
+title="fig:" alt="pic126" /></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>STP示例</p>
+<ul>
+<li><img
+src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311104450.png" srcset="/img/loading.gif" lazyload
+title="fig:" alt="pic127" /></li>
+</ul></li>
+</ul>
+<h2 id="vlan">3. VLAN</h2>
+<h3 id="vlan介绍">3.1. VLAN介绍</h3>
+<ul>
+<li>背景
+<ul>
+<li>现有的共享局域网配置
+<ul>
+<li>在典型的共享局域网中...
+<ul>
+<li>用户基于他们接入的集线器物理分组</li>
+<li>路由器划分局域网，提供广播防火墙</li>
+</ul></li>
+<li>在VLAN中...
+<ul>
+<li>你可以通过功能、部门或使用的应用来将用户逻辑分组</li>
+<li>配置由专门软件完成</li>
+</ul></li>
+</ul></li>
+<li>LANs &amp; VLANs的不同之处
+<ul>
+<li>VLANs...
+<ul>
+<li><figure>
+<img
+src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311104485.png" srcset="/img/loading.gif" lazyload
+alt="pic136" />
+<figcaption aria-hidden="true">pic136</figcaption>
+</figure></li>
+<li><p>在第2 &amp; 3层工作</p></li>
+<li><p>控制网络广播</p></li>
+<li><p>允许网络管理员分配用户</p></li>
+<li><p>提供更安全的网络 怎么做到的?</p></li>
+</ul></li>
+</ul></li>
+<li>VLANs(IEEE 802.1q)
+<ul>
+<li>特征
+<ul>
+<li>不被物理交换网段限制的，一个逻辑上的网络设备或用户的集合</li>
+<li>VLAN中的设备和用户可以根据功能、部门、应用等分组，不论他们物理网段地址是什么</li>
+<li>VLAN构造了一个单独的广播域，不受物理网段限制，就像一个子网</li>
+<li>通过网络管理员使用供应商软件，在交换机中设置VLAN</li>
+</ul></li>
+<li>用户分组
+<ul>
+<li>VLANs可以逻辑地将用户划分到不同的子网（广播域）</li>
+<li>广播帧只在交换机的端口之间交换，或有着相同VLAN
+ID的交换机之间交换</li>
+<li>用户可以通过软件逻辑分组，基于：
+<ul>
+<li>端口号</li>
+<li>MAC地址</li>
+<li>使用的协议</li>
+<li>使用的应用</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+<h3 id="vlan体系结构">3.2. VLAN体系结构</h3>
+<ul>
+<li><p>骨干中的VLANs</p>
+<ul>
+<li>VLAN配置需要支持互联路由和交换机之间的数据骨干传输</li>
+<li>骨干是用于内部VLAN通讯的区域</li>
+<li>骨干需要有高速链接，100Mbps或更大</li>
+<li><img
+src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311104530.png" srcset="/img/loading.gif" lazyload
+title="fig:" alt="pic137" /></li>
+</ul></li>
+<li><p>VLAN中路由器的角色</p>
+<ul>
+<li>一个路由器提供不同VLAN之间的连接</li>
+<li>比如你有VLAN1和VLAN2.
+<ul>
+<li>在交换机内，不同VLAN上的用户不能相互对话 (VLAN的好处!)</li>
+<li>然而，如果有路由器，那么VLAN1上的用户可以给VLAN2上的用户发邮件</li>
+</ul></li>
+</ul></li>
+<li><p>VLAN中帧是怎么用的</p>
+<ul>
+<li><p>交换机基于帧里的数据，做过滤和转发决策</p></li>
+<li><p>这里要用两种技术</p>
+<ul>
+<li><p>帧过滤—检查关于每个帧中特定的信息 (MAC地址或第3层协议类型)</p>
+<ul>
+<li><img
+src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311104721.png" srcset="/img/loading.gif" lazyload
+title="fig:" alt="pic139" /></li>
+</ul></li>
+<li><p>帧标记—当帧通过网络骨干被转发的时候，在它开头放一个独特的VLAN标识符</p>
+<ul>
+<li><p>帧标记实现过程：</p>
+<ul>
+<li>当帧通过网络骨干被转发的时候，在它开头放一个独特的VLAN标识符</li>
+<li>标识符由每个交换机解读和检查</li>
+<li>当帧退出网络骨干的时候，交换机在帧被发送到目标站点前，移除开头的标识符</li>
+</ul></li>
+<li><p>帧标记在第2层起作用，需要很少提前过程或管理</p></li>
+<li><figure>
+<img
+src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311104753.png" srcset="/img/loading.gif" lazyload
+alt="pic140" />
+<figcaption aria-hidden="true">pic140</figcaption>
+</figure></li>
+<li><p>IEEE802.1Q</p>
+<ul>
+<li>IEEE标准，插入一个VLAN的标签到头部，来标识属于的VLAN (帧标记)。</li>
+</ul></li>
+<li><p>ISL(交换机间链路)</p>
+<ul>
+<li>思科专属。ISL在数据帧前新增一个26字节的头部，在尾部增加4字节CRC</li>
+<li></li>
+</ul></li>
+<li><table>
+<thead>
+<tr class="header">
+<th>名字</th>
+<th>封装</th>
+<th>标签</th>
+<th>媒介</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>802.1Q</td>
+<td>No</td>
+<td>Yes</td>
+<td>Ethernet</td>
+</tr>
+<tr class="even">
+<td>ISL</td>
+<td>Yes</td>
+<td>No</td>
+<td>Ethernet</td>
+</tr>
+</tbody>
+</table></li>
+</ul></li>
+</ul></li>
+<li><figure>
+<img
+src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311104779.png" srcset="/img/loading.gif" lazyload
+alt="pic138" />
+<figcaption aria-hidden="true">pic138</figcaption>
+</figure></li>
+</ul></li>
+</ul>
+<h3 id="vlan实现">3.3. VLAN实现</h3>
+<ul>
+<li>端口，VLANs和广播
+<ul>
+<li>实现VLAN的方法
+<ul>
+<li>静态</li>
+<li>动态</li>
+</ul></li>
+<li>每个交换端口都可以分配一个VLAN这个...
+<ul>
+<li>保证没有共享同样VLAN的端口，不会共享广播</li>
+<li>保证共享同样VLAN的端口，会共享广播</li>
+</ul></li>
+</ul></li>
+<li>静态VLANs
+<ul>
+<li>定义
+<ul>
+<li>静态VLANs是当交换机上的端口被管理员分配VLAN</li>
+</ul></li>
+<li>好处
+<ul>
+<li>安全，容易配置和监控</li>
+<li>因为控制移动，所以在网络中表现好</li>
+</ul></li>
+<li>图例
+<ul>
+<li><img
+src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311104901.png" srcset="/img/loading.gif" lazyload
+title="fig:" alt="pic141" /></li>
+</ul></li>
+</ul></li>
+<li>动态VLANs
+<ul>
+<li>当一个站点最初连接在一个没有分配的端口上，交换机检查表中的条目，然后动态地配置正确的VLAN到端口上</li>
+<li>好处
+<ul>
+<li>当增加或移除用户的时候，管理更少（更提前）</li>
+<li>集中没有被授权的用户的通知</li>
+</ul></li>
+<li>图例
+<ul>
+<li><img
+src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311104011.png" srcset="/img/loading.gif" lazyload
+title="fig:" alt="pic142" /></li>
+</ul></li>
+</ul></li>
+<li>以端口为中心的VLANs
+<ul>
+<li>好处
+<ul>
+<li>所有在同一个VLAN中的节点都连接到同一个路由器接口</li>
+<li>使得管理更容易，因为……
+<ul>
+<li>用户由路由器接口分配</li>
+<li>VLANs更容易管理</li>
+<li>更加安全</li>
+<li>包不会泄露到其它域</li>
+</ul></li>
+</ul></li>
+<li>图例
+<ul>
+<li><img
+src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311104042.png" srcset="/img/loading.gif" lazyload
+title="fig:" alt="pic143" /></li>
+</ul></li>
+</ul></li>
+<li>访问链路和主干链路
+<ul>
+<li>图例
+<ul>
+<li><img
+src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311104074.png" srcset="/img/loading.gif" lazyload
+title="fig:" alt="pic144" /></li>
+</ul></li>
+<li>访问链路
+<ul>
+<li>访问链路是交换机上的一个链路，它只是一个VLAN的成员</li>
+<li>这个VLAN被认为是端口的本地native VLAN
+<ul>
+<li>任何连接到这个端口的设备完全不知道存在这个VLAN</li>
+</ul></li>
+</ul></li>
+<li>主干链路
+<ul>
+<li>一个主干链路有能力支持多种VLANs.</li>
+<li>主干链路用于连接交换机到其它交换机或者路由器上</li>
+<li>交换机在高速以太网和Gigabit以太网端口上，支持主干链路</li>
+<li>访问和主干链路也存在</li>
+<li>主干是一个点对点链路，支持几种VLAN</li>
+<li>当在两个实现VLAN的设备之间构造链路的时候，主干用于保存端口
+<ul>
+<li><img
+src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311104137.png" srcset="/img/loading.gif" lazyload
+title="fig:" alt="pic145" /></li>
+</ul></li>
+<li>主干链路不属于一个特定的VLAN.
+<ul>
+<li>像路由器和交换机之间的VLANs导管</li>
+</ul></li>
+<li>主干链路可以配置为运输所有VLAN，或运输有限个VLAN</li>
+<li>然而主干链路可能有一个本地native VLAN
+<ul>
+<li>主干的本地VLAN是，如果主干链路因某些原因失效，这时主干使用的VLAN</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li>交换机29xx配置
+<ul>
+<li>当在思科29xx交换机上配置的时候，必须根据下列指导：
+<ul>
+<li>VLANs的最大个数取决于交换机</li>
+<li>VLAN 1是工厂默认VLAN之一</li>
+<li>VLAN 1 是默认的以太网VLAN.</li>
+<li>思科发现协议(CDP)和虚拟局域网主干协议(VTP) 广告发在VLAN 1上.</li>
+<li>默认Catalyst 29xx IP地址在VLAN 1广播域</li>
+</ul></li>
+</ul></li>
+</ul>
+<h3 id="vlans之间的路由">3.4. VLANs之间的路由</h3>
+<ul>
+<li><figure>
+<img
+src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311104178.png" srcset="/img/loading.gif" lazyload
+alt="pic146" />
+<figcaption aria-hidden="true">pic146</figcaption>
+</figure></li>
+<li><figure>
+<img
+src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311104210.png" srcset="/img/loading.gif" lazyload
+alt="pic147" />
+<figcaption aria-hidden="true">pic147</figcaption>
+</figure></li>
+<li><p>子接口</p>
+<ul>
+<li><img
+src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311104274.png" srcset="/img/loading.gif" lazyload
+title="fig:" alt="pic148" /></li>
+</ul></li>
+<li><p>VLAN实验报告见文件</p></li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Computer-Network/" class="category-chain-item">Computer Network</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/Computer-Network/OSI-Model/" class="category-chain-item">OSI Model</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/hardware/">#hardware</a>
+      
+        <a href="/tags/switcher/">#switcher</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>LAN Switcher &amp; VLAN</div>
+      <div>https://wuchentian.github.io/2022/10/10/Computer Networking/OSI Model/LAN Switcher &amp; VLAN/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>October 10, 2022</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/10/10/C++%20Basic/%E8%80%83%E8%AF%95%E5%BF%85%E5%A4%87/C++%20%E5%B8%B8%E7%94%A8%E6%89%8B%E5%86%99%E5%87%BD%E6%95%B0/" title="C++ stack">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">C++ stack</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/10/10/Computer%20Networking/OSI%20Model/Route%20&amp;%20Router/" title="Route &amp; Router">
+                        <span class="hidden-mobile">Route &amp; Router</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;Table of Contents</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('mermaid' in window) {
+        mermaid.init();
+      }
+    });
+  });
+</script>
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>
