@@ -18,21 +18,25 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="title: Introduction To C++ date: 2022-11-01 16:00:00 category: - C++ Basic - 考试必备 tag: - history  BNF：巴科斯范式 描述编程语言的文法，自然语言存在不同程度的二义性。这种模糊、不确定的方式无法精确定义一门程序设计语言。必须设计一种准确无误地描述程序设计语言的语法结构，这种严谨、简洁、易读的形式规则描">
+    <meta name="description" content="Java Socket 入门 1. 什么是Socket 1.1. Socket 的引入 ​ 我们知道进程通信的方法有管道、命名管道、信号、消息队列、共享内存、信号量等等，这些方法都要求通信的两个进程位于同一个主机。如果通信双方不在同一个主机，使用 TCP&#x2F;IP 协议族就能达到我们想要的效果。但是，当我们使用不同的协议进行通信时就得使用不同的接口，还得处理不同协议的各种细节，这就增加了开发的难度，">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://wuchentian.github.io/2022/11/01/Computer%20Networking/OSI%20Model/Introduction%20To%20C++/index.html">
+<meta property="og:title" content="Java Socket 入门">
+<meta property="og:url" content="https://wuchentian.github.io/2022/11/01/Computer%20Networking/Java%20Socket/Java%20Socket%20%E5%85%A5%E9%97%A8/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="title: Introduction To C++ date: 2022-11-01 16:00:00 category: - C++ Basic - 考试必备 tag: - history  BNF：巴科斯范式 描述编程语言的文法，自然语言存在不同程度的二义性。这种模糊、不确定的方式无法精确定义一门程序设计语言。必须设计一种准确无误地描述程序设计语言的语法结构，这种严谨、简洁、易读的形式规则描">
+<meta property="og:description" content="Java Socket 入门 1. 什么是Socket 1.1. Socket 的引入 ​ 我们知道进程通信的方法有管道、命名管道、信号、消息队列、共享内存、信号量等等，这些方法都要求通信的两个进程位于同一个主机。如果通信双方不在同一个主机，使用 TCP&#x2F;IP 协议族就能达到我们想要的效果。但是，当我们使用不同的协议进行通信时就得使用不同的接口，还得处理不同协议的各种细节，这就增加了开发的难度，">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-11-01T07:59:29.065Z">
-<meta property="article:modified_time" content="2022-11-01T08:05:07.150Z">
+<meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202211011749905.png">
+<meta property="article:published_time" content="2022-11-01T09:42:00.000Z">
+<meta property="article:modified_time" content="2022-11-01T10:08:48.075Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="socket">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202211011749905.png">
   
   
   
-  <title>Hexo</title>
+  <title>Java Socket 入门 - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -209,7 +213,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text=""></span>
+            <span id="subtitle" data-typed-text="Java Socket 入门"></span>
           
         </div>
 
@@ -220,7 +224,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-11-01 15:59" pubdate>
+        <time datetime="2022-11-01 17:42" pubdate>
           November 1, 2022 pm
         </time>
       </span>
@@ -232,7 +236,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.4k words
+          1k words
         
       </span>
     
@@ -243,7 +247,7 @@
         
         
         
-          12 mins
+          9 mins
         
       </span>
     
@@ -281,78 +285,52 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none"></h1>
+            <h1 style="display: none">Java Socket 入门</h1>
             
             
               <div class="markdown-body">
                 
-                <p>title: Introduction To C++ date: 2022-11-01 16:00:00 category: - C++
-Basic - 考试必备 tag: - history</p>
-<h3 id="section"></h3>
-<p>BNF：巴科斯范式
-描述编程语言的文法，自然语言存在不同程度的二义性。这种模糊、不确定的方式无法精确定义一门程序设计语言。必须设计一种准确无误地描述程序设计语言的语法结构，这种严谨、简洁、易读的形式规则描述的语言结构模型称为文法。该范式由他定义Algol60语言时提出</p>
-<p>编程的两个视角：科学、艺术</p>
-<p>编程范式</p>
-<ul>
-<li>面向过程：分析出解决问题所需要的步骤，然后用函数把这些步骤一步一步实现，使用的时候一个一个依次调用就可以了（命令式思想：即程序员一步步告诉计算机应该做什么）</li>
-<li>面向对象：把构成问题事务分解成各个对象，建立对象的目的不是为了完成一个步骤，而是为了描叙某个事物在整个解决问题的步骤中的行为</li>
-<li>函数式
-<ul>
-<li>函数副作用：当调用函数时，除了返回函数值之外，还对主调用函数产生附加的影响。例如修改全局变量（函数外的变量）或修改参数</li>
+                <h3 id="section"></h3>
+<h2 id="java-socket-入门">Java Socket 入门</h2>
+<h3 id="什么是socket">1. 什么是Socket</h3>
+<h4 id="socket-的引入">1.1. Socket 的引入</h4>
+<p>​
+我们知道<strong>进程通信</strong>的方法有<strong>管道、命名管道、信号、消息队列、共享内存、信号量</strong>等等，这些方法都要求通信的两个进程位于同一个主机。如果通信双方不在同一个主机，使用
+TCP/IP
+协议族就能达到我们想要的效果。但是，当我们使用不同的协议进行通信时就得使用不同的接口，还得处理不同协议的各种细节，这就增加了开发的难度，软件也不易于扩展。于是<a
+target="_blank" rel="noopener" href="https://baike.baidu.com/item/BSD/3794498">UNIX BSD</a>就发明了<a
+target="_blank" rel="noopener" href="https://baike.baidu.com/item/套接字/9637606?fromModule=lemma_search-box&amp;fromtitle=socket&amp;fromid=281150">socket</a></p>
+<h4 id="socket-的优势">1.2. Socket 的优势</h4>
+<p>socket屏蔽了各个协议的通信细节，使得程序员无需关注协议本身，直接使用socket提供的接口来进行互联的不同主机间的进程的通信。这就好比操作系统给我们提供了使用底层硬件功能的系统调用，通过系统调用我们可以方便的使用磁盘（文件操作），使用内存，而无需自己去进行磁盘读写，内存管理。socket
+提供了 TCP/IP
+协议的抽象，对外提供了一套接口，同过这个接口就可以统一、方便的使用tcp/ip协议的功能了。简单来说，
+Socket是应用层与TCP/IP协议族通信的中间软件抽象层，它是一组接口。在<a
+target="_blank" rel="noopener" href="https://www.runoob.com/design-pattern/design-pattern-tutorial.html"><strong>设计模式</strong></a>中，Socket
+其实就是一个<a
+target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/200723695#:~:text=门面模式要求一个,的门面对象进行%E3%80%82"><strong>门面模式</strong></a>，它把复杂的
+TCP/IP
+协议族隐藏在Socket接口后面，对用户来说，一组简单的接口就是全部，让Socket去组织数据，以符合指定的协议。既然知道了Socket所处的位置，我们来看看Socket的完整定义是什么。</p>
+<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202211011749905.png" srcset="/img/loading.gif" lazyload alt="图片来源于《tcp/ip协议详解卷一》" style="zoom:50%;" /></p>
+<h4 id="socket-的定义">1.3. Socket 的定义</h4>
+<p>​ socket
+一词的起源在组网领域的首次使用是在1970年2月12日发布的文献<strong><a
+target="_blank" rel="noopener" href="http://datatracker.ietf.org/doc/rfc33/">IETF
+RFC33</a></strong>中发现的（第6页），撰写者为 <em>Stephen
+Carr</em>、<em>Steve Crocker</em> 和 <em>Vint
+Cerf</em>。根据美国计算机历史博物馆的记载，<em>Croker</em>
+写道：“命名空间的元素都可称为套接字接口。一个套接字接口构成一个连接的一端，而一个连接可完全由一对套接字接口规定。（The
+elements of the name space are called sockets. A socket forms one end of
+a connection, and a connection is fully specified by a pair of
+sockets.）”计算机历史博物馆补充道：“这比BSD的套接字接口定义早了大约12年。”</p>
+<h3 id="socket-常用函数">2. Socket 常用函数</h3>
+<h3 id="java-socket-常用-api">3. Java Socket 常用 API</h3>
+<h3 id="包含-tcpudp-的-socket-使用">4. 包含 TCP/UDP 的 Socket 使用</h3>
+<h3 id="section-1">5.</h3>
+<h3 id="参考文章">1.参考文章</h3>
+<ol type="1">
 <li><a
-target="_blank" rel="noopener" href="https://blog.csdn.net/archimelan/article/details/81940858">函数式编程</a>：为了消除这种副作用的编程方式，告诉计算机要干什么，而不是怎么干</li>
-</ul></li>
-<li>逻辑式：将人类的知识告诉给机器，然后让机器自己决定计算结果（AI的第二阶段）</li>
-</ul>
-<p>进攻式编程：开发阶段主动暴露问题，从而在发布前尽可能多的解决问题</p>
-<p>防御式编程：开发阶段预防可能出现的所有问题，避免错误数据对系统造成影响</p>
-<h2 id="创建oo的背景">创建OO的背景</h2>
-<p><strong>Simula 1时期</strong></p>
-<p>simulation：仿真，用于模拟某些不能真实做的（炸毁三峡大坝产生的后果）、有较大随机性的实验</p>
-<ul>
-<li>仿真语言为仿真研究人员提供了专门用于建模、仿真实验和仿真结果统计、分析、显示的程序语句</li>
-<li>不可测原理</li>
-<li>仿真语言打破了严格的先进后出制度</li>
-<li>采取的措施类似现在虚拟机的工作</li>
-</ul>
-<p>Simula 1：<strong>不是program
-language</strong>，仅仅为了完成simulation引入的约束/语言</p>
-<p><strong>Simula 67时期</strong></p>
-<ul>
-<li>考虑到Simula1的不可重用性，提出了class subclass
-inheriting的思想</li>
-<li>抽象函数的概念</li>
-<li>通用程序设计语言</li>
-<li>有了OO思想</li>
-</ul>
-<h2 id="c的诞生">C++的诞生</h2>
-<p>BS最开始为了完成博士论文需要一门语言做支撑</p>
-<p>1.simula：性能差</p>
-<p>最终被市场淘汰：用的人少，无法为复杂的系统提供支持</p>
-<p>2.BCPL：debug难</p>
-<p>此时他还是用原有语言完成了论文，但希望有一门语言能综合Simula编程体验好，BCPL性能高的特点</p>
-<p><strong>贝尔实验室阶段</strong></p>
-<p>C++思想逐步完善</p>
-<ul>
-<li>Cpre：预处理程序，C加上Simula的类的机制</li>
-<li>此后逐渐诞生了创建一门语言的想法</li>
-</ul>
-<p><strong>1983年诞生</strong></p>
-<p>此时C++源码先通过cpp预处理后再通过Cfront翻译成C语言，最后通过C编译器来使程序运行</p>
-<ul>
-<li>用Cfront不用Cpre的原因：Cpre不懂C语法，Cfront懂，发现语法错误会传回source
-code，但Cpre将方言部分翻译成c后交给cc，此时若发现错误才传回source
-code</li>
-<li>正交性：矛盾体，有你没我，有我没你。但这些可以容忍，如果共存后效率能提高</li>
-</ul>
-<p><strong>初始化与赋值</strong></p>
-<p>对于复合类型的初始化和赋值有区别，基本类型则没有区别：https://blog.csdn.net/qq_38211852/article/details/80629691</p>
-<p><strong>异常</strong></p>
-<ul>
-<li>可以预见的</li>
-<li>无法避免的（a/b，无法避免输入b=0；无法避免文件路径不存在）</li>
-<li>处理异常不是让异常消失，而是让异常产生后能受到控制，不会让系统手足无措</li>
-</ul>
+target="_blank" rel="noopener" href="https://www.jianshu.com/p/b607f8e302fc">深入理解Socket</a></li>
+</ol>
 
                 
               </div>
@@ -361,6 +339,43 @@ code</li>
             <div>
               <div class="post-metas my-3">
   
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Computer-Network/" class="category-chain-item">Computer Network</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/Computer-Network/Java-Socket/" class="category-chain-item">Java Socket</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Java/">#Java</a>
+      
+        <a href="/tags/socket/">#socket</a>
+      
+    </div>
   
 </div>
 
@@ -370,8 +385,8 @@ code</li>
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div></div>
-      <div>https://wuchentian.github.io/2022/11/01/Computer Networking/OSI Model/Introduction To C++/</div>
+      <div>Java Socket 入门</div>
+      <div>https://wuchentian.github.io/2022/11/01/Computer Networking/Java Socket/Java Socket 入门/</div>
     </div>
     <div class="license-meta">
       
