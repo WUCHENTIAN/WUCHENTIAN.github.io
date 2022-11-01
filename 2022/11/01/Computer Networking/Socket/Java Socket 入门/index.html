@@ -26,15 +26,11 @@
 <meta property="og:description" content="Java Socket 入门 1. 什么是Socket 1.1. Socket 的引入 ​ 我们知道进程通信的方法有管道、命名管道、信号、消息队列、共享内存、信号量等等，这些方法都要求通信的两个进程位于同一个主机。如果通信双方不在同一个主机，使用 TCP&#x2F;IP 协议族就能达到我们想要的效果。但是，当我们使用不同的协议进行通信时就得使用不同的接口，还得处理不同协议的各种细节，这就增加了开发的难度，">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202211011749905.png">
-<meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202211012146968.png">
-<meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202211012147408.png">
-<meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202211012224588.png">
-<meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202211012224829.png">
 <meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202211012229523.png">
-<meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202211012154884.png">
-<meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202211012152560.png">
+<meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202211012331462.png">
+<meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202211012331209.png">
 <meta property="article:published_time" content="2022-11-01T09:42:00.000Z">
-<meta property="article:modified_time" content="2022-11-01T15:27:16.022Z">
+<meta property="article:modified_time" content="2022-11-01T15:57:33.752Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="socket">
@@ -244,7 +240,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          9.6k words
+          10k words
         
       </span>
     
@@ -255,7 +251,7 @@
         
         
         
-          80 mins
+          87 mins
         
       </span>
     
@@ -343,8 +339,44 @@ target="_blank" rel="noopener" href="https://blog.csdn.net/L19002S/article/detai
 target="_blank" rel="noopener" href="https://blog.csdn.net/chengqiuming/article/details/89577351">原始套接字</a>:</strong>
 主要用于访问底层协议，如 <strong>IP、ICMP与IGMP</strong> 等协议;
 原始套接字可以保存 IP 包中的完整 IP 头部。</p>
-<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202211012146968.png" srcset="/img/loading.gif" lazyload alt="面向连接的客户/服务器的时序图" style="zoom: 33%;" />
-<img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202211012147408.png" srcset="/img/loading.gif" lazyload alt="面向无连接的客户/服务器的时序图" style="zoom:33%;" /></p>
+<pre><code class=" mermaid">
+sequenceDiagram
+Title: 面向连接的客户/服务器的时序图
+ Note left of Server: socket()
+ Note left of Server: bind()
+ Note left of Server: listen()
+ Note left of Server: accept()
+ Note right of Client: socket()
+ Note right of Client: connect()
+ Note left of Server: 阻塞：等待用户请求
+ Client -&gt;&gt; Server: 请求建立连接
+ Client -&gt;&gt; Server: 数据发送
+ Note left of Server: recv()
+ Note left of Server: sendto()
+ Server -&gt;&gt; Client: 数据发送
+ Note right of Client: recv()
+ Note left of Server: close()
+ Note right of Client: close()
+ 
+
+</code></pre>
+<pre><code class=" mermaid">
+sequenceDiagram
+Title: 面向无连接的客户/服务器的时序图
+ Note left of Server: socket()
+ Note right of Client: socket()
+ Note left of Server: bind()
+ Note right of Client: bind()
+ Note right of Client: sendto()
+ Client -&gt;&gt; Server: 请求建立连接
+ Note left of Server: recvfrom()
+ Note left of Server: 阻塞：等待用户请求
+ Note left of Server: sendto()
+ Server -&gt;&gt; Client: 数据发送
+ Note right of Client: recvfrom()
+ Note left of Server: close()
+ Note right of Client: close()
+</code></pre>
 <h3 id="socket-常用函数">2. Socket 常用函数</h3>
 <p>注意这里的函数都是包含在 C 语言 &lt;socket.h&gt; 和 &lt;type.h&gt;
 头文件中的函数</p>
@@ -420,9 +452,6 @@ TCP 连接。 TCP 服务器端依次调用 <code>socket()</code>
 socket 描述字，好比操作完打开的文件要调用 <code>fclose()</code>
 关闭打开的文件。</p>
 <h3 id="java-socket-常用-api">3. Java Socket 常用 API</h3>
-<p>​
-<img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202211012224588.png" srcset="/img/loading.gif" lazyload style="zoom:33%;" />
-<img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202211012224829.png" srcset="/img/loading.gif" lazyload alt="image-20221101222441794" style="zoom:33%;" /></p>
 <h4 id="inetaddress-类-套接字地址域名解析">3.1. INetAddress 类 ——
 套接字地址/域名解析</h4>
 <ul>
@@ -444,7 +473,7 @@ socket 描述字，好比操作完打开的文件要调用 <code>fclose()</code>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.net.*;<br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Lookup</span> &#123;<br>  <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>    <span class="hljs-keyword">try</span> &#123; <br>      <span class="hljs-type">InetAddress</span> <span class="hljs-variable">a</span> <span class="hljs-operator">=</span> InetAddress.getByName(args[<span class="hljs-number">0</span>]);<br>      System.out.println(args[<span class="hljs-number">0</span>] + <span class="hljs-string">&quot;:&quot;</span> + a.getHostAddress()); 	<br><br>    &#125; <span class="hljs-keyword">catch</span> (UnknownHostException e) &#123;<br>      System.out.println(<span class="hljs-string">&quot;No address found for &quot;</span> + args[<span class="hljs-number">0</span>]); <br>    &#125;<br>  &#125;<br>&#125;<br><br><br><span class="hljs-comment">//有输出如下</span><br>----------------------------------------<br>&gt; java Lookup software.nju.edu.cn      <br>software.nju.edu.cn:<span class="hljs-number">219.219</span><span class="hljs-number">.120</span><span class="hljs-number">.45</span>     <br>&gt; java Lookup <span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span><br><span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span><br>-----------------------------------------<br></code></pre></td></tr></table></figure>
 <h4 id="socketserversocket-类-tcp套接字">3.2. Socket/ServerSocket 类 ——
 TCP套接字</h4>
-<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202211012229523.png" srcset="/img/loading.gif" lazyload alt="image-20221101222913502" style="zoom:50%;" /></p>
+<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202211012229523.png" srcset="/img/loading.gif" lazyload alt="" style="zoom:50%;" /></p>
 <h5 id="socket-1">3.2.1. Socket</h5>
 <p>Socket
 类表示一个<strong>建立好的TCP连接</strong>，它可以由服务端通过主动连接创建，也可以被
@@ -508,14 +537,14 @@ DatagramSocket/DatagramPacket —— UDP套接字</h4>
 <li>服务端读取客户端的输入数据，将其转换为大写，并传回给客户端</li>
 <li>客户端从服务端读取数据，并将转换后的字符串输出到标准输出流，回显给用户</li>
 </ul>
-<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202211012154884.png" srcset="/img/loading.gif" lazyload alt="TCP-Socket编程实例" style="zoom:50%;" /></p>
+<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202211012331462.png" srcset="/img/loading.gif" lazyload alt="" style="zoom:50%;" /></p>
 <ul>
 <li>如下</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> Client<br><span class="hljs-keyword">import</span> java.io.*; <br><span class="hljs-keyword">import</span> java.net.*; <br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">TCPClient</span> &#123; <br>	<span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String argv[])</span> <span class="hljs-keyword">throws</span> Exception&#123; <br>    String sentence;<br>    String modifiedSentence; <br>		<span class="hljs-type">BufferedReader</span> <span class="hljs-variable">inFromUser</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">BufferedReader</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">InputStreamReader</span>(System.in));<br>		<span class="hljs-type">Socket</span> <span class="hljs-variable">clientSocket</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Socket</span>(<span class="hljs-string">&quot;hostname&quot;</span>, <span class="hljs-number">6789</span>); <br>		<span class="hljs-type">DataOutputStream</span> <span class="hljs-variable">outToServer</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">DataOutputStream</span>(clientSocket.getOutputStream());<br>   	<span class="hljs-type">BufferedReader</span> <span class="hljs-variable">inFromServer</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">BufferedReader</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">InputStreamReader</span>(clientSocket.getInputStream())); <br>		sentence = inFromUser.readLine(); <br>		outToServer.writeBytes(sentence + <span class="hljs-string">&#x27;\n&#x27;</span>); <br>    modifiedSentence = inFromServer.readLine();     <br>    System.out.println(<span class="hljs-string">&quot;FROM SERVER: &quot;</span> + modifiedSentence);   <br>	  clientSocket.close();<br>  &#125; <br>&#125;<br></code></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> Server<br><span class="hljs-keyword">import</span> java.io.*; <br><span class="hljs-keyword">import</span> java.net.*; <br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">TCPServer</span> &#123; <br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String argv[])</span> <span class="hljs-keyword">throws</span> Exception&#123; <br>      String clientSentence; <br>      String capitalizedSentence; <br>      <span class="hljs-type">ServerSocket</span> <span class="hljs-variable">welcomeSocket</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ServerSocket</span>(<span class="hljs-number">6789</span>);<br>      <span class="hljs-keyword">while</span>(<span class="hljs-literal">true</span>) &#123;<br>        <span class="hljs-type">Socket</span> <span class="hljs-variable">connectionSocket</span> <span class="hljs-operator">=</span> welcomeSocket.accept(); <br>        <span class="hljs-type">BufferedReader</span> <span class="hljs-variable">inFromClient</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">BufferedReader</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">InputStreamReader</span>(connectionSocket.getInputStream())); <br>        <span class="hljs-type">DataOutputStream</span>  <span class="hljs-variable">outToClient</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">DataOutputStream</span>(connectionSocket.getOutputStream()); <br>        clientSentence = inFromClient.readLine(); <br>        capitalizedSentence = clientSentence.toUpperCase() + <span class="hljs-string">&#x27;\n&#x27;</span>;<br>        outToClient.writeBytes(capitalizedSentence);     <br>	   &#125; <br>	&#125; <br>&#125; <br></code></pre></td></tr></table></figure>
 <h4 id="udp-套接字编程实例">4.2. UDP 套接字编程实例</h4>
-<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202211012152560.png" srcset="/img/loading.gif" lazyload alt="UDP-Socket编程实例" style="zoom:50%;" /></p>
+<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202211012331209.png" srcset="/img/loading.gif" lazyload alt="" style="zoom:50%;" /></p>
 <ul>
 <li>如下</li>
 </ul>
