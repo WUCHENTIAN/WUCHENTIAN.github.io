@@ -20,22 +20,23 @@
   
     <meta name="description" content="1. Tree 的相关定义 1.1. Tree 的定义 满足下列三个条件的数据结构叫做树  A tree T is a collection of nodes(element). The collection can be empty. Otherwise, a tree consists of a distinguished node r , called the root, and zero">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Tree">
-<meta property="og:url" content="https://wuchentian.github.io/2022/10/20/Data%20Structure/Tree/index.html">
+<meta property="og:title" content="Tree &amp; Binary Tree">
+<meta property="og:url" content="https://wuchentian.github.io/2022/10/20/Data%20Structure/Tree%20&%20Binary%20Tree/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="1. Tree 的相关定义 1.1. Tree 的定义 满足下列三个条件的数据结构叫做树  A tree T is a collection of nodes(element). The collection can be empty. Otherwise, a tree consists of a distinguished node r , called the root, and zero">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-10-20T09:08:00.000Z">
-<meta property="article:modified_time" content="2022-11-01T16:05:12.630Z">
+<meta property="article:modified_time" content="2022-11-02T03:21:05.847Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Data Structure">
 <meta property="article:tag" content="C++">
 <meta property="article:tag" content="Java">
+<meta property="article:tag" content="Tree">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>Tree - Hexo</title>
+  <title>Tree &amp; Binary Tree - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -212,7 +213,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Tree"></span>
+            <span id="subtitle" data-typed-text="Tree &amp; Binary Tree"></span>
           
         </div>
 
@@ -235,7 +236,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          7.3k words
+          8.4k words
         
       </span>
     
@@ -246,7 +247,7 @@
         
         
         
-          61 mins
+          70 mins
         
       </span>
     
@@ -284,7 +285,7 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Tree</h1>
+            <h1 style="display: none">Tree &amp; Binary Tree</h1>
             
             
               <div class="markdown-body">
@@ -338,8 +339,8 @@ collection of elements.</p></li>
 trees, which are called the left and right subtrees of t.</p></li>
 </ul></li>
 </ol>
-<h4 id="binary-tree-和一般意义的-tree-有什么区别">2.2. Binary Tree
-和一般意义的 Tree 有什么区别</h4>
+<h4 id="binary-tree-和一般意义的-tree-的区别">2.2. Binary Tree
+和一般意义的 Tree 的区别</h4>
 <ul>
 <li>Each element in a binary tree has exactly two subtrees(one or both
 of these subtrees may be empty).
@@ -512,6 +513,83 @@ id="利用二叉树的广义表表示来构造一棵二叉树-abd-ce-g-fhi-a-b-c
 D E F G H I</h5>
 <h5 id="利用二叉树的后缀表示来构造一棵二叉树-abc-abc-c-a-b">4.
 利用二叉树的后缀表示来构造一棵二叉树 (a+b)<em>c ab+c</em> * + c a b</h5>
+<h3 id="thread-binary-tree">3. Thread Binary Tree</h3>
+<h4 id="一个平凡的想法">3.1. 一个平凡的想法</h4>
+<p><span class="math inline">\(n\)</span> 个结点的二叉树有 <span
+class="math inline">\(2n\)</span> 个<a
+target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_38233103/article/details/117674582">链域</a>，
+其中真正有用的是 <span class="math inline">\(n – 1\)</span> 个（因为
+<span class="math inline">\(|E|=|V|-1\)</span>），其它 <span
+class="math inline">\(n + 1\)</span>个都是空域。
+为了充分利用结点中的空域，使得对某些运算更快，如前驱或后继等运算</p>
+<h4 id="section">3.2.</h4>
+<h4 id="section-1">3.3.</h4>
+<h3 id="huffman-tree">4. Huffman Tree</h3>
+<blockquote>
+<p>Huffman Tree 是一种特殊类型的 Binary Tree</p>
+</blockquote>
+<h4 id="一些概念">4.1. 一些概念</h4>
+<ul>
+<li><p>增长树</p>
+<ul>
+<li><p>对原二叉树中度为 1 的结点，增加一个空树叶</p></li>
+<li><p>对原二叉树中的树叶，增加两个空树叶</p></li>
+</ul></li>
+<li><p>外通路长度（外路径）<span class="math inline">\(E\)</span>：
+根到每个外结点 (增长树的叶子) 的路径长度的总和</p></li>
+<li><p>内通路长度（内路径）<span class="math inline">\(I\)</span>：
+根到每个内结点 (非叶子) 的路径长度的总和</p></li>
+<li><p>结点的带权路径长度：
+一个结点的权值与结点的路径长度的乘积。</p></li>
+<li><p>带权的外路径长度： 各叶结点的带权路径长度之和。</p></li>
+<li><p>带权的内路径长度：各非叶结点的带权路径长度之和。</p></li>
+</ul>
+<p><strong>Huffman Tree</strong></p>
+<p>给出 <span class="math inline">\(m\)</span> 个实数 <span
+class="math inline">\(w_1，w_2，…，w_m （m\geq 2）\)</span> 作为 <span
+class="math inline">\(m\)</span> 个外结 点的权构造一棵增长树，
+使得<strong>带权外路径长度</strong>: <span class="math display">\[
+\displaystyle \sum_{i=1}^m w_iI_i
+\]</span> 最小，这样的树叫做Huffman树。其中 <span
+class="math inline">\(I_i\)</span> 为从根结点出发到具有权为 <span
+class="math inline">\(w_i\)</span> 的外结点的通路长</p>
+<h4 id="huffman-算法">4.2. Huffman 算法</h4>
+<blockquote>
+<p>思想： 权大的外结点靠近根， 权小的远离根。</p>
+</blockquote>
+<p>算法： 从 <span class="math inline">\(m\)</span>
+个权值中找出两个最小值 <span class="math inline">\(w_1，w_2\)</span>
+构成 （其中，<span class="math inline">\(w = w_1 +w_2\)</span>
+表示通过该结点的频度）</p>
+<pre><code class=" mermaid">graph TD
+w--&gt;w1((w1))
+w((w))--&gt;w2((w2))
+</code></pre>
+<p>然后对 <span class="math inline">\(m-1\)</span> 个权值 <span
+class="math inline">\(w， w_3，w_4, …, w_m\)</span>
+经由小到大排序，求解这个问题</p>
+<p><strong>注意</strong>: 当内结点的权值与外结点的权值相等的情况下，
+内结点应排在外结点之后。除了保证Wi l i最小外，还保证 <span
+class="math inline">\(\max I_j\)</span> 和 $ _{j=1}^mI_j$ 也有最小值</p>
+<h4 id="huffman-编码">4.3. Huffman 编码</h4>
+<blockquote>
+<p>Huffman 编码是 Huffman Tree 在通信的二进制编码中一种应用。</p>
+</blockquote>
+<p>设一电文出现的字符为 <span class="math inline">\(D=\{M，S，T，A，Q，
+K\}\)</span> ， 每个字符出现的频率为 <span
+class="math inline">\(W=\{10，29，4，8，15，7\}\)</span> ，
+如何对上面的诸字符进行二进制编码， 使得</p>
+<ul>
+<li><p>该电文的总长度最短。</p></li>
+<li><p>为了译码，任一字符的编码不应是另一字符的编码的前缀</p></li>
+</ul>
+<p>算法： 利用 Huffman 算法， 把 <span
+class="math inline">\(\{10，29，4，8，15，7\}\)</span>
+作为外部结点的权，
+构造具有最小带权外路径长度的扩充二叉树，把每个结点的左子女的边标上0，
+右子女标上1。 这样从根到每个 叶子的路径上的号码连接起来，
+就是外结点的字符编码。</p>
+<h3 id="general-lists">5. General Lists</h3>
 
                 
               </div>
@@ -551,6 +629,8 @@ D E F G H I</h5>
       
         <a href="/tags/Java/">#Java</a>
       
+        <a href="/tags/Tree/">#Tree</a>
+      
     </div>
   
 </div>
@@ -561,8 +641,8 @@ D E F G H I</h5>
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Tree</div>
-      <div>https://wuchentian.github.io/2022/10/20/Data Structure/Tree/</div>
+      <div>Tree &amp; Binary Tree</div>
+      <div>https://wuchentian.github.io/2022/10/20/Data Structure/Tree &amp; Binary Tree/</div>
     </div>
     <div class="license-meta">
       

@@ -1,0 +1,781 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=dark>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/ice.png">
+  <link rel="icon" href="/img/ice.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="1. Binary Search Tree  二叉搜索树具有很良好的 插入&#x2F;删除&#x2F;搜索 性质 这是传统的线性表做不到的  1.1. 递归式定义 ​ A binary search tree is a binary tree that may be empty. A nonempty binary search tree satisfies the following properties:  Ev">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Search Tree">
+<meta property="og:url" content="https://wuchentian.github.io/2022/11/02/Data%20Structure/Search%20Tree/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1. Binary Search Tree  二叉搜索树具有很良好的 插入&#x2F;删除&#x2F;搜索 性质 这是传统的线性表做不到的  1.1. 递归式定义 ​ A binary search tree is a binary tree that may be empty. A nonempty binary search tree satisfies the following properties:  Ev">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202211020920683.png">
+<meta property="article:published_time" content="2022-11-02T01:14:00.000Z">
+<meta property="article:modified_time" content="2022-11-02T02:02:15.610Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Data Structure">
+<meta property="article:tag" content="C++">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="Tree">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202211020920683.png">
+  
+  
+  
+  <title>Search Tree - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"wuchentian.github.io","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                Links
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/background.jpeg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Search Tree"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-11-02 09:14" pubdate>
+          November 2, 2022 am
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.8k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          32 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Search Tree</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h3 id="binary-search-tree">1. Binary Search Tree</h3>
+<blockquote>
+<p>二叉搜索树具有很良好的 插入/删除/搜索 性质</p>
+<p>这是传统的线性表做不到的</p>
+</blockquote>
+<h4 id="递归式定义">1.1. 递归式定义</h4>
+<p>​ A binary search tree is a binary tree that may be empty. A nonempty
+binary search tree satisfies the following properties:</p>
+<ul>
+<li><p>Every element has a <em>key</em> (是一个包含序关系的值，用于比较)
+and no two elements have the same key (因此所有的 key
+值都要是不重复的)</p></li>
+<li><p>The keys(if any) in the left subtree of the root are smaller than
+the key in the root.</p></li>
+<li><p>The keys(if any) in the right subtree of the root are larger than
+the key in the root.</p></li>
+<li><p>The left and right subtrees of the root are also binary search
+trees.</p></li>
+</ul>
+<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202211020920683.png" srcset="/img/loading.gif" lazyload alt="image-20221102092002652" style="zoom: 33%;" /></p>
+<h4 id="带索引的二叉搜索树">1.2. 带索引的二叉搜索树</h4>
+<ul>
+<li><p>An indexed binary search tree is derived from an ordinary binary
+search tree by <strong>adding the field leftSize to each tree
+node</strong>. （添加一个左子树节点数的缓存）</p></li>
+<li><p>Value in Leftsize field = number of the elements in the node’s
+left subtree +1</p></li>
+</ul>
+<h4 id="代码实现">1.3. 代码实现</h4>
+<h5 id="节点与树">1.3.1. 节点与树</h5>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// BinaryNode class</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">BinaryNode</span>&#123; <br>  BinaryNode( Comparable theElement )&#123; <br>    <span class="hljs-built_in">this</span>(theElement, <span class="hljs-literal">null</span>, <span class="hljs-literal">null</span>); <br>  &#125;<br>	BinaryNode( Comparable theElement, BinaryNode lt, BinaryNode rt )&#123; <br>    element = theElement; left = lt; right = rt; <br>  &#125;<br>  Comparable element;<br>  BinaryNode left;<br>  BinaryNode right;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//Binary search tree class skeleton</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">BinarySearchTree</span>&#123; <br>  <span class="hljs-keyword">public</span> <span class="hljs-title function_">BinarySearchTree</span><span class="hljs-params">( )</span> &#123;root = <span class="hljs-literal">null</span>;&#125;<br>  <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">makeEmpty</span><span class="hljs-params">( )</span> &#123;root = <span class="hljs-literal">null</span>;&#125;<br>	<span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">isEmpty</span><span class="hljs-params">( )</span> &#123;<span class="hljs-type">return</span> <span class="hljs-variable">root</span> <span class="hljs-operator">=</span> = <span class="hljs-literal">null</span>;&#125;<br>	<span class="hljs-keyword">public</span> Comparable <span class="hljs-title function_">find</span><span class="hljs-params">(Comparable x)</span>&#123;<br>  	<span class="hljs-keyword">return</span> elementAt(find( x, root));<br>	&#125;<br>	<span class="hljs-keyword">public</span> Comparable <span class="hljs-title function_">findMin</span><span class="hljs-params">()</span>&#123; <br>  	<span class="hljs-keyword">return</span> elementAt( findMin( root ) ); <br>	&#125;<br>	<span class="hljs-keyword">public</span> Comparable <span class="hljs-title function_">findMax</span><span class="hljs-params">()</span>&#123; <br>  	<span class="hljs-keyword">return</span> elementAt( findMax( root ) ); <br>	&#125;  <br>	<span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">insert</span><span class="hljs-params">(Comparable x)</span>&#123;<br> 	 root = insert( x, root ); <br>	&#125;<br>	<span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">remove</span><span class="hljs-params">(Comparable x)</span>&#123;<br>  	root = remove( x, root ); <br>	&#125;<br>	<span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">printTree</span><span class="hljs-params">()</span><br>	<span class="hljs-keyword">private</span> BinaryNode root;<br>	<span class="hljs-keyword">private</span> Comparable <span class="hljs-title function_">elementAt</span><span class="hljs-params">( BinaryNode t )</span>&#123; <br>  	<span class="hljs-type">return</span> <span class="hljs-variable">t</span> <span class="hljs-operator">=</span> = <span class="hljs-literal">null</span> ? Null : t.element; <br>	&#125;<br>	<span class="hljs-keyword">private</span> BinaryNode <span class="hljs-title function_">find</span><span class="hljs-params">(Comparable x, BinaryNode t)</span>&#123;...&#125;<br>	<span class="hljs-keyword">private</span> BinaryNode <span class="hljs-title function_">findMin</span><span class="hljs-params">(BinaryNode t)</span>&#123;...&#125;<br>	<span class="hljs-keyword">private</span> BinaryNode <span class="hljs-title function_">findMax</span><span class="hljs-params">(BinaryNode t)</span>&#123;...&#125;<br>	<span class="hljs-keyword">private</span> BinaryNode <span class="hljs-title function_">insert</span><span class="hljs-params">(Comparable x, BinaryNode t)</span>&#123;...&#125;<br>	<span class="hljs-keyword">private</span> BinaryNode <span class="hljs-title function_">remove</span><span class="hljs-params">(Comparable x, BinaryNode t)</span>&#123;...&#125;<br>	<span class="hljs-keyword">private</span> BinaryNode <span class="hljs-title function_">removeMin</span><span class="hljs-params">(BinaryNode t)</span>&#123;...&#125;<br>	<span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">printTree</span><span class="hljs-params">(BinaryNode t)</span>&#123;...&#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+<h5 id="搜索">1.3.2. 搜索</h5>
+<p>我们发现搜索操作最多只需要进行一个树高的次数，可见二叉搜索树的<strong>搜索</strong>性能确实非常优越</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//Find operation for binary search trees</span><br><span class="hljs-keyword">private</span> BinaryNode <span class="hljs-title function_">find</span><span class="hljs-params">(Comparable x, BinaryNode t)</span>&#123; <br>  <span class="hljs-keyword">if</span>(t == <span class="hljs-literal">null</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;<br>	<span class="hljs-keyword">if</span>(x. compareTo( t.element ) &lt; <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> find( x, t.left );<br>  <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(x.compareTo( t.element ) &gt; <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> find( x, t.right );<br>	<span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> t; <span class="hljs-comment">//Match</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<h5 id="findmax-和-findmin">1.3.3. findMax 和 findMin</h5>
+<p>可以递归也可以不递归</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//Recursive implementation of findMin for binary search trees</span><br><span class="hljs-keyword">private</span> BinaryNode <span class="hljs-title function_">findMin</span><span class="hljs-params">( BinaryNode t )</span>&#123; <br>  <span class="hljs-keyword">if</span>(t == <span class="hljs-literal">null</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;<br>  <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(t.left == <span class="hljs-literal">null</span>)<br>  <span class="hljs-keyword">return</span> t;<br>  <span class="hljs-keyword">return</span> findMin(t.left);<br>&#125;<br><br><span class="hljs-comment">//Nonrecursive implementation of findMax for binary search trees</span><br><span class="hljs-keyword">private</span> BinaryNode <span class="hljs-title function_">findMax</span><span class="hljs-params">(BinaryNode t)</span>&#123; <br>  <span class="hljs-keyword">if</span>( t != <span class="hljs-literal">null</span> )&#123;<br>    <span class="hljs-keyword">while</span>( t.right != <span class="hljs-literal">null</span> )&#123;<br>      t = t.right;<br>    &#125;<br>  &#125;<br>	<span class="hljs-keyword">return</span> t;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h5 id="插入">1.3.4. 插入</h5>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">private</span> BinaryNode <span class="hljs-title function_">insert</span><span class="hljs-params">( Comparable x, BinaryNode t )</span> &#123;<br>  <span class="hljs-keyword">if</span>(t == <span class="hljs-literal">null</span>) t = <span class="hljs-keyword">new</span> <span class="hljs-title class_">BinaryNode</span>( x, <span class="hljs-literal">null</span>, <span class="hljs-literal">null</span> );<br>  <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>( x.compareTo(t.element) &lt; <span class="hljs-number">0</span> ) t.left = insert(x, t.left);<br>  <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>( x.compareTo(t.element) &gt; <span class="hljs-number">0</span>) t.right = insert(x, t.right);<br>  <span class="hljs-keyword">else</span>;<span class="hljs-comment">//duplicate; do nothing</span><br>  <span class="hljs-keyword">return</span> t;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h5 id="删除">1.3.5. 删除</h5>
+<p>It is necessary to adjust the binary search tree after deleting an
+element, so that the tree remained is still a binary search tree.There
+is three cases for deleting node p :</p>
+<ul>
+<li><p>P is a leaf</p></li>
+<li><p>P has exactly one nonempty subtree</p></li>
+<li><p>P has exactly two nonempty subtrees</p></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//Deletion routine for binary search trees</span><br><span class="hljs-keyword">private</span> BinaryNode <span class="hljs-title function_">remove</span><span class="hljs-params">(Comparable x, BinaryNode t)</span>&#123; <br>  <span class="hljs-keyword">if</span>(t == <span class="hljs-literal">null</span>) <span class="hljs-keyword">return</span> t;<br>  <span class="hljs-keyword">if</span>(x.compareTo(t.element) &lt; <span class="hljs-number">0</span>) t.left = remove(x, t.left);<br>  <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>( x.compareTo(t.element) &gt; <span class="hljs-number">0</span>) t.right = remove(x, t.right);<br>  <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(t.left != <span class="hljs-literal">null</span> &amp;&amp; t.right != <span class="hljs-literal">null</span>)&#123; <br>    t.element = findMin(t.right).element;<br>    t.right = remove(t.element, t.right);<br>  &#125;<br>  <span class="hljs-keyword">else</span> t = (t.left != <span class="hljs-literal">null</span>) ? t.left : t.right;<br>  <span class="hljs-keyword">return</span> t;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h4 id="binary-search-tree-的复杂度">1.4. Binary Search Tree
+的复杂度</h4>
+<ol type="1">
+<li>二叉搜索树以上的所有操作都和二叉搜索树的深度有关，所以在生成二叉树的时候我们需要保证二叉搜索树的平衡性，(如果一开始输入最小的，树严重失衡，如果一开始输入中等，树基本平衡)</li>
+<li>Best Case: <span class="math inline">\(O(\log_2n)\)</span></li>
+<li>Worst Case: <span class="math inline">\(O(n)\)</span></li>
+</ol>
+<h3 id="avl-tree">2. AVL Tree</h3>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Data-Structure/" class="category-chain-item">Data Structure</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Data-Structure/">#Data Structure</a>
+      
+        <a href="/tags/C/">#C++</a>
+      
+        <a href="/tags/Java/">#Java</a>
+      
+        <a href="/tags/Tree/">#Tree</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Search Tree</div>
+      <div>https://wuchentian.github.io/2022/11/02/Data Structure/Search Tree/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>November 2, 2022</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/11/01/Computer%20Networking/Socket/Java%20Socket%20%E5%85%A5%E9%97%A8/" title="Java Socket 入门">
+                        <span class="hidden-mobile">Java Socket 入门</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;Table of Contents</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('mermaid' in window) {
+        mermaid.init();
+      }
+    });
+  });
+</script>
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>
