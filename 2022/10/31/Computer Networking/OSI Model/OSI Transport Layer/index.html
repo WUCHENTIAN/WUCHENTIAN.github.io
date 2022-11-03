@@ -18,19 +18,27 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="OSI层次：传输层 1. 第四层概述 1.1. 第四层的功能 将上面应用层的数据分段 建立终端到终端的操作 将段从一台主机端发送到其它主机 流量控制和可靠性 ​ 可以比作与外国人对话，通常你让外国人重复他的话（可靠性），然后慢慢的说（流量控制） 1.2. 两个重要的协议 传输控制协议（Transmission Control Protocol ，TCP ）  面向连接 软件的段检查 如果有丢失或者">
+    <meta name="description" content="OSI层次：传输层 1. 传输层概述 1.1. 传输层的功能  传输层将上面应用层的数据分段 建立终端到终端的操作 将报文段 (segment) 从一台主机端发送到其它主机 流量控制和可靠性  ​ 可以比作与外国人对话，通常你让外国人重复他的话（可靠性），然后慢慢的说（流量控制）   1.2. 两个重要的协议 1.2.1. TCP (Transmission Control Protocol, 传">
 <meta property="og:type" content="article">
 <meta property="og:title" content="OSI Transport Layer">
 <meta property="og:url" content="https://wuchentian.github.io/2022/10/31/Computer%20Networking/OSI%20Model/OSI%20Transport%20Layer/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="OSI层次：传输层 1. 第四层概述 1.1. 第四层的功能 将上面应用层的数据分段 建立终端到终端的操作 将段从一台主机端发送到其它主机 流量控制和可靠性 ​ 可以比作与外国人对话，通常你让外国人重复他的话（可靠性），然后慢慢的说（流量控制） 1.2. 两个重要的协议 传输控制协议（Transmission Control Protocol ，TCP ）  面向连接 软件的段检查 如果有丢失或者">
+<meta property="og:description" content="OSI层次：传输层 1. 传输层概述 1.1. 传输层的功能  传输层将上面应用层的数据分段 建立终端到终端的操作 将报文段 (segment) 从一台主机端发送到其它主机 流量控制和可靠性  ​ 可以比作与外国人对话，通常你让外国人重复他的话（可靠性），然后慢慢的说（流量控制）   1.2. 两个重要的协议 1.2.1. TCP (Transmission Control Protocol, 传">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311033989.png">
+<meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311033890.png">
+<meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311034942.png">
+<meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311034569.png">
+<meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311034242.png">
+<meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311034132.png">
+<meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311034504.png">
 <meta property="article:published_time" content="2022-10-31T02:53:00.000Z">
-<meta property="article:modified_time" content="2022-11-02T09:37:33.406Z">
+<meta property="article:modified_time" content="2022-11-03T04:15:14.148Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Network">
 <meta property="article:tag" content="OSI">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311033989.png">
   
   
   
@@ -234,7 +242,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.5k words
+          3.8k words
         
       </span>
     
@@ -245,7 +253,7 @@
         
         
         
-          30 mins
+          32 mins
         
       </span>
     
@@ -289,166 +297,217 @@
               <div class="markdown-body">
                 
                 <h1 id="osi层次传输层">OSI层次：传输层</h1>
-<h2 id="第四层概述">1. 第四层概述</h2>
-<h3 id="第四层的功能">1.1. 第四层的功能</h3>
-<p>将上面应用层的数据分段</p>
-<p>建立终端到终端的操作</p>
-<p>将段从一台主机端发送到其它主机</p>
-<p>流量控制和可靠性</p>
-<p>​
-可以比作与外国人对话，通常你让外国人重复他的话（可靠性），然后慢慢的说（流量控制）</p>
-<h3 id="两个重要的协议">1.2. 两个重要的协议</h3>
-<p>传输控制协议（Transmission Control Protocol ，TCP ）</p>
+<h2 id="传输层概述">1. 传输层概述</h2>
+<h3 id="传输层的功能">1.1. 传输层的功能</h3>
 <ul>
-<li>面向连接</li>
-<li>软件的段检查</li>
-<li>如果有丢失或者错误，重新发送</li>
-<li>使用确认</li>
-<li>提供流量控制</li>
+<li><p><a
+target="_blank" rel="noopener" href="https://baike.baidu.com/item/传输层/4329536">传输层</a>将上面应用层的数据分段</p></li>
+<li><p>建立终端到终端的操作</p></li>
+<li><p>将<a
+target="_blank" rel="noopener" href="https://blog.csdn.net/Hongwei_1990/article/details/105942164">报文段</a>
+(segment) 从一台主机端发送到其它主机</p></li>
+<li><p>流量控制和可靠性</p>
+<ul>
+<li>​
+可以比作与外国人对话，通常你让外国人重复他的话（可靠性），然后慢慢的说（流量控制）</li>
+</ul></li>
 </ul>
-<p>用户数据报协议（User Datagram Protocol，UDP）</p>
+<h3 id="两个重要的协议">1.2. 两个重要的协议</h3>
+<h4 id="tcp-transmission-control-protocol-传输控制协议">1.2.1. TCP
+(Transmission Control Protocol, 传输控制协议)</h4>
+<p>​ <a target="_blank" rel="noopener" href="https://baike.baidu.com/item/TCP/33012">TCP</a>
+是一种<strong>面向连接的、可靠的、基于字节流的</strong>传输层通信协议，由
+<a
+target="_blank" rel="noopener" href="https://www.bing.com/search?q=IETF&amp;form=APMCS1&amp;PC=APMC">IETF</a>
+的 <a
+target="_blank" rel="noopener" href="https://blog.csdn.net/m0_46500807/article/details/113899976">RFC
+793</a>
+定义。不同主机的应用层之间经常需要可靠的、像管道一样的连接，但是IP层不提供这样的流机制，而是提供不可靠的包交换。因此我们需要
+TCP 协议做下面几件事：</p>
 <ul>
-<li>无连接</li>
+<li><p>提供软件的段检查</p></li>
+<li><p>如果有丢失或者错误，重新发送</p></li>
+<li><p>使用确认</p></li>
+<li><p>提供流量控制</p></li>
+</ul>
+<h4 id="udp-user-datagram-protocal-用户数据包协议">1.2.2. UDP (User
+Datagram Protocal, 用户数据包协议)</h4>
+<p>​ <a target="_blank" rel="noopener" href="https://baike.baidu.com/item/UDP/571511">UDP</a>
+一种<strong>面向无连接、不可靠的、快速传输的</strong>传输层通信协议，由
+<a
+target="_blank" rel="noopener" href="https://blog.csdn.net/gtj0617/article/details/118345291?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522166744454516782395383961%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=166744454516782395383961&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-118345291-null-null.142%5Ev62%5Epc_search_tree,201%5Ev3%5Econtrol_2,213%5Ev1%5Econtrol&amp;utm_term=RFC768&amp;spm=1018.2226.3001.4187">RFC
+768</a>
+定义。作为Internet传输层的另外一个重要协议，UDP除了<strong>给应用程序发送数据包</strong>并<strong>允许它们在所需的层次上架构自己的协议</strong>之外，几乎没有做什么特别的事情。</p>
+<ul>
 <li>不提供软件检查段</li>
 <li>不使用确认</li>
 <li>不提供流操作</li>
 </ul>
-<h3 id="服务类型">1.3. 服务类型</h3>
-<figure>
-<img
-src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311033989.png" srcset="/img/loading.gif" lazyload
-alt="pic42" />
-<figcaption aria-hidden="true">pic42</figcaption>
-</figure>
-<p>TCP 和 UDP 都用端口来跟踪同一时间穿过网络的不同通讯</p>
-<p>应用软件开发商已经同意使用众所周知的，在RFC1700中定义的端口号</p>
-<p>小于255的端口号保留给TCP 和 UDP 公共应用</p>
-<p>256-1023：公共端口 1024-49151：注册端口 49152-65535：客户端进程</p>
-<p>IP+2 Byte的端口号(Port)-&gt;指定主机上的某一个进程</p>
+<h3 id="服务模型">1.3. 服务模型</h3>
+<p>TCP 和 UDP
+都用<strong>端口</strong>来跟踪同一时间穿过网络的不同通讯</p>
+<p>应用软件开发商已经同意使用众所周知的，在 <a
+target="_blank" rel="noopener" href="https://blog.csdn.net/an_zhenwei/article/details/38038045">RFC
+1700</a> 中定义的端口号：</p>
+<ul>
+<li>&lt; 255: TCP 和 UDP <strong>公共应用</strong></li>
+<li>256～1023：公共端口</li>
+<li>1024～49151：注册端口</li>
+<li>49152～65535：客户端进程</li>
+</ul>
+<p>值得注意的是，<strong>IP地址 + 特定的端口号 = 制定的进程</strong></p>
+<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311033989.png" srcset="/img/loading.gif" lazyload alt="" style="zoom: 67%;" /></p>
 <h3 id="套接字-socket">1.4.套接字 (Socket)</h3>
-<p>套接字表示为（IP地址：端口号）</p>
-<p>每一个连接表示为(套接字来源, 套接字目的),
-这是一个点对点的全双工信道</p>
-<p>TCP 不支持多播和广播</p>
+<p>关于 <strong>Socket</strong> 更详细的内容可以查看<a
+target="_blank" rel="noopener" href="https://naturalifica.top/2022/11/01/Computer%20Networking/Socket/Java%20Socket%20入门/">这篇文章</a></p>
+<ul>
+<li><p>套接字表示为（IP地址:端口号）</p></li>
+<li><p>每一个连接表示为(套接字来源, 套接字目的),
+这是一个点对点的全双工信道</p></li>
+<li><p>TCP 不支持 <a
+target="_blank" rel="noopener" href="https://blog.csdn.net/u011003120/article/details/103531818">组播
+(多播) 和广播</a></p></li>
+</ul>
 <h2 id="tcptransmission-control-protocol">2. TCP(Transmission Control
 Protocol)</h2>
 <h3 id="tcp中必须解决的问题">2.1. TCP中必须解决的问题</h3>
-<p>可靠的传输</p>
-<p>流量控制</p>
-<p>​ 滑动窗口</p>
-<p>​ 避免拥挤</p>
-<p>连接管理</p>
-<p>​ 建立连接：三次握手</p>
-<p>​ 释放连接：四次握手</p>
+<ul>
+<li><p>传输必须是可靠的</p></li>
+<li><p>流量控制</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/滑动窗口协议/10291557">SLP</a>
+(Sliding Window Protocal, 滑动窗口协议)</li>
+<li><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/拥塞避免/20590357">Congestion
+Avoidance</a> (拥塞避免)</li>
+</ul></li>
+<li><p>连接管理</p>
+<ul>
+<li><p>建立连接：三次握手 (Three Handshakes)</p></li>
+<li><p>结束连接：四次挥手 (Four Handshakes)</p></li>
+</ul></li>
+</ul>
 <h3 id="tcp组成">2.2. TCP组成</h3>
-<figure>
-<img
-src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311033890.png" srcset="/img/loading.gif" lazyload
-alt="pic43" />
-<figcaption aria-hidden="true">pic43</figcaption>
-</figure>
-<p><strong>源端口和目的端口</strong></p>
-<p>​ 源端口和目的端口字段--各占2个字节</p>
-<p>​ 端口是运输层与应用层的服务接口</p>
-<p>​ 运输层的复用和分用功能都要通过端口才能实现</p>
-<p><strong>序号</strong></p>
-<p>​
-序号字段--占4字节(第三层以报文为标识单位，第四层以字节为标识单位)</p>
-<p>​ TCP传送的数据流中的每一个字节都编上一个序号</p>
-<p>​ 序号字段的值指本报文所发送的数据的每一个字节的序号</p>
-<p><strong>确认号</strong></p>
-<p>​
-确认号字段--占4字节，是期望受到对方的下一个报文段的数据的第一个字节的序号</p>
-<p><strong>数据偏移</strong></p>
-<p>​ 数据偏移(即首部长度)--占4位</p>
-<p>​ 指出 TCP 报文段的数据起始处距TCP 报文段的起始处的长度</p>
-<p>​ 单位是 32 位字（以 4 字节为计算单位）</p>
-<p><strong>保留</strong></p>
-<p>​ 保留字段--占6位，保留为今后使用，目前置为0</p>
-<p><strong>URG</strong></p>
-<p>​ 紧急URG=1时，表明紧急指针字段有效</p>
-<p>​ 告诉系统此报文字段中有紧急数据，应尽快传送(相当于高优先级的数据)</p>
-<p><strong>ACK</strong></p>
-<p>​ ACK=1时确认号字段有效</p>
-<p>​ ACK=0时确认号字段无效</p>
-<p><strong>PSH</strong></p>
-<p>​ 推送PSH(PuSH)—— 接收TCP收到PSH= 1
-的报文段，就尽快地交付接收应用进程，而不再等到整个缓存都填满了后再向上交付</p>
-<p><strong>RST</strong></p>
-<p>​ 复位 RST(ReSeT= 1
-时，表明TCP连接中出现严重差错（如由于主机崩溃或其他原因），必须释放连接，然后再重新建立运输连接</p>
-<p><strong>SYN</strong></p>
-<p>​ 同步 SYN=1表示这是一个连接请求或连接接受报文</p>
-<p><strong>FIN</strong></p>
-<p>​ 终止 FIN(FINis)—— 用来释放一个连接。FIN= 1
-表明此报文段的发送端的数据已发送完毕，并要求释放运输连接</p>
-<p><strong>窗口</strong></p>
-<p>​ 窗口字段--占2字节，用来让对方设置发送窗口的依据，单位为字节</p>
-<p><strong>校验和</strong></p>
-<p>​ 占2字节，检验和字段检验的范围包括首部和数据这两部分</p>
-<p><strong>紧急指针</strong></p>
-<p>​
-紧急指针字段——占16位，指出在本报文段中紧急数据共有多少个字节（紧急数据放在本报文段数据的最前面）</p>
-<p><strong>选项</strong></p>
-<p>​ TCP 最初只有一种选项，即最大报文段长度 MSS(Maximum Segment Size)</p>
-<p>​ MSS 告诉对方缓存所能接收的报文段的数据字段的最大长度是 MSS
-个字节</p>
-<p>​ 数据字段加上 TCP 首部才等于整个的 TCP 报文段</p>
-<p><strong>填充字段</strong></p>
-<p>​ 这是为了使整个首部长度是4字节的整数倍</p>
-<h3 id="tcp协议">2.3. TCP协议</h3>
-<p>主机用段交换数据 (TPDU)</p>
-<p>每个段有:</p>
-<p>​ 20字节的首部 (不包括可选部分)</p>
-<p>​ 更多数据字节</p>
-<p>段的大小必须和IP 包匹配，也必须满足底层的需求</p>
-<p>​ 如，以太网的MTU(Maximal Transfer Unit最大传输单元) 是1500
-字节每个字节有一个32位的序号</p>
+<blockquote>
+<p>下图是 TCP 报文段的图示</p>
+<p>可以看见，TCP 报文段包括固定的 <strong>20字节长的首部</strong> 和
+<strong>任意长度的数据段</strong></p>
+</blockquote>
+<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311033890.png" srcset="/img/loading.gif" lazyload alt="" style="zoom:50%;" /></p>
+<h4 id="tcp-协议">2.2.1. TCP 协议</h4>
+<ul>
+<li><p>主机用段交换数据 (TPDU)</p></li>
+<li><p>每个段有:</p>
+<ul>
+<li><p>20字节的首部 (不包括可选部分)</p></li>
+<li><p>更多数据字节</p></li>
+</ul></li>
+<li><p>段的大小必须和IP 包匹配，也必须满足底层的需求</p>
+<ul>
+<li>如，以太网的MTU(Maximal Transfer Unit最大传输单元) 是1500
+字节每个字节有一个32位的序号</li>
+</ul></li>
+</ul>
+<h4 id="tcp-报文段的首部">2.2.2. TCP 报文段的首部</h4>
+<ul>
+<li><p><strong>源端口和目的端口</strong>——各占2个字节</p>
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://baike.baidu.com/item/端口/103505">端口</a>是<strong>运输层与应用层</strong>的服务接口</li>
+<li>运输层的<strong><a
+target="_blank" rel="noopener" href="https://baike.baidu.com/item/复用/9857249?fromModule=search-result_lemma">复用</a>和<a
+target="_blank" rel="noopener" href="https://baike.baidu.com/item/分用?fromModule=lemma_search-box">分用</a></strong>功能都要通过端口才能实现</li>
+</ul></li>
+<li><p><strong>序号</strong>——占4字节</p>
+<ul>
+<li><p>运输层以报文为标识单位，第四层以字节为标识单位</p></li>
+<li><p>TCP传送的数据流中的每一个字节都编上一个序号</p></li>
+<li><p>序号字段的值指本报文所发送的数据的每一个字节的序号</p></li>
+</ul></li>
+<li><p><strong>确认号</strong>——占4字节</p>
+<ul>
+<li>表示期望受到对方的下一个报文段的数据的第一个字节的序号</li>
+</ul></li>
+<li><p><strong>数据偏移</strong>——占4位</p>
+<ul>
+<li>即首部长度</li>
+<li>指出 TCP 报文段的数据起始处距TCP 报文段的起始处的长度</li>
+<li>单位是 32 位字（以 4 字节为计算单位）</li>
+</ul></li>
+<li><p><strong>保留</strong>——占6位</p>
+<ul>
+<li>保留为今后使用，目前置为0</li>
+</ul></li>
+<li><p><strong>URG</strong>——占1位</p>
+<ul>
+<li><p>紧急URG=1时，表明紧急指针字段有效</p></li>
+<li><p>告诉系统此报文字段中有紧急数据，应尽快传送(相当于高优先级的数据)</p></li>
+</ul></li>
+<li><p><strong>ACK</strong>——占1位</p>
+<ul>
+<li>ACK = 1时确认号字段有效</li>
+<li>ACK = 0时确认号字段无效</li>
+</ul></li>
+<li><p><strong>PSH</strong>——占1位</p>
+<ul>
+<li>推送PSH(PuSH)—— 接收TCP收到PSH= 1
+的报文段，就尽快地交付接收应用进程，而不再等到整个缓存都填满了后再向上交付</li>
+</ul></li>
+<li><p><strong>RST</strong>——占1位</p>
+<ul>
+<li>复位 RST(ReSeT= 1
+时，表明TCP连接中出现严重差错（如由于主机崩溃或其他原因），必须释放连接，然后再重新建立运输连接</li>
+</ul></li>
+<li><p><strong>SYN</strong>——占1位</p>
+<ul>
+<li>同步 SYN=1表示这是一个连接请求或连接接受报文</li>
+</ul></li>
+<li><p><strong>FIN</strong>——占1位</p>
+<ul>
+<li>终止 FIN(FINis)—— 用来释放一个连接。FIN= 1
+表明此报文段的发送端的数据已发送完毕，并要求释放运输连接</li>
+</ul></li>
+<li><p><strong>窗口</strong>——占2字节</p>
+<ul>
+<li>用来让对方设置发送窗口的依据，单位为字节</li>
+</ul></li>
+<li><p><strong>校验和</strong>——占2字节</p>
+<ul>
+<li>检验和字段检验的范围包括首部和数据这两部分</li>
+</ul></li>
+<li><p><strong>紧急指针</strong>——占2字节</p>
+<ul>
+<li>指出在本报文段中紧急数据共有多少个字节（紧急数据放在本报文段数据的最前面）</li>
+</ul></li>
+<li><p><strong>选项</strong></p>
+<ul>
+<li><p>TCP 最初只有一种选项，即最大报文段长度 MSS(Maximum Segment
+Size)</p></li>
+<li><p>MSS 告诉对方缓存所能接收的报文段的数据字段的最大长度是 MSS
+个字节</p></li>
+<li><p>数据字段加上 TCP 首部才等于整个的 TCP 报文段</p></li>
+</ul></li>
+<li><p><strong>填充字段</strong>：为了使整个首部长度是4字节的整数倍</p></li>
+</ul>
 <h3 id="tcp建立连接">2.4. TCP：建立连接</h3>
 <h4 id="第一次握手">第一次握手</h4>
 <p>服务器: 执行最初的LISTEN和ACCEPT，被动地开始监听</p>
 <p>客户端: 执行最初的CONNECT, 产生一个SYN=1和ACK=0
 的TCP段，代表连接请求</p>
-<figure>
-<img
-src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311034942.png" srcset="/img/loading.gif" lazyload
-alt="pic44" />
-<figcaption aria-hidden="true">pic44</figcaption>
-</figure>
+<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311034942.png" srcset="/img/loading.gif" lazyload alt="pic44" style="zoom:67%;" /></p>
 <h4 id="第二次握手">第二次握手</h4>
 <p>服务器检查是否存在服务进程在监听端口</p>
 <p>​ 如果没有进程，返回一个RST=1的TCP段</p>
 <p>​ 如果存在进程，决定拒绝或接受请求</p>
 <p>​ 如果接受连接请求，发送一个SYN=1、ACK=1的段</p>
-<figure>
-<img
-src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311034569.png" srcset="/img/loading.gif" lazyload
-alt="pic45" />
-<figcaption aria-hidden="true">pic45</figcaption>
-</figure>
+<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311034569.png" srcset="/img/loading.gif" lazyload alt="pic45" style="zoom:67%;" /></p>
 <h4 id="第三次握手">第三次握手</h4>
 <p>客户端发送一个SYN=0和ACK=1的段来确认连接</p>
-<figure>
-<img
-src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311034242.png" srcset="/img/loading.gif" lazyload
-alt="pic46" />
-<figcaption aria-hidden="true">pic46</figcaption>
-</figure>
+<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311034242.png" srcset="/img/loading.gif" lazyload alt="pic46" style="zoom:67%;" /></p>
 <p><strong>当服务器收到确认，它通知上层应用</strong></p>
-<figure>
-<img
-src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311034132.png" srcset="/img/loading.gif" lazyload
-alt="pic47" />
-<figcaption aria-hidden="true">pic47</figcaption>
-</figure>
+<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311034132.png" srcset="/img/loading.gif" lazyload alt="pic47" style="zoom:67%;" /></p>
 <h3 id="数据传输">2.5. 数据传输</h3>
 <h4 id="a.停止等待协议">a.停止等待协议</h4>
-<figure>
-<img
-src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311034504.png" srcset="/img/loading.gif" lazyload
-alt="pic48" />
-<figcaption aria-hidden="true">pic48</figcaption>
-</figure>
+<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311034504.png" srcset="/img/loading.gif" lazyload alt="pic48" style="zoom: 67%;" /></p>
 <p>发送一个段之后，暂时地保留一个备份</p>
 <p>每个段和ACK必须有ID</p>
 <p>重发时间一定大于平均运输时间的两倍</p>
