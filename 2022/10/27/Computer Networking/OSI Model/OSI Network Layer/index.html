@@ -18,26 +18,51 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="OSI层次：网络层  关键词：路径选择、路由、寻址 当路由发生时，在两个系统之间提供连接和路径选择 这些存在于地理上分离的网络  1. 网络层概述 1.1. 第三层的责任  通过网络传递数据 使用分层的寻址方案（不同于水平的MAC寻址） 网段与数据流控制 减少拥堵 与其他网络连通    pic6  1.2. 面向连接的网络服务 ](https:&#x2F;&#x2F;naturalifica.oss-cn-nanji">
+    <meta name="description" content="OSI层次：网络层  关键词：路径选择、路由、寻址 当路由发生时，在两个系统之间提供连接和路径选择 这些存在于地理上分离的网络  1. 网络层概述 1.1. 网络层的责任  网络层通过网络传递数据 使用分层的寻址方案（不同于水平的MAC寻址） 网段与数据流控制 减少拥塞 (Reduce Congestion) 与其他网络连通   1.2. 面向连接的网络服务 面向连接 (Connection Or">
 <meta property="og:type" content="article">
 <meta property="og:title" content="OSI Network Layer">
 <meta property="og:url" content="https://wuchentian.github.io/2022/10/27/Computer%20Networking/OSI%20Model/OSI%20Network%20Layer/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="OSI层次：网络层  关键词：路径选择、路由、寻址 当路由发生时，在两个系统之间提供连接和路径选择 这些存在于地理上分离的网络  1. 网络层概述 1.1. 第三层的责任  通过网络传递数据 使用分层的寻址方案（不同于水平的MAC寻址） 网段与数据流控制 减少拥堵 与其他网络连通    pic6  1.2. 面向连接的网络服务 ](https:&#x2F;&#x2F;naturalifica.oss-cn-nanji">
+<meta property="og:description" content="OSI层次：网络层  关键词：路径选择、路由、寻址 当路由发生时，在两个系统之间提供连接和路径选择 这些存在于地理上分离的网络  1. 网络层概述 1.1. 网络层的责任  网络层通过网络传递数据 使用分层的寻址方案（不同于水平的MAC寻址） 网段与数据流控制 减少拥塞 (Reduce Congestion) 与其他网络连通   1.2. 面向连接的网络服务 面向连接 (Connection Or">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005760.png">
+<meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005779.png">
+<meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005797.png">
+<meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005829.png">
+<meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005963.png">
+<meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005858.png">
+<meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005036.png">
+<meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005153.png">
 <meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005269.png">
 <meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005420.png">
 <meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005511.png">
 <meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005547.png">
 <meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005558.png">
 <meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005604.png">
+<meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005617.png">
+<meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005654.png">
+<meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005749.png">
+<meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005783.png">
+<meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005812.png">
+<meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005902.png">
+<meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005210.png">
+<meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005471.png">
+<meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005565.png">
+<meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005575.png">
+<meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005655.png">
+<meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005742.png">
+<meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005795.png">
+<meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005858.png">
+<meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005892.png">
+<meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005928.png">
+<meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005976.png">
 <meta property="article:published_time" content="2022-10-27T09:08:00.000Z">
-<meta property="article:modified_time" content="2022-11-02T09:36:53.469Z">
+<meta property="article:modified_time" content="2022-11-03T14:46:48.855Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Network">
 <meta property="article:tag" content="OSI">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005269.png">
+<meta name="twitter:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005760.png">
   
   
   
@@ -241,7 +266,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          8.4k words
+          10k words
         
       </span>
     
@@ -252,7 +277,7 @@
         
         
         
-          71 mins
+          84 mins
         
       </span>
     
@@ -302,43 +327,46 @@
 <p>这些存在于地理上分离的网络</p>
 </blockquote>
 <h2 id="网络层概述">1. 网络层概述</h2>
-<h3 id="第三层的责任">1.1. 第三层的责任</h3>
+<h3 id="网络层的责任">1.1. 网络层的责任</h3>
 <ul>
-<li>通过网络传递数据</li>
-<li>使用分层的寻址方案（不同于水平的MAC寻址）</li>
-<li>网段与数据流控制</li>
-<li>减少拥堵</li>
+<li><a href="">网络层</a>通过<a
+target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/计算机网络">网络</a>传递数据</li>
+<li>使用<strong>分层的</strong>寻址方案（不同于水平的MAC寻址）</li>
+<li><a
+target="_blank" rel="noopener" href="https://baike.baidu.com/item/网段?fromModule=lemma_search-box">网段</a>与<a
+target="_blank" rel="noopener" href="https://baike.baidu.com/item/数据流/3002243">数据流</a>控制</li>
+<li>减少<strong>拥塞</strong> (Reduce Congestion)</li>
 <li>与其他网络连通</li>
 </ul>
-<figure>
-<img
-src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005760.png" srcset="/img/loading.gif" lazyload
-alt="pic6" />
-<figcaption aria-hidden="true">pic6</figcaption>
-</figure>
+<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005760.png" srcset="/img/loading.gif" lazyload style="zoom:67%;" /></p>
 <h3 id="面向连接的网络服务">1.2. 面向连接的网络服务</h3>
-<p><img
-src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005779.png" srcset="/img/loading.gif" lazyload
-alt="pic7" />](https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210240653826.png)</p>
+<p><a
+target="_blank" rel="noopener" href="https://baike.baidu.com/item/面向连接?fromModule=lemma_search-box"><strong>面向连接</strong></a>
+(Connection
+Oriented)：在传输任何数据之前，在发送方和接收方之间建立连接。</p>
+<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005779.png" srcset="/img/loading.gif" lazyload style="zoom:50%;" /></p>
+<blockquote>
+<p>和<strong>面向连接</strong>类似的概念是<a
+target="_blank" rel="noopener" href="https://baike.baidu.com/item/电路交换/2472932"><strong>电路交换</strong></a>
+(Circuit Switching, CS) ，但是两者不是一个空间的概念</p>
+</blockquote>
 <ul>
-<li>在传输任何数据之前，在发送方和接收方之间建立连接</li>
-</ul>
-<h3 id="电路交换">1.3. 电路交换</h3>
-<ul>
-<li><em>面向连接</em> 和 <em>电路交换</em> 这两个术语并不相同</li>
 <li>面向连接：首先与接受者建立连接，然后开始数据传输。所有的数据依次通过同一个通道，或者更常见的是，通过同一个虚拟电路</li>
+<li>电路交换：</li>
 </ul>
-<h3 id="无连接网络服务">1.4. 无连接网络服务</h3>
-<figure>
-<img
-src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005797.png" srcset="/img/loading.gif" lazyload
-alt="pic8" />
-<figcaption aria-hidden="true">pic8</figcaption>
-</figure>
-<p>在无连接网络服务中，每一个包会被分别对待（IP就是一个无连接系统）</p>
-<h3 id="包交换">1.5. 包交换</h3>
+<h3 id="无连接网络服务">1.3. 无连接网络服务</h3>
+<p>​ 在<a
+target="_blank" rel="noopener" href="https://baike.baidu.com/item/面向无连接?fromModule=lemma_search-box">无连接网络服务</a>
+(Connectionless Oriented) 中，是指通信双方不需要事先建立一条<a
+target="_blank" rel="noopener" href="https://baike.baidu.com/item/通信线路/1527630?fromModule=lemma_inlink">通信线路</a>，而是把每个带有目的地址的包（报文分组）送到线路上，由系统自主选定路线（每个包会被区别对待）进行传输。邮政系统是一个无连接的模式，天罗地网式的选择路线，天女散花式的传播形式；IP、<a
+target="_blank" rel="noopener" href="https://baike.baidu.com/item/UDP协议?fromModule=lemma_inlink">UDP</a>就是无连接协议的例子。</p>
+<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005797.png" srcset="/img/loading.gif" lazyload alt="" style="zoom:50%;" /></p>
+<blockquote>
+<p>和无连接网络类似的概念是<strong><a
+target="_blank" rel="noopener" href="https://baike.baidu.com/item/包交换技术?fromtitle=包交换&amp;fromid=9719811&amp;fromModule=lemma_search-box">分组交换技术</a></strong>
+(Packet switching technology)，但是两者也不是一个空间的概念</p>
+</blockquote>
 <ul>
-<li><em>无连接网络</em> 和 <em>包交换</em> 这两个术语不相同</li>
 <li>当数据包从源传递到目标时，它们可以：
 <ul>
 <li>切换到不同的路径</li>
@@ -346,128 +374,268 @@ alt="pic8" />
 </ul></li>
 <li>设备根据各种标准确定每个包的路径，有些函数可能因数据包而异</li>
 </ul>
-<h3 id="第三层设备-路由器">1.6. 第三层设备-路由器</h3>
-<p>互连网段或者网络</p>
-<p>根据IP地址做出逻辑决策</p>
-<p>确定最佳路径</p>
-<p>将数据包从传入端口切换到传出端口</p>
-<h2 id="ip-地址和子网">2. IP 地址和子网</h2>
-<h3 id="ip">2.1. IP</h3>
-<figure>
-<img
-src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005829.png" srcset="/img/loading.gif" lazyload
-alt="pic9" />
-<figcaption aria-hidden="true">pic9</figcaption>
-</figure>
+<h3 id="第三层设备-路由器">1.4. 第三层设备-路由器</h3>
+<blockquote>
+<p>关于路由器与路由协议更详细的内容可以查看<a
+target="_blank" rel="noopener" href="https://naturalifica.top/2022/10/10/Computer%20Networking/OSI%20Model/Routing%20&amp;%20Router/">这篇文章</a></p>
+</blockquote>
+<p>路由器的功能是：</p>
 <ul>
-<li>版本：占4bit，指的是IP协议的版本
-目前的IP协议版本号为4（即IPv4）</li>
-<li>首部长度：占4bit，可表示的最大数值是15个单位（一个单位为4字节），因此IP的首部长度的最大值是60字节，最小值是20字节</li>
-<li>服务类型：占8bit，用来获得更好的服务，这个字段之前一直没有被人们使用</li>
-<li>总长度：占16bit，指的是首部和数据之和的长度，单位为字节，因此数据报的最大长度为65536字节，总长度必须不超过最大传送单元MTU（<strong>指一种通信协议的某一层上面所能通过的最大数据报大小)</strong></li>
-<li>标识(identification)：占16bit，它是一个计数器，用来产生数据报的标识</li>
-<li>标志：占3bit，最高位为0，MF为0表示最后一个分片</li>
-<li>片位移：占13bit，指出：较长的分组在分片之后，某片在原分组中的相对位置，片位移以8个字节为偏移单位</li>
-<li>生存时间：占8bit记为TTL(Time To Live)
-数据报在网络中可通过的路由器数的最大值。</li>
-<li>协议：占8bit 指出此数据报携带的数据使用何种协议 以便目的主机的 IP
-层将数据部分上交给哪个处理过程</li>
-<li>首部检验和：16bit 只检验数据报的首部，不包括数据部分，这里不采用 CRC
-检验码而采用简单的计算方法</li>
-<li>源地址和目标地址：占8位</li>
+<li><p>物理地互连<strong>网段</strong>形成逻辑段 或者 互联网络</p></li>
+<li><p>根据IP地址做出逻辑决策</p></li>
+<li><p>确定最佳路径</p></li>
+<li><p>将数据包从传入端口切换到传出端口</p></li>
 </ul>
-<h3 id="网络层地址">2.2. 网络层地址</h3>
-<p>IP地址是32bits</p>
-<p>格式：四个点分的十进制 133.14.17.0</p>
-<p>IP地址由两部分组成：</p>
-<p>①网络ID</p>
-<p>由ARIN分配(American Registry for Internet Numbers, <a
-target="_blank" rel="noopener" href="http://www.arin.net/">www.arin.net</a>)</p>
-<p>标志设备连接到的网络</p>
-<p>可以由前三个八位中的一个，两个，或者三个识别出</p>
-<p>②主机ID</p>
-<p>由网络管理员分配</p>
-<p>标志了该网络中的被连接的设备</p>
-<p>可以由后三个八位中的一个，两个，或者三个识别出</p>
-<h3 id="ip地址">2.3. IP地址</h3>
+<h2 id="ip-地址和子网">2. IP 地址和子网</h2>
+<blockquote>
+<p>一个难蚌的<a
+target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/以鸟类为载体的网际协议">相关协议</a></p>
+</blockquote>
+<h3 id="ip-数据报">2.1. IP 数据报</h3>
+<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005829.png" srcset="/img/loading.gif" lazyload style="zoom:60%;" /></p>
+<ul>
+<li><p><strong>版本</strong>——4位</p>
+<ul>
+<li>指的是IP协议的版本</li>
+<li>目前的IP协议版本号为4（即<a
+target="_blank" rel="noopener" href="https://baike.baidu.com/item/IPv4?fromModule=lemma_search-box">IPv4</a>）</li>
+</ul></li>
+<li><p><strong>首部长度</strong>——4位</p>
+<ul>
+<li>可表示的最大数值是15个单位 (一个单位为4字节)
+，因此IP的首部长度的最大值是60字节，最小值是20字节</li>
+</ul></li>
+<li><p><strong>服务类型</strong>——8位</p>
+<ul>
+<li>用来区分服务以获得更好的服务，这个字段之前一直没有被人们使用</li>
+<li>区分服务，Delay = 1 延迟小，Throughput = 1吞吐量大，Reliability = 1
+质量比较高，Cost = 1 最小代价</li>
+</ul></li>
+<li><p><strong>总长度</strong>——占16位</p>
+<ul>
+<li>指的是首部和数据之和的长度，单位为字节，因此数据报的最大长度为65536字节，总长度必须不超过<a
+target="_blank" rel="noopener" href="https://baike.baidu.com/item/最大传输单元?fromtitle=mtu&amp;fromid=508920&amp;fromModule=lemma_search-box">MTU</a>
+(Maximum Transmission Unit, 最大传输单元)</li>
+</ul></li>
+<li><p><strong>标识</strong> (identification)——16位</p>
+<ul>
+<li>它是一个计数器，用来产生数据报的标识</li>
+</ul></li>
+<li><p><strong>标志</strong>——3位</p>
+<blockquote>
+<p>注意：发送数据报过大，就要对其数据报分片处理，每一个分片都会含有一个标识（IP地址
++ 标识），到达目的地要对其所有的分片进行重新组装；</p>
+</blockquote>
+<ul>
+<li>最高位为0，标志字段<a
+target="_blank" rel="noopener" href="https://zhidao.baidu.com/question/1180225348239268619.html">MF</a>
+(More Fregment), MF = 1表示后面还有分片，MF = 0 表示最后一个分片；</li>
+</ul></li>
+<li><p><strong>片位移</strong>——13位</p>
+<ul>
+<li>指出：较长的分组在分片之后，某片在原分组中的相对位置，片位移以8个字节为偏移单位</li>
+</ul></li>
+<li><p><strong>生存时间</strong>——8位</p>
+<ul>
+<li>记为<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/TTL/130248">TTL</a> (Time
+To Live) 数据报在网络中可通过的路由器数的最大值</li>
+</ul></li>
+<li><p><strong>协议</strong>——8位</p>
+<ul>
+<li>指出此数据报携带的数据使用何种协议（TCP协议还是UDP协议）</li>
+<li>以便目的主机的 IP 层将数据部分上交给哪个处理过程</li>
+</ul></li>
+<li><p><strong>首部检验和</strong>——16位</p>
+<ul>
+<li>只检验数据报的首部，不包括数据部分，这里不采用 CRC
+检验码而采用简单的计算方法</li>
+</ul></li>
+<li><p><strong>源地址和目标地址</strong>——8位</p>
+<ul>
+<li><strong>源地址</strong>：数据向外发送，发送机器本身的IP地址，也成为逻辑地址</li>
+<li><strong>目的地址</strong>：数据具体要发送目标及其的IP地址</li>
+</ul></li>
+</ul>
+<h3 id="ip地址">2.2. IP地址</h3>
+<h4 id="ip-地址组成">2.2.1. IP 地址组成</h4>
+<p>IP地址由32位<a
+target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/二进制">二进制</a>数组成，为便于使用，常以XXX.XXX.XXX.XXX形式表现，每组XXX代表小于或等于255的10进制数，该表示方法称为<strong>点分十进制</strong>。IP地址由两部分组成：</p>
+<ul>
+<li><p>网络ID</p></li>
+<li><p>由<strong><a
+target="_blank" rel="noopener" href="https://baike.baidu.com/item/ARIN?fromModule=lemma_search-box">ARIN</a></strong>
+(American Registry for Internet Numbers, 美国因特网号码注册中心)
+分配</p></li>
+<li><p>标志设备连接到的网络</p></li>
+<li><p>可以由<strong>前三个八位</strong>中的一个，两个，或者三个识别出</p></li>
+<li><p>主机ID</p></li>
+<li><p>由<strong><a
+target="_blank" rel="noopener" href="https://baike.baidu.com/item/网络管理员/595848">网络管理员</a></strong>
+(Network Administrator) 分配</p></li>
+<li><p>标志了该网络中的被连接的设备</p></li>
+<li><p>可以由<strong>后三个八位</strong>中的一个，两个，或者三个识别出
+(与网络ID互补)</p></li>
+</ul>
+<h4 id="ipv4-地址分类">2.2.2. IPv4 地址分类</h4>
+<blockquote>
+<p>IPv4 地址包括 ABCDE 五类</p>
+<p>N表示Network，H表示Host</p>
+</blockquote>
 <table>
+
 <thead>
 <tr class="header">
-<th style="text-align: center;">A类</th>
-<th>N</th>
-<th>H</th>
-<th>H</th>
-<th>H</th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"><strong>A类IPv4地址</strong></th>
+<th style="text-align: center;"><strong>B类IPv4地址</strong></th>
+<th style="text-align: center;"><strong>C类IPv4地址</strong></th>
+<th style="text-align: center;"><strong>D类IPv4地址</strong></th>
+<th style="text-align: center;"><strong>E类IPv4地址</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: center;">B类</td>
-<td>N</td>
-<td>N</td>
-<td>H</td>
-<td>H</td>
+<td style="text-align: center;"><strong>网络标志位</strong></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">110</td>
+<td style="text-align: center;">1110</td>
+<td style="text-align: center;">11110</td>
 </tr>
 <tr class="even">
-<td style="text-align: center;">C类</td>
-<td>N</td>
-<td>N</td>
-<td>N</td>
-<td>H</td>
+<td style="text-align: center;"><strong>四个字节的含义</strong></td>
+<td style="text-align: center;">N.H.H.H</td>
+<td style="text-align: center;">N.N.H.H</td>
+<td style="text-align: center;">N.N.N.H</td>
+<td style="text-align: center;">N.N.N.N</td>
+<td style="text-align: center;">N.N.N.N</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>IP地址范围</strong></td>
+<td style="text-align: center;">0.0.0.0 ~ 127.255.255.255</td>
+<td style="text-align: center;">128.0.0.0 ~ 191.255.255.255</td>
+<td style="text-align: center;">192.0.0.0 ~ 223.255.255.255</td>
+<td style="text-align: center;">224.0.0.0 ~ 239.255.255.255</td>
+<td style="text-align: center;">240.0.0.0 ~ 247.255.255.255</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>可用IP地址范围</strong></td>
+<td style="text-align: center;">1.0.0.1 ~ 127.255.255.254</td>
+<td style="text-align: center;">128.0.0.1 ~ 191.255.255.254</td>
+<td style="text-align: center;">192.0.0.1 ~ 223.255.255.254</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td
+style="text-align: center;"><strong>是否可以分配给主机使用</strong></td>
+<td style="text-align: center;">是</td>
+<td style="text-align: center;">是</td>
+<td style="text-align: center;">是</td>
+<td style="text-align: center;">否</td>
+<td style="text-align: center;">否</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>网络数量（个）</strong></td>
+<td style="text-align: center;">126 (<span
+class="math inline">\(2^7-2\)</span>)</td>
+<td style="text-align: center;">16384 (<span
+class="math inline">\(2^{14}\)</span>)</td>
+<td style="text-align: center;">2097152 (<span
+class="math inline">\(2^{21}\)</span>)</td>
+<td style="text-align: center;">---</td>
+<td style="text-align: center;">---</td>
+</tr>
+<tr class="odd">
+<td
+style="text-align: center;"><strong>每个网络中可容纳主机数（个）</strong></td>
+<td style="text-align: center;">16777214 (<span
+class="math inline">\(2^{24}-2\)</span>)</td>
+<td style="text-align: center;">65534 (<span
+class="math inline">\(2^{16}-2\)</span>)</td>
+<td style="text-align: center;">254 (<span
+class="math inline">\(2^8-2\)</span>)</td>
+<td style="text-align: center;">---</td>
+<td style="text-align: center;">---</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>适用范围</strong></td>
+<td style="text-align: center;">大量主机的大型网络</td>
+<td style="text-align: center;">中等规模主机数的网络</td>
+<td style="text-align: center;">小型局域网</td>
+<td style="text-align: center;">留给IAB
+(Internet体系结构委员会)使用【组播地址】</td>
+<td
+style="text-align: center;">保留，仅作为搜索、Internet的实验和开发用</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">备注</td>
+<td style="text-align: center;">0.0.0.0为特殊地址，表示本网主机</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td
+style="text-align: center;">255.255.255.255为特殊地址，用于定向广播</td>
 </tr>
 </tbody>
 </table>
-<figure>
-<img
-src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005858.png" srcset="/img/loading.gif" lazyload
-alt="pic13" />
-<figcaption aria-hidden="true">pic13</figcaption>
-</figure>
 <h4 id="主机数量">2.3.1. 主机数量</h4>
 <ul>
 <li>不同类别的主机最大数量是不同的</li>
-<li>A类网络中n最多有 16,777,214 个主机 (224–2224–2)</li>
-<li>B类网络中最多有 65,534 个主机 (216–2216–2)</li>
-<li>C类网络中最多有 254 个主机 (28–228–2)</li>
+<li>A类网络中n最多有 16,777,214 个主机 (<span
+class="math inline">\(2^{24}–2\)</span>)</li>
+<li>B类网络中最多有 65,534 个主机 (<span
+class="math inline">\(2^{16}–2\)</span>)</li>
+<li>C类网络中最多有 254 个主机 (<span
+class="math inline">\(2^8–2\)</span>)</li>
 <li>每个网络中的第一个地址（即主机号全为0）是预留的网络地址，表示本机所连接的网络地址</li>
 <li>最后一个地址（即主机号全为1）预留的，用于表示所有主机</li>
 </ul>
 <h4 id="预留地址">2.3.2. 预留地址</h4>
-<p><strong>网络地址</strong></p>
-<p>主机号部分地址全为0</p>
-<p>A类网络地址实例: <code>113.0.0.0</code></p>
-<p>网络中的主机只能在网络号相同的时候，与其它主机直接通讯</p>
-<p><strong>广播地址</strong></p>
-<p>用于给该网络中所有设备发送数据</p>
-<p>广播IP地址是主机号全为1的地址</p>
-<p>B类地址示例: <code>176.10.255.255</code></p>
-<p>受限网络地址：<code>255.255.255.255</code></p>
+<ul>
+<li><p><strong>网络地址</strong></p></li>
+<li><p>主机号部分地址全为0</p></li>
+<li><p>A类网络地址实例: 113.0.0.0</p></li>
+<li><p>网络中的主机只能在网络号相同的时候，与其它主机直接通讯</p></li>
+<li><p><strong>广播地址</strong></p></li>
+<li><p>用于给该网络中所有设备发送数据</p></li>
+<li><p>广播IP地址是主机号全为1的地址</p></li>
+<li><p>B类地址示例: 176.10.255.255</p></li>
+<li><p>受限网络地址：255.255.255.255</p></li>
+</ul>
 <h4 id="ip寻址">2.3.3. IP寻址</h4>
-<p><strong>A</strong>类</p>
-<p><code>99.0.0.0</code>: 预留的网络地址</p>
-<p><code>99.255.255.255</code>: 广播数量</p>
-<p><strong>B</strong>类</p>
-<p><code>156.1.0.0</code>: 预留的网络地址</p>
-<p><code>156.1.255.255</code>: 广播数量</p>
-<p><strong>C</strong>类</p>
-<p><code>203.1.17.0</code>: 预留的网络地址</p>
-<p><code>203.1.17.255</code>: 广播数量</p>
 <p><strong>私有地址空间</strong></p>
-<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs accesslog"><span class="hljs-number">10.0.0.0</span> - <span class="hljs-number">10</span>.<span class="hljs-number">255</span>.<span class="hljs-number">255</span>.<span class="hljs-number">255</span><br><span class="hljs-number">172.16.0.0</span> - <span class="hljs-number">172</span>.<span class="hljs-number">31</span>.<span class="hljs-number">255</span>.<span class="hljs-number">255</span><br><span class="hljs-number">192.168.0.0</span> - <span class="hljs-number">192</span>.<span class="hljs-number">168</span>.<span class="hljs-number">255</span>.<span class="hljs-number">255</span><br></code></pre></td></tr></table></figure>
-<p>有一些IP地址范围预留给私有IP地址空间</p>
-<p>IP 地址损耗 和它的解决办法 :</p>
-<p>NAT（网络地址转换Network Address Translation）</p>
-<p>CIDR（无类别域间路由，Classless Inter-Domain Routing）</p>
-<p>IPv6（Internet Protocol Version 6互联网协议）</p>
+<p>有一些IP地址范围预留给<a
+target="_blank" rel="noopener" href="https://baike.baidu.com/item/私有IP/2216993">私有IP地址空间</a>。下面是IPv4地址下全部的私有IP地址空间</p>
+<ul>
+<li>10.0.0.0 ～ 10.255.255.255</li>
+<li>172.16.0.0 ～ 172.31.255.255</li>
+<li>192.168.0.0 ～ 192.168.255.255</li>
+</ul>
+<p><strong>IP地址耗尽</strong> 和它的解决办法 :</p>
+<blockquote>
+<p>1981年，<a
+target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/IETF">IETF</a>定义了32位IP地址的<a
+target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/IPv4">IPv4</a>。随着互联网的发展，网络位置（IPv4）渐渐被消耗殆尽，虽然当前的<a
+target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/网络地址转换">网络地址转换</a>及<a
+target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/无类别域间路由">无类别域间路由</a>等技术可延缓网络位置（IPv4）匮乏之现象，但为求解决根本问题，从1990年开始，<a
+target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/互联网工程工作小组">互联网工程工作小组</a>开始规划<a
+target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/IPv4">IPv4</a>的下一代协议，除要解决即将遇到的IP地址短缺问题外，还要发展更多的扩展，为此IETF小组创建IPng，以让后续工作顺利进行。</p>
+<p>1994年，各IPng领域的代表们于<a
+target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/多倫多">多伦多</a>举办的IETF会议中，正式提议<strong>IPv6</strong>发展计划，该提议直到同年的11月17日才被认可，并于1996年8月10日成为IETF的草案标准，最终IPv6在1998年12月由互联网工程工作小组以互联网标准规范（RFC
+2460）的方式正式公布。</p>
+</blockquote>
+<ul>
+<li><p>NAT（网络地址转换Network Address Translation）</p></li>
+<li><p>CIDR（无类别域间路由，Classless Inter-Domain Routing）</p></li>
+<li><p>IPv6（Internet Protocol Version 6互联网协议）</p></li>
+</ul>
 <p><strong>子网</strong></p>
-<p>网络管理员有时候需要把网络划分成更小的网络，即子网，来提供额外的灵活性</p>
+<p>网络管理员有时候需要把网络划分成更小的网络，即<a
+target="_blank" rel="noopener" href="https://baike.baidu.com/item/子网/1186929">子网</a>
+(subnet)，来提供额外的灵活性</p>
 <p>从主机号的地址域借了几位用于表示子网地址域</p>
-<figure>
-<img
-src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005963.png" srcset="/img/loading.gif" lazyload
-alt="pic14" />
-<figcaption aria-hidden="true">pic14</figcaption>
-</figure>
+<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005963.png" srcset="/img/loading.gif" lazyload style="zoom:67%;" /></p>
 <p><strong>子网基础</strong></p>
 <p>子网是网络的小划分</p>
 <p>提供寻址的灵活性</p>
@@ -573,6 +741,21 @@ style="text-align: center;"><strong>每个子网中主机的个数</strong></th>
 <p>步骤 2: 把子网掩码转化为二进制</p>
 <p>步骤 3: 用 Boolean 运算符 “and” 计算它们两个</p>
 <p>步骤 4: 把网络地址的二进制转化为带点的十进制</p>
+<blockquote>
+<p>为什么有了 IP 地址还要用 MAC 地址?</p>
+<p>①
+IP地址一般情况下容易修改和变动，具有随意性，不能在网络上固定标识一台设备；</p>
+<p>②
+MAC地址一般情况出厂时由厂家烧录到网卡中，不容易修改，在局域范围内容易唯一定位一台设备。</p>
+<p>③
+从拓扑结构和分层上分析，IP地址属于网络层，主要功能在广域网范围内路由寻址，选择最佳路由，而MAC地址在网络接口层要形成适合于网络媒体上传输的数据帧。</p>
+<p>注意：标识一个设备的三种方式：① 域名访问（www.baidu.com，应用层）；②
+设备的IP地址访问（网络层）；③
+设备的MAC地址（在局域网当中唯一标识该设备，实际不用其访问，在网络接口层，具有固定的特性，不易发生紊乱现象）</p>
+<p>参考文章: <a
+target="_blank" rel="noopener" href="https://blog.csdn.net/super_YC/article/details/72290931">IP协议及IP数据包详解</a></p>
+</blockquote>
+<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005858.png" srcset="/img/loading.gif" lazyload style="zoom:60%;" /></p>
 <h2 id="第三层设备">3. 第三层设备</h2>
 <h3 id="路径选择">3.1. 路径选择</h3>
 <p>路由器基于链路带宽、距离、延迟，来选择传递数据包到目的地的下一个路径上的跳跃</p>
@@ -582,23 +765,14 @@ style="text-align: center;"><strong>每个子网中主机的个数</strong></th>
 <p>独特的网络号包含于IP地址中，被分配给每一个连接到该网络的设备</p>
 <h3 id="路由接口">3.3. 路由接口</h3>
 <h3 id="路由功能">3.4. 路由功能</h3>
-<figure>
-<img
-src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005036.png" srcset="/img/loading.gif" lazyload
-alt="img" />
-<figcaption aria-hidden="true">img</figcaption>
-</figure>
+<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005036.png" srcset="/img/loading.gif" lazyload style="zoom:50%;" /></p>
 <p>①剥离框架中的数据链路报头（数据链路报头包括来源目的MAC地址和目的MAC地址）</p>
 <p>②检查网络层地址来决定目的地网络</p>
 <p>③查询它的路由表来决定使用哪一个接口来发送数据，使得数据可以到达目的地网络</p>
 <p>④通过B1接口发送数据，路由器会将数据封装在合适的数据链路框架(帧)中</p>
 <h3 id="路由接口示例">3.5. 路由接口示例</h3>
-<figure>
-<img
-src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005068.png" srcset="/img/loading.gif" lazyload
-alt="pic17" />
-<figcaption aria-hidden="true">pic17</figcaption>
-</figure>
+<p><img
+src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005068.png" srcset="/img/loading.gif" lazyload /></p>
 <p>一个路由器通过接口连接到网络，接口也可能指IP路由中的一个端口</p>
 <p>每一个接口都有一个单独的、独特的网络地址</p>
 <h3 id="ip地址分配">3.6. IP地址分配</h3>
@@ -629,35 +803,30 @@ Protocol.动态主机配置协议(我们一般使用这种方式)</p>
 <p>默认网关是连接来源主机所处的网段的路由接口的IP地址</p>
 <p>为了让一个设备可以给其它网段上的设备发送数据，来源设备将数据发送到默认网关</p>
 <h3 id="代理arp">4.5.代理ARP</h3>
-<figure>
-<img
-src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005153.png" srcset="/img/loading.gif" lazyload
-alt="pic18" />
-<figcaption aria-hidden="true">pic18</figcaption>
-</figure>
+<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005153.png" srcset="/img/loading.gif" lazyload style="zoom:50%;" /></p>
 <p>代理ARP是ARP的一种变化形式</p>
 <p>这种情况下，来源主机没有配置默认网关</p>
 <h3 id="arp流程">4.6. ARP流程</h3>
-<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005269.png" srcset="/img/loading.gif" lazyload alt="pic19" style="zoom:50%;" /></p>
+<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005269.png" srcset="/img/loading.gif" lazyload alt="" style="zoom:50%;" /></p>
 <h2 id="网络层服务">5. 网络层服务</h2>
 <h3 id="面向连接的网络服务-1">5.1. 面向连接的网络服务</h3>
-<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005420.png" srcset="/img/loading.gif" lazyload alt="pic20" style="zoom:50%;" /></p>
+<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005420.png" srcset="/img/loading.gif" lazyload alt="" style="zoom:50%;" /></p>
 <p>传输数据前会在发送者和接受者之间建立连接</p>
 <h2 id="routed-and-routing-protocols">6. Routed and Routing
 Protocols</h2>
 <h3 id="网络协议操作">6.1. 网络协议操作</h3>
-<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005511.png" srcset="/img/loading.gif" lazyload alt="pic21" style="zoom:50%;" /></p>
+<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005511.png" srcset="/img/loading.gif" lazyload alt="" style="zoom:50%;" /></p>
 <h3 id="被动路由协议">6.2. 被动路由协议</h3>
-<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005547.png" srcset="/img/loading.gif" lazyload alt="pic22" style="zoom:50%;" /></p>
+<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005547.png" srcset="/img/loading.gif" lazyload alt="" style="zoom:50%;" /></p>
 <p>给网络层提供帮助的协议被称为被动（routed）路由协议或可路由（routable）协议</p>
 <p>IP是一个网络层协议，因此，它可以被互联网发送</p>
 <h3 id="不可路由协议">6.3. 不可路由协议</h3>
-<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005558.png" srcset="/img/loading.gif" lazyload alt="pic23" style="zoom:50%;" /></p>
+<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005558.png" srcset="/img/loading.gif" lazyload style="zoom:50%;" /></p>
 <p>不可路由协议不支持第三层</p>
 <p>其中最常见的不可路由协议是NetBEUI（网络BIOS扩充用户接口）</p>
 <p>NetBEUI 是一个小、快、高效的协议，但只能在一个网段上运行</p>
 <h3 id="访问可路由协议">6.4. 访问可路由协议</h3>
-<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005604.png" srcset="/img/loading.gif" lazyload alt="pic24" style="zoom:50%;" /></p>
+<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005604.png" srcset="/img/loading.gif" lazyload alt="" style="zoom:50%;" /></p>
 <h3 id="路由协议">6.5. 路由协议</h3>
 <p>路由（routing）协议决定了被动路由（routed）协议前往目的地的路径</p>
 <p>用于路由器之间的协议，以便它们可以动态地获知路由信息，并将它们添加到路由表中。</p>
@@ -700,11 +869,7 @@ Protocols</h2>
 <strong>P</strong>rotocols (EGP, BGP)外部网关协议:</p>
 <p>用于自治系统之间传送包</p>
 <p><strong>IGP vs EGP</strong></p>
-<p><a
-target="_blank" rel="noopener" href="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210241030194.png"><img
-src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005617.png" srcset="/img/loading.gif" lazyload
-alt="pic25" /></a></p>
-<p>pic25</p>
+<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005617.png" srcset="/img/loading.gif" lazyload alt="pic25" style="zoom:67%;" /></p>
 <h4 id="dvp和lsp">6.6.3. DVP和LSP</h4>
 <ul>
 <li><strong>D</strong>istance-<strong>V</strong>ector
@@ -725,17 +890,11 @@ alt="pic25" /></a></p>
 </ul></li>
 </ul>
 <h3 id="发送距离矢量">6.7. 发送距离矢量</h3>
-<p><a
-target="_blank" rel="noopener" href="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210241033027.png"><img
-src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005654.png" srcset="/img/loading.gif" lazyload
-alt="pic26" /></a></p>
+<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005654.png" srcset="/img/loading.gif" lazyload style="zoom:67%;" /></p>
 <h3 id="发送链路状态">6.8. 发送链路状态</h3>
-<p><a
-target="_blank" rel="noopener" href="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210241033877.png"><img
-src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005749.png" srcset="/img/loading.gif" lazyload
-alt="pic27" /></a></p>
-<h3 id="riproute-information-protocol路由信息协议">6.9. RIP(Route
-Information Protocol)路由信息协议</h3>
+<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005749.png" srcset="/img/loading.gif" lazyload style="zoom:67%;" /></p>
+<h3 id="riproute-information-protocol-路由信息协议">6.9. RIP(Route
+Information Protocol) 路由信息协议</h3>
 <p><strong>一定会考！！</strong></p>
 <p>最受欢迎</p>
 <p>属于内部网关协议、距离矢量协议</p>
@@ -794,10 +953,7 @@ ver12.0中使用子网</p>
 <p>VLSM 是帮助缩小IPv4和IPv6之间差距的修正之一</p>
 <h3 id="怎么使用vlsm">7.4. 怎么使用VLSM</h3>
 <p>示例：</p>
-<p><a
-target="_blank" rel="noopener" href="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210241034156.png"><img
-src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005783.png" srcset="/img/loading.gif" lazyload
-alt="pic28" /></a></p>
+<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005783.png" srcset="/img/loading.gif" lazyload alt="pic28" style="zoom:67%;" /></p>
 <p>一个C类地址192.168.10.0/24 (表示前24位为网络号)已经被分配</p>
 <p>珀斯，悉尼，新加坡有一个连接到KL的广域网</p>
 <p>珀斯需要60个主机</p>
@@ -810,10 +966,7 @@ alt="pic28" /></a></p>
 <p>将VLSM用在地址192.168.10.0/24上，有：</p>
 <p>192.168.10.00 hhhhhh/26</p>
 <p>255.255.255.192(1100 0000)</p>
-<p><a
-target="_blank" rel="noopener" href="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210241034473.png"><img
-src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005812.png" srcset="/img/loading.gif" lazyload
-alt="pic29" /></a></p>
+<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005812.png" srcset="/img/loading.gif" lazyload style="zoom:67%;" /></p>
 <p><strong>步骤二</strong></p>
 <p>KL需要28个主机。在192.168.10.63/26后，下一个可用的地址是192.168.10.64/26</p>
 <p>因为需要28个主机，所以需要5位表示主机地址，这样有2^5-2=30个可用的主机</p>
@@ -821,10 +974,7 @@ alt="pic29" /></a></p>
 <p>将VLSM使用在192.168.10.64/26上，有：</p>
 <p>192.168.10.<strong>010</strong> hhhhh/27</p>
 <p>255.255.255.224(1110 0000)</p>
-<p><a
-target="_blank" rel="noopener" href="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210241034636.png"><img
-src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005902.png" srcset="/img/loading.gif" lazyload
-alt="pic30" /></a></p>
+<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005902.png" srcset="/img/loading.gif" lazyload style="zoom:60%;" /></p>
 <p><strong>步骤三</strong></p>
 <p>现在悉尼和新加坡各需要12个主机，下一个可用地址从192.168.10.96/27开始</p>
 <p>因为需要12个主机，所以需要4位表示主机地址，有2^4-2=14个可用地址</p>
@@ -832,10 +982,7 @@ alt="pic30" /></a></p>
 <p>将VLSM用在192.168.10.96/27上，有：</p>
 <p>192.168.10.<strong>0110</strong> hhhh/28</p>
 <p>255.255.255.240(1111 0000)</p>
-<p><a
-target="_blank" rel="noopener" href="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210241035305.png"><img
-src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005210.png" srcset="/img/loading.gif" lazyload
-alt="pic31" /></a></p>
+<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005210.png" srcset="/img/loading.gif" lazyload style="zoom:60%;" /></p>
 <p><strong>步骤四</strong></p>
 <p>现在给广域网分配链接地址，记住，每个广域网链接需要2个IP地址，下个可获取的子网是192.168.10.128/28</p>
 <p>因为每个广域网链接需要2个网络地址，所以2位用于表示主机，有2^2-2=2个可用地址</p>
@@ -843,34 +990,18 @@ alt="pic31" /></a></p>
 <p>将VLSM用在192.168.10.128/28上，有：</p>
 <p>192.168.10.<strong>100000</strong> hh/30</p>
 <p>255.255.255.250(1111 1100)</p>
-<p><a
-target="_blank" rel="noopener" href="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210241035266.png"><img
-src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005471.png" srcset="/img/loading.gif" lazyload
-alt="pic32" /></a></p>
+<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005471.png" srcset="/img/loading.gif" lazyload style="zoom:60%;" /></p>
 <p><strong>result</strong></p>
-<p><a
-target="_blank" rel="noopener" href="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210241035283.png"><img
-src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005565.png" srcset="/img/loading.gif" lazyload
-alt="pic33" /></a></p>
+<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005565.png" srcset="/img/loading.gif" lazyload alt="pic33" style="zoom:67%;" /></p>
 <p>只有没有被使用的子网可以被进一步划分子网</p>
 <p>如果一个子网的任何地址被使用了，那么这个子网不能再被划分</p>
 <h3 id="路由聚合">7.5. 路由聚合</h3>
 <p>无类别域间路由和VLSM的使用，不仅防止了地址浪费，还促进路由聚合</p>
-<p><a
-target="_blank" rel="noopener" href="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210241035358.png"><img
-src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005575.png" srcset="/img/loading.gif" lazyload
-alt="pic34" /></a></p>
-<p>pic34</p>
+<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005575.png" srcset="/img/loading.gif" lazyload style="zoom:60%;" /></p>
 <p><strong>示例</strong></p>
-<p><a
-target="_blank" rel="noopener" href="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210241035986.png"><img
-src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005655.png" srcset="/img/loading.gif" lazyload
-alt="pic35" /></a></p>
+<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005655.png" srcset="/img/loading.gif" lazyload style="zoom:60%;" /></p>
 <p>计算</p>
-<p><a
-target="_blank" rel="noopener" href="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210241035591.png"><img
-src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005742.png" srcset="/img/loading.gif" lazyload
-alt="pic36" /></a></p>
+<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005742.png" srcset="/img/loading.gif" lazyload style="zoom:60%;" /></p>
 <p><strong>优点</strong></p>
 <p>减少路由表条目数</p>
 <p>用于隔离拓扑的变化</p>
@@ -886,15 +1017,9 @@ alt="pic36" /></a></p>
 <p>ICMP 报文作为 IP 层数据报的数据，加上数据报的首部，组成 IP
 数据报发送出去</p>
 <h3 id="icmp报文的格式">8.2. ICMP报文的格式</h3>
-<p><a
-target="_blank" rel="noopener" href="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210241036001.png"><img
-src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005795.png" srcset="/img/loading.gif" lazyload
-alt="pic37" /></a></p>
+<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005795.png" srcset="/img/loading.gif" lazyload style="zoom:67%;" /></p>
 <h3 id="两种icmp报文">8.3. 两种ICMP报文</h3>
-<p><a
-target="_blank" rel="noopener" href="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210241036590.png"><img
-src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005858.png" srcset="/img/loading.gif" lazyload
-alt="pic38" /></a></p>
+<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005858.png" srcset="/img/loading.gif" lazyload alt="" style="zoom:60%;" /></p>
 <h3 id="目的站不可到达">8.4. 目的站不可到达</h3>
 <p><strong>网络不可到达</strong>(net unreachable)</p>
 <p><strong>主机不可到达</strong>(host unreachable)</p>
@@ -905,10 +1030,7 @@ alt="pic38" /></a></p>
 <p><strong>目的主机不可知</strong>（unknown destination host）</p>
 <h3 id="icmp差错报告报文的数据字段的内容">8.5.
 ICMP差错报告报文的数据字段的内容</h3>
-<p><a
-target="_blank" rel="noopener" href="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210241036447.png"><img
-src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005892.png" srcset="/img/loading.gif" lazyload
-alt="pic39" /></a></p>
+<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005892.png" srcset="/img/loading.gif" lazyload style="zoom:67%;" /></p>
 <h3 id="不应发送icmp差错报告报文的几种情况">8.6.
 不应发送ICMP差错报告报文的几种情况</h3>
 <p>对 ICMP 差错报告报文不再发送 ICMP 差错报告报文</p>
@@ -940,10 +1062,7 @@ network)的特定网络,在该网络里名为本地地址的IP地址是静态的
 注册，如果路由器在外部网络，名为外部代理。</p>
 <p>移动节点与用户本地网络的、名为本地代理的类似代理通信,将移动节点的<strong>转交地址</strong>(care-of
 address)给予<strong>本地代理</strong></p>
-<p><a
-target="_blank" rel="noopener" href="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210241036352.png"><img
-src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005928.png" srcset="/img/loading.gif" lazyload
-alt="pic40" /></a></p>
+<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005928.png" srcset="/img/loading.gif" lazyload style="zoom:70%;" /></p>
 <h3 id="转交地址">9.3. 转交地址</h3>
 <p>移动 IP 提供两种获取转交地址的模式</p>
 <p><strong>外地代理转交地址</strong></p>
@@ -980,10 +1099,7 @@ alt="pic40" /></a></p>
 <p>使用IP协议。将原来整个数据报封装入一个首部带有转交地址的新IP数据报中。</p>
 <p>隧道将原有的IP报文作为载荷，在外面包上一层新的IP包头，转换成为一个新的IP报文</p>
 <p>在一定程度上提高了安全性</p>
-<p><a
-target="_blank" rel="noopener" href="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210241036689.png"><img
-src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005976.png" srcset="/img/loading.gif" lazyload
-alt="pic41" /></a></p>
+<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005976.png" srcset="/img/loading.gif" lazyload style="zoom:67%;" /></p>
 
                 
               </div>
@@ -1093,8 +1209,8 @@ alt="pic41" /></a></p>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/10/26/Computer%20Networking/OSI%20Model/OSI%20Data%20Link%20Layer/" title="OSI Data Link Layer">
-                        <span class="hidden-mobile">OSI Data Link Layer</span>
+                      <a href="/2022/10/26/C++%20Basic/STL%20Containers/C++%20queue/" title="C++ queue">
+                        <span class="hidden-mobile">C++ queue</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
