@@ -47,7 +47,7 @@
 <meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311036592.png">
 <meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311036265.png">
 <meta property="article:published_time" content="2022-10-31T02:53:00.000Z">
-<meta property="article:modified_time" content="2022-11-03T08:29:39.011Z">
+<meta property="article:modified_time" content="2022-11-03T12:19:25.065Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Network">
 <meta property="article:tag" content="OSI">
@@ -256,7 +256,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4.4k words
+          4.7k words
         
       </span>
     
@@ -267,7 +267,7 @@
         
         
         
-          37 mins
+          40 mins
         
       </span>
     
@@ -508,51 +508,75 @@ Size)</p></li>
 <p>但是我们愿意相信网络的连接不至于糟糕到这样的程度()</p>
 <p>因此三次握手被认为是已经足够了</p>
 </blockquote>
-<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202211031442601.png" srcset="/img/loading.gif" lazyload alt="image-20221103144237534" style="zoom: 33%;" /></p>
+<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202211031442601.png" srcset="/img/loading.gif" lazyload alt="Two-Army-Problem" style="zoom: 33%;" /></p>
 <h5 id="第一次握手">第一次握手</h5>
 <p><strong>服务器</strong>: 执行最初的 LISTEN 和
 ACCEPT，被动地开始监听</p>
 <p><strong>客户端</strong>: 执行最初的CONNECT, 产生一个 SYN = 1 和 ACK =
 0 的TCP段，代表连接请求</p>
-<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311034942.png" srcset="/img/loading.gif" lazyload alt="pic44" style="zoom:67%;" /></p>
+<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311034942.png" srcset="/img/loading.gif" lazyload alt="" style="zoom:67%;" /></p>
 <h5 id="第二次握手">第二次握手</h5>
 <p><strong>服务器</strong>：检查是否存在服务进程在监听端口。</p>
 <ul>
-<li>如果没有进程，返回一个RST = 1的TCP段</li>
+<li>如果没有进程，返回一个 RST = 1 的TCP段</li>
 <li>如果存在进程，决定拒绝或接受请求
 <ul>
-<li>如果接受连接请求，发送一个SYN = 1、ACK = 1的段</li>
+<li>如果接受连接请求，发送一个 SYN = 1、ACK = 1 的段</li>
 </ul></li>
 </ul>
-<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311034569.png" srcset="/img/loading.gif" lazyload alt="pic45" style="zoom:67%;" /></p>
+<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311034569.png" srcset="/img/loading.gif" lazyload alt="" style="zoom:67%;" /></p>
 <h5 id="第三次握手">第三次握手</h5>
-<p><strong>客户端</strong>：发送一个SYN = 0和ACK = 1的段来确认连接</p>
-<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311034242.png" srcset="/img/loading.gif" lazyload alt="pic46" style="zoom:67%;" /></p>
+<p><strong>客户端</strong>：发送一个 SYN = 0 和 ACK = 1
+的段来确认连接</p>
+<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311034242.png" srcset="/img/loading.gif" lazyload alt="" style="zoom:67%;" /></p>
 <p><strong>当服务器收到确认，它通知上层应用</strong></p>
-<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311034132.png" srcset="/img/loading.gif" lazyload alt="pic47" style="zoom:67%;" /></p>
+<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311034132.png" srcset="/img/loading.gif" lazyload alt="" style="zoom:67%;" /></p>
 <h4 id="数据传输">2.4.2. 数据传输</h4>
-<h5 id="停止等待协议">停止等待协议</h5>
-<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311034504.png" srcset="/img/loading.gif" lazyload alt="pic48" style="zoom: 67%;" /></p>
-<p>发送一个段之后，暂时地保留一个备份</p>
-<p>每个段和ACK必须有ID</p>
-<p>重发时间一定大于平均运输时间的两倍</p>
-<p>停止和等待协议是一个简单的协议，但没什么效率</p>
+<h5 id="停止等待协议-stop-and-wait-protocal">停止等待协议 (Stop-and-Wait
+Protocal)</h5>
+<p><a
+target="_blank" rel="noopener" href="https://baike.baidu.com/item/停止等待协议/10290586">停止等待协议</a>
+最简单但也是最基础的<a
+target="_blank" rel="noopener" href="https://baike.baidu.com/item/数据链路层/4329290?fromModule=lemma_inlink">数据链路层</a>协议。很多有关协议的基本概念都可以从这个协议中学习到</p>
+<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311034504.png" srcset="/img/loading.gif" lazyload alt="" style="zoom: 67%;" /></p>
+<ul>
+<li><p>发送一个段之后，暂时地保留一个备份</p></li>
+<li><p>每个段和ACK必须有ID</p></li>
+<li><p>重发时间一定大于<strong>平均运输时间</strong>的两倍
+(否则将陷入永无止境的重新发送)</p></li>
+<li><p>停止和等待协议是一个简单 (但很低效) 的协议</p></li>
+</ul>
 <h5 id="确认丢失和确认迟到">确认丢失和确认迟到</h5>
-<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311034118.png" srcset="/img/loading.gif" lazyload alt="pic49" style="zoom:67%;" /></p>
+<blockquote>
+<p>You are late！</p>
+</blockquote>
+<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311034118.png" srcset="/img/loading.gif" lazyload alt="" style="zoom:67%;" /></p>
 <h4 id="可靠的通讯">2.4.3. 可靠的通讯</h4>
 <h5 id="arq-automatic-repeat-request自动重新发送请求">ARQ (Automatic
 Repeat reQuest，自动重新发送请求)</h5>
-<p>重新发送的请求是自动发送的，接受者不需要请求重新发送错误的信息</p>
+<p><a
+target="_blank" rel="noopener" href="https://baike.baidu.com/item/自动重传请求/2084571?fromModule=lemma_inlink">ARQ</a>
+是OSI模型中<a
+target="_blank" rel="noopener" href="https://baike.baidu.com/item/数据链路层/4329290?fromModule=lemma_inlink">数据链路层</a>的错误纠正协议之一。重新发送的请求是<strong>自动发送</strong>的，接受者不需要请求重新发送错误的信息。ARQ
+包括<strong>停止等待 (Stop-and-Wait) 式
+ARQ</strong>，<strong>回退n帧（go-back-n）ARQ</strong>，以及<strong>选择性重传（selective
+repeat）ARQ</strong>。后两种协议是<a
+target="_blank" rel="noopener" href="https://baike.baidu.com/item/滑动窗口?fromModule=lemma_inlink">滑动窗口</a>技术与请求重发技术的结合，由于窗口尺寸开到足够大时，帧在线路上可以连续地流动，因此又称其为<a
+target="_blank" rel="noopener" href="https://baike.baidu.com/item/连续ARQ协议?fromModule=lemma_inlink">连续ARQ协议</a>。</p>
 <h5 id="连续arq协议">连续ARQ协议</h5>
-<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311035976.png" srcset="/img/loading.gif" lazyload alt="pic50" style="zoom:67%;" /></p>
-<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311035218.png" srcset="/img/loading.gif" lazyload alt="pic51" style="zoom:67%;" /></p>
-<p>发送端要发送900字节长的数据，划分为9个100字节长的报文段，而发送窗口确定为500字节</p>
-<p>发送端只要收到了对方的确认，发送窗口就可前移</p>
-<p>发送TCP要维护一个指针，每发送一个报文段，指针就向前移动一个报文段的距离</p>
-<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311035826.png" srcset="/img/loading.gif" lazyload alt="pic52" style="zoom:67%;" /></p>
-<p>发送端已发送了400字节的数据，但只收到对前200字节数据的确认，同时窗口大小不变</p>
-<p>现在发送端还可以发送300字节</p>
-<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311035389.png" srcset="/img/loading.gif" lazyload alt="pic53" style="zoom:67%;" /></p>
+<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311035976.png" srcset="/img/loading.gif" lazyload alt="" style="zoom:67%;" /></p>
+<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311035218.png" srcset="/img/loading.gif" lazyload alt="" style="zoom:67%;" /></p>
+<ul>
+<li><p><strong>发送端</strong>要发送900字节长的数据，划分为9个100字节长的报文段，而<strong>发送窗口</strong>确定为500字节</p></li>
+<li><p><strong>发送端</strong>只要收到了对方的确认，发送窗口就可前移</p></li>
+<li><p>发送TCP要维护一个指针，每发送一个报文段，指针就向前移动一个报文段的距离</p></li>
+</ul>
+<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311035826.png" srcset="/img/loading.gif" lazyload alt="" style="zoom:67%;" /></p>
+<ul>
+<li><p><strong>发送端</strong>已发送了400字节的数据，但只收到对前200字节数据的确认，同时窗口大小不变</p></li>
+<li><p>现在<strong>发送端</strong>还可以发送300字节</p></li>
+</ul>
+<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311035389.png" srcset="/img/loading.gif" lazyload alt="" style="zoom:67%;" /></p>
 <p>一个例子：利用可变窗口大小进行流量控制，双方确定的窗口值是400</p>
 <table>
 
@@ -577,7 +601,7 @@ Repeat reQuest，自动重新发送请求)</h5>
 </tr>
 <tr class="even">
 <td style="text-align: center;">允许A再发送300字节 (序号201至500)</td>
-<td style="text-align: center;">ACK=201，WIN=300</td>
+<td style="text-align: center;">ACK = 201，WIN = 300</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">SEQ = 301</td>
@@ -594,7 +618,7 @@ style="text-align: center;">A超时重发，但不能发送序号500以后的数
 </tr>
 <tr class="even">
 <td style="text-align: center;">允许A再发送100字节(序号501至600)</td>
-<td style="text-align: center;">ACK=501,WIN=100</td>
+<td style="text-align: center;">ACK = 501, WIN = 100</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">SEQ = 501</td>
@@ -603,24 +627,23 @@ style="text-align: center;">A超时重发，但不能发送序号500以后的数
 <tr class="even">
 <td
 style="text-align: center;">不允许A再发送(到序号600的数据都已收到)</td>
-<td style="text-align: center;">ACK=601,WIN=0</td>
+<td style="text-align: center;">ACK = 601, WIN = 0</td>
 </tr>
 </tbody>
 </table>
 <h4 id="tcp释放连接">2.4.4. TCP：释放连接</h4>
-<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311035466.png" srcset="/img/loading.gif" lazyload alt="pic54" style="zoom:67%;" /></p>
+<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311035466.png" srcset="/img/loading.gif" lazyload alt="" style="zoom:67%;" /></p>
+<blockquote>
+<p><em>MSL</em> (Maximum Segment Lifetime) 报文最长存活时间</p>
+</blockquote>
 <p><strong>为什么一定要等2MSL？</strong></p>
-<p>答：1.保证A发送的最后一条确认可以到达B
-2.防止出现任何无效的连接请求段(在等待2
+<p>保证A发送的最后一条确认可以到达B</p>
+<p>防止出现任何无效的连接请求段 (在等待2
 MSL之后，我们可以保证连接上的所有段都已经消失)</p>
 <h3 id="tcp的有限状态机">2.5. TCP的<a
 target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/461094908">有限状态机</a></h3>
-<figure>
-<img
-src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311035310.png" srcset="/img/loading.gif" lazyload
-alt="pic55" />
-<figcaption aria-hidden="true">pic55</figcaption>
-</figure>
+<p><img
+src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311035310.png" srcset="/img/loading.gif" lazyload /></p>
 <h2 id="udpuser-datagram-protocol">3.UDP(User Datagram Protocol)</h2>
 <h3 id="udp概述">3.1. UDP概述</h3>
 <h4 id="为什么使用udp">3.1.1. 为什么使用UDP</h4>
@@ -673,7 +696,7 @@ Host Configuration Protocol</a>, 动态主机配置协议)</li>
 <blockquote>
 <p>UDP 报文包括 8个字节的header 和 可变长度的数据部分</p>
 </blockquote>
-<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311035929.png" srcset="/img/loading.gif" lazyload alt="pic56" style="zoom:50%;" /></p>
+<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311035929.png" srcset="/img/loading.gif" lazyload alt="" style="zoom:50%;" /></p>
 <h2 id="应用nat和pat">4. 应用：NAT和PAT</h2>
 <h3 id="nat">4.1. NAT</h3>
 <h4 id="概念">4.1.1. 概念</h4>
@@ -690,20 +713,20 @@ target="_blank" rel="noopener" href="https://www.rfc-editor.org/info/rfc1631">RF
 <li><p>当连接因特网时，增加灵活性</p></li>
 </ul>
 </blockquote>
-<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311036418.png" srcset="/img/loading.gif" lazyload alt="pic57" style="zoom:67%;" /></p>
+<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311036418.png" srcset="/img/loading.gif" lazyload alt="" style="zoom:67%;" /></p>
 <h4 id="nat类型">4.1.2. NAT类型</h4>
 <ul>
 <li><strong>static NAT</strong> (<a
 target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42442713/article/details/80909546">静态NAT</a>):
 将内部网络的私有IP地址转换为公有IP地址，IP地址对是<strong>双射</strong>，且是一成不变的</li>
 </ul>
-<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311036795.png" srcset="/img/loading.gif" lazyload alt="pic59" style="zoom:67%;" /></p>
+<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311036795.png" srcset="/img/loading.gif" lazyload alt="" style="zoom:67%;" /></p>
 <ul>
 <li><strong>pooled NAT</strong> (<a
 target="_blank" rel="noopener" href="https://baike.baidu.com/item/动态NAT/963527">NAT池</a>):
 映射基于<strong>先到先服务</strong>动态完成</li>
 </ul>
-<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311036870.png" srcset="/img/loading.gif" lazyload alt="pic60" style="zoom: 67%;" /></p>
+<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311036870.png" srcset="/img/loading.gif" lazyload alt="" style="zoom: 67%;" /></p>
 <ul>
 <li><strong>NAPT</strong> (Network Address Port Translation,
 网络地址端口转换) 或者叫<strong>PAT</strong> (<a
@@ -724,15 +747,15 @@ target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/477147801">另
 对外部展示的内部地址</p>
 <p><strong>Outside Global address (外部全局地址)</strong>:
 由主机所有者分配的IP地址。通常是注册地址</p>
-<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311036263.png" srcset="/img/loading.gif" lazyload alt="pic58" style="zoom:67%;" /></p>
+<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311036263.png" srcset="/img/loading.gif" lazyload alt="" style="zoom:67%;" /></p>
 <h4 id="nat的优点和缺点">4.1.4. NAT的优点和缺点</h4>
 <p>优点：因为不是每一个内部主机都需要同一时间访问外部，你可以用<strong>一小部分全局独一无二的地址</strong>来服务<strong>相对大量的私有地址的主机</strong></p>
 <p>缺点：一对一映射（如果私有地址空间是a/8，但是公共地址是a/24，同时只能有254台主机访问因特网）</p>
 <h3 id="pat">4.2. PAT</h3>
 <h4 id="pat如何工作">4.2.1. PAT如何工作</h4>
-<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311036592.png" srcset="/img/loading.gif" lazyload alt="pic61" style="zoom:67%;" /></p>
+<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311036592.png" srcset="/img/loading.gif" lazyload alt="" style="zoom:67%;" /></p>
 <h4 id="pat操作">4.2.2. PAT操作</h4>
-<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311036265.png" srcset="/img/loading.gif" lazyload alt="pic62" style="zoom:67%;" /></p>
+<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311036265.png" srcset="/img/loading.gif" lazyload alt="" style="zoom:67%;" /></p>
 
                 
               </div>
