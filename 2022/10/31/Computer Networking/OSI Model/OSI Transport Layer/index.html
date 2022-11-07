@@ -18,12 +18,12 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="OSI层次：传输层 1. 传输层概述 1.1. 传输层的功能  传输层将上面应用层的数据分段 建立终端到终端的操作 将报文段 (segment) 从一台主机端发送到其它主机 流量控制和可靠性  ​ 可以比作与外国人对话，通常你让外国人重复他的话（可靠性），然后慢慢的说（流量控制）   1.2. 两个重要的协议 1.2.1. TCP (Transmission Control Protocol, 传">
+    <meta name="description" content="OSI层次：传输层  关键词：可靠性、流控制、 错误校正。 刻画了终端对终端的连接  1. 传输层概述 1.1. 传输层的功能  传输层将上面应用层的数据分段 建立终端到终端的操作 将报文段 (segment) 从一台主机端发送到其它主机 流量控制和可靠性  ​ 可以比作与外国人对话，通常你让外国人重复他的话（可靠性），然后慢慢的说（流量控制）   1.2. 两个重要的协议 1.2.1. TCP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="OSI Transport Layer">
 <meta property="og:url" content="https://wuchentian.github.io/2022/10/31/Computer%20Networking/OSI%20Model/OSI%20Transport%20Layer/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="OSI层次：传输层 1. 传输层概述 1.1. 传输层的功能  传输层将上面应用层的数据分段 建立终端到终端的操作 将报文段 (segment) 从一台主机端发送到其它主机 流量控制和可靠性  ​ 可以比作与外国人对话，通常你让外国人重复他的话（可靠性），然后慢慢的说（流量控制）   1.2. 两个重要的协议 1.2.1. TCP (Transmission Control Protocol, 传">
+<meta property="og:description" content="OSI层次：传输层  关键词：可靠性、流控制、 错误校正。 刻画了终端对终端的连接  1. 传输层概述 1.1. 传输层的功能  传输层将上面应用层的数据分段 建立终端到终端的操作 将报文段 (segment) 从一台主机端发送到其它主机 流量控制和可靠性  ​ 可以比作与外国人对话，通常你让外国人重复他的话（可靠性），然后慢慢的说（流量控制）   1.2. 两个重要的协议 1.2.1. TCP">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311033989.png">
 <meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311033890.png">
@@ -47,7 +47,7 @@
 <meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311036592.png">
 <meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311036265.png">
 <meta property="article:published_time" content="2022-10-31T02:53:00.000Z">
-<meta property="article:modified_time" content="2022-11-07T02:45:32.092Z">
+<meta property="article:modified_time" content="2022-11-07T03:34:05.714Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Network">
 <meta property="article:tag" content="OSI">
@@ -256,7 +256,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4.7k words
+          4.8k words
         
       </span>
     
@@ -311,6 +311,10 @@
               <div class="markdown-body">
                 
                 <h1 id="osi层次传输层">OSI层次：传输层</h1>
+<blockquote>
+<p>关键词：可靠性、流控制、 错误校正。</p>
+<p>刻画了终端对终端的连接</p>
+</blockquote>
 <h2 id="传输层概述">1. 传输层概述</h2>
 <h3 id="传输层的功能">1.1. 传输层的功能</h3>
 <ul>
@@ -563,7 +567,9 @@ ARQ</strong>，<strong>回退n帧（go-back-n）ARQ</strong>，以及<strong>选
 repeat）ARQ</strong>。后两种协议是<a
 target="_blank" rel="noopener" href="https://baike.baidu.com/item/滑动窗口?fromModule=lemma_inlink">滑动窗口</a>技术与请求重发技术的结合，由于窗口尺寸开到足够大时，帧在线路上可以连续地流动，因此又称其为<a
 target="_blank" rel="noopener" href="https://baike.baidu.com/item/连续ARQ协议?fromModule=lemma_inlink">连续ARQ协议</a>。</p>
-<h5 id="连续arq协议">连续ARQ协议</h5>
+<h5
+id="tcp使用可变大小的连续arq协议-可变大小的滑动窗口协议">TCP使用可变大小的连续ARQ协议
+(可变大小的滑动窗口协议)</h5>
 <p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311035976.png" srcset="/img/loading.gif" lazyload alt="" style="zoom:67%;" /></p>
 <p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311035218.png" srcset="/img/loading.gif" lazyload alt="" style="zoom:67%;" /></p>
 <ul>
@@ -573,11 +579,11 @@ target="_blank" rel="noopener" href="https://baike.baidu.com/item/连续ARQ协�
 </ul>
 <p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311035826.png" srcset="/img/loading.gif" lazyload alt="" style="zoom:67%;" /></p>
 <ul>
-<li><p><strong>发送端</strong>已发送了400字节的数据，但只收到对前200字节数据的确认，同时窗口大小不变</p></li>
+<li><p><strong>发送端</strong>已发送了400字节的数据，但只收到对前200字节数据的确认，同时<strong>窗口大小不变</strong></p></li>
 <li><p>现在<strong>发送端</strong>还可以发送300字节</p></li>
 </ul>
 <p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311035389.png" srcset="/img/loading.gif" lazyload alt="" style="zoom:67%;" /></p>
-<p>一个例子：利用可变窗口大小进行流量控制，双方确定的窗口值是400</p>
+<p>一个例子：利用<strong>可变窗口大小</strong>进行流量控制，双方确定的窗口值是400</p>
 <table>
 
 <thead>
