@@ -57,7 +57,7 @@
 <meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005928.png">
 <meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005976.png">
 <meta property="article:published_time" content="2022-10-27T09:08:00.000Z">
-<meta property="article:modified_time" content="2022-11-05T22:55:25.108Z">
+<meta property="article:modified_time" content="2022-11-07T03:00:03.240Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Network">
 <meta property="article:tag" content="OSI">
@@ -277,7 +277,7 @@
         
         
         
-          91 mins
+          96 mins
         
       </span>
     
@@ -1066,7 +1066,7 @@ Shortest Path First, 开放最短路径优先)
 </blockquote>
 <ul>
 <li>VLSM 指的是允许一个自治系统使用不同的子网掩码</li>
-<li>与之相对的概念是有类路由：一个网络只能使用一个子网掩码</li>
+<li>与之相对的概念是<strong>有类路由</strong>：一个网络只能使用一个子网掩码</li>
 </ul>
 <h3 id="vlsm概述">7.1. VLSM概述</h3>
 <ul>
@@ -1110,155 +1110,238 @@ ver12.0中使用子网 0</strong></p>
 之间差距</strong>的修正之一</p></li>
 </ul>
 <h3 id="示例">7.3. 示例</h3>
-<p>​ 已知一个C类地址192.168.10.0/24 (表示前24位为网络号)
+<p>  已知一个C类地址192.168.10.0/24 (表示前24位为网络号)
 已经被分配，珀斯、悉尼、新加坡分别有一个连接到KL的广域网。珀斯需要60个主机，KL需要28个主机，悉尼和新加坡各需要12个主机。</p>
-<p>​
-为了计算VLSM子网和各自的主机数，在地址范围中先分配最大的需求。需求水平应该按照从大到小的顺序排列。</p>
+<p>  为了计算VLSM子网和各自的主机数，在地址范围中<strong>先分配最大的需求</strong>。需求水平应该<strong>按照从大到小的顺序排列</strong>。</p>
 <p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005783.png" srcset="/img/loading.gif" lazyload alt="" style="zoom:67%;" /></p>
 <p><strong>步骤一</strong></p>
-<p>珀斯需要60个主机</p>
-<p>用6位，因为这样有 <span class="math inline">\(2^6-2=62\)</span>
-个可用主机地址，因此第4个八位中的2位将表示/26的扩展网络前缀，剩余的6位用来表示主机地址</p>
-<p>将VLSM用在地址192.168.10.0/24上，有：</p>
+<p>  珀斯需要 <span class="math inline">\(60\)</span> 个主机。用 <span
+class="math inline">\(6\)</span> 位，因为这样有 <span
+class="math inline">\(2^6-2=62\)</span>
+个可用主机地址，因此第四个八位中的前两位将表示/26的扩展网络前缀，剩余的
+<span class="math inline">\(6\)</span> 位用来表示主机地址</p>
+<p>  将VLSM用在地址192.168.10.0/24上，有：</p>
 <blockquote>
 <p>IP: 192.168.10.00hhhhhh /26</p>
 <p>SM: 255.255.255.192 (11000000)</p>
 </blockquote>
 <p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005812.png" srcset="/img/loading.gif" lazyload style="zoom:67%;" /></p>
 <p><strong>步骤二</strong></p>
-<p>KL需要28个主机。在192.168.10.63/26后，下一个可用的地址是192.168.10.64/26</p>
-<p>因为需要28个主机，所以需要5位表示主机地址，这样有2^5-2=30个可用的主机</p>
-<p>因此需要5位来表示主机，3位用于/27的扩展网络前缀</p>
-<p>将VLSM使用在192.168.10.64/26上，有：</p>
+<p>  KL 需要 <span class="math inline">\(28\)</span> 个主机。在
+192.168.10.63/26 后，下一个可用的地址是 192.168.10.64/26。因为需要 <span
+class="math inline">\(28\)</span> 个主机，所以需要 <span
+class="math inline">\(5\)</span> 位表示主机地址，这样有 <span
+class="math inline">\(2^5-2=30\)</span> 个可用的主机。因此需要 <span
+class="math inline">\(5\)</span> 位来表示主机，<span
+class="math inline">\(3\)</span> 位用于/27的扩展网络前缀</p>
+<p>  将VLSM使用在192.168.10.64/26上，有：</p>
 <blockquote>
 <p>IP: 192.168.10.010hhhhh /27</p>
 <p>SM: 255.255.255.224 (11100000)</p>
 </blockquote>
 <p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005902.png" srcset="/img/loading.gif" lazyload style="zoom:60%;" /></p>
 <p><strong>步骤三</strong></p>
-<p>现在悉尼和新加坡各需要12个主机，下一个可用地址从192.168.10.96/27开始</p>
-<p>因为需要12个主机，所以需要4位表示主机地址，有2^4-2=14个可用地址</p>
-<p>因此4位代表主机，4位用于/28的扩展网络前缀</p>
-<p>将VLSM用在192.168.10.96/27上，有：</p>
-<p>192.168.10.<strong>0110</strong> hhhh/28</p>
-<p>255.255.255.240(1111 0000)</p>
+<p>  现在悉尼和新加坡各需要12个主机，下一个可用地址从192.168.10.96/27开始。因为需要12个主机，所以需要4位表示主机地址，有
+<span class="math inline">\(2^4-2=14\)</span>
+个可用地址。因此4位代表主机，4位用于/28的扩展网络前缀</p>
+<p>  将VLSM用在192.168.10.96/27上，有：</p>
+<blockquote>
+<p>192.168.10.0110hhhh /28</p>
+<p>255.255.255.240 (11110000)</p>
+</blockquote>
 <p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005210.png" srcset="/img/loading.gif" lazyload style="zoom:60%;" /></p>
 <p><strong>步骤四</strong></p>
-<p>现在给广域网分配链接地址，记住，每个广域网链接需要2个IP地址，下个可获取的子网是192.168.10.128/28</p>
-<p>因为每个广域网链接需要2个网络地址，所以2位用于表示主机，有2^2-2=2个可用地址</p>
-<p>因此需要2位表示链接，6位表示/30的扩展网络前缀</p>
-<p>将VLSM用在192.168.10.128/28上，有：</p>
-<p>192.168.10.<strong>100000</strong> hh/30</p>
-<p>255.255.255.250(1111 1100)</p>
+<p>  现在给<strong>广域网</strong>分配链接地址，记住，每个广域网链接需要
+<span class="math inline">\(2\)</span>
+个IP地址，下个可获取的子网是192.168.10.128/28。因为每个广域网链接需要
+<span class="math inline">\(2\)</span> 个网络地址，所以 <span
+class="math inline">\(2\)</span> 位用于表示主机，有 <span
+class="math inline">\(2^2-2=2\)</span> 个可用地址。因此需要 <span
+class="math inline">\(2\)</span> 位表示链接，<span
+class="math inline">\(6\)</span> 位表示 /30 的扩展网络前缀</p>
+<p>  将VLSM用在192.168.10.128/28上，有：</p>
+<blockquote>
+<p>192.168.10.100000hh /30</p>
+<p>255.255.255.250 (11111100)</p>
+</blockquote>
 <p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005471.png" srcset="/img/loading.gif" lazyload style="zoom:60%;" /></p>
 <p><strong>result</strong></p>
 <p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005565.png" srcset="/img/loading.gif" lazyload alt="pic33" style="zoom:67%;" /></p>
-<p>只有没有被使用的子网可以被进一步划分子网</p>
-<p>如果一个子网的任何地址被使用了，那么这个子网不能再被划分</p>
+<ul>
+<li><p>只有<strong>没有被使用的子网</strong>可以被进一步划分子网</p></li>
+<li><p>如果一个子网的任何地址被使用了，那么这个子网不能再被划分</p></li>
+</ul>
 <h3 id="路由聚合">7.4. 路由聚合</h3>
-<p>无类别域间路由和VLSM的使用，不仅防止了地址浪费，还促进路由聚合</p>
+<blockquote>
+<p><a
+target="_blank" rel="noopener" href="https://baike.baidu.com/item/路由聚合/5322155?fr=aladdin">路由聚合</a>
+(Route Summarization)
+是让路由选择协议能够<strong>用一个地址通告众多网络</strong>，旨在缩小路由器中路由选择表的规模，以节省内存，并缩短IP对路由选择表进行分析以找出前往远程网络的路径所需的时间的方法。</p>
+</blockquote>
+<p><strong>CIDR (无类别域间路由)</strong> 和 <strong>VLSM</strong>
+的使用，不仅防止了地址浪费，还促进路由聚合</p>
 <p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005575.png" srcset="/img/loading.gif" lazyload style="zoom:60%;" /></p>
 <p><strong>示例</strong></p>
 <p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005655.png" srcset="/img/loading.gif" lazyload style="zoom:60%;" /></p>
-<p>计算</p>
+<p><strong>计算</strong></p>
 <p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005742.png" srcset="/img/loading.gif" lazyload style="zoom:60%;" /></p>
 <p><strong>优点</strong></p>
-<p>减少路由表条目数</p>
-<p>用于隔离拓扑的变化</p>
-<p>为了让聚合正确工作，要仔细地在层次结构中分配地址，使得汇总的地址分享同样的高位比特</p>
-<p>VLSM
-允许路由聚合，通过将聚合完全基于左边共享的高位，来增加灵活性，即使网络是不连续的。</p>
+<ul>
+<li><p>减少路由表条目数</p></li>
+<li><p>用于隔离拓扑的变化</p></li>
+<li><p>为了让聚合正确工作，要仔细地在层次结构中分配地址，使得汇总的地址分享同样的高位比特</p></li>
+<li><p>VLSM
+允许路由聚合，通过将聚合完全基于左边共享的高位，来增加灵活性，即使网络是不连续的。</p></li>
+</ul>
 <h2 id="icmp">8. ICMP</h2>
 <h3 id="一些概念">8.1. 一些概念</h3>
-<p>ICMP (Internet Control Message Protocol)：为了提高 IP
-数据报交付成功的机会</p>
-<p>ICMP 允许主机或路由器报告差错情况和提供有关异常情况的报告</p>
-<p>ICMP 只是 IP 层的协议</p>
-<p>ICMP 报文作为 IP 层数据报的数据，加上数据报的首部，组成 IP
-数据报发送出去</p>
+<blockquote>
+<p>ICMP（Internet Control Message Protocol, 因特网控制报文协议）是<a
+target="_blank" rel="noopener" href="https://baike.baidu.com/item/TCP%2FIP协议簇?fromModule=lemma_inlink">TCP/IP协议簇</a>的一个子协议，用于在IP<a
+target="_blank" rel="noopener" href="https://baike.baidu.com/item/主机/455151?fromModule=lemma_inlink">主机</a>、<a
+target="_blank" rel="noopener" href="https://baike.baidu.com/item/路由?fromModule=lemma_inlink">路由</a>器之间传递<strong>控制消息</strong>。控制消息是指<strong>网络通不通、<a
+target="_blank" rel="noopener" href="https://baike.baidu.com/item/主机/455151?fromModule=lemma_inlink">主机</a>是否可达、<a
+target="_blank" rel="noopener" href="https://baike.baidu.com/item/路由/363497?fromModule=lemma_inlink">路由</a>是否可用</strong>等网络本身的消息。这些控制消息虽然并不传输用户数据，但是对于用户数据的传递起着重要的作用。</p>
+<p>ICMP 报文作为 IP
+层数据报的数据，加上<strong>数据报的首部</strong>，组成 IP
+数据报发送出去。提高了 IP 数据报交付成功的机会</p>
+</blockquote>
 <h3 id="icmp报文的格式">8.2. ICMP报文的格式</h3>
 <p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005795.png" srcset="/img/loading.gif" lazyload style="zoom:67%;" /></p>
 <h3 id="两种icmp报文">8.3. 两种ICMP报文</h3>
 <p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005858.png" srcset="/img/loading.gif" lazyload alt="" style="zoom:60%;" /></p>
 <h3 id="目的站不可到达">8.4. 目的站不可到达</h3>
-<p><strong>网络不可到达</strong>(net unreachable)</p>
-<p><strong>主机不可到达</strong>(host unreachable)</p>
-<p><strong>协议不可到达（</strong>protocol unreachable）</p>
-<p><strong>端口不可到达（</strong>port unreachable）</p>
-<p><strong>源路由选择不能完成（</strong>source route failed）</p>
-<p><strong>目的网络不可知（</strong>unknown destination network）</p>
-<p><strong>目的主机不可知</strong>（unknown destination host）</p>
+<ul>
+<li><p><strong>网络不可到达</strong>(net unreachable)</p></li>
+<li><p><strong>主机不可到达</strong>(host unreachable)</p></li>
+<li><p><strong>协议不可到达（</strong>protocol unreachable）</p></li>
+<li><p><strong>端口不可到达（</strong>port unreachable）</p></li>
+<li><p><strong>源路由选择不能完成（</strong>source route
+failed）</p></li>
+<li><p><strong>目的网络不可知（</strong>unknown destination
+network）</p></li>
+<li><p><strong>目的主机不可知</strong>（unknown destination
+host）</p></li>
+</ul>
 <h3 id="icmp差错报告报文的数据字段的内容">8.5.
 ICMP差错报告报文的数据字段的内容</h3>
 <p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005892.png" srcset="/img/loading.gif" lazyload style="zoom:67%;" /></p>
 <h3 id="不应发送icmp差错报告报文的几种情况">8.6.
 不应发送ICMP差错报告报文的几种情况</h3>
-<p>对 ICMP 差错报告报文不再发送 ICMP 差错报告报文</p>
-<p>对第一个分片的数据报片的所有后续数据报片都不发送 ICMP
-差错报告报文</p>
-<p>对具有多播地址的数据报都不发送 ICMP 差错报告报文</p>
-<p>对具有特殊地址（如127.0.0.0或0.0.0.0）的数据报不发送 ICMP
-差错报告报文</p>
-<h3 id="pingpacket-internet-groper">8.7. PING(Packet InterNet
-Groper)</h3>
-<p>PING 是用ICMP的"Echo request"和"Echo reply"消息来实现的</p>
-<p>PING 用来测试两个主机之间的连通性</p>
-<p>PING 使用了 ICMP 回送请求与回送回答报文</p>
-<p>PING 是应用层直接使用网络层 ICMP 的例子，它没有通过运输层的
-TCP或UDP</p>
+<ul>
+<li><p>对 ICMP 差错报告报文不再发送 ICMP 差错报告报文</p></li>
+<li><p>对第一个分片的数据报片的所有后续数据报片都不发送 ICMP
+差错报告报文</p></li>
+<li><p>对具有多播地址的数据报都不发送 ICMP 差错报告报文</p></li>
+<li><p>对具有特殊地址（如127.0.0.0或0.0.0.0）的数据报不发送 ICMP
+差错报告报文</p></li>
+</ul>
+<h3 id="ping">8.7. PING</h3>
+<blockquote>
+<p><a
+target="_blank" rel="noopener" href="https://baike.baidu.com/item/ping/6235?fromModule=lemma_search-box">PING</a>
+(Packet InterNet Groper, 因特网包探索器) 是一种<a
+target="_blank" rel="noopener" href="https://baike.baidu.com/item/因特网/114119?fromModule=lemma_inlink">因特网</a>包探索器，用于测试<strong>网络连接量</strong>的程序。Ping是工作在<a
+target="_blank" rel="noopener" href="https://baike.baidu.com/item/%20TCP%2FIP/214077?fromModule=lemma_inlink">TCP/IP</a>网络体系结构中<a
+target="_blank" rel="noopener" href="https://baike.baidu.com/item/应用层/16412033?fromModule=lemma_inlink">应用层</a>的一个服务命令，测试目的站是否可达及了解其有关状态</p>
+</blockquote>
+<ul>
+<li><p>PING 是用 ICMP 的 "Echo request" 和 "Echo reply"
+消息来实现的</p></li>
+<li><p>PING 使用了 ICMP 回送请求与回送回答报文</p></li>
+<li><p>PING 是<strong>应用层直接使用网络层</strong> ICMP
+的例子，它<strong>没有通过运输层</strong>的 TCP或UDP</p></li>
+</ul>
+<blockquote>
+<p>可见，上层可以<strong>跳过邻近的下层</strong>而直接使用底层协议，未必要一层一层地自顶向下。</p>
+</blockquote>
 <h2 id="移动ip">9. 移动IP</h2>
 <h3 id="基本概念">9.1. 基本概念</h3>
-<p>移动 IP
-让电脑可以在从一个因特网接入点换到另一个接入点的时候，保持网络连接</p>
-<p>移动 IP 和 nomadic(不定) IP 是不同的:</p>
-<p>移动 IP 可以无视接入点的变化，自动保持电脑的网络</p>
-<p>不定 IP 在接入点变化时，必须先停止连接，然后初始化新的电脑连接</p>
+<blockquote>
+<p><a
+target="_blank" rel="noopener" href="https://baike.baidu.com/item/移动IP?fromModule=lemma_search-box">移动IP</a>
+(Mobile IP) 是由<a
+target="_blank" rel="noopener" href="https://baike.baidu.com/item/互联网工程任务组?fromModule=lemma_inlink">互联网工程任务组</a>
+(IETF)
+制定的一种网上传输协议标准。由于移动终端的互联网接入点会不断发生变化，所以其IP地址在两方面发生分离，一是<strong>移动节点需要一种机制来唯一标识自己</strong>，另一是需要这种标识不会被用来<a
+target="_blank" rel="noopener" href="https://baike.baidu.com/item/路由?fromModule=lemma_inlink">路由</a>。移动IP便是为了能让移动节点能够分离IP地址这两方面功能，而又不彻底改变现有互联网的结构而设计。</p>
+</blockquote>
+<ul>
+<li><p>移动 IP
+让电脑可以在从一个因特网接入点换到另一个接入点的时候，保持网络连接</p></li>
+<li><p>移动 IP 和 nomadic (不定) IP 是不同的:</p></li>
+<li><p>移动 IP
+可以<strong>无视接入点的变化，自动保持电脑的网络</strong></p></li>
+<li><p>不定 IP
+在接入点变化时，必须<strong>先停止连接，然后初始化新的电脑连接</strong></p></li>
+</ul>
 <h3 id="移动ip的运作">9.2. 移动IP的运作</h3>
-<p><strong>本地网络</strong>：移动节点被分配给名为本地网络(home
-network)的特定网络,在该网络里名为本地地址的IP地址是静态的.</p>
-<p><strong>外部网络</strong>：移动节点移至另一个网络，
-该网络被认为是此主机的外部网络。</p>
-<p><strong>外部代理</strong>：移动节点通过网络节点(路由器)
-注册，如果路由器在外部网络，名为外部代理。</p>
-<p>移动节点与用户本地网络的、名为本地代理的类似代理通信,将移动节点的<strong>转交地址</strong>(care-of
-address)给予<strong>本地代理</strong></p>
+<ul>
+<li><strong>本地网络</strong>：移动节点被分配给名为本地网络 (home
+network)
+的特定网络,在该网络里名为本地地址的IP地址是<strong>静态</strong>的.</li>
+<li><strong>外部网络</strong>：移动节点移至另一个网络，
+该网络被认为是此主机的外部网络。</li>
+<li><strong>外部代理</strong>：移动节点通过网络节点(路由器)
+注册，如果路由器在外部网络，名为外部代理。</li>
+</ul>
+<p>移动节点与用户本地网络的、名为本地代理的类似代理通信,
+将移动节点的<strong>转交地址</strong>(care-of address)
+给予<strong>本地代理</strong></p>
 <p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005928.png" srcset="/img/loading.gif" lazyload style="zoom:70%;" /></p>
 <h3 id="转交地址">9.3. 转交地址</h3>
-<p>移动 IP 提供两种获取转交地址的模式</p>
-<p><strong>外地代理转交地址</strong></p>
-<p>该地址通常是发送通告的外地代理的 IP 地址</p>
-<p>通过代理通告消息被通告给移动节点</p>
-<p>外地代理是隧道的端点</p>
-<p>外地代理通过隧道接收数据报时，会对收到的数据报解除封装。然后，外地代理会将内部数据报传送到移动节点</p>
-<p>许多移动节点可以共用同一转交地址</p>
-<p><strong>协同定位转交地址</strong></p>
-<p>由移动节点通过一些方法（如DHCP）获取，作为自身临时IP</p>
-<p>移动节点充当隧道的端点</p>
-<p>移动节点对通过隧道传来的数据报解除封装</p>
-<p>协同定位转交地址可使移动节点在没有外地代理的情况下正常工作</p>
-<p>如果某个移动节点正在使用协同定位的转交地址，则该移动节点必须与该转交地址处于同一网段。否则，发往该转交地址的数据报将无法传送</p>
+<p>移动 IP 提供<strong>两种获取转交地址的模式</strong></p>
+<h4 id="外地代理转交地址">9.3.1. 外地代理转交地址</h4>
+<ul>
+<li><p>该地址通常是发送通告的外地代理的 IP 地址</p></li>
+<li><p>通过代理通告消息被通告给移动节点</p></li>
+<li><p>外地代理是隧道的端点</p></li>
+<li><p>外地代理通过隧道接收数据报时，会对收到的数据报解除封装。然后，外地代理会将内部数据报传送到移动节点</p></li>
+<li><p>许多移动节点可以共用同一转交地址</p></li>
+</ul>
+<h4 id="协同定位转交地址">9.3.2. 协同定位转交地址</h4>
+<ul>
+<li><p>由移动节点通过一些方法 (e.g. DHCP) 获取，作为自身临时IP</p></li>
+<li><p>移动节点充当隧道的端点</p></li>
+<li><p>移动节点对通过隧道传来的数据报解除封装</p></li>
+<li><p>协同定位转交地址可使移动节点在没有外地代理的情况下正常工作</p></li>
+<li><p>如果某个移动节点正在使用协同定位的转交地址，则该移动节点必须与该转交地址处于同一网段。否则，发往该转交地址的数据报将无法传送</p></li>
+</ul>
 <h3 id="基本功能">9.4. 基本功能</h3>
-<p><strong>发现</strong> –
-移动节点使用发现程序来标识期望的本地代理和外部代理</p>
+<h4 id="发现">9.4.1. 发现</h4>
+<blockquote>
+<p>移动节点使用发现程序来标识期望的本地代理和外部代理</p>
 <p>使用ICMP协议</p>
-<p>移动节点可能在IP层不知道的情况下，由于某些切换机制的作用，从一个网络移到另一个网络。</p>
-<p>代理发现进程的目的是使代理能检测到这样的移动</p>
-<p>作为代理的路由器或其他网络节点，周期性发布带广播扩展的路由器广播ICMP报文。报文包括路由器的IP地址</p>
-<p>移动节点监听这些广播报文。将路由器的网络部分与自身本地地址的网络部分比较，如果不匹配就说明移动节点在外部网络</p>
-<p>如果移动节点未能接收到代理信息，允许其发布一个ICMP路由器请求报文来寻求路由器响应</p>
-<p><strong>注册</strong> –
-移动节点使用认证注册程序将它的转交地址告知它的本地代理</p>
+</blockquote>
+<ul>
+<li><p>移动节点可能在IP层不知道的情况下，由于某些切换机制的作用，从一个网络移到另一个网络。</p></li>
+<li><p>代理发现进程的目的是使代理能检测到这样的移动</p></li>
+<li><p>作为代理的路由器或其他网络节点，周期性发布带广播扩展的路由器广播ICMP报文。报文包括路由器的IP地址</p></li>
+<li><p>移动节点监听这些广播报文。将路由器的网络部分与自身本地地址的网络部分比较，如果不匹配就说明移动节点在外部网络</p></li>
+<li><p>如果移动节点未能接收到代理信息，允许其发布一个ICMP路由器请求报文来寻求路由器响应</p></li>
+</ul>
+<h4 id="注册">9.4.2. 注册</h4>
+<blockquote>
+<p>移动节点使用认证注册程序将它的转交地址告知它的本地代理</p>
 <p>用UDP协议</p>
-<p>注册程序的不安全性</p>
-<p>移动IP被设计成能抵挡两类攻击</p>
-<p>一个节点可能伪装成外部代理,并向本地代理发送注册请求,以求将目的为移动节点的通信转到自己.</p>
-<p>恶意代理可能重发旧的注册报文,有效地将移动节点由网络中除去</p>
-<p>为达到报文认证,每个注册请求和回应包含认证扩充</p>
-<p><strong>隧道</strong></p>
+</blockquote>
+<ul>
+<li><p>注册程序的不安全性</p></li>
+<li><p>移动IP被设计成能抵挡两类攻击</p></li>
+<li><p>一个节点可能伪装成外部代理,并向本地代理发送注册请求,以求将目的为移动节点的通信转到自己.</p></li>
+<li><p>恶意代理可能重发旧的注册报文,有效地将移动节点由网络中除去</p></li>
+<li><p>为达到报文认证,每个注册请求和回应包含认证扩充</p></li>
+</ul>
+<h4 id="隧道">9.4.3. 隧道</h4>
+<blockquote>
 <p>用于将IP数据报由本地地址发至转交地址</p>
-<p>使用IP协议。将原来整个数据报封装入一个首部带有转交地址的新IP数据报中。</p>
-<p>隧道将原有的IP报文作为载荷，在外面包上一层新的IP包头，转换成为一个新的IP报文</p>
-<p>在一定程度上提高了安全性</p>
+<p>使用IP协议</p>
+</blockquote>
+<ul>
+<li><p>将原来整个数据报封装入一个首部带有转交地址的新IP数据报中。</p></li>
+<li><p>隧道将原有的IP报文作为载荷，在外面包上一层新的IP包头，转换成为一个新的IP报文</p></li>
+<li><p>在一定程度上提高了安全性</p></li>
+</ul>
 <p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210291005976.png" srcset="/img/loading.gif" lazyload style="zoom:67%;" /></p>
 
                 
