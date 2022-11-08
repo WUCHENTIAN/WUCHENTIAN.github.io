@@ -24,9 +24,9 @@
       
       <tag>Java</tag>
       
-      <tag>Socket</tag>
-      
       <tag>Network</tag>
+      
+      <tag>Socket</tag>
       
     </tags>
     
@@ -51,9 +51,9 @@
     
     <tags>
       
-      <tag>Data Structure</tag>
-      
       <tag>C++</tag>
+      
+      <tag>Data Structure</tag>
       
       <tag>Java</tag>
       
@@ -86,11 +86,11 @@
       
       <tag>Java</tag>
       
+      <tag>Network</tag>
+      
       <tag>Socket</tag>
       
       <tag>C</tag>
-      
-      <tag>Network</tag>
       
     </tags>
     
@@ -117,9 +117,9 @@
     
     <tags>
       
-      <tag>Network</tag>
-      
       <tag>Hardware</tag>
+      
+      <tag>Network</tag>
       
     </tags>
     
@@ -132,7 +132,7 @@
     <link href="/2022/10/31/Computer%20Networking/OSI%20Model/OSI%20Application%20Layer/"/>
     <url>/2022/10/31/Computer%20Networking/OSI%20Model/OSI%20Application%20Layer/</url>
     
-    <content type="html"><![CDATA[<h1 id="osi层次应用层">OSI层次应用层</h1><blockquote><p>注意这里的应用层指的是 OSI 模型中的 Session Layer, Presentation Layerand Application Layer</p></blockquote><h2 id="会话层">1. 会话层</h2><h3 id="会话层功能">1.1. 会话层功能</h3><figure><imgsrc="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311029158.png"alt="pic63" /><figcaption aria-hidden="true">pic63</figcaption></figure><h3 id="检查点">1.2. 检查点</h3><p>检查点用于分离部分会话，过去被称为对话</p><p>对话分离是有序地初始化、终止和通讯控制</p><figure><imgsrc="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311029691.png"alt="pic64" /><figcaption aria-hidden="true">pic64</figcaption></figure><h3 id="第5层的一些应用">1.3. 第5层的一些应用</h3><figure><imgsrc="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311029620.png"alt="pic65" /><figcaption aria-hidden="true">pic65</figcaption></figure><h2 id="展示层">2. 展示层</h2><h3 id="基本功能">2.1. 基本功能</h3><p>负责以接收设备可以理解的方式呈现数据</p><h3 id="主要功能">2.2.主要功能</h3><h4 id="格式化数据">①格式化数据</h4><ul><li>文本文件格式化<ul><li>想象两个不同的系统<ul><li>一个用广义二进制编码的十进制交换码(EBCDIC)格式文本</li><li>另一个用ASCII格式文本</li></ul></li><li>第六层提供不同的两种编码间的翻译</li></ul></li><li>图片文件格式化<ul><li>因特网通常使用两种二进制文件格式来展示图像<ul><li>Graphic Interchange Format (GIF)</li><li>Joint Photographic Experts Group (JPEG)</li></ul></li><li>无论什么类型的电脑，只要有 GIF和JPEG阅读器，都可以查看这些文件格式</li></ul></li><li>多媒体文件格式<ul><li>多媒体文件格式是另一种二进制文件类型，用于存储声音、音乐和音频<ul><li>先将文件全部下载，然后播放；或是边下边放</li><li>后一种方式又被称为流式音频</li></ul></li></ul></li></ul><h4 id="压缩数据">②压缩数据</h4><ul><li>展示层也负责文件压缩</li></ul><h4 id="数据加密">③数据加密</h4><ul><li>数据加密在传输过程中保护信息</li></ul><h2 id="应用层">3. 应用层</h2><h3 id="概述">3.1. 概述</h3><ul><li>应用层(最接近用户) 支持应用的通讯部分</li><li>应用层：<ul><li>识别并建立有意通讯双方的可用性</li><li>同步化合作应用</li><li>建立错误修复流程的协议</li><li>控制数据完整</li></ul></li></ul><h3 id="使用方式">3.2. 使用方式</h3><ul><li>通过使用网络应用（如：www, e-mail, ftp,telnet远程登录），提供一个直接接口给 OSI 模型的剩余部分</li><li>§或者通过使用独立应用程序（如：word processors 文字处理软件,spreadsheets 电子表格, presentation managers 绘图, network redirector网络转发程序），提供一个不直接的接口</li></ul><h3 id="http">3.3. HTTP</h3><figure><imgsrc="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311030794.png"alt="pic66" /><figcaption aria-hidden="true">pic66</figcaption></figure><ul><li><p>HTTP 是面向事务的客户服务器协议。</p></li><li><p>HTTP 1.0 协议是无状态的(stateless)。</p></li><li><p>HTTP 协议本身也是无连接的，虽然它使用了面向连接的 TCP向上提供的服务。</p></li><li><p>万维网浏览器就是一个 HTTP 客户，而在万维网服务器等待 HTTP请求的进程常称为 HTTP daemon，有的文献将它缩写为 HTTPD。</p></li><li><p>HTTP daemon 在收到 HTTP 客户的请求后，把所需的文件返回给 HTTP客户。</p></li><li><p>HTTP的报文结构(请求报文)</p><ul><li><p>报文由三个部分组成，即开始行、首部行和实体主体；在请求报文中，开始行就是请求行</p></li><li><figure><imgsrc="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311030908.png"alt="pic68" /><figcaption aria-hidden="true">pic68</figcaption></figure></li><li><table><thead><tr class="header"><th>方法（操作）</th><th>意义</th></tr></thead><tbody><tr class="odd"><td>OPTION</td><td>请求一些选项的信息</td></tr><tr class="even"><td>GET</td><td>请求读取由URL所标志的信息</td></tr><tr class="odd"><td>HEAD</td><td>请求读取由URL所标志的信息的首部</td></tr><tr class="even"><td>POST</td><td>给服务器添加信息（例如，注释）</td></tr><tr class="odd"><td>PUT</td><td>在指明的URL下存储一个文档</td></tr><tr class="even"><td>DELETE</td><td>删除指明的URL所标志的资源</td></tr><tr class="odd"><td>TRACE</td><td>用来进行环回测试的请求报文</td></tr><tr class="even"><td>CONNECT</td><td>用于代理服务器</td></tr></tbody></table><p>上表为HTTP请求报文的一些方法</p></li></ul></li></ul><h3 id="url">3.4. URL</h3><blockquote><p>统一资源定位符, Uniform Resource Locator</p></blockquote><ul><li><p><ahref="https://baike.baidu.com/item/统一资源定位系统?fromtitle=url&amp;fromid=110640&amp;fromModule=lemma_search-box">统一资源定位符URL</a>是对可以从因特网上得到的资源的位置和访问方法的一种简洁的表示</p></li><li><p>URL给资源的位置提供一种抽象的识别方法，并用这种方法给资源定位。</p></li><li><p>只要能够对资源定位，系统就可以对资源进行各种操作，如存取、更新、替换和查找其属性。</p></li><li><p>URL 相当于一个文件名在网络范围的扩展。因此 URL是与因特网相连的机器上的任何可访问对象的一个指针。</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">URL的访问方式</span>&gt;</span>://<span class="hljs-tag">&lt;<span class="hljs-name">主机</span>&gt;</span>:<span class="hljs-tag">&lt;<span class="hljs-name">端口</span>&gt;</span>/<span class="hljs-tag">&lt;<span class="hljs-name">路径</span>&gt;</span><br></code></pre></td></tr></table></figure></li></ul><h3 id="html">3.5. HTML</h3><ul><li>定义了许多用于排版的命令（标签）</li><li>HTML 文档是一种可以用任何文本编辑器创建的 ASCII 码文件。</li><li>仅当 HTML 文档是以.html 或 .htm为后缀时，浏览器才对此文档的各种标签进行解释。</li><li>当浏览器从服务器读取 HTML 文档，针对HTML文档中的各种标签，根据浏览器所使用的显示器的尺寸和分辨率大小，重新进行排版并恢复出所读取的页面。</li><li>HTML用一对标签（一个开始标签和一个结束标签）或几对标签来标识一个元素。</li></ul><h3 id="ftp和tftp">3.6. FTP和TFTP</h3><ul><li>FTP 是使用TCP来传输文件的，可靠的，面向连接的服务<ul><li>FTP 首先建立一个客户端和服务器之间的控制连接(端口 21)</li><li>然后建立第二个连接，连接数据传输要经过的电脑 (端口20)</li></ul></li><li>TFTP 是使用UDP的，不需要连接的服务<ul><li>小且容易实施</li><li>如，TFTP用于路由器来传输配置文件和思科IOS 镜像</li></ul></li></ul><h3 id="telnet远程登录">3.7. Telnet远程登录</h3><ul><li>Telnet客户端软件提供了登录正在运行Telnet服务器应用的远程网络主机的能力，然后执行命令行的命令</li></ul><figure><imgsrc="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311030166.png"alt="pic67" /><figcaption aria-hidden="true">pic67</figcaption></figure><h3 id="smtp和pop">3.8. SMTP和POP</h3><ul><li><p>E-mail服务器通过SMTP发送邮件，POP接收邮件，来交互</p><ul><li>SMTP (Simple Mail Transfer Protocol)简单邮件传输协议</li><li>POP3 (Post Office Protocol version 3)第三版电子邮局协议</li></ul></li><li><figure><imgsrc="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311030269.png"alt="pic69" /><figcaption aria-hidden="true">pic69</figcaption></figure></li><li><p>SMTP只能传ASCII文件</p></li><li></li><li><p>MIME增加的5个新的邮件首部</p><ul><li>MIME-Version: 标志 MIME 的版本。现在的版本号是1.0。若无此行，则为英文文</li><li>Content-Description:这是可读字符串，说明此邮件主体是否是图像、音频或视</li><li>Content-Id: 邮件的惟一标识符</li><li>Content-Transfer-Encoding: 在传送时邮件的主体是如何编码的</li><li>Content-Type:说明邮件主体的数据类型和子类型</li></ul></li></ul><h3 id="内容传送编码">3.9. 内容传送编码</h3><ul><li>最简单的编码就是 7 位 ASCII 码，而每行不能超过 1000 个字符。MIME对这种由 ASCII 码构成的邮件主体不进行任何转换</li><li>另一种编码称为quoted-printable，这种编码方法适用于当所传送的数据中只有少量的非 ASCII码</li><li>对于任意的二进制文件，可用 base64 编码</li></ul><h3 id="snmp">3.10. SNMP</h3><ul><li>简单网络管理协议(SNMP)是一个用于在网络设备之间管理信息交换的应用层协议</li><li><imgsrc="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311030728.png"title="fig:" alt="pic71" /></li></ul><h3 id="dns域名系统">3.11. DNS域名系统</h3><ul><li>域名系统(DNS)是一个网络服务，负责管理域名，并对客户端的请求做出回应，将域名翻译成相联系的IP地址</li><li>域名<ul><li><figure><imgsrc="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311031491.png"alt="pic72" /><figcaption aria-hidden="true">pic72</figcaption></figure></li><li><p>TLD顶级域名</p><ul><li>国家 TLD(nTLD)<ul><li>.cn(CHINA), .us (United States), .uk (United kingdom), etc.</li></ul></li><li>通用 TLD(gTLD)，最早的域名包括：<ul><li>.com 企业和公司</li><li>.net 网络服务供应商</li><li>.org 非营利性机构</li><li>.edu 教育设施</li><li>.gov 政府 (only for U.S.A)</li><li>.mil 军事设施(only for U.S.A)</li><li>.int 国际组织</li></ul></li><li>基础结构域名<ul><li>只有一个：arpa，用于解决域名问题</li></ul></li><li>最近，新的TLD域名增加：<ul><li>.aero （航空运输企业）</li><li>.biz （公司和企业）</li><li>.cat （加泰隆人的语言和文化团体）</li><li>.coop （合作团体）</li><li>.info （各种资讯）</li><li>.jobs （人力资源管理者）</li><li>.mobi （移动产品与服务的用户和提供者）</li><li>.museum （博物馆）</li><li>.name （个人）</li><li>.pro （经过认证的专业人员）</li><li>.travel （旅游业）</li></ul></li></ul></li></ul></li><li>域名服务器<ul><li><figure><imgsrc="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311031118.png"alt="pic73" /><figcaption aria-hidden="true">pic73</figcaption></figure></li><li><p>域名服务器系统建立于一个分层结构，创建了不同等级的DNS服务器</p></li><li><p>每一层的DNS服务器判断它本身能否把域名翻译成相对应的IP地址：</p><ul><li>如果它可以这么做，它就翻译，并把结果返回给客户端</li><li>如果不可以，它就向更高层发送请求</li></ul></li><li><figure><imgsrc="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311032222.png"alt="pic74" /><figcaption aria-hidden="true">pic74</figcaption></figure></li></ul></li></ul><h3 id="应用层通讯方式">3.12. 应用层：通讯方式</h3><ul><li>通讯处理发生的一种途径：<ul><li>当打开一个浏览器，它连接到了默认页面，这一页的文件被传送到了客户机<br /></li><li>当该流程结束后，连接断开</li></ul></li><li>第二种途径:<ul><li>像Telnet和FTP, 建立连接到服务器，并保持连接直到所有流程被执行</li><li>当用户觉得他已经结束了，客户端断开连接</li></ul></li><li>所有通讯活动都可以归纳到这两种分类之一</li></ul>]]></content>
+    <content type="html"><![CDATA[<h1 id="osi层次应用层">OSI层次应用层</h1><blockquote><p>注意这里的应用层指的是 OSI 模型中的 Session Layer, Presentation Layerand Application Layer</p></blockquote><h2 id="会话层">1. 会话层</h2><blockquote><p><a href="https://baike.baidu.com/item/会话层/4329656">会话层</a>(SessionLayer)是建立在传输层之上，利用传输层提供的服务，使应用<strong>建立和维持会话，并能使会话获得同步</strong>。会话层使用校验点可使通信会话在通信失效时从校验点继续恢复通信。这种能力对于<strong>传送大的文件</strong>极为重要。</p></blockquote><h3 id="会话层功能">1.1. 会话层功能</h3><blockquote><p>控制应用程序之间会话的建立，管理和终止</p></blockquote><p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311029158.png" style="zoom:50%;" /></p><h3 id="检查点">1.2. 检查点</h3><blockquote><p>会话层包含了一种称为检查点 (Checkpoint)的机制来维持可靠会话。检查点定义了一个<strong>最接近成功通信</strong>的点，并且定义了当发生内容丢失或损坏时<strong>需要回滚以便恢复丢失或损坏数据的点</strong>，即<strong>断点下载</strong>的原理。</p></blockquote><ul><li><p>检查点用于分离部分会话，过去被称为对话</p></li><li><p>对话分离是有序地初始化、终止和通讯控制</p></li></ul><p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311029691.png" style="zoom:75%;" /></p><h3 id="会话层的应用">1.3. 会话层的应用</h3><p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311029620.png" style="zoom:60%;" /></p><h2 id="展示层">2. 展示层</h2><h3 id="基本功能">2.1. 基本功能</h3><p>负责以接收设备可以理解的方式呈现数据</p><h3 id="主要功能">2.2.主要功能</h3><h4 id="格式化数据">①格式化数据</h4><ul><li>文本文件格式化<ul><li>想象两个不同的系统<ul><li>一个用广义二进制编码的十进制交换码(EBCDIC)格式文本</li><li>另一个用ASCII格式文本</li></ul></li><li>第六层提供不同的两种编码间的翻译</li></ul></li><li>图片文件格式化<ul><li>因特网通常使用两种二进制文件格式来展示图像<ul><li>Graphic Interchange Format (GIF)</li><li>Joint Photographic Experts Group (JPEG)</li></ul></li><li>无论什么类型的电脑，只要有 GIF和JPEG阅读器，都可以查看这些文件格式</li></ul></li><li>多媒体文件格式<ul><li>多媒体文件格式是另一种二进制文件类型，用于存储声音、音乐和音频<ul><li>先将文件全部下载，然后播放；或是边下边放</li><li>后一种方式又被称为流式音频</li></ul></li></ul></li></ul><h4 id="压缩数据">②压缩数据</h4><ul><li>展示层也负责文件压缩</li></ul><h4 id="数据加密">③数据加密</h4><ul><li>数据加密在传输过程中保护信息</li></ul><h2 id="应用层">3. 应用层</h2><h3 id="概述">3.1. 概述</h3><ul><li>应用层(最接近用户) 支持应用的通讯部分</li><li>应用层：<ul><li>识别并建立有意通讯双方的可用性</li><li>同步化合作应用</li><li>建立错误修复流程的协议</li><li>控制数据完整</li></ul></li></ul><h3 id="使用方式">3.2. 使用方式</h3><ul><li>通过使用网络应用（如：www, e-mail, ftp,telnet远程登录），提供一个直接接口给 OSI 模型的剩余部分</li><li>§或者通过使用独立应用程序（如：word processors 文字处理软件,spreadsheets 电子表格, presentation managers 绘图, network redirector网络转发程序），提供一个不直接的接口</li></ul><h3 id="http">3.3. HTTP</h3><p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311030794.png" style="zoom:70%;" /></p><ul><li><p>HTTP 是面向事务的客户服务器协议。</p></li><li><p>HTTP 1.0 协议是无状态的(stateless)。</p></li><li><p>HTTP 协议本身也是无连接的，虽然它使用了面向连接的 TCP向上提供的服务。</p></li><li><p>万维网浏览器就是一个 HTTP 客户，而在万维网服务器等待 HTTP请求的进程常称为 HTTP daemon，有的文献将它缩写为 HTTPD。</p></li><li><p>HTTP daemon 在收到 HTTP 客户的请求后，把所需的文件返回给 HTTP客户。</p></li><li><p>HTTP的报文结构(请求报文)</p><ul><li><p>报文由三个部分组成，即开始行、首部行和实体主体；在请求报文中，开始行就是请求行</p></li><li><p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311030908.png" style="zoom:80%;" /></p></li><li><table><thead><tr class="header"><th>方法（操作）</th><th>意义</th></tr></thead><tbody><tr class="odd"><td>OPTION</td><td>请求一些选项的信息</td></tr><tr class="even"><td>GET</td><td>请求读取由URL所标志的信息</td></tr><tr class="odd"><td>HEAD</td><td>请求读取由URL所标志的信息的首部</td></tr><tr class="even"><td>POST</td><td>给服务器添加信息（例如，注释）</td></tr><tr class="odd"><td>PUT</td><td>在指明的URL下存储一个文档</td></tr><tr class="even"><td>DELETE</td><td>删除指明的URL所标志的资源</td></tr><tr class="odd"><td>TRACE</td><td>用来进行环回测试的请求报文</td></tr><tr class="even"><td>CONNECT</td><td>用于代理服务器</td></tr></tbody></table><p>上表为HTTP请求报文的一些方法</p></li></ul></li></ul><h3 id="url">3.4. URL</h3><blockquote><p>统一资源定位符, Uniform Resource Locator</p></blockquote><ul><li><p><ahref="https://baike.baidu.com/item/统一资源定位系统?fromtitle=url&amp;fromid=110640&amp;fromModule=lemma_search-box">统一资源定位符URL</a>是对可以从因特网上得到的资源的位置和访问方法的一种简洁的表示</p></li><li><p>URL给资源的位置提供一种抽象的识别方法，并用这种方法给资源定位。</p></li><li><p>只要能够对资源定位，系统就可以对资源进行各种操作，如存取、更新、替换和查找其属性。</p></li><li><p>URL 相当于一个文件名在网络范围的扩展。因此 URL是与因特网相连的机器上的任何可访问对象的一个指针。</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">URL的访问方式</span>&gt;</span>://<span class="hljs-tag">&lt;<span class="hljs-name">主机</span>&gt;</span>:<span class="hljs-tag">&lt;<span class="hljs-name">端口</span>&gt;</span>/<span class="hljs-tag">&lt;<span class="hljs-name">路径</span>&gt;</span><br></code></pre></td></tr></table></figure></li></ul><h3 id="html">3.5. HTML</h3><ul><li>定义了许多用于排版的命令（标签）</li><li>HTML 文档是一种可以用任何文本编辑器创建的 ASCII 码文件。</li><li>仅当 HTML 文档是以.html 或 .htm为后缀时，浏览器才对此文档的各种标签进行解释。</li><li>当浏览器从服务器读取 HTML 文档，针对HTML文档中的各种标签，根据浏览器所使用的显示器的尺寸和分辨率大小，重新进行排版并恢复出所读取的页面。</li><li>HTML用一对标签（一个开始标签和一个结束标签）或几对标签来标识一个元素。</li></ul><h3 id="ftp和tftp">3.6. FTP和TFTP</h3><ul><li>FTP 是使用TCP来传输文件的，可靠的，面向连接的服务<ul><li>FTP 首先建立一个客户端和服务器之间的控制连接(端口 21)</li><li>然后建立第二个连接，连接数据传输要经过的电脑 (端口20)</li></ul></li><li>TFTP 是使用UDP的，不需要连接的服务<ul><li>小且容易实施</li><li>如，TFTP用于路由器来传输配置文件和思科IOS 镜像</li></ul></li></ul><h3 id="telnet远程登录">3.7. Telnet远程登录</h3><ul><li>Telnet客户端软件提供了登录正在运行Telnet服务器应用的远程网络主机的能力，然后执行命令行的命令</li></ul><p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311030166.png" style="zoom:75%;" /></p><h3 id="smtp和pop">3.8. SMTP和POP</h3><ul><li><p>E-mail服务器通过SMTP发送邮件，POP接收邮件，来交互</p><ul><li>SMTP (Simple Mail Transfer Protocol)简单邮件传输协议</li><li>POP3 (Post Office Protocol version 3)第三版电子邮局协议</li></ul></li><li><p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311030269.png" style="zoom:80%;" /></p></li><li><p>SMTP只能传ASCII文件</p></li><li></li><li><p>MIME增加的5个新的邮件首部</p><ul><li>MIME-Version: 标志 MIME 的版本。现在的版本号是1.0。若无此行，则为英文文</li><li>Content-Description:这是可读字符串，说明此邮件主体是否是图像、音频或视</li><li>Content-Id: 邮件的惟一标识符</li><li>Content-Transfer-Encoding: 在传送时邮件的主体是如何编码的</li><li>Content-Type:说明邮件主体的数据类型和子类型</li></ul></li></ul><h3 id="内容传送编码">3.9. 内容传送编码</h3><ul><li>最简单的编码就是 7 位 ASCII 码，而每行不能超过 1000 个字符。MIME对这种由 ASCII 码构成的邮件主体不进行任何转换</li><li>另一种编码称为quoted-printable，这种编码方法适用于当所传送的数据中只有少量的非 ASCII码</li><li>对于任意的二进制文件，可用 base64 编码</li></ul><h3 id="snmp">3.10. SNMP</h3><ul><li>简单网络管理协议(SNMP)是一个用于在网络设备之间管理信息交换的应用层协议</li><li><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311030728.png" style="zoom:80%;" /></li></ul><h3 id="dns域名系统">3.11. DNS域名系统</h3><ul><li>域名系统(DNS)是一个网络服务，负责管理域名，并对客户端的请求做出回应，将域名翻译成相联系的IP地址</li><li>域名<ul><li><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311031491.png" style="zoom:67%;" /></li><li>TLD顶级域名<ul><li>国家 TLD(nTLD)<ul><li>.cn(CHINA), .us (United States), .uk (United kingdom), etc.</li></ul></li><li>通用 TLD(gTLD)，最早的域名包括：<ul><li>.com 企业和公司</li><li>.net 网络服务供应商</li><li>.org 非营利性机构</li><li>.edu 教育设施</li><li>.gov 政府 (only for U.S.A)</li><li>.mil 军事设施(only for U.S.A)</li><li>.int 国际组织</li></ul></li><li>基础结构域名<ul><li>只有一个：arpa，用于解决域名问题</li></ul></li><li>最近，新的TLD域名增加：<ul><li>.aero （航空运输企业）</li><li>.biz （公司和企业）</li><li>.cat （加泰隆人的语言和文化团体）</li><li>.coop （合作团体）</li><li>.info （各种资讯）</li><li>.jobs （人力资源管理者）</li><li>.mobi （移动产品与服务的用户和提供者）</li><li>.museum （博物馆）</li><li>.name （个人）</li><li>.pro （经过认证的专业人员）</li><li>.travel （旅游业）</li></ul></li></ul></li></ul></li><li>域名服务器<ul><li><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311031118.png" style="zoom:80%;" /></li><li>域名服务器系统建立于一个分层结构，创建了不同等级的DNS服务器</li><li>每一层的DNS服务器判断它本身能否把域名翻译成相对应的IP地址：<ul><li>如果它可以这么做，它就翻译，并把结果返回给客户端</li><li>如果不可以，它就向更高层发送请求</li></ul></li><li><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311032222.png" style="zoom:80%;" /></li></ul></li></ul><h3 id="应用层通讯方式">3.12. 应用层：通讯方式</h3><ul><li>通讯处理发生的一种途径：<ul><li>当打开一个浏览器，它连接到了默认页面，这一页的文件被传送到了客户机<br /></li><li>当该流程结束后，连接断开</li></ul></li><li>第二种途径:<ul><li>像Telnet和FTP, 建立连接到服务器，并保持连接直到所有流程被执行</li><li>当用户觉得他已经结束了，客户端断开连接</li></ul></li><li>所有通讯活动都可以归纳到这两种分类之一</li></ul>]]></content>
     
     
     <categories>
@@ -561,6 +561,37 @@
   
   
   <entry>
+    <title>C++ queue</title>
+    <link href="/2022/10/26/C++%20Basic/STL%20Containers/C++%20queue/"/>
+    <url>/2022/10/26/C++%20Basic/STL%20Containers/C++%20queue/</url>
+    
+    <content type="html"><![CDATA[<p>queue是一种容器转换器模板，调用<code>#include&lt; queue&gt;</code>即可使用队列类。</p><h4 id="头文件">1. 头文件</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;queue&gt;</span></span><br></code></pre></td></tr></table></figure><h4 id="queue-初始化">2. queue 初始化</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c++">queue&lt;Type, Container&gt; <span class="hljs-comment">//(&lt;数据类型，容器类型&gt;）</span><br></code></pre></td></tr></table></figure><p>初始化时必须要有数据类型，容器可省略，省略时则默认为<ahref="https://so.csdn.net/so/search?q=deque&amp;spm=1001.2101.3001.7020">deque</a>类型</p><p><strong>注意：不能用vector容器初始化queue</strong></p><p>因为<code>queue</code>转换器要求容器支持<code>front(), back(), push_back()</code>及<code>pop_front()</code>，说明<code>queue</code>的数据从容器后端入栈而从前端出栈。所以可以使用<code>deque（double-ended queue，双端队列）</code>和<code>list</code>对<code>queue</code>初始化，而<code>vector</code>因其缺少<code>pop_front()</code>，不能用于<code>queue</code>。</p><p>常见的初始化实例如下：</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs cpp">queue&lt;<span class="hljs-type">int</span>&gt; q1;<br>queue&lt;<span class="hljs-type">double</span>&gt; q2;  <br>queue＜<span class="hljs-type">char</span>＞ q3；<br><span class="hljs-comment">//默认为用deque容器实现的queue；</span><br><br>C++<br></code></pre></td></tr></table></figure><h4 id="queue-常用函数">3. queue 常用函数</h4><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-function"><span class="hljs-title">push</span><span class="hljs-params">()</span></span> <span class="hljs-comment">//在队尾插入一个元素</span><br><br><span class="hljs-function"><span class="hljs-title">pop</span><span class="hljs-params">()</span></span> <span class="hljs-comment">//删除队列第一个元素</span><br><br><span class="hljs-function"><span class="hljs-title">size</span><span class="hljs-params">()</span></span> <span class="hljs-comment">//返回队列中元素个数</span><br><br><span class="hljs-function"><span class="hljs-title">empty</span><span class="hljs-params">()</span></span> <span class="hljs-comment">//如果队列空则返回true</span><br><br><span class="hljs-function"><span class="hljs-title">front</span><span class="hljs-params">()</span></span> <span class="hljs-comment">//返回队列中的第一个元素</span><br><br><span class="hljs-function"><span class="hljs-title">back</span><span class="hljs-params">()</span></span> <span class="hljs-comment">//返回队列中最后一个元素</span><br><br>C++<br></code></pre></td></tr></table></figure><h4 id="queue-使用实例">4. queue 使用实例</h4><ol type="1"><li><code>push()</code>在队尾插入一个元素</li></ol><figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs maxima">queue &lt;<span class="hljs-built_in">string</span>&gt; q;<br>q.<span class="hljs-built_in">push</span>(<span class="hljs-string">&quot;first&quot;</span>);<br>q.<span class="hljs-built_in">push</span>(<span class="hljs-string">&quot;second&quot;</span>);<br>cout&lt;&lt;q.front()&lt;&lt;endl;<br><br>//输出 <span class="hljs-built_in">first</span><br><br>C++<br></code></pre></td></tr></table></figure><ol start="2" type="1"><li><code>pop()</code> 将队列中最靠前位置的元素删除，没有返回值</li></ol><figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs maxima">queue &lt;<span class="hljs-built_in">string</span>&gt; q;<br>q.<span class="hljs-built_in">push</span>(<span class="hljs-string">&quot;first&quot;</span>);<br>q.<span class="hljs-built_in">push</span>(<span class="hljs-string">&quot;second&quot;</span>);<br>q.<span class="hljs-built_in">pop</span>();<br>cout&lt;&lt;q.front()&lt;&lt;endl;<br><br>// 输出 <span class="hljs-built_in">second</span> <br>// 因为 <span class="hljs-built_in">first</span> 已经被<span class="hljs-built_in">pop</span>（）函数删掉了<br><br>C++<br></code></pre></td></tr></table></figure><ol start="3" type="1"><li><code>size()</code> 返回队列中元素个数</li></ol><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs gradle">queue &lt;string&gt; q;<br>q.<span class="hljs-keyword">push</span>(<span class="hljs-string">&quot;first&quot;</span>);<br>q.<span class="hljs-keyword">push</span>(<span class="hljs-string">&quot;second&quot;</span>);<br>cout&lt;&lt;q.<span class="hljs-keyword">size</span>()&lt;&lt;endl;<br><br><span class="hljs-comment">//输出2，因为队列中有两个元素</span><br><br>C++<br></code></pre></td></tr></table></figure><ol start="4" type="1"><li><code>empty()</code> 如果队列空则返回<code>true</code></li></ol><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs awk">queue &lt;string&gt; q;<br>cout&lt;&lt;q.empty()&lt;&lt;endl;<br>q.push(<span class="hljs-string">&quot;first&quot;</span>);<br>q.push(<span class="hljs-string">&quot;second&quot;</span>);<br>cout&lt;&lt;q.empty()&lt;&lt;endl;<br><br><span class="hljs-regexp">//</span>分别输出<span class="hljs-number">1</span>和<span class="hljs-number">0</span><br><span class="hljs-regexp">//</span>最开始队列为空，返回值为<span class="hljs-number">1</span>（ture）；<br><span class="hljs-regexp">//</span>插入两个元素后，队列不为空，返回值为<span class="hljs-number">0</span>（false）；<br><br>C++<br></code></pre></td></tr></table></figure><ol start="5" type="1"><li><code>front()</code> 返回队列中的第一个元素</li></ol><figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs maxima">queue &lt;<span class="hljs-built_in">string</span>&gt; q;<br>q.<span class="hljs-built_in">push</span>(<span class="hljs-string">&quot;first&quot;</span>);<br>q.<span class="hljs-built_in">push</span>(<span class="hljs-string">&quot;second&quot;</span>);<br>cout&lt;&lt;q.front()&lt;&lt;endl;<br>q.<span class="hljs-built_in">pop</span>();<br>cout&lt;&lt;q.front()&lt;&lt;endl;<br><br>// 第一行输出<span class="hljs-built_in">first</span>；<br>// 第二行输出<span class="hljs-built_in">second</span>，因为<span class="hljs-built_in">pop</span>（）已经将<span class="hljs-built_in">first</span>删除了<br><br>C++<br></code></pre></td></tr></table></figure><ol start="6" type="1"><li><code>back()</code> 返回队列中最后一个元素</li></ol><figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs arcade">queue &lt;string&gt; q;<br>q.<span class="hljs-built_in">push</span>(<span class="hljs-string">&quot;first&quot;</span>);<br>q.<span class="hljs-built_in">push</span>(<span class="hljs-string">&quot;second&quot;</span>);<br>cout&lt;&lt;q.<span class="hljs-built_in">back</span>()&lt;&lt;endl;<br><br><span class="hljs-comment">//输出最后一个元素second</span><br><br>C++<br></code></pre></td></tr></table></figure><h4 id="参考文章">5. 参考文章</h4><ol type="1"><li><ahref="https://blog.csdn.net/KEPROM/article/details/109744379">C++队列queue用法详解</a></li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++ Basic</category>
+      
+      <category>STL Containers</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>C++</tag>
+      
+      <tag>Data Structure</tag>
+      
+      <tag>STL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>OSI Data Link Layer</title>
     <link href="/2022/10/26/Computer%20Networking/OSI%20Model/OSI%20Data%20Link%20Layer/"/>
     <url>/2022/10/26/Computer%20Networking/OSI%20Model/OSI%20Data%20Link%20Layer/</url>
@@ -582,37 +613,6 @@
       <tag>Network</tag>
       
       <tag>OSI</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>C++ queue</title>
-    <link href="/2022/10/26/C++%20Basic/STL%20Containers/C++%20queue/"/>
-    <url>/2022/10/26/C++%20Basic/STL%20Containers/C++%20queue/</url>
-    
-    <content type="html"><![CDATA[<p>queue是一种容器转换器模板，调用<code>#include&lt; queue&gt;</code>即可使用队列类。</p><h4 id="头文件">1. 头文件</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;queue&gt;</span></span><br></code></pre></td></tr></table></figure><h4 id="queue-初始化">2. queue 初始化</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c++">queue&lt;Type, Container&gt; <span class="hljs-comment">//(&lt;数据类型，容器类型&gt;）</span><br></code></pre></td></tr></table></figure><p>初始化时必须要有数据类型，容器可省略，省略时则默认为<ahref="https://so.csdn.net/so/search?q=deque&amp;spm=1001.2101.3001.7020">deque</a>类型</p><p><strong>注意：不能用vector容器初始化queue</strong></p><p>因为<code>queue</code>转换器要求容器支持<code>front(), back(), push_back()</code>及<code>pop_front()</code>，说明<code>queue</code>的数据从容器后端入栈而从前端出栈。所以可以使用<code>deque（double-ended queue，双端队列）</code>和<code>list</code>对<code>queue</code>初始化，而<code>vector</code>因其缺少<code>pop_front()</code>，不能用于<code>queue</code>。</p><p>常见的初始化实例如下：</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs cpp">queue&lt;<span class="hljs-type">int</span>&gt; q1;<br>queue&lt;<span class="hljs-type">double</span>&gt; q2;  <br>queue＜<span class="hljs-type">char</span>＞ q3；<br><span class="hljs-comment">//默认为用deque容器实现的queue；</span><br><br>C++<br></code></pre></td></tr></table></figure><h4 id="queue-常用函数">3. queue 常用函数</h4><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-function"><span class="hljs-title">push</span><span class="hljs-params">()</span></span> <span class="hljs-comment">//在队尾插入一个元素</span><br><br><span class="hljs-function"><span class="hljs-title">pop</span><span class="hljs-params">()</span></span> <span class="hljs-comment">//删除队列第一个元素</span><br><br><span class="hljs-function"><span class="hljs-title">size</span><span class="hljs-params">()</span></span> <span class="hljs-comment">//返回队列中元素个数</span><br><br><span class="hljs-function"><span class="hljs-title">empty</span><span class="hljs-params">()</span></span> <span class="hljs-comment">//如果队列空则返回true</span><br><br><span class="hljs-function"><span class="hljs-title">front</span><span class="hljs-params">()</span></span> <span class="hljs-comment">//返回队列中的第一个元素</span><br><br><span class="hljs-function"><span class="hljs-title">back</span><span class="hljs-params">()</span></span> <span class="hljs-comment">//返回队列中最后一个元素</span><br><br>C++<br></code></pre></td></tr></table></figure><h4 id="queue-使用实例">4. queue 使用实例</h4><ol type="1"><li><code>push()</code>在队尾插入一个元素</li></ol><figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs maxima">queue &lt;<span class="hljs-built_in">string</span>&gt; q;<br>q.<span class="hljs-built_in">push</span>(<span class="hljs-string">&quot;first&quot;</span>);<br>q.<span class="hljs-built_in">push</span>(<span class="hljs-string">&quot;second&quot;</span>);<br>cout&lt;&lt;q.front()&lt;&lt;endl;<br><br>//输出 <span class="hljs-built_in">first</span><br><br>C++<br></code></pre></td></tr></table></figure><ol start="2" type="1"><li><code>pop()</code> 将队列中最靠前位置的元素删除，没有返回值</li></ol><figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs maxima">queue &lt;<span class="hljs-built_in">string</span>&gt; q;<br>q.<span class="hljs-built_in">push</span>(<span class="hljs-string">&quot;first&quot;</span>);<br>q.<span class="hljs-built_in">push</span>(<span class="hljs-string">&quot;second&quot;</span>);<br>q.<span class="hljs-built_in">pop</span>();<br>cout&lt;&lt;q.front()&lt;&lt;endl;<br><br>// 输出 <span class="hljs-built_in">second</span> <br>// 因为 <span class="hljs-built_in">first</span> 已经被<span class="hljs-built_in">pop</span>（）函数删掉了<br><br>C++<br></code></pre></td></tr></table></figure><ol start="3" type="1"><li><code>size()</code> 返回队列中元素个数</li></ol><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs gradle">queue &lt;string&gt; q;<br>q.<span class="hljs-keyword">push</span>(<span class="hljs-string">&quot;first&quot;</span>);<br>q.<span class="hljs-keyword">push</span>(<span class="hljs-string">&quot;second&quot;</span>);<br>cout&lt;&lt;q.<span class="hljs-keyword">size</span>()&lt;&lt;endl;<br><br><span class="hljs-comment">//输出2，因为队列中有两个元素</span><br><br>C++<br></code></pre></td></tr></table></figure><ol start="4" type="1"><li><code>empty()</code> 如果队列空则返回<code>true</code></li></ol><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs awk">queue &lt;string&gt; q;<br>cout&lt;&lt;q.empty()&lt;&lt;endl;<br>q.push(<span class="hljs-string">&quot;first&quot;</span>);<br>q.push(<span class="hljs-string">&quot;second&quot;</span>);<br>cout&lt;&lt;q.empty()&lt;&lt;endl;<br><br><span class="hljs-regexp">//</span>分别输出<span class="hljs-number">1</span>和<span class="hljs-number">0</span><br><span class="hljs-regexp">//</span>最开始队列为空，返回值为<span class="hljs-number">1</span>（ture）；<br><span class="hljs-regexp">//</span>插入两个元素后，队列不为空，返回值为<span class="hljs-number">0</span>（false）；<br><br>C++<br></code></pre></td></tr></table></figure><ol start="5" type="1"><li><code>front()</code> 返回队列中的第一个元素</li></ol><figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs maxima">queue &lt;<span class="hljs-built_in">string</span>&gt; q;<br>q.<span class="hljs-built_in">push</span>(<span class="hljs-string">&quot;first&quot;</span>);<br>q.<span class="hljs-built_in">push</span>(<span class="hljs-string">&quot;second&quot;</span>);<br>cout&lt;&lt;q.front()&lt;&lt;endl;<br>q.<span class="hljs-built_in">pop</span>();<br>cout&lt;&lt;q.front()&lt;&lt;endl;<br><br>// 第一行输出<span class="hljs-built_in">first</span>；<br>// 第二行输出<span class="hljs-built_in">second</span>，因为<span class="hljs-built_in">pop</span>（）已经将<span class="hljs-built_in">first</span>删除了<br><br>C++<br></code></pre></td></tr></table></figure><ol start="6" type="1"><li><code>back()</code> 返回队列中最后一个元素</li></ol><figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs arcade">queue &lt;string&gt; q;<br>q.<span class="hljs-built_in">push</span>(<span class="hljs-string">&quot;first&quot;</span>);<br>q.<span class="hljs-built_in">push</span>(<span class="hljs-string">&quot;second&quot;</span>);<br>cout&lt;&lt;q.<span class="hljs-built_in">back</span>()&lt;&lt;endl;<br><br><span class="hljs-comment">//输出最后一个元素second</span><br><br>C++<br></code></pre></td></tr></table></figure><h4 id="参考文章">5. 参考文章</h4><ol type="1"><li><ahref="https://blog.csdn.net/KEPROM/article/details/109744379">C++队列queue用法详解</a></li></ol>]]></content>
-    
-    
-    <categories>
-      
-      <category>C++ Basic</category>
-      
-      <category>STL Containers</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>Data Structure</tag>
-      
-      <tag>C++</tag>
-      
-      <tag>STL</tag>
       
     </tags>
     
@@ -695,9 +695,9 @@
     
     <tags>
       
-      <tag>Data Structure</tag>
-      
       <tag>C++</tag>
+      
+      <tag>Data Structure</tag>
       
       <tag>STL</tag>
       
@@ -753,9 +753,9 @@
     
     <tags>
       
-      <tag>Data Structure</tag>
-      
       <tag>C++</tag>
+      
+      <tag>Data Structure</tag>
       
       <tag>Java</tag>
       
@@ -786,9 +786,9 @@
     
     <tags>
       
-      <tag>Network</tag>
-      
       <tag>Hardware</tag>
+      
+      <tag>Network</tag>
       
       <tag>OSI</tag>
       
@@ -900,9 +900,9 @@
     
     <tags>
       
-      <tag>Data Structure</tag>
-      
       <tag>C++</tag>
+      
+      <tag>Data Structure</tag>
       
       <tag>STL</tag>
       
@@ -922,9 +922,9 @@
     
     <categories>
       
-      <category>C++ 常用手写函数</category>
-      
       <category>考试必备</category>
+      
+      <category>C++ 常用手写函数</category>
       
     </categories>
     
@@ -960,9 +960,9 @@
     
     <tags>
       
-      <tag>Network</tag>
-      
       <tag>Hardware</tag>
+      
+      <tag>Network</tag>
       
     </tags>
     

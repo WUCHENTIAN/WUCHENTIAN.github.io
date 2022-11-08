@@ -18,20 +18,32 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="OSI层次应用层  注意这里的应用层指的是 OSI 模型中的 Session Layer, Presentation Layer and Application Layer  1. 会话层 1.1. 会话层功能   pic63  1.2. 检查点 检查点用于分离部分会话，过去被称为对话 对话分离是有序地初始化、终止和通讯控制   pic64  1.3. 第5层的一些应用   pic65  2. 展">
+    <meta name="description" content="OSI层次应用层  注意这里的应用层指的是 OSI 模型中的 Session Layer, Presentation Layer and Application Layer  1. 会话层  会话层 (Session Layer)是建立在传输层之上，利用传输层提供的服务，使应用建立和维持会话，并能使会话获得同步。会话层使用校验点可使通信会话在通信失效时从校验点继续恢复通信。这种能力对于传送大的文件">
 <meta property="og:type" content="article">
 <meta property="og:title" content="OSI Application Layer">
 <meta property="og:url" content="https://wuchentian.github.io/2022/10/31/Computer%20Networking/OSI%20Model/OSI%20Application%20Layer/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="OSI层次应用层  注意这里的应用层指的是 OSI 模型中的 Session Layer, Presentation Layer and Application Layer  1. 会话层 1.1. 会话层功能   pic63  1.2. 检查点 检查点用于分离部分会话，过去被称为对话 对话分离是有序地初始化、终止和通讯控制   pic64  1.3. 第5层的一些应用   pic65  2. 展">
+<meta property="og:description" content="OSI层次应用层  注意这里的应用层指的是 OSI 模型中的 Session Layer, Presentation Layer and Application Layer  1. 会话层  会话层 (Session Layer)是建立在传输层之上，利用传输层提供的服务，使应用建立和维持会话，并能使会话获得同步。会话层使用校验点可使通信会话在通信失效时从校验点继续恢复通信。这种能力对于传送大的文件">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311029158.png">
+<meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311029691.png">
+<meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311029620.png">
+<meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311030794.png">
+<meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311030908.png">
+<meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311030166.png">
+<meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311030269.png">
+<meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311030728.png">
+<meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311031491.png">
+<meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311031118.png">
+<meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311032222.png">
 <meta property="article:published_time" content="2022-10-31T02:53:00.000Z">
-<meta property="article:modified_time" content="2022-11-02T09:45:44.200Z">
+<meta property="article:modified_time" content="2022-11-07T14:38:46.582Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Network">
 <meta property="article:tag" content="Application">
 <meta property="article:tag" content="OSI">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311029158.png">
   
   
   
@@ -235,7 +247,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.1k words
+          3.3k words
         
       </span>
     
@@ -246,7 +258,7 @@
         
         
         
-          26 mins
+          28 mins
         
       </span>
     
@@ -295,29 +307,28 @@
 and Application Layer</p>
 </blockquote>
 <h2 id="会话层">1. 会话层</h2>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/会话层/4329656">会话层</a>
+(Session
+Layer)是建立在传输层之上，利用传输层提供的服务，使应用<strong>建立和维持会话，并能使会话获得同步</strong>。会话层使用校验点可使通信会话在通信失效时从校验点继续恢复通信。这种能力对于<strong>传送大的文件</strong>极为重要。</p>
+</blockquote>
 <h3 id="会话层功能">1.1. 会话层功能</h3>
-<figure>
-<img
-src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311029158.png" srcset="/img/loading.gif" lazyload
-alt="pic63" />
-<figcaption aria-hidden="true">pic63</figcaption>
-</figure>
+<blockquote>
+<p>控制应用程序之间会话的建立，管理和终止</p>
+</blockquote>
+<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311029158.png" srcset="/img/loading.gif" lazyload style="zoom:50%;" /></p>
 <h3 id="检查点">1.2. 检查点</h3>
-<p>检查点用于分离部分会话，过去被称为对话</p>
-<p>对话分离是有序地初始化、终止和通讯控制</p>
-<figure>
-<img
-src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311029691.png" srcset="/img/loading.gif" lazyload
-alt="pic64" />
-<figcaption aria-hidden="true">pic64</figcaption>
-</figure>
-<h3 id="第5层的一些应用">1.3. 第5层的一些应用</h3>
-<figure>
-<img
-src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311029620.png" srcset="/img/loading.gif" lazyload
-alt="pic65" />
-<figcaption aria-hidden="true">pic65</figcaption>
-</figure>
+<blockquote>
+<p>会话层包含了一种称为检查点 (Checkpoint)
+的机制来维持可靠会话。检查点定义了一个<strong>最接近成功通信</strong>的点，并且定义了当发生内容丢失或损坏时<strong>需要回滚以便恢复丢失或损坏数据的点</strong>，即<strong>断点下载</strong>的原理。</p>
+</blockquote>
+<ul>
+<li><p>检查点用于分离部分会话，过去被称为对话</p></li>
+<li><p>对话分离是有序地初始化、终止和通讯控制</p></li>
+</ul>
+<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311029691.png" srcset="/img/loading.gif" lazyload style="zoom:75%;" /></p>
+<h3 id="会话层的应用">1.3. 会话层的应用</h3>
+<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311029620.png" srcset="/img/loading.gif" lazyload style="zoom:60%;" /></p>
 <h2 id="展示层">2. 展示层</h2>
 <h3 id="基本功能">2.1. 基本功能</h3>
 <p>负责以接收设备可以理解的方式呈现数据</p>
@@ -381,12 +392,7 @@ spreadsheets 电子表格, presentation managers 绘图, network redirector
 网络转发程序），提供一个不直接的接口</li>
 </ul>
 <h3 id="http">3.3. HTTP</h3>
-<figure>
-<img
-src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311030794.png" srcset="/img/loading.gif" lazyload
-alt="pic66" />
-<figcaption aria-hidden="true">pic66</figcaption>
-</figure>
+<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311030794.png" srcset="/img/loading.gif" lazyload style="zoom:70%;" /></p>
 <ul>
 <li><p>HTTP 是面向事务的客户服务器协议。</p></li>
 <li><p>HTTP 1.0 协议是无状态的(stateless)。</p></li>
@@ -399,12 +405,7 @@ alt="pic66" />
 <li><p>HTTP的报文结构(请求报文)</p>
 <ul>
 <li><p>报文由三个部分组成，即开始行、首部行和实体主体；在请求报文中，开始行就是请求行</p></li>
-<li><figure>
-<img
-src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311030908.png" srcset="/img/loading.gif" lazyload
-alt="pic68" />
-<figcaption aria-hidden="true">pic68</figcaption>
-</figure></li>
+<li><p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311030908.png" srcset="/img/loading.gif" lazyload style="zoom:80%;" /></p></li>
 <li><table>
 <thead>
 <tr class="header">
@@ -494,12 +495,7 @@ URL</a>
 <ul>
 <li>Telnet客户端软件提供了登录正在运行Telnet服务器应用的远程网络主机的能力，然后执行命令行的命令</li>
 </ul>
-<figure>
-<img
-src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311030166.png" srcset="/img/loading.gif" lazyload
-alt="pic67" />
-<figcaption aria-hidden="true">pic67</figcaption>
-</figure>
+<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311030166.png" srcset="/img/loading.gif" lazyload style="zoom:75%;" /></p>
 <h3 id="smtp和pop">3.8. SMTP和POP</h3>
 <ul>
 <li><p>E-mail服务器通过SMTP发送邮件，POP接收邮件，来交互</p>
@@ -507,12 +503,7 @@ alt="pic67" />
 <li>SMTP (Simple Mail Transfer Protocol)简单邮件传输协议</li>
 <li>POP3 (Post Office Protocol version 3)第三版电子邮局协议</li>
 </ul></li>
-<li><figure>
-<img
-src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311030269.png" srcset="/img/loading.gif" lazyload
-alt="pic69" />
-<figcaption aria-hidden="true">pic69</figcaption>
-</figure></li>
+<li><p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311030269.png" srcset="/img/loading.gif" lazyload style="zoom:80%;" /></p></li>
 <li><p>SMTP只能传ASCII文件</p></li>
 <li></li>
 <li><p>MIME增加的5个新的邮件首部</p>
@@ -538,22 +529,15 @@ quoted-printable，这种编码方法适用于当所传送的数据中只有少�
 <h3 id="snmp">3.10. SNMP</h3>
 <ul>
 <li>简单网络管理协议(SNMP)是一个用于在网络设备之间管理信息交换的应用层协议</li>
-<li><img
-src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311030728.png" srcset="/img/loading.gif" lazyload
-title="fig:" alt="pic71" /></li>
+<li><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311030728.png" srcset="/img/loading.gif" lazyload style="zoom:80%;" /></li>
 </ul>
 <h3 id="dns域名系统">3.11. DNS域名系统</h3>
 <ul>
 <li>域名系统(DNS)是一个网络服务，负责管理域名，并对客户端的请求做出回应，将域名翻译成相联系的IP地址</li>
 <li>域名
 <ul>
-<li><figure>
-<img
-src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311031491.png" srcset="/img/loading.gif" lazyload
-alt="pic72" />
-<figcaption aria-hidden="true">pic72</figcaption>
-</figure></li>
-<li><p>TLD顶级域名</p>
+<li><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311031491.png" srcset="/img/loading.gif" lazyload style="zoom:67%;" /></li>
+<li>TLD顶级域名
 <ul>
 <li>国家 TLD(nTLD)
 <ul>
@@ -591,24 +575,14 @@ alt="pic72" />
 </ul></li>
 <li>域名服务器
 <ul>
-<li><figure>
-<img
-src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311031118.png" srcset="/img/loading.gif" lazyload
-alt="pic73" />
-<figcaption aria-hidden="true">pic73</figcaption>
-</figure></li>
-<li><p>域名服务器系统建立于一个分层结构，创建了不同等级的DNS服务器</p></li>
-<li><p>每一层的DNS服务器判断它本身能否把域名翻译成相对应的IP地址：</p>
+<li><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311031118.png" srcset="/img/loading.gif" lazyload style="zoom:80%;" /></li>
+<li>域名服务器系统建立于一个分层结构，创建了不同等级的DNS服务器</li>
+<li>每一层的DNS服务器判断它本身能否把域名翻译成相对应的IP地址：
 <ul>
 <li>如果它可以这么做，它就翻译，并把结果返回给客户端</li>
 <li>如果不可以，它就向更高层发送请求</li>
 </ul></li>
-<li><figure>
-<img
-src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311032222.png" srcset="/img/loading.gif" lazyload
-alt="pic74" />
-<figcaption aria-hidden="true">pic74</figcaption>
-</figure></li>
+<li><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210311032222.png" srcset="/img/loading.gif" lazyload style="zoom:80%;" /></li>
 </ul></li>
 </ul>
 <h3 id="应用层通讯方式">3.12. 应用层：通讯方式</h3>
