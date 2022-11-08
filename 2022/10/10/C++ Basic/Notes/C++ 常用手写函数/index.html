@@ -18,24 +18,23 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="1. 控制台输入 1. 标准输入流 cin cin 输入原理简述： 程序的输入都建有一个缓冲区，即输入缓冲区。每次输入过程是这样的：当一次键盘输入结束时会将输入的数据存入输入缓冲区，而cin函数直接从输入缓冲区中取数据（cin 读取数据是从第一个非空白字符开始到下一个空白字符结束）。正因为 cin 函数是直接从缓冲区取数据的，所以有时候当缓冲区中有残留数据时，cin 函数会直接取得这些残留数据而不">
+    <meta name="description" content="1. 大数加法 1.1. string(不方便) 1234567891011#include &lt;algorithm&gt;&#x2F;&#x2F;需要用到其中的 reverse(T&amp; begin, )string addStr(string src, string dest)&amp;#123;  string ans;  int carry &#x3D; 0;  for(int i &#x3D; 0; i &lt; src.si">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C++ IO">
-<meta property="og:url" content="https://wuchentian.github.io/2022/10/25/C++%20Basic/%E8%80%83%E8%AF%95%E5%BF%85%E5%A4%87/C++%20IO/index.html">
+<meta property="og:title" content="C++ 常用手写函数">
+<meta property="og:url" content="https://wuchentian.github.io/2022/10/10/C++%20Basic/Notes/C++%20%E5%B8%B8%E7%94%A8%E6%89%8B%E5%86%99%E5%87%BD%E6%95%B0/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1. 控制台输入 1. 标准输入流 cin cin 输入原理简述： 程序的输入都建有一个缓冲区，即输入缓冲区。每次输入过程是这样的：当一次键盘输入结束时会将输入的数据存入输入缓冲区，而cin函数直接从输入缓冲区中取数据（cin 读取数据是从第一个非空白字符开始到下一个空白字符结束）。正因为 cin 函数是直接从缓冲区取数据的，所以有时候当缓冲区中有残留数据时，cin 函数会直接取得这些残留数据而不">
+<meta property="og:description" content="1. 大数加法 1.1. string(不方便) 1234567891011#include &lt;algorithm&gt;&#x2F;&#x2F;需要用到其中的 reverse(T&amp; begin, )string addStr(string src, string dest)&amp;#123;  string ans;  int carry &#x3D; 0;  for(int i &#x3D; 0; i &lt; src.si">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-10-25T09:08:00.000Z">
-<meta property="article:modified_time" content="2022-11-02T09:34:13.755Z">
+<meta property="article:published_time" content="2022-10-10T09:08:00.000Z">
+<meta property="article:modified_time" content="2022-11-08T03:38:57.112Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="C++">
-<meta property="article:tag" content="IO">
 <meta property="article:tag" content="Proficiency">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>C++ IO - Hexo</title>
+  <title>C++ 常用手写函数 - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -212,7 +211,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="C++ IO"></span>
+            <span id="subtitle" data-typed-text="C++ 常用手写函数"></span>
           
         </div>
 
@@ -223,8 +222,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-10-25 17:08" pubdate>
-          October 25, 2022 pm
+        <time datetime="2022-10-10 17:08" pubdate>
+          October 10, 2022 pm
         </time>
       </span>
     
@@ -235,7 +234,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2k words
+          1.6k words
         
       </span>
     
@@ -246,7 +245,7 @@
         
         
         
-          17 mins
+          14 mins
         
       </span>
     
@@ -284,84 +283,24 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">C++ IO</h1>
+            <h1 style="display: none">C++ 常用手写函数</h1>
             
             
               <div class="markdown-body">
                 
-                <h3 id="控制台输入">1. 控制台输入</h3>
-<h4 id="标准输入流-cin">1. 标准输入流 <code>cin</code></h4>
-<p><code>cin</code> 输入原理简述：</p>
-<p>程序的输入都建有一个缓冲区，即输入缓冲区。每次输入过程是这样的：当一次键盘输入结束时会将输入的数据存入输入缓冲区，而<code>cin</code>函数直接从输入缓冲区中取数据（<code>cin</code>
-读取数据是从第一个非空白字符开始到下一个空白字符结束）。正因为
-<code>cin</code>
-函数是直接从缓冲区取数据的，所以有时候当缓冲区中有<strong>残留数据</strong>时，<code>cin</code>
-函数会直接取得这些<strong>残留数据</strong>而不会请求键盘输入。</p>
-<h5 id="头文件">1.1. 头文件</h5>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-comment">//&lt;iostream&gt; 中定义了 cin/cout/cerr/clog 等对象</span><br></code></pre></td></tr></table></figure>
-<h5 id="cin">1.2. <code>cin &gt;&gt;</code></h5>
-<p>根据 <code>cin &gt;&gt; sth</code> 中 <code>sth</code>
-的变量类型读取数据，这里变量类型可以为
-<code>int, float, char, char*, string</code>
-等诸多类型。这一输入操作，在遇到<strong>结束符</strong><code>（Space、Tab、Enter）</code>就结束，且<strong>结束符并不保存到变量中</strong>。</p>
-<p><strong>注意：最后一个 <code>enter</code> 也在缓冲区</strong></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">test_input</span><span class="hljs-params">()</span>  </span><br><span class="hljs-function"></span>&#123;  <br>    <span class="hljs-type">char</span> ch;<br>    <span class="hljs-type">char</span> ch1[<span class="hljs-number">10</span>], ch2[<span class="hljs-number">10</span>];  <br>  	<span class="hljs-comment">//这里的char[] 换成char* 或者是 string有相同的效果</span><br>    cout &lt;&lt; <span class="hljs-string">&quot;输入两个字符串：&quot;</span> &lt;&lt; endl;  <br>    cin &gt;&gt; ch1;  <br>    cin &gt;&gt; ch2;  <br>    cout &lt;&lt; <span class="hljs-string">&quot;两个字符串分别为：&quot;</span> &lt;&lt; endl;  <br>    cout &lt;&lt; ch1 &lt;&lt; endl;  <br>    cout &lt;&lt; ch2 &lt;&lt; endl;  <br>    cin.<span class="hljs-built_in">get</span>(ch);<br>    cout &lt;&lt; (<span class="hljs-type">int</span>)ch &lt;&lt; endl; <span class="hljs-comment">//输出10，为最后一个enter输入</span><br>&#125;  <br><br></code></pre></td></tr></table></figure>
-<p>输出结果如下：</p>
-<p><a
-target="_blank" rel="noopener" href="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210251510171.png"><img
-src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210290955796.png" srcset="/img/loading.gif" lazyload
-alt="image-20221025151057071" /></a></p>
-<h5 id="cin.get">1.3. <code>cin.get()</code></h5>
-<p>其中结束符意味着遇到该符号结束字符串读取,默认为enter，读取的字符个数最多为（长度
--
-1），因为最后一个为’\0’。要注意的是，cin.get(字符数组名，接收长度，结束符)操作遇到结束符停止读取，但并不会将结束符从缓冲区丢弃。cin.get函数有如下几种声明：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">get</span><span class="hljs-params">()</span></span>;<br><br><span class="hljs-function">istream&amp; <span class="hljs-title">get</span><span class="hljs-params">(<span class="hljs-type">char</span>&amp; c)</span></span>;<br><br><span class="hljs-function">istream&amp; <span class="hljs-title">get</span><span class="hljs-params">(<span class="hljs-type">char</span>* s, streamsize n)</span></span>;<br><br><span class="hljs-function">istream&amp; <span class="hljs-title">get</span><span class="hljs-params">(<span class="hljs-type">char</span>* s, streamsize n, <span class="hljs-type">char</span> delim)</span></span>;<br><br><span class="hljs-function">istream&amp; <span class="hljs-title">get</span><span class="hljs-params">(streambuf&amp; sb)</span></span>;<br><br><span class="hljs-function">istream&amp; <span class="hljs-title">get</span><span class="hljs-params">(streambuf&amp; sb, <span class="hljs-type">char</span> delim)</span></span>;<br></code></pre></td></tr></table></figure>
-<h4 id="输入-int">1. 输入 <code>int</code></h4>
-<ol type="1">
-<li>输入 10 个数字（以空格或者是换行符分割）</li>
-</ol>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-type">int</span> nums[<span class="hljs-number">10</span>];<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10</span>; i++) &#123;<br>    cin &gt;&gt; nums[i];<br>&#125;<br></code></pre></td></tr></table></figure>
-<ol type="1">
-<li>输入未知个数的数字并求和</li>
-</ol>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-type">int</span> sum = <span class="hljs-number">0</span>;<br><span class="hljs-keyword">while</span> (cin &gt;&gt; n) &#123;<br>    sum += n;<br>&#125;<br></code></pre></td></tr></table></figure>
-<h4 id="输入-char">2. 输入 <code>char</code></h4>
-<h5 id="输入一个字符包括空白符">2.1. 输入一个字符（包括空白符）</h5>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-type">char</span> ch = <span class="hljs-number">0</span>;<br>cin.<span class="hljs-built_in">get</span>(ch);<br><span class="hljs-comment">//就算ch是换行符/tab/空格都会被输入进去</span><br></code></pre></td></tr></table></figure>
-<h5 id="输入一个非空白的字符">2.2. 输入一个非空白的字符</h5>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-type">char</span> ch = <span class="hljs-number">0</span>;<br>cin &gt;&gt; ch;<br><span class="hljs-comment">//直到输入非空白字符之前，程序都不会结束</span><br></code></pre></td></tr></table></figure>
-<h5 id="输入未知个数的字符">2.3. 输入未知个数的字符</h5>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-type">char</span> ch;<br><span class="hljs-keyword">while</span>(cin.<span class="hljs-built_in">get</span>(<span class="hljs-type">char</span>))&#123;<br>  <span class="hljs-comment">//do something</span><br>  <span class="hljs-comment">//...</span><br>&#125;<br><br><span class="hljs-comment">//这里连换行符或者是空格/tab都能输入，方便用来判断循环结束的条件</span><br></code></pre></td></tr></table></figure>
-<p><code>get</code> 的返回值为 <code>istream</code> 对象，而
-<code>istream</code> 对象可以转换为<code>bool</code> 值，因而可以出现在
-<code>while</code> 的条件中；</p>
-<p><code>&gt;&gt;</code> 实际上会转换成函数
-<code>operator&gt;&gt;</code> 的调用，函数的返回值也为
-<code>istream</code> 对象</p>
-<h4 id="输入-stringchar">3. 输入 <code>string/char *</code></h4>
-<h5 id="普通读入">3.1. 普通读入</h5>
-<p>读入，以空白字符或 <code>EOF</code> 作为结束标志</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c++">string s;<br>cin &gt;&gt; s;<br></code></pre></td></tr></table></figure>
-<h5 id="按需读入">3.2. 按需读入</h5>
-<p>读入一行，以换行符（默认）或指定的字符（称为
-delimiter）作为结束标志，delimiter 会被读取但不会出现在 s 中</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs c++">string s;<br><span class="hljs-built_in">getline</span>(cin, s);<br><span class="hljs-built_in">getline</span>(cin, a, <span class="hljs-string">&#x27;,&#x27;</span>);<br><br><span class="hljs-comment">//注意这里的 dlm 一定要是字符而不是字符串</span><br></code></pre></td></tr></table></figure>
-<h5 id="section"></h5>
-<h3 id="控制台输出">2. 控制台输出</h3>
-<h3 id="文件输入">3. 文件输入</h3>
-<blockquote>
-<p>待补充</p>
-</blockquote>
-<h3 id="文件输出">4. 文件输出</h3>
-<blockquote>
-<p>待补充</p>
-</blockquote>
-<h3 id="参考文章">5. 参考文章</h3>
-<ol type="1">
-<li><a
-target="_blank" rel="noopener" href="https://blog.csdn.net/a3192048/article/details/80303547">cin、cin.get()、cin.getline()、getline()的区别</a></li>
-<li>https://en.cppreference.com/w/cpp/io/basic_ios/operator_bool</li>
-</ol>
+                <h4 id="大数加法">1. 大数加法</h4>
+<h5 id="string不方便">1.1. <code>string</code>(不方便)</h5>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;algorithm&gt;</span><span class="hljs-comment">//需要用到其中的 reverse(T&amp; begin, )</span></span><br><span class="hljs-function">string <span class="hljs-title">addStr</span><span class="hljs-params">(string src, string dest)</span></span>&#123;<br>  string ans;<br>  <span class="hljs-type">int</span> carry = <span class="hljs-number">0</span>;<br>  <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; src.<span class="hljs-built_in">size</span>() || i &lt; dest.<span class="hljs-built_in">size</span>(); i++)&#123;<br>    <br>  &#125;<br>  <br>&#125;<br><br><br></code></pre></td></tr></table></figure>
+<h5 id="vector方便">1.2. <code>vector</code>（方便）</h5>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;cmath&gt;</span></span><br><span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">addVec</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt; v1, vector&lt;<span class="hljs-type">int</span>&gt; v2)</span></span>&#123;<br>  <span class="hljs-comment">/**</span><br><span class="hljs-comment">  * 注意这里的vector将原有的大数倒序存储</span><br><span class="hljs-comment">  */</span><br>  <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">ans</span><span class="hljs-params">(max(v1.size(), v2.size()), <span class="hljs-number">0</span>)</span></span>;<br>  <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-built_in">max</span>(v1.<span class="hljs-built_in">size</span>(), v2.<span class="hljs-built_in">size</span>()); i++)&#123;<br>    <span class="hljs-keyword">if</span>(i &lt; v1.<span class="hljs-built_in">size</span>())&#123;<br>      ans[i] += v1[i];<br>    &#125;<br>    <span class="hljs-keyword">if</span>(i &lt; v2.<span class="hljs-built_in">size</span>())&#123;<br>      ans[i] += v2[i];<br>    &#125;<br>  &#125;<br>  <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; ans.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>; i++)&#123;<br>    <span class="hljs-keyword">while</span>(ans[i] &gt;= <span class="hljs-number">10</span>)&#123;<br>      ans[i] -= <span class="hljs-number">10</span>;<br>      ans[i + <span class="hljs-number">1</span>]++;<br>    &#125;<br>  &#125;<br>  <span class="hljs-keyword">if</span>(ans[ans.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>] &lt; <span class="hljs-number">10</span>)&#123;<br>    <span class="hljs-keyword">return</span> ans;<br>  &#125;<br>  ans.<span class="hljs-built_in">push_back</span>(<span class="hljs-number">0</span>);<br>  <span class="hljs-keyword">while</span>(ans[ans.<span class="hljs-built_in">size</span>() - <span class="hljs-number">2</span>] &gt;= <span class="hljs-number">10</span>)&#123;<br>    ans[ans.<span class="hljs-built_in">size</span>() - <span class="hljs-number">2</span>] -= <span class="hljs-number">10</span>;<br>    ans[ans.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>]++;<br>  &#125;<br>  <span class="hljs-keyword">return</span> ans;<br>&#125;<br><br><br><br></code></pre></td></tr></table></figure>
+<h5 id="string-vector方便">1.3
+<code>string &amp; vector</code>(方便)</h5>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function">string <span class="hljs-title">add</span><span class="hljs-params">(string s1, string s2)</span></span>&#123;<br>  vector&lt;<span class="hljs-type">int</span>&gt; vec1, vec2, ansVec;<br>  <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = s1.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span>; i--)&#123;<br>    vec1.<span class="hljs-built_in">push_back</span>(s1[i] - <span class="hljs-string">&#x27;0&#x27;</span>);<br>  &#125;<br>  <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = s2.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span>; i--)&#123;<br>    vec2.<span class="hljs-built_in">push_back</span>(s2[i] - <span class="hljs-string">&#x27;0&#x27;</span>);<br>  &#125;<br>  ansVec = <span class="hljs-built_in">addVec</span>(vec1, vec2);<br>  <span class="hljs-built_in">reverse</span>(ansVec.<span class="hljs-built_in">begin</span>(), ansVec.<span class="hljs-built_in">end</span>());<br>  string ansStr;<br>  <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; ansVec.<span class="hljs-built_in">size</span>(); i++)&#123;<br>    ansStr += (ansVec[i] + <span class="hljs-string">&#x27;0&#x27;</span>);<br>  &#125;<br>  <span class="hljs-keyword">return</span> ansStr;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+<h4 id="连续输入模版">2. 连续输入模版</h4>
+<h5 id="允许使用-containers">2.1. 允许使用 Containers</h5>
+<h4 id="字符串分割">3. 字符串分割</h4>
+<h5 id="用-vector">3.1. 用 <code>vector</code></h5>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function">vector&lt;string&gt; <span class="hljs-title">split</span><span class="hljs-params">(<span class="hljs-type">const</span> string &amp;str, <span class="hljs-type">char</span> sep)</span> </span>&#123;<br>  <span class="hljs-function">stringstream <span class="hljs-title">ss</span><span class="hljs-params">(str)</span></span>;<br>  vector&lt;string&gt; res;<br>  string temp;<br>	<span class="hljs-keyword">while</span> (<span class="hljs-built_in">getline</span>(ss, temp, sep)) &#123;<br>    res.<span class="hljs-built_in">push_back</span>(temp);<br>  &#125;<br>  <span class="hljs-keyword">return</span> res;<br>&#125;<br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -385,7 +324,7 @@ target="_blank" rel="noopener" href="https://blog.csdn.net/a3192048/article/deta
   
     <span>></span>
     
-  <a href="/categories/C-Basic/%E8%80%83%E8%AF%95%E5%BF%85%E5%A4%87/" class="category-chain-item">考试必备</a>
+  <a href="/categories/C-Basic/Notes/" class="category-chain-item">Notes</a>
   
   
 
@@ -404,8 +343,6 @@ target="_blank" rel="noopener" href="https://blog.csdn.net/a3192048/article/deta
       
         <a href="/tags/C/">#C++</a>
       
-        <a href="/tags/IO/">#IO</a>
-      
         <a href="/tags/Proficiency/">#Proficiency</a>
       
     </div>
@@ -418,8 +355,8 @@ target="_blank" rel="noopener" href="https://blog.csdn.net/a3192048/article/deta
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>C++ IO</div>
-      <div>https://wuchentian.github.io/2022/10/25/C++ Basic/考试必备/C++ IO/</div>
+      <div>C++ 常用手写函数</div>
+      <div>https://wuchentian.github.io/2022/10/10/C++ Basic/Notes/C++ 常用手写函数/</div>
     </div>
     <div class="license-meta">
       
@@ -431,7 +368,7 @@ target="_blank" rel="noopener" href="https://blog.csdn.net/a3192048/article/deta
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>October 25, 2022</div>
+          <div>October 10, 2022</div>
         </div>
       
       
@@ -463,9 +400,9 @@ target="_blank" rel="noopener" href="https://blog.csdn.net/a3192048/article/deta
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/10/25/Discrete%20Math/%E8%AF%B7%E7%A7%BB%E6%AD%A5%E6%88%91%E7%9A%84%E7%9F%A5%E4%B9%8E/" title="请移步我的知乎">
+                      <a href="/2022/10/16/Java%20Basic/Java%20%E4%B8%AD%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86/" title="Java 中的字符串处理">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">请移步我的知乎</span>
+                        <span class="hidden-mobile">Java 中的字符串处理</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -473,8 +410,8 @@ target="_blank" rel="noopener" href="https://blog.csdn.net/a3192048/article/deta
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/10/23/C++%20Basic/STL%20Containers/C++%20map/" title="C++ map">
-                        <span class="hidden-mobile">C++ map</span>
+                      <a href="/2022/10/10/C++%20Basic/STL%20Containers/C++%20stack/" title="C++ stack">
+                        <span class="hidden-mobile">C++ stack</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

@@ -4,6 +4,128 @@
   
   
   <entry>
+    <title>C++ Inheritance</title>
+    <link href="/2022/11/08/C++%20Basic/C++%20Design/C++%20Inheritance/"/>
+    <url>/2022/11/08/C++%20Basic/C++%20Design/C++%20Inheritance/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    <categories>
+      
+      <category>C++ Basic</category>
+      
+      <category>C++ Design</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>C++</tag>
+      
+      <tag>Object Oriented</tag>
+      
+      <tag>Paradigm</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>C++ Polymorphisim</title>
+    <link href="/2022/11/08/C++%20Basic/C++%20Design/C++%20Polymorphism/"/>
+    <url>/2022/11/08/C++%20Basic/C++%20Design/C++%20Polymorphism/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    <categories>
+      
+      <category>C++ Basic</category>
+      
+      <category>C++ Design</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>C++</tag>
+      
+      <tag>Object Oriented</tag>
+      
+      <tag>Paradigm</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>C++ Structured Programming</title>
+    <link href="/2022/11/08/C++%20Basic/C++%20Design/C++%20Structured%20Programming/"/>
+    <url>/2022/11/08/C++%20Basic/C++%20Design/C++%20Structured%20Programming/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    <categories>
+      
+      <category>C++ Basic</category>
+      
+      <category>C++ Design</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>C++</tag>
+      
+      <tag>Structured Programming</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>C++ Encapsulation</title>
+    <link href="/2022/11/08/C++%20Basic/C++%20Design/C++%20Encapsulation/"/>
+    <url>/2022/11/08/C++%20Basic/C++%20Design/C++%20Encapsulation/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    <categories>
+      
+      <category>C++ Basic</category>
+      
+      <category>C++ Design</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>C++</tag>
+      
+      <tag>Object Oriented</tag>
+      
+      <tag>Paradigm</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Socket 实现文件传输</title>
     <link href="/2022/11/03/Computer%20Networking/Socket/Socket%20%E5%AE%9E%E7%8E%B0%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93/"/>
     <url>/2022/11/03/Computer%20Networking/Socket/Socket%20%E5%AE%9E%E7%8E%B0%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93/</url>
@@ -51,9 +173,9 @@
     
     <tags>
       
-      <tag>C++</tag>
-      
       <tag>Data Structure</tag>
+      
+      <tag>C++</tag>
       
       <tag>Java</tag>
       
@@ -99,6 +221,35 @@
   
   
   <entry>
+    <title>Introduction To C++</title>
+    <link href="/2022/11/01/C++%20Basic/C++%20Design/Introduction%20To%20C++/"/>
+    <url>/2022/11/01/C++%20Basic/C++%20Design/Introduction%20To%20C++/</url>
+    
+    <content type="html"><![CDATA[<h3 id="section"></h3><p>BNF：巴科斯范式描述编程语言的文法，自然语言存在不同程度的二义性。这种模糊、不确定的方式无法精确定义一门程序设计语言。必须设计一种准确无误地描述程序设计语言的语法结构，这种严谨、简洁、易读的形式规则描述的语言结构模型称为文法。该范式由他定义Algol60语言时提出</p><p>编程的两个视角：科学、艺术</p><p>编程范式</p><ul><li>面向过程：分析出解决问题所需要的步骤，然后用函数把这些步骤一步一步实现，使用的时候一个一个依次调用就可以了（命令式思想：即程序员一步步告诉计算机应该做什么）</li><li>面向对象：把构成问题事务分解成各个对象，建立对象的目的不是为了完成一个步骤，而是为了描叙某个事物在整个解决问题的步骤中的行为</li><li>函数式<ul><li>函数副作用：当调用函数时，除了返回函数值之外，还对主调用函数产生附加的影响。例如修改全局变量（函数外的变量）或修改参数</li><li><ahref="https://blog.csdn.net/archimelan/article/details/81940858">函数式编程</a>：为了消除这种副作用的编程方式，告诉计算机要干什么，而不是怎么干</li></ul></li><li>逻辑式：将人类的知识告诉给机器，然后让机器自己决定计算结果（AI的第二阶段）</li></ul><p>进攻式编程：开发阶段主动暴露问题，从而在发布前尽可能多的解决问题</p><p>防御式编程：开发阶段预防可能出现的所有问题，避免错误数据对系统造成影响</p><h2 id="创建oo的背景">创建OO的背景</h2><p><strong>Simula 1时期</strong></p><p>simulation：仿真，用于模拟某些不能真实做的（炸毁三峡大坝产生的后果）、有较大随机性的实验</p><ul><li>仿真语言为仿真研究人员提供了专门用于建模、仿真实验和仿真结果统计、分析、显示的程序语句</li><li>不可测原理</li><li>仿真语言打破了严格的先进后出制度</li><li>采取的措施类似现在虚拟机的工作</li></ul><p>Simula 1：<strong>不是programlanguage</strong>，仅仅为了完成simulation引入的约束/语言</p><p><strong>Simula 67时期</strong></p><ul><li>考虑到Simula1的不可重用性，提出了class subclassinheriting的思想</li><li>抽象函数的概念</li><li>通用程序设计语言</li><li>有了OO思想</li></ul><h2 id="c的诞生">C++的诞生</h2><p>BS最开始为了完成博士论文需要一门语言做支撑</p><p>1.simula：性能差</p><p>最终被市场淘汰：用的人少，无法为复杂的系统提供支持</p><p>2.BCPL：debug难</p><p>此时他还是用原有语言完成了论文，但希望有一门语言能综合Simula编程体验好，BCPL性能高的特点</p><p><strong>贝尔实验室阶段</strong></p><p>C++思想逐步完善</p><ul><li>Cpre：预处理程序，C加上Simula的类的机制</li><li>此后逐渐诞生了创建一门语言的想法</li></ul><p><strong>1983年诞生</strong></p><p>此时C++源码先通过cpp预处理后再通过Cfront翻译成C语言，最后通过C编译器来使程序运行</p><ul><li>用Cfront不用Cpre的原因：Cpre不懂C语法，Cfront懂，发现语法错误会传回sourcecode，但Cpre将方言部分翻译成c后交给cc，此时若发现错误才传回sourcecode</li><li>正交性：矛盾体，有你没我，有我没你。但这些可以容忍，如果共存后效率能提高</li></ul><p><strong>初始化与赋值</strong></p><p>对于复合类型的初始化和赋值有区别，基本类型则没有区别：https://blog.csdn.net/qq_38211852/article/details/80629691</p><p><strong>异常</strong></p><ul><li>可以预见的</li><li>无法避免的（a/b，无法避免输入b=0；无法避免文件路径不存在）</li><li>处理异常不是让异常消失，而是让异常产生后能受到控制，不会让系统手足无措</li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++ Basic</category>
+      
+      <category>C++ Design</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>C++</tag>
+      
+      <tag>History</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>LAN Switching &amp; VLAN</title>
     <link href="/2022/10/31/Computer%20Networking/OSI%20Model/LAN%20Switching%20&amp;%20VLAN/"/>
     <url>/2022/10/31/Computer%20Networking/OSI%20Model/LAN%20Switching%20&amp;%20VLAN/</url>
@@ -117,9 +268,9 @@
     
     <tags>
       
-      <tag>Network</tag>
-      
       <tag>Hardware</tag>
+      
+      <tag>Network</tag>
       
     </tags>
     
@@ -146,9 +297,9 @@
     
     <tags>
       
-      <tag>Application</tag>
-      
       <tag>Network</tag>
+      
+      <tag>Application</tag>
       
       <tag>OSI</tag>
       
@@ -579,9 +730,9 @@
     
     <tags>
       
-      <tag>C++</tag>
-      
       <tag>Data Structure</tag>
+      
+      <tag>C++</tag>
       
       <tag>STL</tag>
       
@@ -647,8 +798,8 @@
   
   <entry>
     <title>C++ IO</title>
-    <link href="/2022/10/25/C++%20Basic/%E8%80%83%E8%AF%95%E5%BF%85%E5%A4%87/C++%20IO/"/>
-    <url>/2022/10/25/C++%20Basic/%E8%80%83%E8%AF%95%E5%BF%85%E5%A4%87/C++%20IO/</url>
+    <link href="/2022/10/25/C++%20Basic/Notes/C++%20IO/"/>
+    <url>/2022/10/25/C++%20Basic/Notes/C++%20IO/</url>
     
     <content type="html"><![CDATA[<h3 id="控制台输入">1. 控制台输入</h3><h4 id="标准输入流-cin">1. 标准输入流 <code>cin</code></h4><p><code>cin</code> 输入原理简述：</p><p>程序的输入都建有一个缓冲区，即输入缓冲区。每次输入过程是这样的：当一次键盘输入结束时会将输入的数据存入输入缓冲区，而<code>cin</code>函数直接从输入缓冲区中取数据（<code>cin</code>读取数据是从第一个非空白字符开始到下一个空白字符结束）。正因为<code>cin</code>函数是直接从缓冲区取数据的，所以有时候当缓冲区中有<strong>残留数据</strong>时，<code>cin</code>函数会直接取得这些<strong>残留数据</strong>而不会请求键盘输入。</p><h5 id="头文件">1.1. 头文件</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-comment">//&lt;iostream&gt; 中定义了 cin/cout/cerr/clog 等对象</span><br></code></pre></td></tr></table></figure><h5 id="cin">1.2. <code>cin &gt;&gt;</code></h5><p>根据 <code>cin &gt;&gt; sth</code> 中 <code>sth</code>的变量类型读取数据，这里变量类型可以为<code>int, float, char, char*, string</code>等诸多类型。这一输入操作，在遇到<strong>结束符</strong><code>（Space、Tab、Enter）</code>就结束，且<strong>结束符并不保存到变量中</strong>。</p><p><strong>注意：最后一个 <code>enter</code> 也在缓冲区</strong></p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">test_input</span><span class="hljs-params">()</span>  </span><br><span class="hljs-function"></span>&#123;  <br>    <span class="hljs-type">char</span> ch;<br>    <span class="hljs-type">char</span> ch1[<span class="hljs-number">10</span>], ch2[<span class="hljs-number">10</span>];  <br>  <span class="hljs-comment">//这里的char[] 换成char* 或者是 string有相同的效果</span><br>    cout &lt;&lt; <span class="hljs-string">&quot;输入两个字符串：&quot;</span> &lt;&lt; endl;  <br>    cin &gt;&gt; ch1;  <br>    cin &gt;&gt; ch2;  <br>    cout &lt;&lt; <span class="hljs-string">&quot;两个字符串分别为：&quot;</span> &lt;&lt; endl;  <br>    cout &lt;&lt; ch1 &lt;&lt; endl;  <br>    cout &lt;&lt; ch2 &lt;&lt; endl;  <br>    cin.<span class="hljs-built_in">get</span>(ch);<br>    cout &lt;&lt; (<span class="hljs-type">int</span>)ch &lt;&lt; endl; <span class="hljs-comment">//输出10，为最后一个enter输入</span><br>&#125;  <br><br></code></pre></td></tr></table></figure><p>输出结果如下：</p><p><ahref="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210251510171.png"><imgsrc="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs202210290955796.png"alt="image-20221025151057071" /></a></p><h5 id="cin.get">1.3. <code>cin.get()</code></h5><p>其中结束符意味着遇到该符号结束字符串读取,默认为enter，读取的字符个数最多为（长度-1），因为最后一个为’\0’。要注意的是，cin.get(字符数组名，接收长度，结束符)操作遇到结束符停止读取，但并不会将结束符从缓冲区丢弃。cin.get函数有如下几种声明：</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">get</span><span class="hljs-params">()</span></span>;<br><br><span class="hljs-function">istream&amp; <span class="hljs-title">get</span><span class="hljs-params">(<span class="hljs-type">char</span>&amp; c)</span></span>;<br><br><span class="hljs-function">istream&amp; <span class="hljs-title">get</span><span class="hljs-params">(<span class="hljs-type">char</span>* s, streamsize n)</span></span>;<br><br><span class="hljs-function">istream&amp; <span class="hljs-title">get</span><span class="hljs-params">(<span class="hljs-type">char</span>* s, streamsize n, <span class="hljs-type">char</span> delim)</span></span>;<br><br><span class="hljs-function">istream&amp; <span class="hljs-title">get</span><span class="hljs-params">(streambuf&amp; sb)</span></span>;<br><br><span class="hljs-function">istream&amp; <span class="hljs-title">get</span><span class="hljs-params">(streambuf&amp; sb, <span class="hljs-type">char</span> delim)</span></span>;<br></code></pre></td></tr></table></figure><h4 id="输入-int">1. 输入 <code>int</code></h4><ol type="1"><li>输入 10 个数字（以空格或者是换行符分割）</li></ol><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-type">int</span> nums[<span class="hljs-number">10</span>];<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10</span>; i++) &#123;<br>    cin &gt;&gt; nums[i];<br>&#125;<br></code></pre></td></tr></table></figure><ol type="1"><li>输入未知个数的数字并求和</li></ol><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-type">int</span> sum = <span class="hljs-number">0</span>;<br><span class="hljs-keyword">while</span> (cin &gt;&gt; n) &#123;<br>    sum += n;<br>&#125;<br></code></pre></td></tr></table></figure><h4 id="输入-char">2. 输入 <code>char</code></h4><h5 id="输入一个字符包括空白符">2.1. 输入一个字符（包括空白符）</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-type">char</span> ch = <span class="hljs-number">0</span>;<br>cin.<span class="hljs-built_in">get</span>(ch);<br><span class="hljs-comment">//就算ch是换行符/tab/空格都会被输入进去</span><br></code></pre></td></tr></table></figure><h5 id="输入一个非空白的字符">2.2. 输入一个非空白的字符</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-type">char</span> ch = <span class="hljs-number">0</span>;<br>cin &gt;&gt; ch;<br><span class="hljs-comment">//直到输入非空白字符之前，程序都不会结束</span><br></code></pre></td></tr></table></figure><h5 id="输入未知个数的字符">2.3. 输入未知个数的字符</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-type">char</span> ch;<br><span class="hljs-keyword">while</span>(cin.<span class="hljs-built_in">get</span>(<span class="hljs-type">char</span>))&#123;<br>  <span class="hljs-comment">//do something</span><br>  <span class="hljs-comment">//...</span><br>&#125;<br><br><span class="hljs-comment">//这里连换行符或者是空格/tab都能输入，方便用来判断循环结束的条件</span><br></code></pre></td></tr></table></figure><p><code>get</code> 的返回值为 <code>istream</code> 对象，而<code>istream</code> 对象可以转换为<code>bool</code> 值，因而可以出现在<code>while</code> 的条件中；</p><p><code>&gt;&gt;</code> 实际上会转换成函数<code>operator&gt;&gt;</code> 的调用，函数的返回值也为<code>istream</code> 对象</p><h4 id="输入-stringchar">3. 输入 <code>string/char *</code></h4><h5 id="普通读入">3.1. 普通读入</h5><p>读入，以空白字符或 <code>EOF</code> 作为结束标志</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c++">string s;<br>cin &gt;&gt; s;<br></code></pre></td></tr></table></figure><h5 id="按需读入">3.2. 按需读入</h5><p>读入一行，以换行符（默认）或指定的字符（称为delimiter）作为结束标志，delimiter 会被读取但不会出现在 s 中</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs c++">string s;<br><span class="hljs-built_in">getline</span>(cin, s);<br><span class="hljs-built_in">getline</span>(cin, a, <span class="hljs-string">&#x27;,&#x27;</span>);<br><br><span class="hljs-comment">//注意这里的 dlm 一定要是字符而不是字符串</span><br></code></pre></td></tr></table></figure><h5 id="section"></h5><h3 id="控制台输出">2. 控制台输出</h3><h3 id="文件输入">3. 文件输入</h3><blockquote><p>待补充</p></blockquote><h3 id="文件输出">4. 文件输出</h3><blockquote><p>待补充</p></blockquote><h3 id="参考文章">5. 参考文章</h3><ol type="1"><li><ahref="https://blog.csdn.net/a3192048/article/details/80303547">cin、cin.get()、cin.getline()、getline()的区别</a></li><li>https://en.cppreference.com/w/cpp/io/basic_ios/operator_bool</li></ol>]]></content>
     
@@ -657,7 +808,7 @@
       
       <category>C++ Basic</category>
       
-      <category>考试必备</category>
+      <category>Notes</category>
       
     </categories>
     
@@ -695,9 +846,9 @@
     
     <tags>
       
-      <tag>C++</tag>
-      
       <tag>Data Structure</tag>
+      
+      <tag>C++</tag>
       
       <tag>STL</tag>
       
@@ -753,9 +904,9 @@
     
     <tags>
       
-      <tag>C++</tag>
-      
       <tag>Data Structure</tag>
+      
+      <tag>C++</tag>
       
       <tag>Java</tag>
       
@@ -786,11 +937,11 @@
     
     <tags>
       
+      <tag>Hardware</tag>
+      
       <tag>Network</tag>
       
       <tag>OSI</tag>
-      
-      <tag>Hardware</tag>
       
     </tags>
     
@@ -800,8 +951,8 @@
   
   <entry>
     <title>C++内存分配——从类的初始化开始</title>
-    <link href="/2022/10/19/C++%20Basic/Object%20Oriented/C++%20%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E2%80%94%E2%80%94%E4%BB%8E%E7%B1%BB%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96%E5%BC%80%E5%A7%8B%20/"/>
-    <url>/2022/10/19/C++%20Basic/Object%20Oriented/C++%20%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E2%80%94%E2%80%94%E4%BB%8E%E7%B1%BB%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96%E5%BC%80%E5%A7%8B%20/</url>
+    <link href="/2022/10/19/C++%20Basic/Notes/C++%20%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E2%80%94%E2%80%94%E4%BB%8E%E7%B1%BB%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96%E5%BC%80%E5%A7%8B%20/"/>
+    <url>/2022/10/19/C++%20Basic/Notes/C++%20%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E2%80%94%E2%80%94%E4%BB%8E%E7%B1%BB%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96%E5%BC%80%E5%A7%8B%20/</url>
     
     <content type="html"><![CDATA[<h4 id="起因">1. 起因</h4><p>事情是这样：在最近的一次C++作业中，我需要用<strong>链表</strong>实现一个<strong>双向队列</strong>。</p><p>我对链表节点的实现如下:</p><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">struct <span class="hljs-keyword">Node</span><span class="hljs-title">&#123;</span><br><span class="hljs-title">    Node</span> *next;<br>    <span class="hljs-keyword">Node</span> <span class="hljs-title">*prev</span>;<br>    int val;<br>    <span class="hljs-keyword">Node</span><span class="hljs-title">(int</span> val, <span class="hljs-keyword">Node</span> <span class="hljs-title">*prev</span>, <span class="hljs-keyword">Node</span> <span class="hljs-title">*next</span>)；<br>&#125;;<br><br>CRMSH<br></code></pre></td></tr></table></figure><p>我对双向队列的实现如下：</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">Deque</span>&#123;<br>    <span class="hljs-type">int</span> size;<br>  <span class="hljs-comment">/**</span><br><span class="hljs-comment">  * front 和 rear 分别为虚拟头指针和尾指针</span><br><span class="hljs-comment">  */</span><br>    Node *front;<br>    Node *rear;<br>    <span class="hljs-built_in">Deque</span>();<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">push_front</span><span class="hljs-params">(<span class="hljs-type">int</span> value)</span></span>;<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">push_back</span><span class="hljs-params">(<span class="hljs-type">int</span> value)</span></span>;<br>    <span class="hljs-type">void</span> pop_front;<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">pop_back</span><span class="hljs-params">()</span></span>;<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">get_size</span><span class="hljs-params">()</span> <span class="hljs-type">const</span></span>;<br>  ~<span class="hljs-built_in">Deque</span>() = deafult;<br>&#125;;<br><br></code></pre></td></tr></table></figure><p>当我试图利用 <code>Deque::push_back(int value)</code>函数向队列中添加元素时，我起初的写法如下：</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs c++">Deque::<span class="hljs-built_in">push_back</span>(<span class="hljs-type">int</span> value)&#123;<br>  <span class="hljs-comment">/**</span><br><span class="hljs-comment">  * @param value 新节点的值</span><br><span class="hljs-comment">  * @param prev 新节点的前一个节点</span><br><span class="hljs-comment">  * @param next 新节点的下一个节点</span><br><span class="hljs-comment">  * @return 一个船新节点</span><br><span class="hljs-comment">  */</span><br>    Node node = *<span class="hljs-keyword">new</span> <span class="hljs-built_in">Node</span>(value, rear-&gt;prev, rear);<br>    rear-&gt;prev-&gt;next = &amp;node;<br>    ......<br>&#125;<br><br></code></pre></td></tr></table></figure><p>但是程序每次运行到这里都会中断，debug 显示无论我 new 多少个新的node，它们的地址都是一样的，因此所有新节点都连着它本身，于是爆栈了。但是如果我把写法改成如下这样，程序就恢复了正常：</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs c++">Deque::<span class="hljs-built_in">push_back</span>(<span class="hljs-type">int</span> value)&#123;<br>  <span class="hljs-comment">/**</span><br><span class="hljs-comment">  * @param value 新节点的值</span><br><span class="hljs-comment">  * @param prev 新节点的前一个节点</span><br><span class="hljs-comment">  * @param next 新节点的下一个节点</span><br><span class="hljs-comment">  * @return 一个船新节点</span><br><span class="hljs-comment">  */</span><br>    Node *node = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Node</span>(value, rear-&gt;prev, rear);<br>    rear-&gt;prev-&gt;next = node;<br>    ......<br>&#125;<br><br></code></pre></td></tr></table></figure><h4 id="一个合理的解释">2. 一个合理的解释</h4><p>首先我们需要了解 C++ 的内存分配</p><table><thead><tr class="header"><th>名称</th><th>特性</th></tr></thead><tbody><tr class="odd"><td><strong>栈</strong></td><td>由编译器在需要时自动分配，不需要时自动清除的变量存储区。通常存放局部变量、函数参数等。</td></tr><tr class="even"><td><strong>堆</strong></td><td>由 new 分配的内存块，由程序员释放（编译器不管），一般一个 new 与一个delete 对应，一个 new[] 与一个 delete[]对应。如果程序员没有释放掉，资源将由操作系统在程序结束后自动回收。</td></tr><tr class="odd"><td><strong>自由存储区</strong></td><td>由 malloc等分配的内存块，和堆十分相似，用free来释放。（实际上和堆是同一块区域）</td></tr><tr class="even"><td><strong>全局/静态存储区</strong></td><td>全局变量和静态变量被分配到同一块内存中（在 C语言中，全局变量又分为初始化的和未初始化的，C++ 中没有这一区分）。</td></tr><tr class="odd"><td><strong>常量存储区</strong></td><td>这是一块特殊存储区，里边存放常量，不允许修改。</td></tr></tbody></table><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c++">Node *node = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Node</span>(value, rear-&gt;prev, rear);<br></code></pre></td></tr></table></figure><p>我们知道，由 <code>new</code>建立的变量存储在堆中。因此上述代码在堆区新建一个对象，并且返回该对象的地址，由<code>Node</code> 类型指针 <code>node</code> 存储。</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c++">Node node = *<span class="hljs-keyword">new</span> <span class="hljs-built_in">Node</span>(value, rear-&gt;prev, rear);<br></code></pre></td></tr></table></figure><p>上述代码同样新建一个 <code>Node</code> 对象，并将这个 Node对象的值存储到一个 <code>Node</code> 类型的变量 <code>node</code>中，相当于如下代码:</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs c++">Node *np = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Node</span>(value, rear-&gt;prev, rear);<br>Node node = *np;<br><span class="hljs-comment">/**</span><br><span class="hljs-comment">* node 只是值传递</span><br><span class="hljs-comment">*/</span><br></code></pre></td></tr></table></figure><p>因此，在下一步的</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c++">rear-&gt;prev-&gt;next = &amp;node;<br></code></pre></td></tr></table></figure><p>中，<code>&amp;node</code> 根本就不是那个指向新节点的指针<code>np</code>，而是一个临时栈变量 <code>node</code> 的地址。这里相当于<code>np-&gt;prev-&gt;next = &amp;node</code>。</p><pre><code class=" mermaid">graph LRrear_prev---&gt;rear---&gt;rear_prevnp---&gt;new_Node&amp;node---&gt;somewhere</code></pre><p>转变成了</p><pre><code class=" mermaid">graph LRnp--&gt;rearnp--&gt;rear_prev--&gt;&amp;node--&gt;rear_prev&amp;node--&gt;rear</code></pre><p>再经过</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c++">rear-&gt;prev = &amp;node<br></code></pre></td></tr></table></figure><p>这一步后，转变为</p><pre><code class=" mermaid">graph LRnp--&gt;rearnp--&gt;&amp;node--&gt;rear&amp;node--&gt;&amp;node--&gt;&amp;node</code></pre><p>在 <code>node</code>这里出现了死循环，导致内存爆了</p><h3 id="源码">3. 源码</h3><p>在这里贴上我所有成员函数的具体实现：</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><code class="hljs c++">Node::<span class="hljs-built_in">Node</span>(<span class="hljs-type">int</span> val, Node *prev, Node *next)&#123;<br>    <span class="hljs-keyword">this</span>-&gt;val = val;<br>    <span class="hljs-keyword">this</span>-&gt;next = next;<br>    <span class="hljs-keyword">this</span>-&gt;prev = prev;<br>&#125;<br><br><br>Deque::<span class="hljs-built_in">Deque</span>()&#123;<br>    <span class="hljs-keyword">this</span>-&gt;size = <span class="hljs-number">0</span>;<br>    front = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Node</span>(<span class="hljs-number">-1</span>, <span class="hljs-literal">nullptr</span>, <span class="hljs-literal">nullptr</span>);<br>    rear = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Node</span>(<span class="hljs-number">-1</span>, front, <span class="hljs-literal">nullptr</span>);<br>    front-&gt;next = rear;<br>    front-&gt;prev = <span class="hljs-literal">nullptr</span>;<br>    rear-&gt;next = <span class="hljs-literal">nullptr</span>;<br>    rear-&gt;prev = front;<br>&#125;<br><br>Deque::<span class="hljs-built_in">push_front</span>(<span class="hljs-type">int</span> value)&#123;<br>    Node *node = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Node</span>(value, front, front-&gt;next);<br>    node-&gt;next-&gt;prev = node;<br>    front-&gt;next = node;<br>    <span class="hljs-keyword">this</span>-&gt;size++;<br>&#125;<br><br>Deque::<span class="hljs-built_in">push_back</span>(<span class="hljs-type">int</span> value)&#123;<br>    Node *node = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Node</span>(value, rear-&gt;prev, rear);<br>    rear-&gt;prev-&gt;next = node;<br>    rear-&gt;prev = node;<br>    <span class="hljs-keyword">this</span>-&gt;size++;<br>&#125;<br><br>Deque::<span class="hljs-built_in">get_size</span>() <span class="hljs-type">const</span>&#123;<br>    cout &lt;&lt; <span class="hljs-keyword">this</span>-&gt;size &lt;&lt; endl;<br>&#125;<br><br>Deque::<span class="hljs-built_in">pop_front</span>()&#123;<br>    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>-&gt;size &lt;= <span class="hljs-number">0</span>)&#123;<br>        cout &lt;&lt; <span class="hljs-number">-1</span> &lt;&lt; endl;<br>    &#125;<br>    <span class="hljs-keyword">else</span>&#123;<br>        cout &lt;&lt; (*(front-&gt;next)).val &lt;&lt; endl;<br>        front-&gt;next = front-&gt;next-&gt;next;<br>        front-&gt;next-&gt;prev = front;<br>        <span class="hljs-keyword">this</span>-&gt;size--;<br>    &#125;<br>&#125;<br><br>Deque::<span class="hljs-built_in">pop_back</span>()&#123;<br>    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>-&gt;size &lt;= <span class="hljs-number">0</span>)&#123;<br>        cout &lt;&lt; <span class="hljs-number">-1</span> &lt;&lt; endl;<br>    &#125;<br>    <span class="hljs-keyword">else</span>&#123;<br>        cout &lt;&lt; (*(rear-&gt;prev)).val &lt;&lt; endl;<br>        rear-&gt;prev = rear-&gt;prev-&gt;prev;<br>        rear-&gt;prev-&gt;next = rear;<br>        <span class="hljs-keyword">this</span>-&gt;size--;<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure><h4 id="参考文章">4. 参考文章</h4><ol type="1"><li>http://t.csdn.cn/5QbW0</li></ol>]]></content>
     
@@ -810,7 +961,7 @@
       
       <category>C++ Basic</category>
       
-      <category>Object Oriented</category>
+      <category>Notes</category>
       
     </categories>
     
@@ -882,6 +1033,35 @@
   
   
   <entry>
+    <title>C++ 常用手写函数</title>
+    <link href="/2022/10/10/C++%20Basic/Notes/C++%20%E5%B8%B8%E7%94%A8%E6%89%8B%E5%86%99%E5%87%BD%E6%95%B0/"/>
+    <url>/2022/10/10/C++%20Basic/Notes/C++%20%E5%B8%B8%E7%94%A8%E6%89%8B%E5%86%99%E5%87%BD%E6%95%B0/</url>
+    
+    <content type="html"><![CDATA[<h4 id="大数加法">1. 大数加法</h4><h5 id="string不方便">1.1. <code>string</code>(不方便)</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;algorithm&gt;</span><span class="hljs-comment">//需要用到其中的 reverse(T&amp; begin, )</span></span><br><span class="hljs-function">string <span class="hljs-title">addStr</span><span class="hljs-params">(string src, string dest)</span></span>&#123;<br>  string ans;<br>  <span class="hljs-type">int</span> carry = <span class="hljs-number">0</span>;<br>  <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; src.<span class="hljs-built_in">size</span>() || i &lt; dest.<span class="hljs-built_in">size</span>(); i++)&#123;<br>    <br>  &#125;<br>  <br>&#125;<br><br><br></code></pre></td></tr></table></figure><h5 id="vector方便">1.2. <code>vector</code>（方便）</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;cmath&gt;</span></span><br><span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">addVec</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt; v1, vector&lt;<span class="hljs-type">int</span>&gt; v2)</span></span>&#123;<br>  <span class="hljs-comment">/**</span><br><span class="hljs-comment">  * 注意这里的vector将原有的大数倒序存储</span><br><span class="hljs-comment">  */</span><br>  <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">ans</span><span class="hljs-params">(max(v1.size(), v2.size()), <span class="hljs-number">0</span>)</span></span>;<br>  <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-built_in">max</span>(v1.<span class="hljs-built_in">size</span>(), v2.<span class="hljs-built_in">size</span>()); i++)&#123;<br>    <span class="hljs-keyword">if</span>(i &lt; v1.<span class="hljs-built_in">size</span>())&#123;<br>      ans[i] += v1[i];<br>    &#125;<br>    <span class="hljs-keyword">if</span>(i &lt; v2.<span class="hljs-built_in">size</span>())&#123;<br>      ans[i] += v2[i];<br>    &#125;<br>  &#125;<br>  <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; ans.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>; i++)&#123;<br>    <span class="hljs-keyword">while</span>(ans[i] &gt;= <span class="hljs-number">10</span>)&#123;<br>      ans[i] -= <span class="hljs-number">10</span>;<br>      ans[i + <span class="hljs-number">1</span>]++;<br>    &#125;<br>  &#125;<br>  <span class="hljs-keyword">if</span>(ans[ans.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>] &lt; <span class="hljs-number">10</span>)&#123;<br>    <span class="hljs-keyword">return</span> ans;<br>  &#125;<br>  ans.<span class="hljs-built_in">push_back</span>(<span class="hljs-number">0</span>);<br>  <span class="hljs-keyword">while</span>(ans[ans.<span class="hljs-built_in">size</span>() - <span class="hljs-number">2</span>] &gt;= <span class="hljs-number">10</span>)&#123;<br>    ans[ans.<span class="hljs-built_in">size</span>() - <span class="hljs-number">2</span>] -= <span class="hljs-number">10</span>;<br>    ans[ans.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>]++;<br>  &#125;<br>  <span class="hljs-keyword">return</span> ans;<br>&#125;<br><br><br><br></code></pre></td></tr></table></figure><h5 id="string-vector方便">1.3<code>string &amp; vector</code>(方便)</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function">string <span class="hljs-title">add</span><span class="hljs-params">(string s1, string s2)</span></span>&#123;<br>  vector&lt;<span class="hljs-type">int</span>&gt; vec1, vec2, ansVec;<br>  <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = s1.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span>; i--)&#123;<br>    vec1.<span class="hljs-built_in">push_back</span>(s1[i] - <span class="hljs-string">&#x27;0&#x27;</span>);<br>  &#125;<br>  <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = s2.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span>; i--)&#123;<br>    vec2.<span class="hljs-built_in">push_back</span>(s2[i] - <span class="hljs-string">&#x27;0&#x27;</span>);<br>  &#125;<br>  ansVec = <span class="hljs-built_in">addVec</span>(vec1, vec2);<br>  <span class="hljs-built_in">reverse</span>(ansVec.<span class="hljs-built_in">begin</span>(), ansVec.<span class="hljs-built_in">end</span>());<br>  string ansStr;<br>  <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; ansVec.<span class="hljs-built_in">size</span>(); i++)&#123;<br>    ansStr += (ansVec[i] + <span class="hljs-string">&#x27;0&#x27;</span>);<br>  &#125;<br>  <span class="hljs-keyword">return</span> ansStr;<br>&#125;<br><br></code></pre></td></tr></table></figure><h4 id="连续输入模版">2. 连续输入模版</h4><h5 id="允许使用-containers">2.1. 允许使用 Containers</h5><h4 id="字符串分割">3. 字符串分割</h4><h5 id="用-vector">3.1. 用 <code>vector</code></h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function">vector&lt;string&gt; <span class="hljs-title">split</span><span class="hljs-params">(<span class="hljs-type">const</span> string &amp;str, <span class="hljs-type">char</span> sep)</span> </span>&#123;<br>  <span class="hljs-function">stringstream <span class="hljs-title">ss</span><span class="hljs-params">(str)</span></span>;<br>  vector&lt;string&gt; res;<br>  string temp;<br><span class="hljs-keyword">while</span> (<span class="hljs-built_in">getline</span>(ss, temp, sep)) &#123;<br>    res.<span class="hljs-built_in">push_back</span>(temp);<br>  &#125;<br>  <span class="hljs-keyword">return</span> res;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++ Basic</category>
+      
+      <category>Notes</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>C++</tag>
+      
+      <tag>Proficiency</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>C++ stack</title>
     <link href="/2022/10/10/C++%20Basic/STL%20Containers/C++%20stack/"/>
     <url>/2022/10/10/C++%20Basic/STL%20Containers/C++%20stack/</url>
@@ -900,40 +1080,11 @@
     
     <tags>
       
-      <tag>C++</tag>
-      
       <tag>Data Structure</tag>
       
-      <tag>STL</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>C++ stack</title>
-    <link href="/2022/10/10/C++%20Basic/%E8%80%83%E8%AF%95%E5%BF%85%E5%A4%87/C++%20%E5%B8%B8%E7%94%A8%E6%89%8B%E5%86%99%E5%87%BD%E6%95%B0/"/>
-    <url>/2022/10/10/C++%20Basic/%E8%80%83%E8%AF%95%E5%BF%85%E5%A4%87/C++%20%E5%B8%B8%E7%94%A8%E6%89%8B%E5%86%99%E5%87%BD%E6%95%B0/</url>
-    
-    <content type="html"><![CDATA[<h4 id="大数加法">1. 大数加法</h4><h5 id="string不方便">1.1. <code>string</code>(不方便)</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;algorithm&gt;</span><span class="hljs-comment">//需要用到其中的 reverse(T&amp; begin, )</span></span><br><span class="hljs-function">string <span class="hljs-title">addStr</span><span class="hljs-params">(string src, string dest)</span></span>&#123;<br>  string ans;<br>  <span class="hljs-type">int</span> carry = <span class="hljs-number">0</span>;<br>  <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; src.<span class="hljs-built_in">size</span>() || i &lt; dest.<span class="hljs-built_in">size</span>(); i++)&#123;<br>    <br>  &#125;<br>  <br>&#125;<br><br><br></code></pre></td></tr></table></figure><h5 id="vector方便">1.2. <code>vector</code>（方便）</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;cmath&gt;</span></span><br><span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">addVec</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt; v1, vector&lt;<span class="hljs-type">int</span>&gt; v2)</span></span>&#123;<br>  <span class="hljs-comment">/**</span><br><span class="hljs-comment">  * 注意这里的vector将原有的大数倒序存储</span><br><span class="hljs-comment">  */</span><br>  <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">ans</span><span class="hljs-params">(max(v1.size(), v2.size()), <span class="hljs-number">0</span>)</span></span>;<br>  <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-built_in">max</span>(v1.<span class="hljs-built_in">size</span>(), v2.<span class="hljs-built_in">size</span>()); i++)&#123;<br>    <span class="hljs-keyword">if</span>(i &lt; v1.<span class="hljs-built_in">size</span>())&#123;<br>      ans[i] += v1[i];<br>    &#125;<br>    <span class="hljs-keyword">if</span>(i &lt; v2.<span class="hljs-built_in">size</span>())&#123;<br>      ans[i] += v2[i];<br>    &#125;<br>  &#125;<br>  <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; ans.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>; i++)&#123;<br>    <span class="hljs-keyword">while</span>(ans[i] &gt;= <span class="hljs-number">10</span>)&#123;<br>      ans[i] -= <span class="hljs-number">10</span>;<br>      ans[i + <span class="hljs-number">1</span>]++;<br>    &#125;<br>  &#125;<br>  <span class="hljs-keyword">if</span>(ans[ans.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>] &lt; <span class="hljs-number">10</span>)&#123;<br>    <span class="hljs-keyword">return</span> ans;<br>  &#125;<br>  ans.<span class="hljs-built_in">push_back</span>(<span class="hljs-number">0</span>);<br>  <span class="hljs-keyword">while</span>(ans[ans.<span class="hljs-built_in">size</span>() - <span class="hljs-number">2</span>] &gt;= <span class="hljs-number">10</span>)&#123;<br>    ans[ans.<span class="hljs-built_in">size</span>() - <span class="hljs-number">2</span>] -= <span class="hljs-number">10</span>;<br>    ans[ans.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>]++;<br>  &#125;<br>  <span class="hljs-keyword">return</span> ans;<br>&#125;<br><br><br><br></code></pre></td></tr></table></figure><h5 id="string-vector方便">1.3<code>string &amp; vector</code>(方便)</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function">string <span class="hljs-title">add</span><span class="hljs-params">(string s1, string s2)</span></span>&#123;<br>  vector&lt;<span class="hljs-type">int</span>&gt; vec1, vec2, ansVec;<br>  <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = s1.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span>; i--)&#123;<br>    vec1.<span class="hljs-built_in">push_back</span>(s1[i] - <span class="hljs-string">&#x27;0&#x27;</span>);<br>  &#125;<br>  <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = s2.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span>; i--)&#123;<br>    vec2.<span class="hljs-built_in">push_back</span>(s2[i] - <span class="hljs-string">&#x27;0&#x27;</span>);<br>  &#125;<br>  ansVec = <span class="hljs-built_in">addVec</span>(vec1, vec2);<br>  <span class="hljs-built_in">reverse</span>(ansVec.<span class="hljs-built_in">begin</span>(), ansVec.<span class="hljs-built_in">end</span>());<br>  string ansStr;<br>  <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; ansVec.<span class="hljs-built_in">size</span>(); i++)&#123;<br>    ansStr += (ansVec[i] + <span class="hljs-string">&#x27;0&#x27;</span>);<br>  &#125;<br>  <span class="hljs-keyword">return</span> ansStr;<br>&#125;<br><br></code></pre></td></tr></table></figure><h4 id="连续输入模版">2. 连续输入模版</h4><h5 id="允许使用-containers">2.1. 允许使用 Containers</h5><h4 id="字符串分割">3. 字符串分割</h4><h5 id="用-vector">3.1. 用 <code>vector</code></h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function">vector&lt;string&gt; <span class="hljs-title">split</span><span class="hljs-params">(<span class="hljs-type">const</span> string &amp;str, <span class="hljs-type">char</span> sep)</span> </span>&#123;<br>  <span class="hljs-function">stringstream <span class="hljs-title">ss</span><span class="hljs-params">(str)</span></span>;<br>  vector&lt;string&gt; res;<br>  string temp;<br><span class="hljs-keyword">while</span> (<span class="hljs-built_in">getline</span>(ss, temp, sep)) &#123;<br>    res.<span class="hljs-built_in">push_back</span>(temp);<br>  &#125;<br>  <span class="hljs-keyword">return</span> res;<br>&#125;<br><br>C++<br></code></pre></td></tr></table></figure>]]></content>
-    
-    
-    <categories>
-      
-      <category>考试必备</category>
-      
-      <category>C++ 常用手写函数</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
       <tag>C++</tag>
       
-      <tag>Proficiency</tag>
+      <tag>STL</tag>
       
     </tags>
     
@@ -960,9 +1111,9 @@
     
     <tags>
       
-      <tag>Network</tag>
-      
       <tag>Hardware</tag>
+      
+      <tag>Network</tag>
       
     </tags>
     
