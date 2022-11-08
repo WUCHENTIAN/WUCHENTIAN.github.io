@@ -146,9 +146,9 @@
       
       <tag>Java</tag>
       
-      <tag>Network</tag>
-      
       <tag>Socket</tag>
+      
+      <tag>Network</tag>
       
     </tags>
     
@@ -208,11 +208,11 @@
       
       <tag>Java</tag>
       
-      <tag>Network</tag>
-      
       <tag>Socket</tag>
       
       <tag>C</tag>
+      
+      <tag>Network</tag>
       
     </tags>
     
@@ -268,9 +268,9 @@
     
     <tags>
       
-      <tag>Hardware</tag>
-      
       <tag>Network</tag>
+      
+      <tag>Hardware</tag>
       
     </tags>
     
@@ -937,9 +937,9 @@
     
     <tags>
       
-      <tag>Hardware</tag>
-      
       <tag>Network</tag>
+      
+      <tag>Hardware</tag>
       
       <tag>OSI</tag>
       
@@ -1111,9 +1111,9 @@
     
     <tags>
       
-      <tag>Hardware</tag>
-      
       <tag>Network</tag>
+      
+      <tag>Hardware</tag>
       
     </tags>
     
