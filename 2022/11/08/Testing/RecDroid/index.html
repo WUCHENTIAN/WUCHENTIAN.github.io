@@ -18,21 +18,26 @@
   <meta name="author" content="WuChentian">
   <meta name="keywords" content="">
   
-    <meta property="og:type" content="article">
-<meta property="og:title" content="Java IO">
-<meta property="og:url" content="https://wuchentian.github.io/2022/10/16/Java%20Basic/Java%20IO/index.html">
+    <meta name="description" content="ReCDroid+：从 Android 应⽤程序的错误报告中⾃动进⾏端到端崩溃复现 ⽤⾃然语⾔处理 (NLP)、深度学习和动态 GUI 探索来合成事件序列，以重现报告的崩溃。 1. 主要背景 1.1. 现状是怎样的  移动应⽤程序（应⽤程序）变得⾮常流⾏ 最近的⼀项研究发现，如果反复遇到功能问题，88% 的应⽤程序用户会放弃应⽤  1.2. 现有方法如何解决 1.2.1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RecDroid">
+<meta property="og:url" content="https://wuchentian.github.io/2022/11/08/Testing/RecDroid/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="ReCDroid+：从 Android 应⽤程序的错误报告中⾃动进⾏端到端崩溃复现 ⽤⾃然语⾔处理 (NLP)、深度学习和动态 GUI 探索来合成事件序列，以重现报告的崩溃。 1. 主要背景 1.1. 现状是怎样的  移动应⽤程序（应⽤程序）变得⾮常流⾏ 最近的⼀项研究发现，如果反复遇到功能问题，88% 的应⽤程序用户会放弃应⽤  1.2. 现有方法如何解决 1.2.1">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-10-16T09:08:00.000Z">
-<meta property="article:modified_time" content="2022-10-29T04:21:53.664Z">
+<meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgsimgsimage-20221108164012344.png">
+<meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgsimgsimage-20221108203210902.png">
+<meta property="og:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgsimgsimage-20221109142234861.png">
+<meta property="article:published_time" content="2022-11-08T13:38:00.000Z">
+<meta property="article:modified_time" content="2022-11-09T13:28:26.984Z">
 <meta property="article:author" content="WuChentian">
-<meta property="article:tag" content="IO">
-<meta property="article:tag" content="Java">
+<meta property="article:tag" content="Testing">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgsimgsimage-20221108164012344.png">
   
   
   
-  <title>Java IO - Hexo</title>
+  <title>RecDroid - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -209,7 +214,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Java IO"></span>
+            <span id="subtitle" data-typed-text="RecDroid"></span>
           
         </div>
 
@@ -220,8 +225,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-10-16 17:08" pubdate>
-          October 16, 2022 pm
+        <time datetime="2022-11-08 21:38" pubdate>
+          November 8, 2022 pm
         </time>
       </span>
     
@@ -232,7 +237,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          0 words
+          2.7k words
         
       </span>
     
@@ -243,7 +248,7 @@
         
         
         
-          1 mins
+          23 mins
         
       </span>
     
@@ -281,12 +286,182 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Java IO</h1>
+            <h1 style="display: none">RecDroid</h1>
             
             
               <div class="markdown-body">
                 
                 
+
+	<div class="row">
+    <embed src="/pdf/1.pdf" width="100%" height="550" type="application/pdf">
+	</div>
+
+
+
+<h2
+id="recdroid从-android-应程序的错误报告中动进端到端崩溃复现">ReCDroid+：从
+Android 应⽤程序的错误报告中⾃动进⾏端到端崩溃复现</h2>
+<p>⽤⾃然语⾔处理 (NLP)、深度学习和动态 GUI
+探索来合成事件序列，以重现报告的崩溃。</p>
+<h3 id="主要背景">1. 主要背景</h3>
+<h4 id="现状是怎样的">1.1. 现状是怎样的</h4>
+<ul>
+<li>移动应⽤程序（应⽤程序）变得⾮常流⾏</li>
+<li>最近的⼀项研究发现，如果反复遇到功能问题，88%
+的应⽤程序用户会放弃应⽤</li>
+</ul>
+<h4 id="现有方法如何解决">1.2. 现有方法如何解决</h4>
+<h5 id="通常使用-bug-tracking-systems">1.2.1. 通常使用 bug-tracking
+systems</h5>
+<ul>
+<li>Bugzilla</li>
+<li>Google Code Issue Tracker</li>
+<li>Github Issue Tracker</li>
+<li>etc</li>
+</ul>
+<h5 id="现有的分析-reproducibility-的方法">1.2.2. 现有的分析
+reproducibility 的方法</h5>
+<p>为⼤多数现有技术都<strong>专注于提⾼ bug report
+的质量</strong>。（就像之前的BURT，将用户的自然语言转化为一个规范的软件报告）</p>
+<ul>
+<li>Yakusu
+将错误报告转换为与错误报告匹配步骤最多的测试⽤例。他们都没有考虑使⽤错误报告中的信息来⾃动指导错误再现</li>
+<li>FUSION 可以⾃动完成 Android
+错误报告，以便为开发⼈员提供更多可操作的信息。</li>
+</ul>
+<p>相⽐之下，ReCDroid+
+将报告的crash描述作为输⼊，<strong>⽆论其质量如何，并提取重现崩溃所需的信息</strong>。
+ReCDroid+ 也不同于从错误报告合成信息的技术，因为它们专注于提取有⽤的信息
+，⽽不是<strong>直接针对重现崩溃</strong>。此外，ReCDroid+
+提供了⼀个准确的解决⽅案，通过使⽤ CNN 对句⼦特征进⾏建模和 LSTM
+来⾃动提取描述步骤再现 (S2R) 的句⼦</p>
+<h4 id="现有方法的局限性">1.3. 现有方法的局限性</h4>
+<p>​
+⼀旦开发⼈员收到崩溃/错误报告，调试问题的第⼀步就是在应⽤程序中<strong>重现问题</strong>。然⽽，这⼀步具有挑战性，因为提供的信息是⽤⾃然语⾔编写的。⾃然语⾔本质上是<strong>不精确和不完整</strong>的。即使假设开发⼈员可以完全理解错误报告，实际重现也可能具有挑战性，因为应⽤程序可能具有<strong>复杂的事件驱动和
+GUI 相关⾏为</strong>，并且可能需要许多基于 GUI 的操作来重现崩溃。</p>
+<h4 id="现在还存在的主要挑战">1.4. 现在还存在的主要挑战</h4>
+<p>​ bug report 不能保证十全十美——即使是优质的 bug report
+也可能不完整或不准确。</p>
+<p>​ 提高bug report的质量是一种思路，但是也要提高复现 crash 的能力</p>
+<h3 id="主要方法">2. 主要方法</h3>
+<h4 id="方法框架是什么">2.1. 方法框架是什么</h4>
+<p><strong>预处理、错误报告分析和动态探索</strong></p>
+<p>接下来，ReCDroid+ 采⽤了⼀种新颖的动态探索，
+以从错误报告中提取的信息为指导，以完全重现崩溃。 ReCDroid+ 将错误报告和
+APK 作为输⼊，并输出包含导致崩溃的 GUI 事件序列
+的脚本，该脚本可以直接在执⾏引擎（Robotium和UI Automator）上重放。</p>
+<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgsimgsimage-20221108164012344.png" srcset="/img/loading.gif" lazyload style="zoom:70%;" /></p>
+<h4 id="实验步骤用了哪些现有的技术">2.2.
+实验步骤/用了哪些现有的技术</h4>
+<p>给定原始的错误报告</p>
+<ul>
+<li><h5 id="第一步提取崩溃和s2r语句">第一步、提取崩溃和S2R语句</h5>
+<ul>
+<li>HTML解析器</li>
+<li>卷积神经⽹络 (CNN)</li>
+<li>LSTM（一种RNN，循环神经网络）</li>
+</ul></li>
+<li><h5
+id="第二步分析报告的-s2r-语句动识别复现-crash-所必需的-gui-组件和相关信息">第二步、分析报告的
+S2R 语句⾃动识别复现 crash 所必需的 GUI 组件和相关信息</h5>
+<ul>
+<li><p>预处理S2R</p>
+<ul>
+<li>使⽤ SpaCy来检测基于标点符号的句⼦分割</li>
+<li>使⽤ Word2vec构建预训练的词向量，⽤作深度学习模型的输⼊</li>
+<li>使⽤ mean-shift 这一⽆监督聚类算法来聚类 11 个向量，来使 S2R
+变得更加精简 &amp; 准确</li>
+</ul>
+<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgsimgsimage-20221108203210902.png" srcset="/img/loading.gif" lazyload style="zoom:45%;" /></p></li>
+<li><p>分析（预处理后的） S2R</p>
+<ul>
+<li>匹配语法模式（共三类：单击事件，编辑事件，手势事件）</li>
+<li>这一方法的缺点也很明显，就是对于非结构化文本（模棱两可的表述/复杂的表述/etc）的正确率太低</li>
+</ul></li>
+</ul></li>
+<li><p><strong>第三步、从错误报告中提取的信息为指导，以完全重现崩溃</strong></p>
+<blockquote>
+<p>采⽤了⼀种<strong>新颖的动态探索</strong>算法</p>
+</blockquote>
+<ul>
+<li><p>根据动态有序事件树（DOET） $ T = (V , E)$ 来指导对应⽤程序 GUI
+的探索。节点集 <span class="math inline">\(V\)</span> 代表应⽤程序的 GUI
+组件， ⽽边 <span class="math inline">\(E\)</span>
+表示⽰在运⾏时观察到的事件转换</p></li>
+<li><p>ReCDroid+的引导探索算法</p></li>
+<li><p>动态匹配：匹配运⾏时观察到的 GUI 组件</p>
+<ul>
+<li>优化：避免探索不相关的 GUI 组件来提⾼算法的效率</li>
+</ul>
+<p><img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgsimgsimage-20221109142234861.png" srcset="/img/loading.gif" lazyload style="zoom:50%;" /></p></li>
+</ul></li>
+</ul>
+<h4 id="在现有技术上如何改进而适配当前的问题">2.3.
+在现有技术上如何改进而适配当前的问题</h4>
+<ul>
+<li>挑战 1：<strong>识别 crash report 并提取 S2R
+和崩溃句⼦</strong>。错误报告通常包含混合类型的信息，例如注释、代码、问题状态以及与错误⽆关的
+信息。
+<ul>
+<li>设计了⼀种<strong>新颖的深度学习模型</strong>，可以<strong>⾃动识别
+S2R 和crash语句</strong></li>
+</ul></li>
+<li>挑战
+2：<strong>将错误报告映射到事件的语义表⽰中</strong>。第⼆个设计挑战是从错误报告中提取再现步骤的语义表⽰，由元组
+{action, GUI component, input}
+定义。⼀个平凡的解决方案是使⽤简单的关键字搜索将错误报告中的每个句⼦与应⽤程序的
+GUI
+组件的名称（即显⽰的⽂本）<strong>直接</strong>进⾏匹配。但是，关键字搜索<strong>⽆法可靠地</strong>检测输⼊值或用户操作、GUI
+组件和输⼊之间可能存在的⼤量句法关系。同时reporter可能会使⽤与应⽤程序的
+GUI 组件名称不直接匹配的新词。
+<ul>
+<li>提取过程可以表述为⾃然语⾔处理 (NLP) 中的槽填充问题</li>
+<li>使用了Word2vec 模型计算的 word embedding</li>
+</ul></li>
+<li>挑战 3：<strong>为错误再现创建完整和正确的序列。</strong>RecDroid
+⾯临的⼀个关键挑战是，即使是优质的 bug report
+也可能不完整或不准确。例如，被认为是显⽽易⻅的步骤可能会被报告者省略或忘记。因此，我们的⽅法必须能够<strong>填补这些缺失的步骤</strong>。理想情况下，已从报告中提取的信息可⽤于提供“提⽰”以识别和填写缺失的操作。
+<ul>
+<li>对于RecDroid的问题域，带有回溯的引导式 DFS 更合适</li>
+</ul></li>
+<li>挑战 4：<strong>提⾼复现效率</strong>。确定重现 crash
+所需的最⼩操作集的同时，也可能需要更多的分析时间。
+<ul>
+<li>设计了⼀组优化策略和启发式方法：包括检查屏幕的等效性和检测循环以避免冗余回溯的策略，并根据它们引起错误的可能性优先考虑要探索的
+GUI</li>
+</ul></li>
+</ul>
+<h5 id="section"></h5>
+<h3 id="最终效果">3. 最终效果</h3>
+<h4 id="实验如何设计">3.1. 实验如何设计</h4>
+<h5 id="观察">3.1.1. 观察</h5>
+<p>作为第⼀步，我们花了⼀个⽉的时间研究⼤量的 Android bug
+报告，了解它们的特点，以指导 ReCDroid+ 的设计和实现。</p>
+<h5 id="recdroid方法">3.1.3. RecDroid+方法</h5>
+<h4 id="实验如何开展">实验如何开展</h4>
+<h4 id="用了哪些评估指标效果如何">用了哪些评估指标，效果如何</h4>
+<ul>
+<li><p>复现 crash 的成功率：42/54 = 77.7%</p></li>
+<li><p>复现 crash 的耗时：16～7331，average=466.4</p></li>
+<li><p>对S2R提取/crash语句提取的<strong>准确率、召回率和 <a
+target="_blank" rel="noopener" href="https://baike.baidu.com/item/F1分数/13864979">F1 分数</a></strong>
+<span class="math display">\[
+F_{\beta}=(1+\beta^2)\frac{precision \cdot recall}{\beta^2\cdot
+precision + recall}
+\]</span></p></li>
+<li><p>RecDroid+/ RecDroid+N/ RecDroid+D横向比较</p></li>
+</ul>
+<p>整体上，在效率和准确度上有相当程度的提高</p>
+<h4 id="实验中暴露出来的不足有哪些">实验中暴露出来的不足有哪些</h4>
+<ul>
+<li><p>分析（预处理后的） S2R</p>
+<ul>
+<li><p>匹配语法模式（共三类：单击事件，编辑事件，手势事件）</p></li>
+<li><p>这一方法的缺点也很明显，就是对于非结构化文本（模棱两可的表述/复杂的表述/etc）的正确率太低</p></li>
+</ul></li>
+<li><p>不⽀持 item-list，swipe 或 scroll actions</p></li>
+</ul>
 
                 
               </div>
@@ -305,7 +480,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/Java-Basic/" class="category-chain-item">Java Basic</a>
+  <a href="/categories/Testing/" class="category-chain-item">Testing</a>
   
   
 
@@ -320,9 +495,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/IO/">#IO</a>
-      
-        <a href="/tags/Java/">#Java</a>
+        <a href="/tags/Testing/">#Testing</a>
       
     </div>
   
@@ -334,8 +507,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Java IO</div>
-      <div>https://wuchentian.github.io/2022/10/16/Java Basic/Java IO/</div>
+      <div>RecDroid</div>
+      <div>https://wuchentian.github.io/2022/11/08/Testing/RecDroid/</div>
     </div>
     <div class="license-meta">
       
@@ -347,7 +520,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>October 16, 2022</div>
+          <div>November 8, 2022</div>
         </div>
       
       
@@ -379,18 +552,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/10/19/C++%20Basic/Notes/C++%20%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E2%80%94%E2%80%94%E4%BB%8E%E7%B1%BB%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96%E5%BC%80%E5%A7%8B%20/" title="C++内存分配——从类的初始化开始">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">C++内存分配——从类的初始化开始</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/10/16/Java%20Basic/Java%20%E4%B8%AD%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86/" title="Java 中的字符串处理">
-                        <span class="hidden-mobile">Java 中的字符串处理</span>
+                      <a href="/2022/11/08/C++%20Basic/C++%20Design/C++%20Inheritance/" title="C++ Inheritance">
+                        <span class="hidden-mobile">C++ Inheritance</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
