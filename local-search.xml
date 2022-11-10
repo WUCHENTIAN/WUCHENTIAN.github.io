@@ -352,9 +352,9 @@
       
       <tag>Java</tag>
       
-      <tag>Network</tag>
-      
       <tag>Socket</tag>
+      
+      <tag>Network</tag>
       
     </tags>
     
@@ -414,9 +414,9 @@
       
       <tag>Java</tag>
       
-      <tag>Network</tag>
-      
       <tag>Socket</tag>
+      
+      <tag>Network</tag>
       
       <tag>C</tag>
       
@@ -505,9 +505,9 @@
       
       <tag>Network</tag>
       
-      <tag>Application</tag>
-      
       <tag>OSI</tag>
+      
+      <tag>Application</tag>
       
     </tags>
     
@@ -1185,33 +1185,6 @@
   
   
   <entry>
-    <title>Java 中的字符串处理</title>
-    <link href="/2022/10/16/Java%20Basic/Java%20%E4%B8%AD%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86/"/>
-    <url>/2022/10/16/Java%20Basic/Java%20%E4%B8%AD%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86/</url>
-    
-    <content type="html"><![CDATA[<h4 id="字符串拼接concat">1. 字符串拼接<code>(concat())</code></h4><figure class="highlight nim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs nim">/**<br>* java.lang.<span class="hljs-type">String</span><br>*/<br>public <span class="hljs-type">String</span> concat(<span class="hljs-type">String</span> str)<span class="hljs-meta">&#123;...&#125;</span><br><br>/**<br>* example<br>*/<br><br>private <span class="hljs-keyword">static</span> <span class="hljs-type">String</span> getBCDString_4(<span class="hljs-type">int</span> val) &#123;<br>    <span class="hljs-type">String</span> <span class="hljs-built_in">result</span> = <span class="hljs-string">&quot;&quot;</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">4</span>; i++, val = val / <span class="hljs-number">2</span>) &#123;<br>        <span class="hljs-keyword">if</span> (val % <span class="hljs-number">2</span> == <span class="hljs-number">1</span>)&#123;<br>            <span class="hljs-built_in">result</span> = <span class="hljs-string">&quot;1&quot;</span>.concat(<span class="hljs-built_in">result</span>);<br>        &#125;    <br>        <span class="hljs-keyword">else</span>&#123;<br>            <span class="hljs-built_in">result</span> = <span class="hljs-string">&quot;0&quot;</span>.concat(<span class="hljs-built_in">result</span>);<br>        &#125;<br>                <br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">result</span>;<br>&#125;<br><br><span class="hljs-type">JAVA</span><br></code></pre></td></tr></table></figure><h4 id="字符串转任意不同进制的整数parseint">2.字符串转任意不同进制的整数<code>(parseInt())</code></h4><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs arduino"><span class="hljs-comment">/**</span><br><span class="hljs-comment">* java.lang.Integer</span><br><span class="hljs-comment">*/</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-type">static</span> <span class="hljs-type">int</span> <span class="hljs-title">parseInt</span><span class="hljs-params">(<span class="hljs-type">String</span> s)</span> throws NumberFormatException </span>&#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">parseInt</span>(s,<span class="hljs-number">10</span>);<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-type">static</span> <span class="hljs-type">int</span> <span class="hljs-title">parseInt</span><span class="hljs-params">(<span class="hljs-type">String</span> s, <span class="hljs-type">int</span> radix)</span> throws NumberFormatException </span>&#123;...&#125;<br><span class="hljs-comment">//其中radix表示进制</span><br><br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment">* example</span><br><span class="hljs-comment">*/</span><br><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-type">static</span> <span class="hljs-type">int</span> <span class="hljs-title">NBCDTrueValue</span><span class="hljs-params">(<span class="hljs-type">String</span> operand)</span> </span>&#123;<br>    StringBuilder ans = <span class="hljs-keyword">new</span> <span class="hljs-built_in">StringBuilder</span>();<br>    <span class="hljs-keyword">if</span> (operand.<span class="hljs-built_in">startsWith</span>(<span class="hljs-string">&quot;1101&quot;</span>)) &#123;<br>        ans.<span class="hljs-built_in">append</span>(<span class="hljs-string">&#x27;-&#x27;</span>);<br>    &#125;<br>    operand = operand.<span class="hljs-built_in">substring</span>(<span class="hljs-number">4</span>);<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; operand.<span class="hljs-built_in">length</span>() &amp;&amp; i &lt; <span class="hljs-number">28</span>; i += <span class="hljs-number">4</span>) &#123;<br>        ans.<span class="hljs-built_in">append</span>(Integer.<span class="hljs-built_in">valueOf</span>(operand.<span class="hljs-built_in">substring</span>(i, i + <span class="hljs-number">4</span>), <span class="hljs-number">2</span>));        <br>    &#125;<br>    <span class="hljs-keyword">return</span> Integer.<span class="hljs-built_in">parseInt</span>(ans.<span class="hljs-built_in">toString</span>());<br>&#125;<br><br>JAVA<br></code></pre></td></tr></table></figure><h4 id="和上一点类似的还有long.parselong-double.parsedouble">3.和上一点类似的，还有<code>Long.parseLong()</code>,<code>Double.parseDouble()</code></h4><h4 id="整数转字符串">4. 整数转字符串</h4><ol type="1"><li></li><li></li></ol>]]></content>
-    
-    
-    <categories>
-      
-      <category>Java Basic</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>Java</tag>
-      
-      <tag>String</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>Java IO</title>
     <link href="/2022/10/16/Java%20Basic/Java%20IO/"/>
     <url>/2022/10/16/Java%20Basic/Java%20IO/</url>
@@ -1231,6 +1204,33 @@
       <tag>Java</tag>
       
       <tag>IO</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Java 中的字符串处理</title>
+    <link href="/2022/10/16/Java%20Basic/Java%20%E4%B8%AD%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86/"/>
+    <url>/2022/10/16/Java%20Basic/Java%20%E4%B8%AD%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86/</url>
+    
+    <content type="html"><![CDATA[<h4 id="字符串拼接concat">1. 字符串拼接<code>(concat())</code></h4><figure class="highlight nim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs nim">/**<br>* java.lang.<span class="hljs-type">String</span><br>*/<br>public <span class="hljs-type">String</span> concat(<span class="hljs-type">String</span> str)<span class="hljs-meta">&#123;...&#125;</span><br><br>/**<br>* example<br>*/<br><br>private <span class="hljs-keyword">static</span> <span class="hljs-type">String</span> getBCDString_4(<span class="hljs-type">int</span> val) &#123;<br>    <span class="hljs-type">String</span> <span class="hljs-built_in">result</span> = <span class="hljs-string">&quot;&quot;</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">4</span>; i++, val = val / <span class="hljs-number">2</span>) &#123;<br>        <span class="hljs-keyword">if</span> (val % <span class="hljs-number">2</span> == <span class="hljs-number">1</span>)&#123;<br>            <span class="hljs-built_in">result</span> = <span class="hljs-string">&quot;1&quot;</span>.concat(<span class="hljs-built_in">result</span>);<br>        &#125;    <br>        <span class="hljs-keyword">else</span>&#123;<br>            <span class="hljs-built_in">result</span> = <span class="hljs-string">&quot;0&quot;</span>.concat(<span class="hljs-built_in">result</span>);<br>        &#125;<br>                <br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">result</span>;<br>&#125;<br><br><span class="hljs-type">JAVA</span><br></code></pre></td></tr></table></figure><h4 id="字符串转任意不同进制的整数parseint">2.字符串转任意不同进制的整数<code>(parseInt())</code></h4><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs arduino"><span class="hljs-comment">/**</span><br><span class="hljs-comment">* java.lang.Integer</span><br><span class="hljs-comment">*/</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-type">static</span> <span class="hljs-type">int</span> <span class="hljs-title">parseInt</span><span class="hljs-params">(<span class="hljs-type">String</span> s)</span> throws NumberFormatException </span>&#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">parseInt</span>(s,<span class="hljs-number">10</span>);<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-type">static</span> <span class="hljs-type">int</span> <span class="hljs-title">parseInt</span><span class="hljs-params">(<span class="hljs-type">String</span> s, <span class="hljs-type">int</span> radix)</span> throws NumberFormatException </span>&#123;...&#125;<br><span class="hljs-comment">//其中radix表示进制</span><br><br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment">* example</span><br><span class="hljs-comment">*/</span><br><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-type">static</span> <span class="hljs-type">int</span> <span class="hljs-title">NBCDTrueValue</span><span class="hljs-params">(<span class="hljs-type">String</span> operand)</span> </span>&#123;<br>    StringBuilder ans = <span class="hljs-keyword">new</span> <span class="hljs-built_in">StringBuilder</span>();<br>    <span class="hljs-keyword">if</span> (operand.<span class="hljs-built_in">startsWith</span>(<span class="hljs-string">&quot;1101&quot;</span>)) &#123;<br>        ans.<span class="hljs-built_in">append</span>(<span class="hljs-string">&#x27;-&#x27;</span>);<br>    &#125;<br>    operand = operand.<span class="hljs-built_in">substring</span>(<span class="hljs-number">4</span>);<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; operand.<span class="hljs-built_in">length</span>() &amp;&amp; i &lt; <span class="hljs-number">28</span>; i += <span class="hljs-number">4</span>) &#123;<br>        ans.<span class="hljs-built_in">append</span>(Integer.<span class="hljs-built_in">valueOf</span>(operand.<span class="hljs-built_in">substring</span>(i, i + <span class="hljs-number">4</span>), <span class="hljs-number">2</span>));        <br>    &#125;<br>    <span class="hljs-keyword">return</span> Integer.<span class="hljs-built_in">parseInt</span>(ans.<span class="hljs-built_in">toString</span>());<br>&#125;<br><br>JAVA<br></code></pre></td></tr></table></figure><h4 id="和上一点类似的还有long.parselong-double.parsedouble">3.和上一点类似的，还有<code>Long.parseLong()</code>,<code>Double.parseDouble()</code></h4><h4 id="整数转字符串">4. 整数转字符串</h4><ol type="1"><li></li><li></li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>Java Basic</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Java</tag>
+      
+      <tag>String</tag>
       
     </tags>
     
