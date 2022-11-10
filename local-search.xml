@@ -352,9 +352,9 @@
       
       <tag>Java</tag>
       
-      <tag>Network</tag>
-      
       <tag>Socket</tag>
+      
+      <tag>Network</tag>
       
     </tags>
     
@@ -414,11 +414,11 @@
       
       <tag>Java</tag>
       
-      <tag>Network</tag>
-      
       <tag>Socket</tag>
       
       <tag>C</tag>
+      
+      <tag>Network</tag>
       
     </tags>
     
@@ -505,9 +505,9 @@
       
       <tag>Network</tag>
       
-      <tag>Application</tag>
-      
       <tag>OSI</tag>
+      
+      <tag>Application</tag>
       
     </tags>
     
