@@ -566,7 +566,7 @@
     <link href="/2022/11/01/C++%20Basic/C++%20Design/Introduction%20To%20C++/"/>
     <url>/2022/11/01/C++%20Basic/C++%20Design/Introduction%20To%20C++/</url>
     
-    <content type="html"><![CDATA[<h3 id="section"></h3><p>BNF：巴科斯范式描述编程语言的文法，自然语言存在不同程度的二义性。这种模糊、不确定的方式无法精确定义一门程序设计语言。必须设计一种准确无误地描述程序设计语言的语法结构，这种严谨、简洁、易读的形式规则描述的语言结构模型称为文法。该范式由他定义Algol60语言时提出</p><p>编程的两个视角：科学、艺术</p><p>编程范式</p><ul><li>面向过程：分析出解决问题所需要的步骤，然后用函数把这些步骤一步一步实现，使用的时候一个一个依次调用就可以了（命令式思想：即程序员一步步告诉计算机应该做什么）</li><li>面向对象：把构成问题事务分解成各个对象，建立对象的目的不是为了完成一个步骤，而是为了描叙某个事物在整个解决问题的步骤中的行为</li><li>函数式<ul><li>函数副作用：当调用函数时，除了返回函数值之外，还对主调用函数产生附加的影响。例如修改全局变量（函数外的变量）或修改参数</li><li><ahref="https://blog.csdn.net/archimelan/article/details/81940858">函数式编程</a>：为了消除这种副作用的编程方式，告诉计算机要干什么，而不是怎么干</li></ul></li><li>逻辑式：将人类的知识告诉给机器，然后让机器自己决定计算结果（AI的第二阶段）</li></ul><p>进攻式编程：开发阶段主动暴露问题，从而在发布前尽可能多的解决问题</p><p>防御式编程：开发阶段预防可能出现的所有问题，避免错误数据对系统造成影响</p><h2 id="创建oo的背景">创建OO的背景</h2><p><strong>Simula 1时期</strong></p><p>simulation：仿真，用于模拟某些不能真实做的（炸毁三峡大坝产生的后果）、有较大随机性的实验</p><ul><li>仿真语言为仿真研究人员提供了专门用于建模、仿真实验和仿真结果统计、分析、显示的程序语句</li><li>不可测原理</li><li>仿真语言打破了严格的先进后出制度</li><li>采取的措施类似现在虚拟机的工作</li></ul><p>Simula 1：<strong>不是programlanguage</strong>，仅仅为了完成simulation引入的约束/语言</p><p><strong>Simula 67时期</strong></p><ul><li>考虑到Simula1的不可重用性，提出了class subclassinheriting的思想</li><li>抽象函数的概念</li><li>通用程序设计语言</li><li>有了OO思想</li></ul><h2 id="c的诞生">C++的诞生</h2><p>BS最开始为了完成博士论文需要一门语言做支撑</p><p>1.simula：性能差</p><p>最终被市场淘汰：用的人少，无法为复杂的系统提供支持</p><p>2.BCPL：debug难</p><p>此时他还是用原有语言完成了论文，但希望有一门语言能综合Simula编程体验好，BCPL性能高的特点</p><p><strong>贝尔实验室阶段</strong></p><p>C++思想逐步完善</p><ul><li>Cpre：预处理程序，C加上Simula的类的机制</li><li>此后逐渐诞生了创建一门语言的想法</li></ul><p><strong>1983年诞生</strong></p><p>此时C++源码先通过cpp预处理后再通过Cfront翻译成C语言，最后通过C编译器来使程序运行</p><ul><li>用Cfront不用Cpre的原因：Cpre不懂C语法，Cfront懂，发现语法错误会传回sourcecode，但Cpre将方言部分翻译成c后交给cc，此时若发现错误才传回sourcecode</li><li>正交性：矛盾体，有你没我，有我没你。但这些可以容忍，如果共存后效率能提高</li></ul><p><strong>初始化与赋值</strong></p><p>对于复合类型的初始化和赋值有区别，基本类型则没有区别：https://blog.csdn.net/qq_38211852/article/details/80629691</p><p><strong>异常</strong></p><ul><li>可以预见的</li><li>无法避免的（a/b，无法避免输入b=0；无法避免文件路径不存在）</li><li>处理异常不是让异常消失，而是让异常产生后能受到控制，不会让系统手足无措</li></ul>]]></content>
+    <content type="html"><![CDATA[<h2 id="编程范式">1. 编程范式</h2><h4 id="bnf巴科斯范式">1.1. BNF：巴科斯范式</h4><p>​描述编程语言的文法，自然语言存在不同程度的二义性。这种模糊、不确定的方式无法精确定义一门程序设计语言。必须设计一种准确无误地描述程序设计语言的语法结构，这种严谨、简洁、易读的形式规则描述的语言结构模型称为文法。该范式由他定义Algol60语言时提出</p><h4 id="常见的编程范式">1.2. 常见的编程范式</h4><ul><li><strong>面向过程</strong>：分析出解决问题所需要的步骤，然后用函数把这些步骤一步一步实现，使用的时候一个一个依次调用就可以了（命令式思想：即程序员一步步告诉计算机应该做什么）</li><li><strong>面向对象</strong>：把构成问题事务分解成各个对象，建立对象的目的不是为了完成一个步骤，而是为了描叙某个事物在整个解决问题的步骤中的行为</li><li><strong>函数式</strong><ul><li>函数副作用：当调用函数时，除了返回函数值之外，还对主调用函数产生附加的影响。例如修改全局变量（函数外的变量）或修改参数</li><li><ahref="https://blog.csdn.net/archimelan/article/details/81940858">函数式编程</a>：为了消除这种副作用的编程方式，告诉计算机要干什么，而不是怎么干</li></ul></li><li><strong>逻辑式</strong>：将人类的知识告诉给机器，然后让机器自己决定计算结果（AI的第二阶段）</li></ul><blockquote><p>进攻式编程：开发阶段主动暴露问题，从而在发布前尽可能多的解决问题</p><p>防御式编程：开发阶段预防可能出现的所有问题，避免错误数据对系统造成影响</p></blockquote><h4 id="创建oo的背景">1.3. 创建OO的背景</h4><p><strong>Simula 1时期</strong></p><p>simulation：仿真，用于模拟某些不能真实做的（炸毁三峡大坝产生的后果）、有较大随机性的实验</p><ul><li>仿真语言为仿真研究人员提供了专门用于建模、仿真实验和仿真结果统计、分析、显示的程序语句</li><li>不可测原理</li><li>仿真语言打破了严格的先进后出制度</li><li>采取的措施类似现在虚拟机的工作</li></ul><p>Simula 1：<strong>不是programlanguage</strong>，仅仅为了完成simulation引入的约束/语言</p><p><strong>Simula 67时期</strong></p><ul><li>考虑到Simula1的不可重用性，提出了class subclassinheriting的思想</li><li>抽象函数的概念</li><li>通用程序设计语言</li><li>有了OO思想</li></ul><h2 id="c-设计">2. C++ 设计</h2><h4 id="c-设计理念">2.1. C++ 设计理念</h4><p>​ 节选自 C++ 语言之父 <em>Bjarne Stroustrup</em> 撰写的 C++发展史三部曲之二 <strong><em>Evolving a language in and for the realworld: C++ 1991-2006</em></strong>。</p><p>During my early years at Bell Labs, these ideals grew into a set of“rules of thumb” for the design of C++.</p><ul><li>General rules:<ul><li><em>C++’s evolution must be driven by realproblems.</em>（C++的演化必须由实际问题驱动）</li><li><em>Don’t get involved in a sterile quest forperfection.</em>（不要受困于对完美的无趣追求）</li><li><em>C++ must be useful now. Every feature must have a reasonablyobviousimplementation.</em>（C++必须<strong>现在</strong>就是实用的，每个特性必须有一种合理程度下显而易见的实现方式）</li><li><em>Always provide a transition path.</em>（总是提供一种过渡路径）（注：这里主要是说从 C 到 C++ 的过渡，例如，<code>std::sort</code>就设计为既可以用在 C++ 的迭代器上，也可以用在 C 的指针上）</li><li><em>C++ is a language, not a completesystem.</em>（C++是一种语言，而不是一个完整的系统）</li><li><em>Provide comprehensive support for each supportedstyle.</em>（为每种风格提供全面的支持） （注：<strong><em>EffectiveC++</em></strong> 一书中 Item 1就有提到：C++可以视为四个子语言的联邦：过程性编程（类似C）、面向对象编程（OOP）、泛型编程（GP）和标准模板库 STL。C++不断推出的新特性也有其主要服务的目标。）</li><li><em>Don’t try to force people to use a specific programmingstyle.</em>（不要试图强迫人们使用某种特定的编程风格）</li></ul></li><li>总结下来，C++的设计理念可以概括为：<ul><li>追求效率</li><li>实用性优先于严谨性和艺术性</li><li>相信程序员</li></ul></li></ul><h4 id="c-历史">2.2. C++ 历史</h4><figure><imgsrc="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs5.png"alt="img" /><figcaption aria-hidden="true">img</figcaption></figure><table><thead><tr class="header"><th>人</th><th>成就</th><th>备注</th></tr></thead><tbody><tr class="odd"><td>Kristen Nygaard</td><td>Simula67</td><td>创建</td></tr><tr class="even"><td>Ole-Johan Dahl</td><td>OO 编程</td><td>创建</td></tr><tr class="odd"><td>Dennis Ritchie、Ken Thompson</td><td>C语言</td><td>创建</td></tr><tr class="even"><td>Bjarne Stroustrup</td><td>C with Classes</td><td>1980形成，并最终发明C++</td></tr><tr class="odd"><td>Rick Mascitti</td><td>C++</td><td>1983正式命名</td></tr><tr class="even"><td>Dijkstr</td><td>结构化编程</td><td>创建</td></tr></tbody></table><h4 id="c-诞生">2.3. C++ 诞生</h4><p>BS最开始为了完成博士论文需要一门语言做支撑</p><p>1.simula：性能差</p><p>最终被市场淘汰：用的人少，无法为复杂的系统提供支持</p><p>2.BCPL：debug难</p><p>此时他还是用原有语言完成了论文，但希望有一门语言能综合Simula编程体验好，BCPL性能高的特点</p><p><strong>贝尔实验室阶段</strong></p><p>C++思想逐步完善</p><ul><li>Cpre：预处理程序，C加上Simula的类的机制</li><li>此后逐渐诞生了创建一门语言的想法</li></ul><p><strong>1983年诞生</strong></p><p>此时C++源码先通过cpp预处理后再通过Cfront翻译成C语言，最后通过C编译器来使程序运行</p><ul><li>用Cfront不用Cpre的原因：Cpre不懂C语法，Cfront懂，发现语法错误会传回sourcecode，但Cpre将方言部分翻译成c后交给cc，此时若发现错误才传回sourcecode</li><li>正交性：矛盾体，有你没我，有我没你。但这些可以容忍，如果共存后效率能提高</li></ul><p><strong>初始化与赋值</strong></p><p>对于复合类型的初始化和赋值有区别，基本类型则没有区别：https://blog.csdn.net/qq_38211852/article/details/80629691</p><p><strong>异常</strong></p><ul><li>可以预见的</li><li>无法避免的（a/b，无法避免输入b=0；无法避免文件路径不存在）</li><li>处理异常不是让异常消失，而是让异常产生后能受到控制，不会让系统手足无措</li></ul><h4 id="c-与-c-的关系">2.4. C 与 C++ 的关系</h4><p>与 C 语言相比：</p><ul><li><p>(代码层面)C++完全包含了C语言成分，支持C支持的全部编程技巧，C是建立C++的基础，同时C++还添加了OOP的完全支持。</p></li><li><p>(运行层面)任何C程序都能被C++用基本相同的方法编写，并具有相同的运行效率和空间。</p></li><li><p>(功能层面)C++还引入了重载、内联函数、异常处理等功能，对C中过程化控制及其功能并扩充。</p></li></ul><h4 id="c-与-c-混合编程">2.5. C 与 C++ 混合编程</h4><ol type="1"><li>名变换: 如果调用C语言库中的函数，则需要附加"extern C",限制C++编译器进行名变换，便于可以连接。</li><li>静态初始化:C静态的类对象和定义在全局的、命名空间中的或文件体中的类对象的构造函数通常在main 被执行前就被调⽤，只要可能，⽤ C写 main()，即使要⽤ C 写 Main 也⽤C++写</li><li>内存动态分配: new/delete 调⽤ C++的函数库，malloc/free 调⽤ C 的函数库，⼆者要匹配，防⽌内存泄露;</li><li>数据结构兼容: 将在两种语⾔间传递的东西限制在⽤ C编译的数据结构的范围内; 这些结构的C++版本可以包含⾮虚成员函数，不能有虚函数。</li><li>因为C++ 是 C的超集，且C是结构化编程语⾔，⽽C⽀持⾯向对象编程语⾔，所以在混合编程时，不应当出现class等⾯向对象的关键字</li><li>C语⾔不支持函数重载。在 C++ 中 f(int, int) 与 f(int, double)是不同的函数，都重载了函数f()；但是在C语⾔中却被认为是相同的函数。因为在编译时，C语⾔给这⼏个函数的命名为f_；⽽ C++ 命名分别为 f_int_int, f_int_double,f_，以表⽰区别；所以混合编程时应注意重载函数的问题；</li><li>在 C++中也允许在结构和联合中定义函数，他们也具有类的基本功能，与CLASS所不同的是：结构和联合的成员的默认访问控制为PUBLIC.</li></ol><h2 id="参考文章">3. 参考文章</h2><ol type="1"><li><ahref="https://blog.csdn.net/Altair_alpha/article/details/122497933">C++语言的设计理念</a></li><li><ahref="https://spricoder.github.io/2020/07/01/2020-C-plus-plus-advanced-programming/2020-C-plus-plus-advanced-programming-exam-final/">exam-final</a></li><li></li></ol>]]></content>
     
     
     <categories>
@@ -638,11 +638,11 @@
     
     <tags>
       
-      <tag>Application</tag>
+      <tag>OSI</tag>
       
       <tag>Network</tag>
       
-      <tag>OSI</tag>
+      <tag>Application</tag>
       
     </tags>
     
@@ -669,9 +669,9 @@
     
     <tags>
       
-      <tag>Network</tag>
-      
       <tag>OSI</tag>
+      
+      <tag>Network</tag>
       
     </tags>
     
@@ -982,11 +982,11 @@
     
     <tags>
       
-      <tag>Testing</tag>
-      
       <tag>Possibility</tag>
       
       <tag>Bayes公式</tag>
+      
+      <tag>Testing</tag>
       
     </tags>
     
@@ -1042,9 +1042,9 @@
     
     <tags>
       
-      <tag>Network</tag>
-      
       <tag>OSI</tag>
+      
+      <tag>Network</tag>
       
     </tags>
     
@@ -1102,9 +1102,9 @@
     
     <tags>
       
-      <tag>Network</tag>
-      
       <tag>OSI</tag>
+      
+      <tag>Network</tag>
       
     </tags>
     
@@ -1280,9 +1280,9 @@
       
       <tag>Hardware</tag>
       
-      <tag>Network</tag>
-      
       <tag>OSI</tag>
+      
+      <tag>Network</tag>
       
     </tags>
     
